@@ -1,6 +1,6 @@
 {
    "creator": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",
-   "invocation": "stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib ",
+   "invocation": "stat -json -liberty given/hd_reduced.lib ",
    "modules": {
       "\\cpu": {
          "num_wires":         2928,

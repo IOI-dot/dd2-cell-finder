@@ -17,3 +17,9 @@ def test_table1_rejects_incomplete_matrix(tmp_path):
         assert "missing" in str(e)
     else:
         raise AssertionError("incomplete Table 1 accepted")
+
+
+def test_records_use_relative_paths():
+    out = paths.build("t_rel")
+    r = mapping.run_mapping(designs.get("cpu8"), "reduced", "A", out, paths.given())
+    assert str(paths.ROOT) not in json.dumps(r["run"])                   # re-verification item 5

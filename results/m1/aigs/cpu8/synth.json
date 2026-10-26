@@ -2,14 +2,14 @@
   "aig_path": "results/m1/aigs/cpu8/synth.aig",
   "aig_sha256": "b21cecf26969c84187edab3a1bb082fccf4fa5dfcee449ea78ef167e1131cc62",
   "commands": [
-    "read_verilog /Users/noorelshahidi/DD2Project/given/designs/cpu8.v",
+    "read_verilog given/designs/cpu8.v",
     "synth -flatten -top cpu8",
-    "tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/cpu8/ffstat.json stat -json",
+    "tee -q -o build/aigs/cpu8/ffstat.json stat -json",
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig",
-    "write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/cpu8/synth_zinit.aig"
+    "write_aiger results/m1/aigs/cpu8/synth.aig",
+    "write_aiger -zinit build/aigs/cpu8/synth_zinit.aig"
   ],
   "design": "cpu8",
   "ffs_after_synth": 82,
@@ -31,10 +31,10 @@
       "yosys",
       "-q",
       "-p",
-      "read_verilog /Users/noorelshahidi/DD2Project/given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/cpu8/synth_zinit.aig"
+      "read_verilog given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/cpu8/synth.aig; write_aiger -zinit build/aigs/cpu8/synth_zinit.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:38+00:00",
+    "finished": "2026-10-26T12:34:48+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050"
@@ -42,7 +42,7 @@
     "logs": [
       "results/m1/aigs/cpu8/synth.log"
     ],
-    "started": "2026-10-26T12:24:38+00:00",
+    "started": "2026-10-26T12:34:48+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"

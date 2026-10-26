@@ -12,3 +12,9 @@ def test_cpu8_both_variants(tmp_path):
     assert r["strash_only_ands"] <= s["header"]["A"]
     g = aig.read_aiger(tmp_path / "cpu8" / "restructured.aig")
     assert g.A == r["header"]["A"] and g.L == 82 and len(g.all_outputs()) == 13
+
+
+def test_aig_records_use_relative_paths():
+    import json
+    arts = aig.extract_design(designs.get("cpu8"), paths.given(), paths.build("t_rel_aig"))
+    assert str(paths.ROOT) not in json.dumps(arts)

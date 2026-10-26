@@ -2,14 +2,14 @@
   "aig_path": "results/m1/aigs/arlet6502/synth.aig",
   "aig_sha256": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b",
   "commands": [
-    "read_verilog /Users/noorelshahidi/DD2Project/given/designs/arlet6502.v",
+    "read_verilog given/designs/arlet6502.v",
     "synth -flatten -top cpu",
-    "tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/ffstat.json stat -json",
+    "tee -q -o build/aigs/arlet6502/ffstat.json stat -json",
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig",
-    "write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/synth_zinit.aig"
+    "write_aiger results/m1/aigs/arlet6502/synth.aig",
+    "write_aiger -zinit build/aigs/arlet6502/synth_zinit.aig"
   ],
   "design": "arlet6502",
   "ffs_after_synth": 143,
@@ -31,10 +31,10 @@
       "yosys",
       "-q",
       "-p",
-      "read_verilog /Users/noorelshahidi/DD2Project/given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/synth_zinit.aig"
+      "read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/arlet6502/synth.aig; write_aiger -zinit build/aigs/arlet6502/synth_zinit.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:39+00:00",
+    "finished": "2026-10-26T12:34:50+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb"
@@ -42,7 +42,7 @@
     "logs": [
       "results/m1/aigs/arlet6502/synth.log"
     ],
-    "started": "2026-10-26T12:24:38+00:00",
+    "started": "2026-10-26T12:34:49+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"

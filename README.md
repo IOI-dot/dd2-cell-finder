@@ -10,12 +10,15 @@ Tools used: Yosys 0.70+post (git 0c11ea0, the handout's Table 1 used 0.33), yosy
 Icarus Verilog 13.0, Python 3.14.6 in `.venv` (any Python >= 3.11), SKY130A via ciel
 (`dd7771c…`). Magic, Netgen and ngspice (Option 1) and OpenSTA (from M2) are not used by M1.
 
-    make setup     # 1 s (pytest cached by uv; first install longer): links pdk/, given/; .venv
+    make setup     # about 1 s (pytest cached by uv; a first install takes longer)
     make check     # under 1 s
-    make test      # 13 s (81 tests)
-    make all       # 35 s: the whole M1 flow into results/m1/
+    make test      # about 20 s
+    make all       # about 40 s: the whole M1 flow into results/m1/
 
-Timings are from a fresh clone on an Apple-silicon laptop, 2026-10-26.
+Timings were measured by the independent verification run on a fresh clone of a9e925a, on an
+Apple-silicon laptop (2026-10-26): setup 0.8 s, check 0.4 s, test 18.2 s, all 39.4 s. Any
+Python >= 3.11 works; uv picks the newest one installed, and `results/m1/environment.json` records
+which one was used.
 
 `make setup` expects `PDK_ROOT` (default `~/.ciel`, containing `sky130A`) and
 `GIVEN` (default `../DD2_Project1_student_pack/given`). Nothing is copied.
@@ -34,7 +37,7 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | Command | Input | Output |
 |---|---|---|
 | `make setup` | `PDK_ROOT`, `GIVEN` | `pdk`, `given` links; `.venv` |
-| `make check` | links, tools | `results/m1/environment.json`; fails on a missing tool or input |
+| `make check` | links, tools | `build/environment.json`; fails on a missing tool or input |
 | `make test` | `tests/` | pytest; also verifies `tests/broken/SHA256SUMS` |
 | `make all` / `make m1` | the six required designs | everything under `results/m1/` (starts with `m1-env`) |
 | `make m1-env` | links, tools | `results/m1/environment.json` (plain `make check` writes `build/environment.json`) |
@@ -75,7 +78,7 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | Cut enumerator passing its check: 315522 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
 | Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-02.checks.json` | pass |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-03.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):
@@ -153,7 +156,9 @@ AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report
 - Table 4, row "New, one stage, at most 3 in series and 12 transistors": we measure 6, the
   handout says 5. The six functions are listed in `results/m1/redundancy/self_test.json`; the
   question is open with the TA (research Q-1).
-- No candidate costing, area model, Liberty writer, extended mapping, cec or OpenSTA yet (M2).
+- No candidate costing, area model, Liberty writer, extended-library mapping, mapping-vs-RTL
+  cec or OpenSTA yet (M2). (ABC cec is already used to check each restructured AIG against its
+  synth AIG.)
 - The agent layer has no model yet: tools, policy and logs are exercised by a scripted run.
 - Option 1 (cell generation) is not started in this repository. For an Option 3 group, cp1 also
   grades Option 1's inv_1 and nand2_1 at 2.72 um; that work, the course container and the ngspice

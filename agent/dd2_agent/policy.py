@@ -30,10 +30,19 @@ def may_write(path: Path, run_id: str) -> bool:
     """Only paths that resolve inside runs/<run_id>/ may be written, for a well-formed run_id.
     This is a guard before each call; the digest check after it detects anything that slipped
     through. Real prevention (read-only mounts) comes with docker/compose.yml."""
-    if not RUN_ID.match(run_id or ""):
+    if not RUN_ID.fullmatch(run_id or ""):
         return False
-    target = Path(path).resolve()
-    return target.is_relative_to(run_dir(run_id).resolve())
+    d = run_dir(run_id)
+    p = Path(path) if Path(path).is_absolute() else ROOT / path
+    # No symlink anywhere from runs/ down to the target may redirect the write.
+    if d.is_symlink() or RUNS.is_symlink():
+        return False
+    probe = p
+    while probe != d and probe.is_relative_to(d):
+        if probe.is_symlink():
+            return False
+        probe = probe.parent
+    return p.resolve().is_relative_to(d.resolve()) and d.resolve().parent == RUNS.resolve()
 
 
 def protected_digest() -> str:

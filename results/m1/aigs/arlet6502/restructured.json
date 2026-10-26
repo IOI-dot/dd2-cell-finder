@@ -1,14 +1,14 @@
 {
   "aig_path": "results/m1/aigs/arlet6502/restructured.aig",
-  "aig_sha256": "a44ef6844c7a1b61d90655931e5c289d915ec9f48728b6296e8c1709a0033e4b",
+  "aig_sha256": "aeffc236c8fab081bdcc8d46fdbda58d64af5f0657f8e3dac9261adab826ba19",
   "commands": [
-    "read /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig",
+    "read results/m1/aigs/arlet6502/synth.aig",
     "strash",
     "print_stats",
     "dch -f",
     "strash",
     "print_stats",
-    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/restructured.aig"
+    "write_aiger results/m1/aigs/arlet6502/restructured.aig"
   ],
   "design": "arlet6502",
   "equivalent_to_synth": true,
@@ -28,10 +28,10 @@
     "argv": [
       "yosys-abc",
       "-c",
-      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/restructured.aig"
+      "read results/m1/aigs/arlet6502/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/arlet6502/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:39+00:00",
+    "finished": "2026-10-26T12:34:50+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/arlet6502/synth.aig": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b"
@@ -40,7 +40,7 @@
       "results/m1/aigs/arlet6502/restructured.log",
       "results/m1/aigs/arlet6502/cec.log"
     ],
-    "started": "2026-10-26T12:24:39+00:00",
+    "started": "2026-10-26T12:34:50+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"

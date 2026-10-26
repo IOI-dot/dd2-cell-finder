@@ -90,7 +90,10 @@ def read_cells(path: Path, skipped: list | None = None) -> list:
         except ValueError as e:
             raise ValueError(f"{path}: cell {name}: {e}") from None
         am = _AREA.search(_without_groups(body, _PIN))
-        cells.append(LibCell(name, ins, outs[0][0], fm.group(1), tt, float(am.group(1)) if am else 0.0))
+        if not am:
+            skip((name, "no area"))
+            continue
+        cells.append(LibCell(name, ins, outs[0][0], fm.group(1), tt, float(am.group(1))))
     return cells
 
 

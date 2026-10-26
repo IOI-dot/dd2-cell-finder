@@ -14,12 +14,13 @@
     "4": 46659
   },
   "cuts_checked": 77025,
+  "cuts_in_full_list": 77025,
   "cuts_passed": 77025,
   "cuts_total": 77025,
   "failures": [],
   "full_list": {
     "path": "build/cuts/fir10/synth.jsonl.gz",
-    "sha256": "03cffb2c45eb765e787e7b23fbc6be6824f0e1178110fe0abd3fc8a4d94d7c90"
+    "sha256": "e4bf8dd14d35afb32cdfa5e7a74f44d980808126dd9204864bc48e40aa4e887e"
   },
   "header": {
     "A": 8217,
@@ -562,13 +563,13 @@
       "results/m1/aigs/fir10/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:53+00:00",
+    "finished": "2026-10-26T12:35:04+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/fir10/synth.aig": "85fdd2107f3b62f00ad37a5dc3d5d2beab80c81fc1e941f65be4192019beee03"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:50+00:00",
+    "started": "2026-10-26T12:35:00+00:00",
     "status": "pass",
     "tools": {}
   },

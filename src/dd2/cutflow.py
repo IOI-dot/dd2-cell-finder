@@ -55,13 +55,16 @@ def process(aig_path: Path, out_dir: Path, full_path: Path, label: str) -> dict:
                 if total % SAMPLE_EVERY == 1:
                     sample.append(row)
     checked = passed + len(failures)
+    with gzip.open(full_path, "rt") as f:                # recount from the file actually written
+        in_file = sum(1 for _ in f)
     expected = sum(len(c[v]) - 1 for v in fan)          # counted from the enumeration itself
-    rec.finish(1 if failures or checked != expected or total == 0 else 0)
+    rec.finish(1 if failures or not (checked == expected == in_file) or total == 0 else 0)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{label}.sample.jsonl").write_text("".join(json.dumps(r) + "\n" for r in sample))
     summary = {
         "aig": paths.rel(aig_path), "header": {"I": g.I, "L": g.L, "O": g.O, "A": g.A},
-        "cuts_total": expected, "cuts_checked": checked, "cuts_passed": passed, "failures": failures,
+        "cuts_total": expected, "cuts_checked": checked, "cuts_passed": passed,
+        "cuts_in_full_list": in_file, "failures": failures,
         "max_cuts_per_node": max(len(v) - 1 for v in c.values()),
         "cuts_by_leaves": dict(sorted(by_leaves.items())),
         "cuts_by_support": dict(sorted(by_support.items())),

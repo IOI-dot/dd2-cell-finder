@@ -14,12 +14,13 @@
     "4": 11174
   },
   "cuts_checked": 19162,
+  "cuts_in_full_list": 19162,
   "cuts_passed": 19162,
   "cuts_total": 19162,
   "failures": [],
   "full_list": {
     "path": "build/cuts/arlet6502/synth.jsonl.gz",
-    "sha256": "06b4f71ec05fdd5a62422b8a769a9ce8a157e428406481ce50941a5156470aea"
+    "sha256": "e2dbe892cbe1b187e2e0b26db26db7b7c70eee32565ff101206d2006e7221793"
   },
   "header": {
     "A": 2511,
@@ -598,13 +599,13 @@
       "results/m1/aigs/arlet6502/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:45+00:00",
+    "finished": "2026-10-26T12:34:55+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/arlet6502/synth.aig": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:44+00:00",
+    "started": "2026-10-26T12:34:54+00:00",
     "status": "pass",
     "tools": {}
   },

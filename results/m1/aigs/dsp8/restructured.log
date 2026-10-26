@@ -1,5 +1,5 @@
-$ yosys-abc -c read /Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/restructured.aig
-======== ABC command line "read /Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/restructured.aig"
-[1;37m/Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/synth:[0m i/o =   22/   26  lat =   72  and =   1361  lev = 51
+$ yosys-abc -c read results/m1/aigs/dsp8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/dsp8/restructured.aig
+======== ABC command line "read results/m1/aigs/dsp8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/dsp8/restructured.aig"
+[1;37mresults/m1/aigs/dsp8/synth    :[0m i/o =   22/   26  lat =   72  and =   1361  lev = 51
 Warning: The choice nodes in the original AIG are removed by strashing.
-[1;37m/Users/noorelshahidi/DD2Project/results/m1/aigs/dsp8/synth:[0m i/o =   22/   26  lat =   72  and =   1305  lev = 48
+[1;37mresults/m1/aigs/dsp8/synth    :[0m i/o =   22/   26  lat =   72  and =   1305  lev = 48

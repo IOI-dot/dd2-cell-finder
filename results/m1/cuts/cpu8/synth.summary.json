@@ -14,12 +14,13 @@
     "4": 3405
   },
   "cuts_checked": 6054,
+  "cuts_in_full_list": 6054,
   "cuts_passed": 6054,
   "cuts_total": 6054,
   "failures": [],
   "full_list": {
     "path": "build/cuts/cpu8/synth.jsonl.gz",
-    "sha256": "bf05385c47b14b77414aa5ad37264429461cc5ec7094b474d9c4b1220713338b"
+    "sha256": "abbb321d9af31d17ce27d22e96a7276024aa97369b6e4c104e7b5340259e49e0"
   },
   "header": {
     "A": 932,
@@ -507,13 +508,13 @@
       "results/m1/aigs/cpu8/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:43+00:00",
+    "finished": "2026-10-26T12:34:53+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/cpu8/synth.aig": "b21cecf26969c84187edab3a1bb082fccf4fa5dfcee449ea78ef167e1131cc62"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:42+00:00",
+    "started": "2026-10-26T12:34:53+00:00",
     "status": "pass",
     "tools": {}
   },

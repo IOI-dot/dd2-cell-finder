@@ -47,10 +47,10 @@
       "yosys",
       "-q",
       "-p",
-      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/dsp8.v; synth -flatten -top dsp8; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/dsp8/reduced/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/dsp8/reduced/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+      "read_verilog  given/designs/dsp8.v; synth -flatten -top dsp8; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/dsp8/reduced/A/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/dsp8/reduced/A/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:24+00:00",
+    "finished": "2026-10-26T12:34:34+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/dsp8.v": "fa86dedaaeddfd0df04be9dcd0e72ea8e3fa02885fc6c63376442d2f55cd2c5b",
@@ -61,13 +61,13 @@
       "results/m1/baseline/dsp8/reduced/A/stat.txt",
       "results/m1/baseline/dsp8/reduced/A/stat.json"
     ],
-    "started": "2026-10-26T12:24:23+00:00",
+    "started": "2026-10-26T12:34:34+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
   "script": "A",
-  "seconds": 0.344,
+  "seconds": 0.345,
   "top": "dsp8"
 }

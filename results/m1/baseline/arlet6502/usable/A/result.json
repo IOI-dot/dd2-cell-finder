@@ -63,10 +63,10 @@
       "yosys",
       "-q",
       "-p",
-      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/arlet6502.v; synth -flatten -top cpu; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/arlet6502/usable/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/arlet6502/usable/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib"
+      "read_verilog  given/designs/arlet6502.v; synth -flatten -top cpu; dfflibmap -liberty given/hd_usable.lib; abc -liberty given/hd_usable.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/arlet6502/usable/A/stat.txt stat -liberty given/hd_usable.lib; tee -q -o results/m1/baseline/arlet6502/usable/A/stat.json stat -json -liberty given/hd_usable.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:25+00:00",
+    "finished": "2026-10-26T12:34:35+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb",
@@ -77,13 +77,13 @@
       "results/m1/baseline/arlet6502/usable/A/stat.txt",
       "results/m1/baseline/arlet6502/usable/A/stat.json"
     ],
-    "started": "2026-10-26T12:24:24+00:00",
+    "started": "2026-10-26T12:34:35+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
   "script": "A",
-  "seconds": 0.791,
+  "seconds": 0.784,
   "top": "cpu"
 }

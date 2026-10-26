@@ -39,3 +39,9 @@ def test_checked_count_is_independent_of_total(tmp_path):
                         tmp_path / "full.jsonl.gz", "synth")
     assert s["cuts_passed"] + len(s["failures"]) == s["cuts_checked"] == s["cuts_total"]
     assert sum(s["p_histogram"].values()) == s["cuts_total"]          # finding 14: P classes kept
+
+
+def test_written_list_is_recounted(tmp_path):
+    s = cutflow.process(paths.ROOT / "tests/broken/wrong_truth_table.aig", tmp_path,
+                        tmp_path / "full.jsonl.gz", "synth")
+    assert s["cuts_in_full_list"] == s["cuts_total"]        # counted from the file on disk

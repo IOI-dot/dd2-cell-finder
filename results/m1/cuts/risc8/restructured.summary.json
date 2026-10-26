@@ -11,12 +11,13 @@
     "4": 18120
   },
   "cuts_checked": 32017,
+  "cuts_in_full_list": 32017,
   "cuts_passed": 32017,
   "cuts_total": 32017,
   "failures": [],
   "full_list": {
     "path": "build/cuts/risc8/restructured.jsonl.gz",
-    "sha256": "3f420116a8be63695d16afa9fac55f0b91d24c2de012c053bcd4ca17b91557af"
+    "sha256": "d2ed856c649b66608663f404d801426bd8e402603c7e001ffd23e66d512abbb1"
   },
   "header": {
     "A": 4875,
@@ -506,13 +507,13 @@
       "results/m1/aigs/risc8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:50+00:00",
+    "finished": "2026-10-26T12:35:00+00:00",
     "host": "Darwin arm64",
     "inputs": {
-      "results/m1/aigs/risc8/restructured.aig": "ef69afad107154bedd6db1b4fc351050f53bba8f2a930a70f02de58437a14a0c"
+      "results/m1/aigs/risc8/restructured.aig": "c8f787a8c450dfa40c44930d77c40c33a0524a52718a2152ab65ff861c9318c4"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:48+00:00",
+    "started": "2026-10-26T12:34:59+00:00",
     "status": "pass",
     "tools": {}
   },

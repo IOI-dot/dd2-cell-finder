@@ -1,3 +1,3 @@
-$ yosys-abc -c cec /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/restructured.aig
-======== ABC command line "cec /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/restructured.aig"
+$ yosys-abc -c cec results/m1/aigs/cpu8/synth.aig results/m1/aigs/cpu8/restructured.aig
+======== ABC command line "cec results/m1/aigs/cpu8/synth.aig results/m1/aigs/cpu8/restructured.aig"
 Networks are equivalent.  Time =     0.06 sec

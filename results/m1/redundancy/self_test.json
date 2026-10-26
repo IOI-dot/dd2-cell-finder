@@ -10,13 +10,13 @@
       "selftest"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:25:03+00:00",
+    "finished": "2026-10-26T12:35:13+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:59+00:00",
+    "started": "2026-10-26T12:35:10+00:00",
     "status": "pass",
     "tools": {}
   },

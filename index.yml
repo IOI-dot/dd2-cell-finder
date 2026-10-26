@@ -95,7 +95,7 @@ agentic_system:
 status:
   updated: 2026-10-26
   milestone_1: >
-    Option 2 M1 implemented, verified by an independent subagent and fixed (106 tests). Table 1
+    Option 2 M1 implemented, verified twice by an independent subagent and fixed (115 tests). Table 1
     measured on Yosys 0.70 and labelled NOT REPRODUCED; Table 4 row 6 open. Not pushed; no cp1 tag.
   open_for_humans: [push and tag cp1, README names and IDs, Option 1 cp1 work, Yosys 0.33 (T004),
                     review tests/broken_proposed, history rewrite decision (Q-4)]

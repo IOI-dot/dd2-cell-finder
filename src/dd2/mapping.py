@@ -46,11 +46,12 @@ def run_mapping(design, library: str, script: str, out: Path, given: Path, src: 
     d.mkdir(parents=True, exist_ok=True)
     src = Path(src) if src else Path(given) / "designs" / f"{design.name}.v"
     lib = Path(given) / LIBRARIES[library]
-    cmd = yosys_script(src, design.top, lib, script, design.sv, d / "stat.txt", d / "stat.json")
+    R = paths.rel                                    # records carry repository-relative paths
+    cmd = yosys_script(R(src), design.top, R(lib), script, design.sv, R(d / "stat.txt"), R(d / "stat.json"))
     argv = tools.yosys_cmd() + ["-q", "-p", cmd]
     rec = provenance.RunRecord(argv=[str(a) for a in argv], inputs=provenance.hash_inputs([src, lib]),
                                tools={"yosys": tools.version(tools.yosys_cmd() + ["-V"])})
-    code, secs = tools.run(argv, d / "yosys.log")
+    code, secs = tools.run(argv, d / "yosys.log", cwd=paths.ROOT)
     result = {"design": design.name, "top": design.top, "library": library, "script": script,
               "seconds": secs}
     try:

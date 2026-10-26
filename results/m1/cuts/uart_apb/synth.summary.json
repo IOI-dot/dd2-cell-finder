@@ -14,12 +14,13 @@
     "4": 14895
   },
   "cuts_checked": 29154,
+  "cuts_in_full_list": 29154,
   "cuts_passed": 29154,
   "cuts_total": 29154,
   "failures": [],
   "full_list": {
     "path": "build/cuts/uart_apb/synth.jsonl.gz",
-    "sha256": "40098aab7a9b972489a9ac4aa63a4d5ea364277e67754dfb78839e2ff02554e7"
+    "sha256": "9d82515a9878db12a4cadd4590166d6c52c86c12623c36b46c467777fa3d04ff"
   },
   "header": {
     "A": 3551,
@@ -577,13 +578,13 @@
       "results/m1/aigs/uart_apb/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:47+00:00",
+    "finished": "2026-10-26T12:34:57+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/uart_apb/synth.aig": "035e167fc1d8119482831436fef23a01a6f518f9998ac880678dfb2a4dafbcf0"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:45+00:00",
+    "started": "2026-10-26T12:34:56+00:00",
     "status": "pass",
     "tools": {}
   },

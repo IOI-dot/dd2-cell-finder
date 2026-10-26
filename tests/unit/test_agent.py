@@ -90,3 +90,34 @@ def test_every_tool_writes_only_inside_its_run(tmp_path):
     # extract_aig must get a run-local scratch directory, not build/
     argv = tools.TOOLS["extract_aig"].argv({"design": "cpu8"}, ROOT / "runs" / "A-1026-99")
     assert "--scratch" in [str(a) for a in argv]
+
+
+def test_symlinked_run_dir_cannot_escape(tmp_path):
+    # re-verification: runs/<id> -> ../tests made writes into tests/ look "inside the run"
+    link = policy.RUNS / "A-9999-98"
+    policy.RUNS.mkdir(exist_ok=True)
+    try:
+        link.symlink_to(ROOT / "tests")
+        assert not policy.may_write(link / "x.json", "A-9999-98")
+    finally:
+        link.unlink()
+
+
+def test_run_id_with_newline_refused():
+    assert not policy.may_write(ROOT / "runs" / "A-1026-02" / "x", "A-1026-02\n")
+
+
+def test_relative_paths_resolve_against_repo_root():
+    assert policy.may_write("runs/A-1026-99/x.json", "A-1026-99")
+    assert not policy.may_write("tests/broken/x", "A-1026-99")
+
+
+def test_baseline_output_not_nested():
+    d = ROOT / "runs" / "A-1026-99"
+    argv = [str(a) for a in tools.TOOLS["run_baseline"].argv({"design": "cpu8"}, d)]
+    assert argv[argv.index("--out") + 1] == str(d)            # run_all adds baseline/ itself
+    assert tools.TOOLS["run_baseline"].output({"design": "cpu8"}, d) == d / "table1.csv"
+
+
+def test_run_id_must_fullmatch():
+    assert not policy.RUN_ID.fullmatch("A-1026-02\n")

@@ -39,3 +39,27 @@ the session scratchpad `verify/`.
 | 17 | MINOR | `.gitignore` `*.pdf` blocks `report/*.pdf`. Demo without `TOP=` fails on risc8. The AIGER reader accepts out-of-order literals. | `!report/*.pdf`; `hierarchy -auto-top`; validate literal order. | fixed: !report/*.pdf; demo auto-detects top; reader rejects bad/unordered literals |
 | 18 | MINOR | Tasks marked [x] that deviate from their own text: T006 (no `uv run`), T012 (no `dd2 env`), T018 (no `baseline_yosys070`), T034 (README §1), T041 (`requests.py` became `interface.py`). | Correct `tasks.md` or finish them. | fixed: tasks.md annotated (T006, T012, T018, T041); T034 reopened |
 | 19 | NOTE | The student pack is still in history (e55f766, pushed). SPM and the Tutorial 2 multiplier are needed from M2. | Group decision (Q-4); M2. | open (group decision / M2) |
+
+## Re-verification of a9e925a (same reviewer, fresh clone)
+
+**Result:** the fixes for findings 3–7 and 11–17 hold up. On a fresh clone, 106 tests passed and
+`make all` and `make agent-check` both passed. The committed tables were regenerated
+byte-identically.
+
+Mutation tests confirmed that `cec` compares the B outputs and the latch inputs. Seven more
+expressions matched Yosys `eval` exactly. The precedence fix changed no committed result.
+
+Six minor leftovers, all addressed in the commit after a9e925a:
+
+| # | Leftover | Fix |
+|---|---|---|
+| R1 | A symlinked `runs/<id>` or `scratch/` still escaped the write guard; `RUN_ID.match` accepted a trailing newline; only the declared output was checked. | `fullmatch`; refuse any symlink from `runs/<id>` down; require the run directory's parent to be `runs/`; check every path argument of a tool. |
+| R2 | `checked == expected` was still computed from the same lists. | Recount the cuts in the written `jsonl.gz` (`cuts_in_full_list`). |
+| R3 | A cell with no `area` came back as 0.0, silently. | Recorded as skipped (`no area`). |
+| R4 | README timings, the `make check` output path and the cec note were stale; Python is not pinned. | README updated. Python stays unpinned on purpose (any version ≥ 3.11 keeps the TA's machine working) and is recorded in `environment.json`. |
+| R5 | Commands and logs held absolute `/Users/...` paths. | Repository-relative paths, with tools run from the repository root. Runs A-1026-01/02 predate the fix and are kept as history. |
+| R6 | `runs/<id>/baseline/baseline` was nested twice. | The tool passes `--out runs/<id>`. |
+
+The two notes from the re-verification, also handled:
+- **cec ignores latch initial values.** This is harmless while every latch is uninitialised, and the `aig.cec` docstring now says so.
+- **Request expressions need explicit precedence.** T041 now requires fully parenthesised expressions.

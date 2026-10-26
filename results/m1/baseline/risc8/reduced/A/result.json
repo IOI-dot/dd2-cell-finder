@@ -57,10 +57,10 @@
       "yosys",
       "-q",
       "-p",
-      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/risc8.v; synth -flatten -top cpu; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/risc8/reduced/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/risc8/reduced/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+      "read_verilog  given/designs/risc8.v; synth -flatten -top cpu; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/risc8/reduced/A/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/risc8/reduced/A/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:33+00:00",
+    "finished": "2026-10-26T12:34:44+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c",
@@ -71,13 +71,13 @@
       "results/m1/baseline/risc8/reduced/A/stat.txt",
       "results/m1/baseline/risc8/reduced/A/stat.json"
     ],
-    "started": "2026-10-26T12:24:32+00:00",
+    "started": "2026-10-26T12:34:43+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
   "script": "A",
-  "seconds": 1.433,
+  "seconds": 1.429,
   "top": "cpu"
 }

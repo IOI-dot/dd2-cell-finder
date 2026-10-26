@@ -128,8 +128,10 @@ def outputs(h: dict) -> int:
 
 
 def cec(a: Path, b: Path, log: Path) -> bool:
-    """ABC combinational equivalence of two AIGs (latches matched by order)."""
-    code, _ = tools.run(tools.abc_cmd() + ["-c", f"cec {a} {b}"], log, timeout=1800)
+    """ABC combinational equivalence of two AIGs (latches matched by order; initial values are
+    not compared, which is harmless while every latch is uninitialised)."""
+    code, _ = tools.run(tools.abc_cmd() + ["-c", f"cec {paths.rel(a)} {paths.rel(b)}"], log,
+                        timeout=1800, cwd=paths.ROOT)
     return code == 0 and "Networks are equivalent" in Path(log).read_text()
 
 
@@ -150,14 +152,15 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None,
     src = Path(src) if src else Path(given) / "designs" / f"{design.name}.v"
     synth_aig, restr_aig = d / "synth.aig", d / "restructured.aig"
     arts = {}
+    R = paths.rel                                    # records carry repository-relative paths
 
-    cmds = [f"read_verilog {'-sv ' if design.sv else ''}{src}", f"synth -flatten -top {design.top}",
-            f"tee -q -o {scratch / 'ffstat.json'} stat -json", "async2sync", "dffunmap", "aigmap",
-            f"write_aiger {synth_aig}", f"write_aiger -zinit {scratch / 'synth_zinit.aig'}"]
+    cmds = [f"read_verilog {'-sv ' if design.sv else ''}{R(src)}", f"synth -flatten -top {design.top}",
+            f"tee -q -o {R(scratch / 'ffstat.json')} stat -json", "async2sync", "dffunmap", "aigmap",
+            f"write_aiger {R(synth_aig)}", f"write_aiger -zinit {R(scratch / 'synth_zinit.aig')}"]
     argv = tools.yosys_cmd() + ["-q", "-p", "; ".join(cmds)]
     rec = provenance.RunRecord(argv=[str(a) for a in argv], inputs=provenance.hash_inputs([src]),
                                tools={"yosys": tools.version(tools.yosys_cmd() + ["-V"])})
-    code, _ = tools.run(argv, d / "synth.log")
+    code, _ = tools.run(argv, d / "synth.log", cwd=paths.ROOT)
     art = {"design": design.name, "variant": "synth", "aig_path": paths.rel(synth_aig), "commands": cmds}
     if code == 0 and synth_aig.exists():
         art.update(aig_sha256=provenance.sha256(synth_aig), header=header(synth_aig),
@@ -173,13 +176,13 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None,
     provenance.write_json(d / "synth.json", art)
     arts["synth"] = art
 
-    cmds = [f"read {synth_aig}", "strash", "print_stats", "dch -f", "strash", "print_stats",
-            f"write_aiger {restr_aig}"]
+    cmds = [f"read {R(synth_aig)}", "strash", "print_stats", "dch -f", "strash", "print_stats",
+            f"write_aiger {R(restr_aig)}"]
     argv = tools.abc_cmd() + ["-c", "; ".join(cmds)]
     rec = provenance.RunRecord(argv=[str(a) for a in argv],
                                inputs=provenance.hash_inputs([synth_aig]) if synth_aig.exists() else {},
                                tools={"abc": "yosys-abc bundled with " + str(rec.tools["yosys"])})
-    code, _ = tools.run(argv, d / "restructured.log") if synth_aig.exists() else (1, 0)
+    code, _ = tools.run(argv, d / "restructured.log", cwd=paths.ROOT) if synth_aig.exists() else (1, 0)
     art = {"design": design.name, "variant": "restructured", "aig_path": paths.rel(restr_aig), "commands": cmds}
     if code == 0 and restr_aig.exists():
         log = (d / "restructured.log").read_text()

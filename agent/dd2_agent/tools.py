@@ -32,8 +32,8 @@ DESIGN = {"design": {"type": "string", "enum": DESIGNS}}
 TOOLS = {t.name: t for t in [
     Tool("run_baseline", "Map one required design with both ABC scripts on the reduced and usable "
          "libraries (handout section 2).", _obj(DESIGN, ["design"]),
-         lambda a, d: ["baseline", "--designs", a["design"], "--out", d / "baseline"],
-         lambda a, d: d / "baseline" / "table1.csv"),
+         lambda a, d: ["baseline", "--designs", a["design"], "--out", d],
+         lambda a, d: d / "table1.csv"),
     Tool("extract_aig", "Write the synth and restructured AIGs of one required design.",
          _obj(DESIGN, ["design"]),
          lambda a, d: ["aig", "--designs", a["design"], "--out", d / "aigs", "--scratch", d / "scratch"],
@@ -59,7 +59,8 @@ def execute(tool: Tool, args: dict, run_dir: Path, timeout: float = 1800) -> tup
     out = tool.output(args, run_dir)
     out.parent.mkdir(parents=True, exist_ok=True)
     env = os.environ | {"PYTHONPATH": str(paths.ROOT / "src")}
-    p = subprocess.run([sys.executable, "-m", "dd2", *map(str, tool.argv(args, run_dir))],
+    argv = [paths.rel(a) if isinstance(a, Path) else str(a) for a in tool.argv(args, run_dir)]
+    p = subprocess.run([sys.executable, "-m", "dd2", *argv],
                        capture_output=True, text=True, cwd=paths.ROOT, env=env, timeout=timeout)
     log = Path(str(out) + ".log")
     log.write_text(p.stdout + p.stderr)
@@ -79,7 +80,8 @@ def call(name: str, args: dict, run_id: str, log, agent: str = "fixed") -> tuple
         log.policy(agent, name, args, "refused: invalid arguments: " + "; ".join(errs))
         return None, None
     d = policy.run_dir(run_id)
-    if not policy.may_write(tool.output(args, d), run_id):
+    targets = [tool.output(args, d)] + [a for a in tool.argv(args, d) if isinstance(a, Path)]
+    if not all(policy.may_write(t, run_id) for t in targets):
         log.policy(agent, name, args, "refused: write outside runs/<run_id>/")
         return None, None
     before = policy.protected_digest()

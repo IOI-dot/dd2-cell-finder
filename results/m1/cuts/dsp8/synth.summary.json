@@ -14,12 +14,13 @@
     "4": 6789
   },
   "cuts_checked": 11942,
+  "cuts_in_full_list": 11942,
   "cuts_passed": 11942,
   "cuts_total": 11942,
   "failures": [],
   "full_list": {
     "path": "build/cuts/dsp8/synth.jsonl.gz",
-    "sha256": "5843c41cec8f309c62e4270bce99e302c3bb47ffdb554428016a5321de65d61a"
+    "sha256": "5cfa614800b60f543529908f4eefce665e529a0794c1ff86d4f7ee088b42796d"
   },
   "header": {
     "A": 1677,
@@ -578,13 +579,13 @@
       "results/m1/aigs/dsp8/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:43+00:00",
+    "finished": "2026-10-26T12:34:54+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/dsp8/synth.aig": "54238e1f6925d2456240aae04b28936d2e12dcdd30013bfb6ba852841c0644bc"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:43+00:00",
+    "started": "2026-10-26T12:34:53+00:00",
     "status": "pass",
     "tools": {}
   },

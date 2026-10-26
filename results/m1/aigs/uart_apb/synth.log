@@ -1,4 +1,4 @@
-$ yosys -q -p read_verilog /Users/noorelshahidi/DD2Project/given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/synth_zinit.aig
+$ yosys -q -p read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/uart_apb/synth.aig; write_aiger -zinit build/aigs/uart_apb/synth_zinit.aig
 Warning: Treating undriven bit uart_apb_master.\rst_n like $anyseq.
 Warning: Treating undriven bit uart_apb_master.\uart_rx like $anyseq.
 Warning: Treating undriven bit uart_apb_master.\PRDATA [0] like $anyseq.

@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "cut_failures_zero": true,
+    "invalid_calls_refused": true,
+    "maj4n_is_new": true,
+    "protected_files_unchanged": true,
+    "protected_write_refused": true,
+    "tools_exit_zero": true
+  },
+  "run": "A-1026-03",
+  "status": "pass",
+  "tool_results": {
+    "classify": {
+      "exit_code": 0,
+      "result": "runs/A-1026-03/classify_0x077F_4.json"
+    },
+    "enumerate_cuts": {
+      "exit_code": 0,
+      "result": "runs/A-1026-03/cuts/summary.csv"
+    },
+    "extract_aig": {
+      "exit_code": 0,
+      "result": "runs/A-1026-03/aigs/manifest.json"
+    },
+    "run_baseline": {
+      "exit_code": 0,
+      "result": "runs/A-1026-03/table1.csv"
+    }
+  },
+  "written": "2026-10-26T12:35:39+00:00"
+}

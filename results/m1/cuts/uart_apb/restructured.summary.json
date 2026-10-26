@@ -11,12 +11,13 @@
     "4": 4712
   },
   "cuts_checked": 9196,
+  "cuts_in_full_list": 9196,
   "cuts_passed": 9196,
   "cuts_total": 9196,
   "failures": [],
   "full_list": {
     "path": "build/cuts/uart_apb/restructured.jsonl.gz",
-    "sha256": "445fbdfbff55db7d88e755995621f8357b4aa22db685a43dedc1b281a36ab673"
+    "sha256": "0c167b4222df7f9e628ddc8a5aee5ddf4e026f5c5feb5fa923f52cb58456820d"
   },
   "header": {
     "A": 1748,
@@ -334,13 +335,13 @@
       "results/m1/aigs/uart_apb/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:24:47+00:00",
+    "finished": "2026-10-26T12:34:57+00:00",
     "host": "Darwin arm64",
     "inputs": {
-      "results/m1/aigs/uart_apb/restructured.aig": "942ca3af1383e979b43c196b348b5edc8e26975d51213805f1518f25b957639d"
+      "results/m1/aigs/uart_apb/restructured.aig": "65b965f7e780a52a8098f10dbb2e6834dd0e145afceb0749f71bd384b1b267ad"
     },
     "logs": [],
-    "started": "2026-10-26T12:24:47+00:00",
+    "started": "2026-10-26T12:34:57+00:00",
     "status": "pass",
     "tools": {}
   },
