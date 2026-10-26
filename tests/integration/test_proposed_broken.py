@@ -1,5 +1,6 @@
 """Broken cases proposed for tests/broken/: a Liberty file Yosys must reject (handout 9.1) and a
-restructured AIG ABC cec must reject. They are exercised here until a group member moves them."""
+restructured AIG ABC cec must reject. They are exercised here until a group member moves them
+(see tests/broken_proposed/README.md)."""
 import subprocess
 
 from dd2 import aig
