@@ -10,10 +10,14 @@ ROOT = paths.ROOT
 RUNS = ROOT / "runs"
 # Check scripts, broken cases, the flow's own code and the supplied inputs. Hashed before and
 # after every tool call; any change fails the run.
-PROTECTED_TREES = [ROOT / "tests", ROOT / "src" / "dd2", ROOT / "agent", ROOT / "Makefile",
+PROTECTED_TREES = [ROOT / "tests", ROOT / "src", ROOT / "agent", ROOT / "Makefile",
                    ROOT / "given" / "hd_reduced.lib", ROOT / "given" / "hd_usable.lib",
-                   ROOT / "given" / "designs", ROOT / "given" / "scripts",
+                   ROOT / "given" / "designs", ROOT / "given" / "scripts", ROOT / "given" / "plan_hd.json",
                    ROOT / "pdk" / paths.FULL_HD_LIB,
+                   ROOT / "pdk" / "libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds",
+                   ROOT / "pdk" / "libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice",
+                   ROOT / "pdk" / "libs.tech/magic/sky130A.magicrc",
+                   ROOT / "pdk" / "libs.tech/netgen/sky130A_setup.tcl",
                    ROOT / ".specify" / "memory" / "constitution.md"]
 RUN_ID = re.compile(r"^A-\d{4}-\d{2}$")
 

@@ -7,13 +7,13 @@
   },
   {
     "case": "truth_table_mismatch",
-    "reason": "request.truth_table 0x077E does not match expression (0x077F)",
+    "reason": "request.truth_table 0x077E does not match the expression (0x077F); rows that differ: [0]",
     "status": "fail",
     "truth_table": null
   },
   {
     "case": "five_inputs",
-    "reason": "5 inputs: the generator takes at most 4 inputs and one output",
+    "reason": "5 inputs: the generator takes at most 4 inputs",
     "status": "unsupported",
     "truth_table": null
   },

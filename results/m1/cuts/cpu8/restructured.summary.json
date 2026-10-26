@@ -17,7 +17,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/cpu8/restructured.jsonl.gz",
-    "sha256": "9ea682104f27b3cf2fc7f7bff612fc7b67e28fa4b9591608cb827faf515ace27"
+    "sha256": "492a1671ee0a65b6c55835f3b898cb18b0eb61963e7baac20bb3222591812485"
   },
   "header": {
     "A": 1112,
@@ -539,13 +539,13 @@
       "results/m1/aigs/cpu8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:16+00:00",
+    "finished": "2026-10-26T22:29:33+00:00",
     "host": "Linux aarch64",
     "inputs": {
-      "results/m1/aigs/cpu8/restructured.aig": "9dfa041203e8de3a64eab072231b70809f6d14d553b6e19ac47dd56233fe41a5"
+      "results/m1/aigs/cpu8/restructured.aig": "af67bc39aeb556fd2ad053ef4b8638cc242598721e67275eae64efe32c04fa77"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:16+00:00",
+    "started": "2026-10-26T22:29:33+00:00",
     "status": "pass",
     "tools": {}
   },

@@ -1,0 +1,2 @@
+cpu8       synth        ANDs  1178 cuts   9712 failures 0 PN 187 NPN 61 pass
+cpu8       restructured ANDs  1103 cuts   8911 failures 0 PN 182 NPN 54 pass

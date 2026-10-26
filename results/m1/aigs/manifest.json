@@ -23,7 +23,7 @@
     },
     {
       "aig_path": "results/m1/aigs/cpu8/restructured.aig",
-      "aig_sha256": "9dfa041203e8de3a64eab072231b70809f6d14d553b6e19ac47dd56233fe41a5",
+      "aig_sha256": "af67bc39aeb556fd2ad053ef4b8638cc242598721e67275eae64efe32c04fa77",
       "design": "cpu8",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -65,7 +65,7 @@
     },
     {
       "aig_path": "results/m1/aigs/dsp8/restructured.aig",
-      "aig_sha256": "c13839b0727b8d63e1ac21ee1029b07bdfd150bbb404a878caf1db08a95dfcc1",
+      "aig_sha256": "2c2252d2754f1ab14398767763a43a774472fa8cd4ce3733812e8db04c8584f3",
       "design": "dsp8",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -107,7 +107,7 @@
     },
     {
       "aig_path": "results/m1/aigs/arlet6502/restructured.aig",
-      "aig_sha256": "884c05b1b19883dfa61d289a6285d81d10e92a6d1912c0018736309a361c627d",
+      "aig_sha256": "edb333e1c2498805ab54a3da7faefb4064bd03146b95c8ec39759322fa3f5fc1",
       "design": "arlet6502",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -149,7 +149,7 @@
     },
     {
       "aig_path": "results/m1/aigs/uart_apb/restructured.aig",
-      "aig_sha256": "0a36904b25d6d4ba7da2104f7a80a30324b58565fde972511afb1facb79ad1fd",
+      "aig_sha256": "0fe22c99823bb2210ee545feeab32f3c3ee4a613ebb511bdec4130e9052a5152",
       "design": "uart_apb",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -191,7 +191,7 @@
     },
     {
       "aig_path": "results/m1/aigs/risc8/restructured.aig",
-      "aig_sha256": "094e565aedf7b0f9a1ff2050f83f2690027c5877da21a4701abc52110fcadfb0",
+      "aig_sha256": "00d609e7445faab7bbe5ca338b568e9a5a5f8fe01e8dcd036d220e93ba89c994",
       "design": "risc8",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -233,7 +233,7 @@
     },
     {
       "aig_path": "results/m1/aigs/fir10/restructured.aig",
-      "aig_sha256": "68755b45e5451cd0bb224f306c54e9021b96886df4a14e3541de4e2f28ec7cd8",
+      "aig_sha256": "afa7db6ed91413b6fd642a81129608d37070e89fff09f1035291c694fec23713",
       "design": "fir10",
       "equivalent_to_synth": true,
       "ffs_after_synth": null,
@@ -255,5 +255,5 @@
   ],
   "expected_artifacts": 12,
   "status": "pass",
-  "written": "2026-10-26T15:16:15+00:00"
+  "written": "2026-10-26T22:29:32+00:00"
 }

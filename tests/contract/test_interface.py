@@ -42,3 +42,15 @@ def test_response_status_rules():
     assert interface.validate_response(r)
     assert not interface.usable(load("response_example.json") | {"status": "fail", "reason": "drc"})
     assert interface.usable(load("response_example.json"))
+
+
+def test_hex_case_and_padding_are_values_not_text():
+    r = load("request_example.json")
+    assert interface.validate_request(r | {"truth_table": "0x77f"}) == []
+    assert interface.validate_request(r | {"truth_table": "0x077f"}) == []
+
+
+def test_reserved_pin_names_refused():
+    r = load("request_example.json") | {"inputs": ["A", "B", "C", "VPWR"],
+                                         "expression": "!((C & VPWR) | (A & B & (C | VPWR)))"}
+    assert any("reserved" in e for e in interface.validate_request(r))

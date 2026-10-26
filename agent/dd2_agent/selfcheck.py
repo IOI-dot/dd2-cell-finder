@@ -18,7 +18,8 @@ def main() -> int:
     log = audit.RunLog(run_id)
     digest = policy.protected_digest()
     calls = [("run_baseline", {"design": "cpu8"}), ("extract_aig", {"design": "cpu8"}),
-             ("enumerate_cuts", {"design": "cpu8"}), ("classify", {"tt": "0x077F", "arity": 4})]
+             ("enumerate_cuts", {"design": "cpu8"}), ("classify", {"tt": "0x077F", "arity": 4}),
+             ("build_reference_cell", {"cell": "inv_1"})]
     results = {}
     for name, args in calls:
         code, out = tools.call(name, args, run_id, log)
@@ -33,10 +34,13 @@ def main() -> int:
 
     cut_rows = list(csv.DictReader(open(policy.run_dir(run_id) / "cuts" / "summary.csv")))
     classified = json.loads((policy.run_dir(run_id) / "classify_0x077F_4.json").read_text())
+    cell_report = policy.run_dir(run_id) / "cells" / "dd2_ref__inv_1" / "report.json"
+    cell_ok = cell_report.exists() and json.loads(cell_report.read_text())["status"] == "pass"
     checks = {
         "tools_exit_zero": all(r["exit_code"] == 0 for r in results.values()),
         "cut_failures_zero": all(r["failures"] == "0" for r in cut_rows) and len(cut_rows) == 2,
         "maj4n_is_new": classified["class"] == "New",
+        "option1_cell_passes_every_check": cell_ok,
         "invalid_calls_refused": all(refused),
         "protected_write_refused": write_guard,
         "protected_files_unchanged": policy.protected_digest() == digest,

@@ -5,7 +5,8 @@ DRC. Rows always contain a tap cell (a lone logic cell fails nwell.4 by design).
   side      tap | X | inv_1 | fill_1
   mirror    tap | X mirrored left-right | inv_1 | fill_1
   self      tap | X | X mirrored | X           (the cell next to itself both ways)
-  flip      the side row, plus a second row flipped upside down sharing the VPWR rail
+  flip      the side row, a row flipped upside down above it (sharing VPWR) and one below it
+            (sharing VGND)
 """
 from pathlib import Path
 
@@ -41,7 +42,7 @@ def build(hd_gds: Path, cell_gds: Path, cell: str, width: float, out: Path) -> d
         "side": [(base, 0.0, False, ())],
         "mirror": [(base, 0.0, False, (1,))],
         "self": [([HD + "tapvpwrvgnd_1", cell, cell, cell], 0.0, False, (2,))],
-        "flip": [(base, 0.0, False, ()), (base, ROW_H, True, ())],
+        "flip": [(base, 0.0, False, ()), (base, ROW_H, True, ()), (base, -ROW_H, True, ())],
     }
     files = {}
     out.mkdir(parents=True, exist_ok=True)

@@ -76,6 +76,17 @@ def check(given: Path, pdk: Path, out: Path) -> int:
     else:
         problems.append(f"full HD Liberty not found at {full} (PDK_ROOT must contain sky130A)")
 
+    # Option 1 reads the HD cells' GDS, SPICE, LEF and Magic views from the PDK
+    hd = Path(pdk) / "libs.ref/sky130_fd_sc_hd"
+    env["hd_views"] = {}
+    for view, f in (("gds", "gds/sky130_fd_sc_hd.gds"), ("spice", "spice/sky130_fd_sc_hd.spice"),
+                    ("lef", "lef/sky130_fd_sc_hd.lef"), ("mag", "mag/sky130_fd_sc_hd__inv_1.mag")):
+        present = (hd / f).is_file()
+        env["hd_views"][view] = {"path": paths.rel(hd / f), "present": present,
+                                 "sha256": provenance.sha256(hd / f) if present and view in ("gds", "spice") else None}
+        if not present:
+            problems.append(f"PDK view missing: {hd / f} (reinstall the sky130_fd_sc_hd library with ciel)")
+
     env["liberty_import"] = {}
     for name, want in EXPECTED_CELLS.items():
         lib = given / name

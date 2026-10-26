@@ -60,3 +60,16 @@ def test_switch_check_catches_deleted_pullup_and_short():
     assert errs and any("floating" in e for e in errs)          # A=1, B=0: nothing pulls Y up
     shorted = network.Network(net.inputs, net.transistors + [network.Transistor("p", "A", "Y", "VGND")])
     assert any("short" in e for e in network.switch_check(shorted, tt))
+
+
+def test_output_list_is_unsupported_with_a_clear_reason(tmp_path):
+    ex = json.loads((ROOT / "docs" / "interface" / "request_example.json").read_text())
+    r = request.parse(ex | {"output": ["Y", "Z"]})
+    assert r.status == "unsupported" and "one output" in r.reason and "4 inputs" not in r.reason
+
+
+def test_hd_table_point_comes_from_the_delay_table():
+    from cellgen import simulate
+    p = simulate.hd_table_point()
+    assert p["table"] == "cell_rise" and p["variable_1"] == "input_net_transition"
+    assert p["slew_ns"] == 0.122474 and p["load_pf"] == 0.00952062

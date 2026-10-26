@@ -74,15 +74,24 @@ def test_malformed_run_ids_cannot_write(bad_id):
     assert not policy.may_write(ROOT / "runs" / bad_id / "x.json", bad_id)
 
 
-def test_protected_set_covers_pdk_tests_and_agent():
+def test_protected_set_covers_pdk_tests_agent_and_option1_checks():
     roots = {str(p) for p in policy.PROTECTED_TREES}
-    for must in ("tests", "agent", "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"):
+    for must in ("tests", "agent", "src", "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+                 "pdk/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds",
+                 "pdk/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice",
+                 "pdk/libs.tech/magic/sky130A.magicrc", "pdk/libs.tech/netgen/sky130A_setup.tcl"):
         assert str(ROOT / must) in roots, must
+
+
+def test_option1_tool_is_wrapped():
+    t = tools.TOOLS["build_reference_cell"]
+    assert t.module == "cellgen" and t.schema["properties"]["cell"]["enum"] == ["inv_1", "nand2_1"]
 
 
 def test_every_tool_writes_only_inside_its_run(tmp_path):
     for name, t in tools.TOOLS.items():
-        args = {"design": "cpu8"} if "design" in t.schema["properties"] else \
+        props = t.schema["properties"]
+        args = {"design": "cpu8"} if "design" in props else {"cell": "inv_1"} if "cell" in props else \
                {"tt": "0x7", "arity": 2} if name == "classify" else {}
         argv = [str(a) for a in t.argv(args, ROOT / "runs" / "A-1026-99")]
         paths_in_argv = [a for a in argv if a.startswith(str(ROOT))]

@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/uart_apb/synth.jsonl.gz",
-    "sha256": "a91270a12e9f0719fa2f2d29804dc43c9ed7b7f532b24893ec86c402b86e5a7f"
+    "sha256": "27079d357764a31942ad76c132639bb073afc80a10b28f0e097e78d2b02c38fa"
   },
   "header": {
     "A": 4673,
@@ -614,13 +614,13 @@
       "results/m1/aigs/uart_apb/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:22+00:00",
+    "finished": "2026-10-26T22:29:38+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "results/m1/aigs/uart_apb/synth.aig": "32952305aa33ee8441be6c65faab8c5cd1a1450d1e27824c3826b1b9edff649e"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:20+00:00",
+    "started": "2026-10-26T22:29:36+00:00",
     "status": "pass",
     "tools": {}
   },

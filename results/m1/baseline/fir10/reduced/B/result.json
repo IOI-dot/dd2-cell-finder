@@ -55,7 +55,7 @@
       "read_verilog  given/designs/fir10.v; synth -flatten -top fir10; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -q -o results/m1/baseline/fir10/reduced/B/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/fir10/reduced/B/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:08+00:00",
+    "finished": "2026-10-26T22:29:26+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc",
@@ -66,13 +66,13 @@
       "results/m1/baseline/fir10/reduced/B/stat.txt",
       "results/m1/baseline/fir10/reduced/B/stat.json"
     ],
-    "started": "2026-10-26T15:16:07+00:00",
+    "started": "2026-10-26T22:29:25+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "B",
-  "seconds": 0.987,
+  "seconds": 0.943,
   "top": "fir10"
 }

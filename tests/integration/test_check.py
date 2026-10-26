@@ -51,3 +51,12 @@ def test_course_image_and_stress_test_recorded(tmp_path):
     st = env["course_image"]
     assert st["stress_test"] == "pass" and st["ngspice"].startswith("ngspice-47")
     assert len(st["ngspice_sha256"]) == 64 and st["magic"].startswith("8.3") and st["netgen"]
+
+
+def test_hd_views_required_and_hashed(tmp_path):
+    # Option 1 needs the HD GDS and SPICE views; make check verifies them and records their hashes
+    run("check", "--out", str(tmp_path / "env.json"))
+    v = json.loads((tmp_path / "env.json").read_text())["hd_views"]
+    for view in ("gds", "spice", "lef", "mag"):
+        assert v[view]["present"], view
+    assert len(v["gds"]["sha256"]) == 64 and len(v["spice"]["sha256"]) == 64

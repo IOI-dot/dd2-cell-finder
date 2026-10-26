@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/cpu8/synth.jsonl.gz",
-    "sha256": "bcb607776252afc930a43f9415ae1032230268982c720508bdac86fdae70e7e0"
+    "sha256": "152fea0555d28d3ba2c9174860f8e07cdd0acb3ff2afa63f308f18590f921566"
   },
   "header": {
     "A": 1265,
@@ -586,13 +586,13 @@
       "results/m1/aigs/cpu8/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:16+00:00",
+    "finished": "2026-10-26T22:29:33+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "results/m1/aigs/cpu8/synth.aig": "3ce88a2c1d427c788d3707918cecb3f1e41ed94a3fb25fa63436d99f206af4d0"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:15+00:00",
+    "started": "2026-10-26T22:29:32+00:00",
     "status": "pass",
     "tools": {}
   },

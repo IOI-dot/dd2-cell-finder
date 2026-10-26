@@ -6,7 +6,9 @@ import klayout.db as kdb
 
 L = {"boundary": (236, 0), "nwell": (64, 20), "nsdm": (93, 44), "psdm": (94, 20), "hvtp": (78, 44),
      "npc": (95, 20), "met1": (68, 20), "li1": (67, 20), "diff": (65, 20), "poly": (66, 20),
-     "li1.pin": (67, 16), "li1.label": (67, 5), "met1.pin": (68, 16), "areaid": (81, 4)}
+     "li1.pin": (67, 16), "li1.label": (67, 5), "met1.pin": (68, 16), "met1.label": (68, 5),
+     "areaid": (81, 4), "nwell.label": (64, 5), "nwell.pin": (64, 16), "pwell.label": (64, 59),
+     "pwell.pin": (122, 16)}
 FRAME_LAYERS = ("boundary", "nwell", "nsdm", "psdm", "hvtp", "areaid")
 
 
@@ -37,27 +39,41 @@ class Gds:
         li = self.ly.find_layer(*L[name])
         out = []
         if li is not None:
-            for s in self.cell.begin_shapes_rec(li).each() if False else self.cell.shapes(li).each():
+            for s in self.cell.shapes(li).each():
                 if s.is_text():
                     out.append((s.text_string, round(s.text_dpos.x, 3), round(s.text_dpos.y, 3)))
         return out
 
 
+def _xext(gds, name):
+    bs = [p.bbox() for p in gds.boxes(name)]
+    return (round(min(b.left for b in bs), 3), round(max(b.right for b in bs), 3)) if bs else None
+
+
 def frame_check(gds: Gds, frame: dict) -> list:
-    """y extents of the frame layers in an installed cell against plan_hd.json."""
+    """The frame layers of a cell against plan_hd.json: y extents, x extents (relative to the cell
+    width) and the rails (met1 and the li1 strip)."""
+    from .layout import _x
+    w = gds.width()
     rows = []
+
+    def row(layer, want, got):
+        rows.append({"layer": layer, "plan_hd": list(want), "measured": list(got) if got else None,
+                     "match": got is not None and all(abs(p - q) < 1e-6 for p, q in zip(got, want))})
+
     for key, layer in (("boundary", "boundary"), ("nwell", "nwell"), ("nsdm", "nsdm"),
-                       ("psdm", "psdm"), ("hvtp", "hvtp"), ("npc_band", "npc")):
-        want = tuple(frame[key]["y"])
-        got = gds.yext(layer)
-        rows.append({"layer": layer, "plan_hd_y": list(want), "measured_y": list(got) if got else None,
-                     "match": got is not None and all(abs(a - b) < 1e-6 for a, b in zip(got, want))})
+                       ("psdm", "psdm"), ("hvtp", "hvtp"), ("npc_band", "npc"), ("areaid_sc", "areaid")):
+        row(layer, tuple(frame[key]["y"]), gds.yext(layer))
+        row(f"{layer} x", tuple(_x(v, w) for v in frame[key]["x"]), _xext(gds, layer))
     for rail in ("VGND", "VPWR"):
-        want = tuple(frame["rails"][rail]["met1"]["y"])
-        got = [b for b in gds.boxes("met1") if abs(b.bbox().center().y - sum(want) / 2) < 0.3]
-        got = (round(got[0].bbox().bottom, 3), round(got[0].bbox().top, 3)) if got else None
-        rows.append({"layer": f"met1 {rail} rail", "plan_hd_y": list(want), "measured_y": list(got) if got else None,
-                     "match": got == want})
+        for lay in ("met1", "li1"):
+            want = tuple(frame["rails"][rail][lay]["y"])
+            mid = sum(want) / 2
+            got = [b.bbox() for b in gds.boxes(lay) if b.bbox().bottom <= mid <= b.bbox().top]
+            got = (round(got[0].bottom, 3), round(got[0].top, 3)) if got else None
+            if lay == "li1" and got:            # the strip may merge with contacts reaching it
+                got = (max(got[0], want[0]), min(got[1], want[1])) if got[0] <= want[0] and got[1] >= want[1] else got
+            row(f"{lay} {rail} rail", want, got)
     return rows
 
 
@@ -81,19 +97,6 @@ def gate_order(gds: Gds) -> dict:
             "diffusion_breaks": {"n": nseg - 1, "p": pseg - 1}}
 
 
-def pins(gds: Gds) -> list:
-    out = []
-    for name, x, y in gds.labels("li1.label"):
-        band = "npc band" if 0.975 <= y <= 1.345 else ("nmos" if y < 0.975 else "pmos")
-        out.append({"pin": name, "layer": "li1 67/20 (label 67/5)", "x": x, "y": y, "band": band})
-    for name, x, y in gds.labels("met1.pin") + [(t, x, y) for t, x, y in gds.labels("met1.pin")]:
-        pass
-    li = gds.ly.find_layer(*L["met1.pin"])
-    for name in ("VGND", "VPWR"):
-        out.append({"pin": name, "layer": "met1 68/20 rail + li1 strip", "band": "rail"})
-    return out
-
-
 def wiring_layers(gds: Gds) -> dict:
     """li1 inside the cell; met1 only in the two rails."""
     rails = kdb.Region(kdb.Box(-10**6, int(-0.24 / gds.ly.dbu), 10**6, int(0.24 / gds.ly.dbu)))
@@ -105,15 +108,57 @@ def wiring_layers(gds: Gds) -> dict:
 
 
 def frame_xor(a: Gds, b: Gds) -> dict:
-    """XOR of the frame layers when the widths are equal (empty XOR = identical frame)."""
+    """XOR of the frame layers, the met1 rails and the li1 rail strips, when the widths are equal
+    (an empty XOR means an identical frame)."""
     if a.width() != b.width():
-        return {"compared": False, "reason": f"widths differ: {a.width()} vs {b.width()}"}
+        return {"compared": False, "identical": False, "reason": f"widths differ: {a.width()} vs {b.width()}"}
     out = {"compared": True}
-    for layer in FRAME_LAYERS:
-        x = a.region(layer) ^ b.region(layer)
-        out[layer] = round(x.area() * a.ly.dbu ** 2, 6)
-    out["identical"] = all(v == 0 for k, v in out.items() if k in FRAME_LAYERS)
+    for layer in FRAME_LAYERS + ("met1",):
+        out[layer] = round((a.region(layer) ^ b.region(layer)).area() * a.ly.dbu ** 2, 6)
+    u = lambda v: int(round(v / a.ly.dbu))                                # noqa: E731
+    bands = kdb.Region(kdb.Box(u(-1), u(-0.085), u(10), u(0.085))) + kdb.Region(kdb.Box(u(-1), u(2.635), u(10), u(2.805)))
+    out["li1_rails"] = round(((a.region("li1") & bands) ^ (b.region("li1") & bands)).area() * a.ly.dbu ** 2, 6)
+    out["identical"] = all(v == 0 for k, v in out.items() if k not in ("compared",))
     return out
+
+
+def pin_check(gds: Gds, inputs) -> list:
+    """Option 1 handout, Table 2: inputs on li1 over the poly contact in the npc band, Y on li1,
+    VGND/VPWR on the met1 rails, VPB on the n-well at the top edge, VNB at the bottom edge."""
+    errs = []
+    dbu = gds.ly.dbu
+
+    def shapes_at(layer, x, y):
+        p = kdb.Point(int(round(x / dbu)), int(round(y / dbu)))
+        return any(b.inside(p) or b.bbox().contains(p) for b in gds.region(layer).each())
+
+    li = {t: (x, y) for t, x, y in gds.labels("li1.label")}
+    for name in list(inputs) + ["Y"]:
+        if name not in li:
+            errs.append(f"{name}: no li1 label (67/5)")
+            continue
+        x, y = li[name]
+        if not shapes_at("li1", x, y):
+            errs.append(f"{name}: label not on li1")
+        if not shapes_at("li1.pin", x, y):
+            errs.append(f"{name}: no li1 pin shape (67/16) under the label")
+        if name != "Y" and not (0.975 <= y <= 1.345):
+            errs.append(f"{name}: input pin at y={y} is outside the npc band 0.975-1.345")
+        if name != "Y" and not shapes_at("poly", x, y):
+            errs.append(f"{name}: input pin is not over its poly contact")
+    m1 = {t: (x, y) for t, x, y in gds.labels("met1.label")}
+    for name, ry in (("VGND", 0.0), ("VPWR", 2.72)):
+        if name not in m1 or abs(m1[name][1] - ry) > 0.24:
+            errs.append(f"{name}: no met1 label (68/5) on its rail")
+        elif not shapes_at("met1.pin", *m1[name]):
+            errs.append(f"{name}: no met1 pin shape (68/16) on the rail")
+    for name, label, pin, ey in (("VPB", "nwell.label", "nwell.pin", 2.72), ("VNB", "pwell.label", "pwell.pin", 0.0)):
+        hit = [(x, y) for t, x, y in gds.labels(label) if t == name]
+        if not hit or abs(hit[0][1] - ey) > 1e-6:
+            errs.append(f"{name}: no {label} label at the {'top' if ey else 'bottom'} edge")
+        elif not shapes_at(pin, *hit[0]):
+            errs.append(f"{name}: no {pin} shape at its label")
+    return errs
 
 
 SVG_STYLE = [("nwell", "none", "#7a5c00", 0.0), ("diff", "#3fa34d", "#3fa34d", 0.55),

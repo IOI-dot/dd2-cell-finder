@@ -21,3 +21,11 @@ def test_detour_keeps_li_spacing():
 def test_impossible_route_returns_none():
     wall = (0.0, 0.5, 2.0, 0.7)
     assert router.connect([[(0.1, 0.0, 0.27, 0.17)], [(0.1, 1.2, 0.27, 1.37)]], (0.085, 0.085, 1.3, 1.3), [wall]) is None
+
+
+def test_drc_parser_keeps_every_reason():
+    from cellgen import eda
+    log = ("DRC_BBOX 0 0 276 544\nDRC_COUNT 3\nDRC_WHY {Diffusion spacing < 0.27um (diff/tap.3)} {{1 2 3 4}} "
+           "{All nwells must contain metal-connected N+ taps (nwell.4)} {{5 6 7 8}} {Some rule without a tag} {{9 9 9 9}}\n")
+    d = eda.parse_drc(log)
+    assert d["rules"] == sorted(["diff/tap.3", "nwell.4", "Some rule without a tag"]), d

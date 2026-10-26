@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/arlet6502/synth.jsonl.gz",
-    "sha256": "72d961fba24640dbd12a84f3dc9ef06442bd675d49f5878873f842ed183a9589"
+    "sha256": "611c7f8e361208cab6e715d6cf00ed01169525fb25ca429cc1727a82b840450f"
   },
   "header": {
     "A": 3221,
@@ -615,13 +615,13 @@
       "results/m1/aigs/arlet6502/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:19+00:00",
+    "finished": "2026-10-26T22:29:35+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "results/m1/aigs/arlet6502/synth.aig": "6794395313183bce363d94af2d122aa834aab85e21ebd67f95ff7b262f576955"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:17+00:00",
+    "started": "2026-10-26T22:29:34+00:00",
     "status": "pass",
     "tools": {}
   },

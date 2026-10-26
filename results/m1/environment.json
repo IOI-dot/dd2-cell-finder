@@ -1,18 +1,40 @@
 {
-  "checked": "2026-10-26T15:15:46+00:00",
+  "checked": "2026-10-26T22:29:05+00:00",
   "full_hd_lib": {
     "cells": 428,
     "path": "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
     "sha256": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
   },
   "given": "given",
+  "hd_views": {
+    "gds": {
+      "path": "pdk/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds",
+      "present": true,
+      "sha256": "a09b61a8ebc4945962625e16df7a9ab20168eb55b1a9a5dc5ac295c32dc95a65"
+    },
+    "lef": {
+      "path": "pdk/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef",
+      "present": true,
+      "sha256": null
+    },
+    "mag": {
+      "path": "pdk/libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag",
+      "present": true,
+      "sha256": null
+    },
+    "spice": {
+      "path": "pdk/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice",
+      "present": true,
+      "sha256": "7989b31c90fe3d726959ef55943182ed55fbd9f3a9d35fb733a5ebad4178caf4"
+    }
+  },
   "liberty_import": {
     "hd_reduced.lib": 189,
     "hd_usable.lib": 307
   },
   "notes": [
     "OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1",
-    "ngspice stress test runs in the dd2-layout-tools image (Option 1); not checked here"
+    "inside the dd2-flow container: the course image and its ngspice stress test are checked by `make check` on the host"
   ],
   "pdk": "pdk",
   "pdk_version": "ciel dd7771c384ed36b91a25e9f8b314355fc26561be",

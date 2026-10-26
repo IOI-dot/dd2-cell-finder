@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/risc8/synth.jsonl.gz",
-    "sha256": "ca352cb22e187a4b6d6c1af07860c85a886a80de7c499186e79478dfc29051cd"
+    "sha256": "e2bddf795fc1e035763693500402144e042cec52e68c25f6b335f96ba1262394"
   },
   "header": {
     "A": 7750,
@@ -541,13 +541,13 @@
       "results/m1/aigs/risc8/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:25+00:00",
+    "finished": "2026-10-26T22:29:41+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "results/m1/aigs/risc8/synth.aig": "5043149626bea592c0c428d0ae1c5731b8cad4013904dc0a2f263f1cbc8d948d"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:23+00:00",
+    "started": "2026-10-26T22:29:39+00:00",
     "status": "pass",
     "tools": {}
   },

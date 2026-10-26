@@ -21,13 +21,18 @@ SLOT_NS = 2.0
 
 
 def hd_table_point(lib: Path | None = None, slew_target=0.1, load_target=0.01) -> dict:
-    """Index values of HD's inv_1 tables nearest the targets, and HD's thresholds (from the file)."""
+    """The index point of HD inv_1's cell_rise table nearest the targets, with the table's variables
+    and HD's slew thresholds, all read from the Liberty file."""
     text = Path(lib or paths.full_hd_lib()).read_text()
     cell = text[text.index('cell ("sky130_fd_sc_hd__inv_1")'):]
-    i1 = [float(v) for v in re.search(r'index_1\("([^"]+)"\)', cell).group(1).split(",")]
-    i2 = [float(v) for v in re.search(r'index_2\("([^"]+)"\)', cell).group(1).split(",")]
+    m = re.search(r'cell_rise\s*\("([^"]+)"\)\s*\{\s*index_1\("([^"]+)"\);\s*index_2\("([^"]+)"\)', cell)
+    template, i1, i2 = m.group(1), [float(v) for v in m.group(2).split(",")], [float(v) for v in m.group(3).split(",")]
+    tm = re.search(rf'lu_table_template \("{re.escape(template)}"\)\s*\{{\s*variable_1 : "(\w+)";\s*variable_2 : "(\w+)"', text)
+    if tm.group(1) != "input_net_transition" or tm.group(2) != "total_output_net_capacitance":
+        raise ValueError(f"unexpected table variables {tm.groups()} in {template}")
     th = {k: float(v) for k, v in re.findall(r"\n\s*(slew_(?:lower|upper)_threshold_pct_rise)\s*:\s*([\d.]+)", text)}
-    return {"slew_ns": min(i1, key=lambda v: abs(v - slew_target)),
+    return {"table": "cell_rise", "template": template, "variable_1": tm.group(1), "variable_2": tm.group(2),
+            "slew_ns": min(i1, key=lambda v: abs(v - slew_target)),
             "load_pf": min(i2, key=lambda v: abs(v - load_target)),
             "slew_lower_pct": th["slew_lower_threshold_pct_rise"],
             "slew_upper_pct": th["slew_upper_threshold_pct_rise"]}
@@ -160,3 +165,48 @@ def verilog_check(model: Path, cell: str, inputs, tt: int, workdir: Path) -> dic
     errs = [f"row {i}: model gives {got.get(i)}, truth table {(tt >> i) & 1}"
             for i in range(1 << n) if got.get(i) != str((tt >> i) & 1)]
     return {"status": "pass" if not errs else "fail", "errors": errs}
+
+
+def sensitizing(inputs, tt, k: int) -> list:
+    """Side-input rows (input k at 0) for which Y depends on input k."""
+    n = len(inputs)
+    return [r for r in range(1 << n) if not (r >> k) & 1 and ((tt >> r) ^ (tt >> (r | 1 << k))) & 1]
+
+
+def delays(workdir: Path, cell: str, netlist: Path, inputs, tt: int, point: dict | None = None) -> list:
+    """50% delay and 20-80% output transition of every input arc, for both input edges, at the HD
+    table point; every sensitizing side-input assignment is measured (a report, not a Liberty)."""
+    point = point or hd_table_point()
+    ports = subckt_ports(Path(netlist).read_text(), cell)
+    ramp = point["slew_ns"] / ((point["slew_upper_pct"] - point["slew_lower_pct"]) / 100)
+    lo, hi = VDD * point["slew_lower_pct"] / 100, VDD * point["slew_upper_pct"] / 100
+    arcs = []
+    for k, pin in enumerate(inputs):
+        for side in sensitizing(inputs, tt, k):
+            name = f"arc_{pin}_{side}"
+            lines = _header(cell, ports, f"/w/{Path(netlist).name}", point, f"delay {pin} side {side}")
+            for j, other in enumerate(inputs):
+                if j == k:
+                    lines.append(f"V{other} {other} 0 PWL(0 0 1n 0 {1 + ramp:.4f}n {VDD} 4n {VDD} {4 + ramp:.4f}n 0)")
+                else:
+                    lines.append(f"V{other} {other} 0 dc {VDD * (side >> j & 1)}")
+            lines += [".control", "tran 1p 8n",
+                      f"meas tran tin_r WHEN v({pin})={VDD / 2} RISE=1", f"meas tran tin_f WHEN v({pin})={VDD / 2} FALL=1",
+                      f"meas tran ty1 WHEN v(Y)={VDD / 2} CROSS=1", f"meas tran ty2 WHEN v(Y)={VDD / 2} CROSS=2",
+                      f"meas tran a1 WHEN v(Y)={lo} CROSS=1", f"meas tran b1 WHEN v(Y)={hi} CROSS=1",
+                      f"meas tran a2 WHEN v(Y)={lo} CROSS=2", f"meas tran b2 WHEN v(Y)={hi} CROSS=2",
+                      ".endc", ".end"]
+            (Path(workdir) / f"{name}.spice").write_text("\n".join(lines) + "\n")
+            eda.run(workdir, ["ngspice", "-b", f"{name}.spice"], Path(workdir) / f"{name}.log")
+            m = {a: float(b) for a, b in re.findall(r"^(\w+)\s*=\s*([-\d.eE+]+)", (Path(workdir) / f"{name}.log").read_text(), re.M)}
+            out_rise = ((tt >> (side | 1 << k)) & 1) == 1        # Y after the input rises
+            row = {"pin": pin, "side_inputs": side, "input_rise_gives": "rise" if out_rise else "fall"}
+            if all(x in m for x in ("tin_r", "tin_f", "ty1", "ty2", "a1", "b1", "a2", "b2")):
+                row.update(delay_in_rise_ns=round((m["ty1"] - m["tin_r"]) * 1e9, 5),
+                           transition_in_rise_ns=round(abs(m["b1"] - m["a1"]) * 1e9, 5),
+                           delay_in_fall_ns=round((m["ty2"] - m["tin_f"]) * 1e9, 5),
+                           transition_in_fall_ns=round(abs(m["b2"] - m["a2"]) * 1e9, 5))
+            else:
+                row["error"] = f"measurement failed, see {name}.log"
+            arcs.append(row)
+    return arcs

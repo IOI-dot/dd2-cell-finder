@@ -138,3 +138,18 @@ def test_abutment_without_tap_fails(work, tmp_path):
     assert r["errors"] and "nwell.4" in r["rules"]
     ok = eda.parse_drc(eda.magic(tmp_path, eda.drc_script([f"/w/{files['side'][0].name}"], files["side"][1]), "drc_side")[1])
     assert ok["errors"] == 0 and ok["bbox_um"][2] > 3.5        # the real row: cells present, clean
+
+
+def test_abutment_catches_what_a_lone_cell_hides(work, tmp_path):
+    # NMOS diffusion stretched to 0.02 um from the right edge: alone it only fails the tap rules,
+    # but against a mirrored copy of itself the diffusions are 0.04 um apart (difftap.3 is 0.27)
+    _, cell, _ = work
+    right = max(r.box[2] for r in cell.rects if r.layer == "diff")
+    rects = [layout.Rect(r.layer, (r.box[0], r.box[1], cell.width - 0.02, r.box[3]), r.net)
+             if r.layer == "diff" and r.box[2] == right and r.box[3] < 1.0 else r for r in cell.rects]
+    bad = layout.write_gds(layout.Cell(NAME, cell.width, rects, cell.labels), tmp_path / "edge.gds")
+    alone = eda.parse_drc(eda.magic(tmp_path, eda.drc_script(["/w/edge.gds"], NAME), "drc_alone")[1])
+    assert set(alone["rules"]) <= flow.TAP_ONLY, alone
+    files = abut.build(flow.hd_gds(), bad, NAME, cell.width, tmp_path / "fx")
+    fx = eda.parse_drc(eda.magic(tmp_path / "fx", eda.drc_script([f"/w/{files['self'][0].name}"], files["self"][1]), "drc_self")[1])
+    assert fx["errors"] and "diff/tap.3" in fx["rules"], fx

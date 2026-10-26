@@ -77,9 +77,15 @@ def validate_request(req: dict) -> list:
         tt = bf.eval_expr(req["expression"], req["inputs"])
     except ValueError as e:
         return [f"request.expression: {e}"]
+    reserved = {"VGND", "VPWR", "VPB", "VNB"} | {req["output"]}
+    clash = sorted(set(req["inputs"]) & reserved)
+    if clash:
+        errs.append(f"request.inputs: {clash} are reserved names (supplies, bodies or the output)")
     want = bf.to_hex(tt, len(req["inputs"]))
-    if req["truth_table"] != want:
-        errs.append(f"request.truth_table {req['truth_table']} does not match expression ({want})")
+    if int(req["truth_table"], 16) != tt:              # compared as values: case and padding are free
+        rows = [i for i in range(1 << len(req["inputs"])) if (int(req["truth_table"], 16) ^ tt) >> i & 1]
+        errs.append(f"request.truth_table {req['truth_table']} does not match the expression ({want}); "
+                    f"rows that differ: {rows}")
     return errs
 
 

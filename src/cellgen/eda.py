@@ -62,7 +62,12 @@ def drc_script(gds_files, top: str, placements=None) -> str:
 def parse_drc(log: str) -> dict:
     m = re.search(r"DRC_COUNT (\d+)", log)
     why = re.search(r"DRC_WHY (.*)", log)
-    rules = re.findall(r"\(([a-zA-Z0-9_.]+)\)\}", why.group(1)) if why else []
+    # every reason Magic prints, "{text (rule)} {{boxes}}": keep the rule tag, or the whole text if
+    # there is none, so no error can slip past a rule-name filter
+    rules = []
+    for reason in re.findall(r"\{([^{}]+)\}\s*\{\{", why.group(1)) if why else []:
+        tag = re.search(r"\(([^()]+)\)\s*$", reason.strip())
+        rules.append(tag.group(1) if tag else reason.strip())
     bb = re.search(r"DRC_BBOX (-?\d+) (-?\d+) (-?\d+) (-?\d+)", log)
     bbox = [round(int(v) * 0.005, 3) for v in bb.groups()] if bb else None   # Magic internal unit 5 nm
     return {"errors": int(m.group(1)) if m else None, "rules": sorted(set(rules)), "bbox_um": bbox}

@@ -43,7 +43,7 @@
       "read_verilog given/designs/dsp8.v; synth -flatten -top dsp8; tee -q -o build/aigs/dsp8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/dsp8/synth.aig; write_aiger build/aigs/dsp8/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:09+00:00",
+    "finished": "2026-10-26T22:29:27+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "given/designs/dsp8.v": "fa86dedaaeddfd0df04be9dcd0e72ea8e3fa02885fc6c63376442d2f55cd2c5b"
@@ -51,7 +51,7 @@
     "logs": [
       "results/m1/aigs/dsp8/synth.log"
     ],
-    "started": "2026-10-26T15:16:08+00:00",
+    "started": "2026-10-26T22:29:27+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

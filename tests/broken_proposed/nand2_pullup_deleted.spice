@@ -1,0 +1,31 @@
+* Broken case: dd2_ref__nand2_1 RC netlist with the PMOS of input B deleted.
+* NGSPICE file created from dd2_ref__nand2_1.ext - technology: sky130A
+
+.subckt dd2_ref__nand2_1 A B VGND VNB VPB VPWR Y
+X0 VPWR A Y VPB sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15
+X1 Y A a_109_47# VNB sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15
+X3 a_109_47# B VGND VNB sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15
+C0 A VPB 0.03982f
+C1 VGND B 0.0365f
+C2 VPWR VPB 0.05912f
+C3 Y VPB 0.0062f
+C4 VPWR A 0.0346f
+C5 Y A 0.06275f
+C6 VPWR a_109_47# 0
+C7 Y a_109_47# 0.00922f
+C8 VGND VPB 0.00564f
+C9 Y VPWR 0.11655f
+C10 VGND A 0.01541f
+C11 B VPB 0.03662f
+C12 VGND a_109_47# 0.01033f
+C13 VGND VPWR 0.01783f
+C14 A B 0.02548f
+C15 Y VGND 0.05471f
+C16 VPWR B 0.03472f
+C17 Y B 0.03137f
+C18 VGND VNB 0.23228f
+C19 Y VNB 0.1653f
+C20 VPWR VNB 0.34233f
+C21 VPB VNB 0.33898f
+.ends
+

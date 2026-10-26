@@ -3,7 +3,8 @@
 Option 1 handout, section 3.2: "every number in your plan must name the design rule that sets
 it". The frame (bands, rails, implants) is not here: it is read from given/plan_hd.json and never
 changed. Values were checked against Magic's sky130A DRC deck (drc(full)) on the generated cells;
-`make o1-rules` writes this table to results/option1/rules.csv.
+`make o1-rules` writes this table to results/option1/rules.csv. The frame values come from
+plan_hd.json, and Magic drc(full) confirms the result on every generated cell.
 """
 from dataclasses import dataclass
 

@@ -42,3 +42,4 @@ DD2_Project1_student_pack/
 references/
 # Agent run outputs are evidence (Appendix B logs point into runs/); only bulky cut lists are skipped.
 /runs/*/cuts_full/
+/runs/*/work/

@@ -19,10 +19,12 @@ only Linux Yosys 0.33 reproduces the handout's Table 1 exactly (research D-2).
     make m1-docker    # the M1 flow inside dd2-flow: writes results/m1 (about 1 minute)
     make test         # host test suite; make test-docker runs it inside dd2-flow
 
-Without Docker, `make all` runs the same flow with the host Yosys.
+`make all` runs the Option 2 flow inside `dd2-flow` when that image exists (otherwise on the host
+Yosys, and Table 1 is then labelled NOT REPRODUCED), then `o1-rules` and `o1-m1`, which need Docker
+with the course image. On the verification run of a clean clone (2026-10-27): setup 40 s (new venv
+with GDSfactory), check about 1 s, test 77 s, m1-docker 54 s, o1-m1 55 s.
 
-Timings were measured by the independent verification run on a fresh clone of a9e925a, on an
-Apple-silicon laptop (2026-10-26): setup 0.8 s, check 0.4 s, test 18.2 s, all 39.4 s. Any
+Any
 Python >= 3.11 works; uv picks the newest one installed, and `results/m1/environment.json` records
 which one was used.
 
@@ -61,9 +63,11 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | `make m1-redundancy` | full HD Liberty | `results/m1/redundancy/{self_test,four_input_counts}.json` |
 | `make m1-summary` | the records above | `results/m1/summary.md` and section 6 of this file |
 | `make o1-image` | the student pack's `container/` | the course image `dd2-layout-tools` (Magic, Netgen, fixed ngspice) |
+| `make o1-rules` | `src/cellgen/rules.py` | `results/option1/rules.csv`: every layout number with its design rule |
 | `make o1-m1` | installed HD cells, `plan_hd.json` | `cells/dd2_ref__{inv_1,nand2_1}/` (GDS, schematic, extracted and RC netlists, Verilog, report, comparison SVG) and `results/option1/m1/` |
 | `make agent-check` | cpu8 | `ai/runs/<run>.jsonl`, `ai/runs/<run>.checks.json`; tool outputs in `runs/<run>/` |
 | `make demo IN=<design.v> [TOP=<top>] [SV=1]` | any Verilog design | `build/demo/<name>/` (never touches `results/`) |
+| `make demo IN=<request.json>` | an Appendix A request | `build/demo/cells/<name>/`, including `response.json` |
 | `make clean` | | removes `build/` |
 | `.venv/bin/python -m dd2 cutcheck --aig A --cuts F` | an AIG and cut records | exit 1 if any stored truth table is wrong |
 | `.venv/bin/python -m dd2 classify --tt 0x077F --arity 4` | a truth table | its redundancy class and HD witness |
@@ -96,7 +100,7 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | Cut enumerator passing its check: 423381 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
 | Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-04.checks.json` | pass |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1027-02.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):
@@ -199,6 +203,12 @@ AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report
 - The agent layer has no model yet: tools, policy and logs are exercised by a scripted run.
 - Option 1 at cp1 builds single-stage cells only, with one finger per row (HD sizing). Multi-stage
   cells, stack sizing, RC-LVS, the characterizer, Liberty and the round trip are cp2/cp3 work.
+- The li1 router handles inv_1 and nand2_1; wide single stages with repeated inputs (such as the
+  Appendix A example maj4n) do not route yet, so `make demo IN=docs/interface/request_example.json`
+  returns a `fail` response that names the failed checks (cp2 work).
+- The PDK's HD library had lost its gds, spice, cdl, lef, mag and maglef views. They were restored
+  from the identical ciel release (all 894 files byte-identical to it); `make check` now requires
+  them. A group member should confirm this with ciel.
 - The installed nor2_1 and a21oi_1 put a different input next to Y in their series stacks than
   the generator's convention; reference regeneration at cp2 must follow the installed order.
 - The course image reports Netgen 1.5.132 although the student-pack recipe checks out tag 1.5.133.

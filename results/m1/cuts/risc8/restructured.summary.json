@@ -17,7 +17,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/risc8/restructured.jsonl.gz",
-    "sha256": "aef65e3d51a29972ece2f46c27d3bb7f9dfb21358b905c1cb4fc71927e2e21c5"
+    "sha256": "1354c969890e93d93e88a873daaaa6020aaa328d2fb0e0fa9b112233b8b3f9a1"
   },
   "header": {
     "A": 6598,
@@ -488,13 +488,13 @@
       "results/m1/aigs/risc8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:27+00:00",
+    "finished": "2026-10-26T22:29:43+00:00",
     "host": "Linux aarch64",
     "inputs": {
-      "results/m1/aigs/risc8/restructured.aig": "094e565aedf7b0f9a1ff2050f83f2690027c5877da21a4701abc52110fcadfb0"
+      "results/m1/aigs/risc8/restructured.aig": "00d609e7445faab7bbe5ca338b568e9a5a5f8fe01e8dcd036d220e93ba89c994"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:25+00:00",
+    "started": "2026-10-26T22:29:41+00:00",
     "status": "pass",
     "tools": {}
   },

@@ -17,7 +17,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/dsp8/restructured.jsonl.gz",
-    "sha256": "fdfff6f2c19477f735124cb2b6582eb2bf620e8a454544c85c7852463fdabe67"
+    "sha256": "1855326b08183c1cb3b13592aa4426ea5453c90b993e370b22e6e59dc0e44b9e"
   },
   "header": {
     "A": 1533,
@@ -540,13 +540,13 @@
       "results/m1/aigs/dsp8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:17+00:00",
+    "finished": "2026-10-26T22:29:34+00:00",
     "host": "Linux aarch64",
     "inputs": {
-      "results/m1/aigs/dsp8/restructured.aig": "c13839b0727b8d63e1ac21ee1029b07bdfd150bbb404a878caf1db08a95dfcc1"
+      "results/m1/aigs/dsp8/restructured.aig": "2c2252d2754f1ab14398767763a43a774472fa8cd4ce3733812e8db04c8584f3"
     },
     "logs": [],
-    "started": "2026-10-26T15:16:17+00:00",
+    "started": "2026-10-26T22:29:34+00:00",
     "status": "pass",
     "tools": {}
   },

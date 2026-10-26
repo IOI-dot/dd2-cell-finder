@@ -11,7 +11,7 @@
                "items": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"}},
     "output": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"},
     "expression": {"type": "string", "pattern": "^[A-Za-z0-9_!&|^() ]+$"},
-    "truth_table": {"type": "string", "pattern": "^0x[0-9A-F]+$"},
+    "truth_table": {"type": "string", "pattern": "^0x[0-9A-Fa-f]+$"},
     "sizing": {"enum": ["hd", "stack"]},
     "estimated_area_um2": {"type": "number", "exclusiveMinimum": 0}
   }

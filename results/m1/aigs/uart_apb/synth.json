@@ -43,7 +43,7 @@
       "read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/uart_apb/synth.aig; write_aiger build/aigs/uart_apb/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:11+00:00",
+    "finished": "2026-10-26T22:29:29+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14"
@@ -51,7 +51,7 @@
     "logs": [
       "results/m1/aigs/uart_apb/synth.log"
     ],
-    "started": "2026-10-26T15:16:10+00:00",
+    "started": "2026-10-26T22:29:28+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

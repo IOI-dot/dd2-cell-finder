@@ -1,4 +1,4 @@
 $ yosys-abc -c cec results/m1/aigs/cpu8/synth.aig results/m1/aigs/cpu8/restructured.aig
 ABC command line: "cec results/m1/aigs/cpu8/synth.aig results/m1/aigs/cpu8/restructured.aig".
 
-Networks are equivalent.  Time =     0.10 sec
+Networks are equivalent.  Time =     0.09 sec

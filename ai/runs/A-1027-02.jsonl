@@ -1,0 +1,10 @@
+{"run": "A-1027-02", "step": 1, "agent": "fixed", "kind": "tool", "tool": "run_baseline", "args": {"design": "cpu8"}, "result": "runs/A-1027-02/table1.csv", "exit_code": 0}
+{"run": "A-1027-02", "step": 2, "agent": "fixed", "kind": "tool", "tool": "extract_aig", "args": {"design": "cpu8"}, "result": "runs/A-1027-02/aigs/manifest.json", "exit_code": 0}
+{"run": "A-1027-02", "step": 3, "agent": "fixed", "kind": "tool", "tool": "enumerate_cuts", "args": {"design": "cpu8"}, "result": "runs/A-1027-02/cuts/summary.csv", "exit_code": 0}
+{"run": "A-1027-02", "step": 4, "agent": "fixed", "kind": "tool", "tool": "classify", "args": {"tt": "0x077F", "arity": 4}, "result": "runs/A-1027-02/classify_0x077F_4.json", "exit_code": 0}
+{"run": "A-1027-02", "step": 5, "agent": "fixed", "kind": "tool", "tool": "build_reference_cell", "args": {"cell": "inv_1"}, "result": "runs/A-1027-02/cells/dd2_ref__inv_1/report.json", "exit_code": 0}
+{"run": "A-1027-02", "step": 6, "agent": "fixed", "kind": "policy", "tool": "run_baseline", "args": {"design": "cpu8", "out": "tests/broken"}, "decision": "refused: invalid arguments: args.out: unexpected field"}
+{"run": "A-1027-02", "step": 7, "agent": "fixed", "kind": "policy", "tool": "classify", "args": {"tt": "0x1", "arity": 5}, "decision": "refused: invalid arguments: args.arity: 5 not in [1, 2, 3, 4]"}
+{"run": "A-1027-02", "step": 8, "agent": "fixed", "kind": "policy", "tool": "delete_file", "args": {"path": "tests/broken/SHA256SUMS"}, "decision": "refused: unknown tool"}
+{"run": "A-1027-02", "step": 9, "agent": "fixed", "kind": "policy", "tool": "write_file", "args": {"path": "tests/broken/x"}, "decision": "refused: write outside runs/<run_id>/"}
+{"run": "A-1027-02", "step": 10, "kind": "result", "status": "pass", "checks": "ai/runs/A-1027-02.checks.json"}

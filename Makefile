@@ -1,4 +1,4 @@
-# DD2 Project 1, Option 3. Active scope: Option 2 Milestone 1 (cp1).
+# DD2 Project 1, Option 3. Milestone 1 of both options (cp1); Milestone 2 next.
 # The required targets (overview 5.1): setup check test all demo clean.
 
 PDK_ROOT ?= $(HOME)/.ciel
@@ -20,7 +20,7 @@ DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONT
 	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
 	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
 
-.PHONY: o1-m1 o1-image setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+.PHONY: o1-rules o1-m1 o1-image setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
 
 setup:            ## links to the PDK and the given files (never copies), and the Python env
 	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
@@ -40,7 +40,12 @@ test:             ## every test, including the broken cases in tests/broken/
 	cd tests/broken && shasum -a 256 -c SHA256SUMS --quiet
 	DD2_YOSYS="$(YOSYS)" $(PY) -m pytest -q
 
-all: m1 o1-m1     ## the whole flow implemented so far (Option 2 M1 and Option 1 M1)
+# The Option 2 evidence is made in dd2-flow (Linux Yosys 0.33) when that image exists; otherwise the
+# host Yosys runs it and Table 1 is labelled NOT REPRODUCED.
+FLOW_M1 := $(if $(shell docker image inspect dd2-flow >/dev/null 2>&1 && echo yes),m1-docker,m1)
+
+all:              ## the whole flow implemented so far (Option 2 M1 and Option 1 M1)
+	$(MAKE) $(FLOW_M1) o1-rules o1-m1
 
 m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
 
@@ -71,6 +76,9 @@ agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged r
 o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
 	docker build -t dd2-layout-tools "$(realpath given)/../container"
 
+o1-rules:         ## the design-rule table behind the layout numbers -> results/option1/rules.csv
+	PYTHONPATH=src $(PY) -m cellgen.rules_table
+
 o1-m1:            ## Option 1 M1: frame check, inv_1 and nand2_1 regenerated and verified, request reader, network check
 	PYTHONPATH=src $(PY) -m cellgen.m1
 
@@ -83,9 +91,12 @@ m1-docker:        ## the M1 flow inside dd2-flow: the evidence in results/m1 is 
 test-docker:      ## the test suite inside dd2-flow
 	$(DOCKER_FLOW) sh -c "cd tests/broken && sha256sum -c SHA256SUMS --quiet && cd ../.. && python3 -m pytest -q -p no:cacheprovider"
 
-demo:             ## what the interview runs: make demo IN=<design.v> [TOP=<top>] [SV=1]
-	@test -n "$(IN)" || (echo "usage: make demo IN=<design.v> [TOP=<top>] [SV=1]" && exit 2)
-	$(DD2) demo "$(IN)" $(if $(TOP),--top $(TOP)) $(if $(SV),--sv)
+demo:             ## what the interview runs: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]
+	@test -n "$(IN)" || (echo "usage: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]" && exit 2)
+	@case "$(IN)" in \
+	  *.json) PYTHONPATH=src $(PY) -m cellgen request "$(IN)" --out build/demo/cells --work build/demo/work ;; \
+	  *) $(DD2) demo "$(IN)" $(if $(TOP),--top $(TOP)) $(if $(SV),--sv) ;; \
+	esac
 
 clean:
 	rm -rf build

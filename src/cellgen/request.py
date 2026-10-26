@@ -19,9 +19,12 @@ class Request:
 
 def parse(data: dict) -> Request:
     inputs = data.get("inputs") or []
-    if len(inputs) > 4 or isinstance(data.get("output"), list):
-        return Request("unsupported", f"{len(inputs)} inputs: the generator takes at most 4 inputs "
-                       "and one output", inputs, data=data)
+    if isinstance(data.get("output"), list) and len(data["output"]) != 1:
+        return Request("unsupported", f"{len(data['output'])} outputs: the generator builds cells with "
+                       "one output", inputs, data=data)
+    if len(inputs) > 4:
+        return Request("unsupported", f"{len(inputs)} inputs: the generator takes at most 4 inputs",
+                       inputs, data=data)
     errs = interface.validate_request(data)
     if errs:
         return Request("fail", "; ".join(errs), inputs, data=data)

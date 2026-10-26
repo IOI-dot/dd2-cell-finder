@@ -90,10 +90,12 @@ quoted handout rule. Spike scripts and their raw output are in [`research/`](res
   **Resolved with Yosys 0.33 (2026-10-26)**: `write_aiger -zinit` gives exactly the handout's Table 2 AND
   counts on all six designs (1265, 1973, 3221, 4673, 7750, 8795), so the handout wrote its AIGs with
   `-zinit`. The synth AIG now uses `-zinit` (one extra initialisation latch); the plain AIG's header is
-  recorded beside it. Earlier measurement on 0.70: plain `write_aiger` gives latches = flip-flops after `synth` on all six
+  recorded beside it. Note for M2: `-zinit` adds exactly 3 ANDs per flip-flop (initial-value muxes:
+  1265 - 1019 = 3 x 82 on cpu8), which add mux-like cuts; candidate ranking should discount cuts rooted in
+  that logic or rank on the plain AIG as well. Earlier measurement on 0.70: plain `write_aiger` gives latches = flip-flops after `synth` on all six
   designs (82, 72, 143, 330, 696, 176), the same as the handout's flip-flop column. `-zinit` adds one input
-  and initialisation logic per flip-flop, plus one extra latch. So the flow uses plain `write_aiger` and
-  records the `-zinit` AND count in `results/m1/aigs/compare.csv`. The `-zinit` AND counts (1178 … 8745) sit
+  and initialisation logic per flip-flop, plus one extra latch. That plain-AIG
+  decision was later reversed (see the resolution above): the synth AIG uses `-zinit`. The `-zinit` AND counts (1178 … 8745) sit
   much closer to the handout's AND column (1265 … 8795) than the plain ones (932 … 8217), which suggests the
   handout counted with `-zinit` on Yosys 0.33. This is reported, not hidden.
 - **Finding**: `strash; dch` leaves **323 choice nodes** in the AIG (cpu8: 2131 ANDs "with choices"),

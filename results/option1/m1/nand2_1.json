@@ -7,7 +7,7 @@
         "flip": {
           "bbox_um": [
             -0.19,
-            -0.24,
+            -2.96,
             3.87,
             5.68
           ],
@@ -47,6 +47,10 @@
       },
       "status": "pass"
     },
+    "comparison": {
+      "rule": "Table 4 'must match' rows: frame, transistors, pins, wiring layers, abutment",
+      "status": "pass"
+    },
     "drc": {
       "errors": 0,
       "status": "pass",
@@ -66,6 +70,227 @@
         "LU.2",
         "LU.3",
         "nwell.4"
+      ],
+      "status": "pass"
+    },
+    "frame": {
+      "rows": [
+        {
+          "layer": "boundary",
+          "match": true,
+          "measured": [
+            0.0,
+            2.72
+          ],
+          "plan_hd": [
+            0.0,
+            2.72
+          ]
+        },
+        {
+          "layer": "boundary x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "nwell",
+          "match": true,
+          "measured": [
+            1.305,
+            2.91
+          ],
+          "plan_hd": [
+            1.305,
+            2.91
+          ]
+        },
+        {
+          "layer": "nwell x",
+          "match": true,
+          "measured": [
+            -0.19,
+            1.57
+          ],
+          "plan_hd": [
+            -0.19,
+            1.5699999999999998
+          ]
+        },
+        {
+          "layer": "nsdm",
+          "match": true,
+          "measured": [
+            -0.19,
+            1.015
+          ],
+          "plan_hd": [
+            -0.19,
+            1.015
+          ]
+        },
+        {
+          "layer": "nsdm x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "psdm",
+          "match": true,
+          "measured": [
+            1.355,
+            2.91
+          ],
+          "plan_hd": [
+            1.355,
+            2.91
+          ]
+        },
+        {
+          "layer": "psdm x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "hvtp",
+          "match": true,
+          "measured": [
+            1.25,
+            2.72
+          ],
+          "plan_hd": [
+            1.25,
+            2.72
+          ]
+        },
+        {
+          "layer": "hvtp x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "npc",
+          "match": true,
+          "measured": [
+            0.975,
+            1.345
+          ],
+          "plan_hd": [
+            0.975,
+            1.345
+          ]
+        },
+        {
+          "layer": "npc x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "areaid",
+          "match": true,
+          "measured": [
+            0.0,
+            2.72
+          ],
+          "plan_hd": [
+            0.0,
+            2.72
+          ]
+        },
+        {
+          "layer": "areaid x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.38
+          ],
+          "plan_hd": [
+            0.0,
+            1.38
+          ]
+        },
+        {
+          "layer": "met1 VGND rail",
+          "match": true,
+          "measured": [
+            -0.24,
+            0.24
+          ],
+          "plan_hd": [
+            -0.24,
+            0.24
+          ]
+        },
+        {
+          "layer": "li1 VGND rail",
+          "match": true,
+          "measured": [
+            -0.085,
+            0.085
+          ],
+          "plan_hd": [
+            -0.085,
+            0.085
+          ]
+        },
+        {
+          "layer": "met1 VPWR rail",
+          "match": true,
+          "measured": [
+            2.48,
+            2.96
+          ],
+          "plan_hd": [
+            2.48,
+            2.96
+          ]
+        },
+        {
+          "layer": "li1 VPWR rail",
+          "match": true,
+          "measured": [
+            2.635,
+            2.805
+          ],
+          "plan_hd": [
+            2.635,
+            2.805
+          ]
+        }
       ],
       "status": "pass"
     },
@@ -117,6 +342,10 @@
       },
       "status": "pass"
     },
+    "pins": {
+      "errors": [],
+      "status": "pass"
+    },
     "spice": {
       "dc_volts": {
         "0": 1.8,
@@ -133,25 +362,43 @@
         "tran.txt"
       ],
       "point": {
-        "load_pf": 0.009520618,
+        "load_pf": 0.00952062,
         "slew_lower_pct": 20.0,
-        "slew_ns": 0.1224745,
-        "slew_upper_pct": 80.0
+        "slew_ns": 0.122474,
+        "slew_upper_pct": 80.0,
+        "table": "cell_rise",
+        "template": "del_1_7_7",
+        "variable_1": "input_net_transition",
+        "variable_2": "total_output_net_capacitance"
       },
       "slots": 16,
+      "status": "pass"
+    },
+    "wiring_layers": {
+      "li1_present": true,
+      "met1_outside_rails_um2": 0.0,
+      "ok": true,
       "status": "pass"
     }
   },
   "comparison": {
-    "frame_xor_um2": {
-      "areaid": 0.0,
-      "boundary": 0.0,
-      "compared": true,
-      "hvtp": 0.0,
-      "identical": true,
-      "nsdm": 0.0,
-      "nwell": 0.0,
-      "psdm": 0.0
+    "abutment": {
+      "errors": 0
+    },
+    "frame": {
+      "verdict": "match",
+      "xor_um2": {
+        "areaid": 0.0,
+        "boundary": 0.0,
+        "compared": true,
+        "hvtp": 0.0,
+        "identical": true,
+        "li1_rails": 0.0,
+        "met1": 0.0,
+        "nsdm": 0.0,
+        "nwell": 0.0,
+        "psdm": 0.0
+      }
     },
     "gate_order": {
       "installed": {
@@ -202,6 +449,8 @@
           "Y": 0.42931,
           "a_113_47#": 0.06771
         },
+        "note": "Magic extresist (tolerance 10) keeps no resistor in a cell this small",
+        "r_ohm_total": 0,
         "resistors": 0
       },
       "ours": {
@@ -215,6 +464,8 @@
           "Y": 0.4461,
           "a_109_47#": 0.01955
         },
+        "note": "Magic extresist (tolerance 10) keeps no resistor in a cell this small",
+        "r_ohm_total": 0,
         "resistors": 0
       }
     },
@@ -246,6 +497,7 @@
           1.19
         ]
       ],
+      "installed_errors": [],
       "ours": [
         [
           "B",
@@ -267,10 +519,65 @@
           0.68,
           1.98
         ]
-      ]
+      ],
+      "ours_errors": []
     },
-    "timing": "pending: the characterizer is a cp2 deliverable (handout Table 7)",
-    "transistors_lvs_with_wl": "match",
+    "timing": {
+      "installed": [
+        {
+          "delay_in_fall_ns": 0.13846,
+          "delay_in_rise_ns": 0.09789,
+          "input_rise_gives": "fall",
+          "pin": "A",
+          "side_inputs": 2,
+          "transition_in_fall_ns": 0.10461,
+          "transition_in_rise_ns": 0.07472
+        },
+        {
+          "delay_in_fall_ns": 0.14737,
+          "delay_in_rise_ns": 0.09794,
+          "input_rise_gives": "fall",
+          "pin": "B",
+          "side_inputs": 1,
+          "transition_in_fall_ns": 0.11137,
+          "transition_in_rise_ns": 0.07112
+        }
+      ],
+      "method": "ngspice on both RC-extracted cells, 50% delay and 20-80% transition; the calibrated characterizer is cp2 work",
+      "ours": [
+        {
+          "delay_in_fall_ns": 0.13858,
+          "delay_in_rise_ns": 0.09799,
+          "input_rise_gives": "fall",
+          "pin": "A",
+          "side_inputs": 2,
+          "transition_in_fall_ns": 0.10475,
+          "transition_in_rise_ns": 0.07479
+        },
+        {
+          "delay_in_fall_ns": 0.14716,
+          "delay_in_rise_ns": 0.09774,
+          "input_rise_gives": "fall",
+          "pin": "B",
+          "side_inputs": 1,
+          "transition_in_fall_ns": 0.11131,
+          "transition_in_rise_ns": 0.07125
+        }
+      ],
+      "point": {
+        "load_pf": 0.00952062,
+        "slew_lower_pct": 20.0,
+        "slew_ns": 0.122474,
+        "slew_upper_pct": 80.0,
+        "table": "cell_rise",
+        "template": "del_1_7_7",
+        "variable_1": "input_net_transition",
+        "variable_2": "total_output_net_capacitance"
+      }
+    },
+    "transistors": {
+      "lvs_with_wl": "match"
+    },
     "width_sites": {
       "installed": 3,
       "ours": 3
@@ -351,6 +658,24 @@
     "width_sites": 3,
     "width_um": 1.38
   },
+  "reference": {
+    "function": "(!A) | (!B)",
+    "inputs": [
+      "A",
+      "B"
+    ],
+    "pins_from": "PDK SPICE netlist (checked against the Liberty file)",
+    "sizes": {
+      "n": [
+        0.65
+      ],
+      "p": [
+        1.0
+      ]
+    },
+    "wn": 0.65,
+    "wp": 1.0
+  },
   "run": {
     "argv": [
       "cellgen",
@@ -358,13 +683,24 @@
       "dd2_ref__nand2_1"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T21:57:36+00:00",
+    "finished": "2026-10-26T22:31:19+00:00",
     "host": "Darwin arm64",
     "inputs": {},
     "logs": [],
-    "started": "2026-10-26T21:57:10+00:00",
+    "started": "2026-10-26T22:30:34+00:00",
     "status": "pass",
-    "tools": {}
+    "tools": {
+      "course_image": {
+        "magic": "8.3.684.684",
+        "netgen": "Netgen 1.5.132",
+        "ngspice": "ngspice-47",
+        "ngspice_sha256": "84156e92d757d1e39b8dc458da24eeeb196fea9ada5f75531de1f7c64aed7b6c",
+        "status": "pass",
+        "stress_test": "pass"
+      },
+      "gdsfactory": "9.51.0",
+      "klayout": "0.30.12"
+    }
   },
   "sizing": {
     "l_um": 0.15,

@@ -3,7 +3,7 @@ project:
   name: DD2 Cell Finder
   course: CSCE 3304 Digital Design II - Fall 2026
   option: Option 3
-  active_scope: Option 2 Milestone 1
+  active_scope: Milestone 1 of both options done; Milestone 2 next
   delivery_mode: local-first, agentic CLI
 
 governance:

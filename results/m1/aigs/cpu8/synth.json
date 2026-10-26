@@ -43,7 +43,7 @@
       "read_verilog given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/cpu8/synth.aig; write_aiger build/aigs/cpu8/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:08+00:00",
+    "finished": "2026-10-26T22:29:26+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050"
@@ -51,7 +51,7 @@
     "logs": [
       "results/m1/aigs/cpu8/synth.log"
     ],
-    "started": "2026-10-26T15:16:08+00:00",
+    "started": "2026-10-26T22:29:26+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

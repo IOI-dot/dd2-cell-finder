@@ -308,7 +308,10 @@ def write_gds(cell: Cell, path: Path) -> Path:
     for layer, text, x, y in cell.labels:
         c.add_label(text, position=(x, y), layer=LAYERS[layer])
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    c.write_gds(str(path))
+    import klayout.db as kdb
+    opts = kdb.SaveLayoutOptions()
+    opts.write_context_info = False        # no $$$CONTEXT_INFO$$$ cell: Magic reads the file cleanly
+    c.write_gds(str(path), save_options=opts, with_metadata=False)
     c.delete()                             # free the name in gdsfactory's process-wide registry
     return Path(path)
 

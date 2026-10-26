@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/risc8/restructured.aig",
-  "aig_sha256": "094e565aedf7b0f9a1ff2050f83f2690027c5877da21a4701abc52110fcadfb0",
+  "aig_sha256": "00d609e7445faab7bbe5ca338b568e9a5a5f8fe01e8dcd036d220e93ba89c994",
   "commands": [
     "read results/m1/aigs/risc8/synth.aig",
     "strash",
@@ -31,7 +31,7 @@
       "read results/m1/aigs/risc8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/risc8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:13+00:00",
+    "finished": "2026-10-26T22:29:31+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "results/m1/aigs/risc8/synth.aig": "5043149626bea592c0c428d0ae1c5731b8cad4013904dc0a2f263f1cbc8d948d"
@@ -40,7 +40,7 @@
       "results/m1/aigs/risc8/restructured.log",
       "results/m1/aigs/risc8/cec.log"
     ],
-    "started": "2026-10-26T15:16:12+00:00",
+    "started": "2026-10-26T22:29:30+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"

@@ -43,7 +43,7 @@
       "read_verilog given/designs/risc8.v; synth -flatten -top cpu; tee -q -o build/aigs/risc8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/risc8/synth.aig; write_aiger build/aigs/risc8/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T15:16:12+00:00",
+    "finished": "2026-10-26T22:29:30+00:00",
     "host": "Linux aarch64",
     "inputs": {
       "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c"
@@ -51,7 +51,7 @@
     "logs": [
       "results/m1/aigs/risc8/synth.log"
     ],
-    "started": "2026-10-26T15:16:11+00:00",
+    "started": "2026-10-26T22:29:29+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

@@ -121,6 +121,7 @@ Planned only. The Option 1 handout and the Option 1 owners own the detail. It is
 - [x] T049 [US3] (built: `make o1-image`; the stress test runs in `make check`) Build `dd2-layout-tools` from `../DD2_Project1_student_pack/container/` unchanged, and add the stress test to `make check`.
 - [x] T050 [US3] (built as `src/cellgen/request.py`, using dd2.interface) Request reader in `src/cellgen/request.py`, reusing `dd2.boolfn` through its public functions only; refuse more than 4 inputs, or a mismatched table.
 - [ ] T051 [US3] (cp1 part done: inv_1 and nand2_1, `make o1-m1`; the six references and characterizer are cp2) Regenerate inv_1 and nand2_1 at 2.72 µm with every check (Option 1 cp1), then the six reference cells and the characterizer validation (cp2).
+- [ ] T051b [US3] Route wide single stages with repeated inputs (maj4n, a22oi with 4 gates and up): a second li1 track and short met1 jumps where li1 cannot, with every metal switch via-checked; the Appendix A example must build.
 - [ ] T052 [US3] Response writer in `src/cellgen/response.py`, which validates against `docs/interface/response.schema.json`.
 
 ---
