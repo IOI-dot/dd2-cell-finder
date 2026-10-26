@@ -1,0 +1,14 @@
+{
+  "about": "Broken case for the cut check (Option 2 handout 9.1): a real 4-leaf cut of cpu8 (synth AIG, Yosys 0.70) with truth-table bit 5 flipped. The cut check must reject it. Do not edit (AGENTS.md).",
+  "aig": "tests/broken/wrong_truth_table.aig",
+  "root": 96,
+  "leaves": [
+    15,
+    27,
+    28,
+    93
+  ],
+  "tt": "0x1575",
+  "flipped_bit": 5,
+  "correct_tt": "0x1555"
+}

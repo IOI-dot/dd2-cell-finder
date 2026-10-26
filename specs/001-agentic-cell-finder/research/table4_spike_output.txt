@@ -1,0 +1,17 @@
+single-output combinational HD cells: 323
+P-classes depending on all 4 inputs: 3904
+Counter({'New': 3822, 'Contained': 38, 'Exists': 24, 'Exists with an inverter': 20})
+HD self-test failures: 0
+New one-stage: 9
+New one-stage <=3 series <=12T: 6
+read-once <=3 series: 8 Counter({'Exists': 6, 'Contained': 2})
+--- the 9 new one-stage classes: (literals, n_series, p_series) Pareto points ---
+Y=0x0017  minLits=6  minLit-forms=[(6, 2, 4), (6, 3, 3)]  pareto=[(6, 2, 4), (6, 3, 3)]
+Y=0x0117  minLits=8  minLit-forms=[(8, 2, 4), (8, 4, 3)]  pareto=[(8, 2, 4), (8, 4, 3)]
+Y=0x011F  minLits=6  minLit-forms=[(6, 2, 3)]  pareto=[(6, 2, 3)]
+Y=0x013F  minLits=6  minLit-forms=[(6, 2, 4), (6, 3, 3)]  pareto=[(6, 2, 4), (6, 3, 3)]
+Y=0x017F  minLits=7  minLit-forms=[(7, 3, 4), (7, 4, 3)]  pareto=[(7, 3, 4), (7, 4, 3)]
+Y=0x037F  minLits=6  minLit-forms=[(6, 3, 3), (6, 4, 2)]  pareto=[(6, 3, 3), (6, 4, 2)]
+Y=0x077F  minLits=6  minLit-forms=[(6, 3, 2)]  pareto=[(6, 3, 2)]
+Y=0x177F  minLits=8  minLit-forms=[(8, 3, 4), (8, 4, 2)]  pareto=[(8, 3, 4), (8, 4, 2)]
+Y=0x17FF  minLits=6  minLit-forms=[(6, 3, 3), (6, 4, 2)]  pareto=[(6, 3, 3), (6, 4, 2)]

@@ -1,0 +1,44 @@
+{
+  "aig_path": "results/m1/aigs/risc8/restructured.aig",
+  "aig_sha256": "a7167dd53c9561b042b3be335d41f2fbe4e2f5caa0b52e3706c34b58e5b0cbbc",
+  "commands": [
+    "read /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth.aig",
+    "strash",
+    "dch -f",
+    "strash",
+    "print_stats",
+    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/restructured.aig"
+  ],
+  "design": "risc8",
+  "has_choices": false,
+  "header": {
+    "A": 4875,
+    "I": 30,
+    "L": 696,
+    "M": 5601,
+    "O": 0
+  },
+  "levels": 45,
+  "run": {
+    "argv": [
+      "yosys-abc",
+      "-c",
+      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/restructured.aig"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:37:00+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "results/m1/aigs/risc8/synth.aig": "65b40c08b878e0686cdac34f3996239ae634c9eedb59504b8f0e1e60c7a68934"
+    },
+    "logs": [
+      "results/m1/aigs/risc8/restructured.log"
+    ],
+    "started": "2026-10-26T10:37:00+00:00",
+    "status": "pass",
+    "tools": {
+      "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "variant": "restructured"
+}

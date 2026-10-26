@@ -1,0 +1,79 @@
+{
+  "area_um2": 27764.128,
+  "cell_counts": {
+    "sky130_fd_sc_hd__a2111oi_0": 13,
+    "sky130_fd_sc_hd__a211o_1": 1,
+    "sky130_fd_sc_hd__a211oi_1": 9,
+    "sky130_fd_sc_hd__a21boi_0": 2,
+    "sky130_fd_sc_hd__a21o_1": 2,
+    "sky130_fd_sc_hd__a21oi_1": 157,
+    "sky130_fd_sc_hd__a221o_1": 16,
+    "sky130_fd_sc_hd__a221oi_1": 43,
+    "sky130_fd_sc_hd__a222oi_1": 36,
+    "sky130_fd_sc_hd__a22o_1": 15,
+    "sky130_fd_sc_hd__a22oi_1": 213,
+    "sky130_fd_sc_hd__a311o_1": 1,
+    "sky130_fd_sc_hd__a31oi_1": 10,
+    "sky130_fd_sc_hd__a32o_1": 5,
+    "sky130_fd_sc_hd__a32oi_1": 17,
+    "sky130_fd_sc_hd__a41o_1": 2,
+    "sky130_fd_sc_hd__and2_1": 3,
+    "sky130_fd_sc_hd__and3_1": 10,
+    "sky130_fd_sc_hd__buf_1": 16,
+    "sky130_fd_sc_hd__dfxtp_1": 696,
+    "sky130_fd_sc_hd__inv_1": 223,
+    "sky130_fd_sc_hd__nand2_1": 741,
+    "sky130_fd_sc_hd__nand2b_1": 2,
+    "sky130_fd_sc_hd__nand3_1": 50,
+    "sky130_fd_sc_hd__nand4_1": 14,
+    "sky130_fd_sc_hd__nand4b_1": 1,
+    "sky130_fd_sc_hd__nor2_1": 105,
+    "sky130_fd_sc_hd__nor2b_1": 14,
+    "sky130_fd_sc_hd__nor3_1": 42,
+    "sky130_fd_sc_hd__nor3b_1": 2,
+    "sky130_fd_sc_hd__nor4_1": 11,
+    "sky130_fd_sc_hd__nor4b_1": 1,
+    "sky130_fd_sc_hd__o2111ai_1": 15,
+    "sky130_fd_sc_hd__o211ai_1": 9,
+    "sky130_fd_sc_hd__o21a_1": 1,
+    "sky130_fd_sc_hd__o21ai_1": 593,
+    "sky130_fd_sc_hd__o21bai_1": 3,
+    "sky130_fd_sc_hd__o221ai_1": 45,
+    "sky130_fd_sc_hd__o22a_1": 11,
+    "sky130_fd_sc_hd__o22ai_1": 203,
+    "sky130_fd_sc_hd__o311ai_1": 2,
+    "sky130_fd_sc_hd__o31ai_1": 2,
+    "sky130_fd_sc_hd__or3_1": 2
+  },
+  "cells": 3359,
+  "design": "risc8",
+  "library": "usable",
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/risc8.v; synth -flatten -top cpu; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/risc8/usable/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/risc8/usable/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_usable.lib"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:36:50+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c",
+      "given/hd_usable.lib": "13a79aae465f997af6ea1d1d39bbfa6dc5c90593bf0c9d23d77c8a136e687872"
+    },
+    "logs": [
+      "results/m1/baseline/risc8/usable/A/yosys.log",
+      "results/m1/baseline/risc8/usable/A/stat.txt",
+      "results/m1/baseline/risc8/usable/A/stat.json"
+    ],
+    "started": "2026-10-26T10:36:48+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "script": "A",
+  "seconds": 1.464,
+  "top": "cpu"
+}

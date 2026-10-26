@@ -1,0 +1,56 @@
+{
+  "aig_path": "results/m1/aigs/fir10/synth.aig",
+  "aig_sha256": "85fdd2107f3b62f00ad37a5dc3d5d2beab80c81fc1e941f65be4192019beee03",
+  "commands": [
+    "read_verilog /Users/noorelshahidi/DD2Project/given/designs/fir10.v",
+    "synth -flatten -top fir10",
+    "tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/fir10/ffstat.json stat -json",
+    "async2sync",
+    "dffunmap",
+    "aigmap",
+    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig",
+    "write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/fir10/synth_zinit.aig"
+  ],
+  "design": "fir10",
+  "ffs_after_synth": 176,
+  "handout_ands": 8795,
+  "handout_ffs": 176,
+  "header": {
+    "A": 8217,
+    "I": 11,
+    "L": 176,
+    "M": 8404,
+    "O": 16
+  },
+  "levels": 67,
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog /Users/noorelshahidi/DD2Project/given/designs/fir10.v; synth -flatten -top fir10; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/fir10/synth_zinit.aig"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:37:00+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc"
+    },
+    "logs": [
+      "results/m1/aigs/fir10/synth.log"
+    ],
+    "started": "2026-10-26T10:37:00+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "variant": "synth",
+  "zinit_header": {
+    "A": 8745,
+    "I": 187,
+    "L": 177,
+    "M": 9109,
+    "O": 16
+  }
+}

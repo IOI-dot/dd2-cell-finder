@@ -1,0 +1,324 @@
+name,arity,essential_inputs,function,tt,area_um2,in_reduced,p_class,pn_class,npn_class,inputs
+sky130_fd_sc_hd__a2111o_1,5,5,(A1&A2) | (B1) | (C1) | (D1),0xFFFFFFF8,11.2608,True,0xFFFEFEFE,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111o_2,5,5,(A1&A2) | (B1) | (C1) | (D1),0xFFFFFFF8,12.512,True,0xFFFEFEFE,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111o_4,5,5,(A1&A2) | (B1) | (C1) | (D1),0xFFFFFFF8,21.2704,False,0xFFFEFEFE,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111oi_0,5,5,(!A1&!B1&!C1&!D1) | (!A2&!B1&!C1&!D1),0x00000007,8.7584,False,0x00000007,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111oi_1,5,5,(!A1&!B1&!C1&!D1) | (!A2&!B1&!C1&!D1),0x00000007,10.0096,True,0x00000007,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111oi_2,5,5,(!A1&!B1&!C1&!D1) | (!A2&!B1&!C1&!D1),0x00000007,15.0144,True,0x00000007,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a2111oi_4,5,5,(!A1&!B1&!C1&!D1) | (!A2&!B1&!C1&!D1),0x00000007,27.5264,False,0x00000007,0x00000007,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__a211o_1,4,4,(A1&A2) | (B1) | (C1),0xFFF8,8.7584,True,0xFEEE,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a211o_2,4,4,(A1&A2) | (B1) | (C1),0xFFF8,10.0096,True,0xFEEE,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a211o_4,4,4,(A1&A2) | (B1) | (C1),0xFFF8,17.5168,False,0xFEEE,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a211oi_1,4,4,(!A1&!B1&!C1) | (!A2&!B1&!C1),0x0007,7.5072,True,0x0007,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a211oi_2,4,4,(!A1&!B1&!C1) | (!A2&!B1&!C1),0x0007,12.512,True,0x0007,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a211oi_4,4,4,(!A1&!B1&!C1) | (!A2&!B1&!C1),0x0007,20.0192,False,0x0007,0x0007,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__a21bo_1,3,3,(A1&A2) | (!B1_N),0x8F,10.0096,True,0x8F,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21bo_2,3,3,(A1&A2) | (!B1_N),0x8F,10.0096,True,0x8F,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21bo_4,3,3,(A1&A2) | (!B1_N),0x8F,16.2656,False,0x8F,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21boi_0,3,3,(!A1&B1_N) | (!A2&B1_N),0x70,7.5072,False,0x2A,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21boi_1,3,3,(!A1&B1_N) | (!A2&B1_N),0x70,7.5072,True,0x2A,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21boi_2,3,3,(!A1&B1_N) | (!A2&B1_N),0x70,11.2608,True,0x2A,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21boi_4,3,3,(!A1&B1_N) | (!A2&B1_N),0x70,18.768,False,0x2A,0x2A,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__a21o_1,3,3,(A1&A2) | (B1),0xF8,7.5072,True,0xEA,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a21o_2,3,3,(A1&A2) | (B1),0xF8,8.7584,True,0xEA,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a21o_4,3,3,(A1&A2) | (B1),0xF8,15.0144,False,0xEA,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a21oi_1,3,3,(!A1&!B1) | (!A2&!B1),0x07,5.0048,True,0x07,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a21oi_2,3,3,(!A1&!B1) | (!A2&!B1),0x07,8.7584,True,0x07,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a21oi_4,3,3,(!A1&!B1) | (!A2&!B1),0x07,16.2656,False,0x07,0x07,0x07,A1 A2 B1
+sky130_fd_sc_hd__a221o_1,5,5,(B1&B2) | (A1&A2) | (C1),0xFFFFF888,10.0096,True,0xFEEEFAAA,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a221o_2,5,5,(B1&B2) | (A1&A2) | (C1),0xFFFFF888,11.2608,True,0xFEEEFAAA,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a221o_4,5,5,(B1&B2) | (A1&A2) | (C1),0xFFFFF888,21.2704,False,0xFEEEFAAA,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a221oi_1,5,5,(!A1&!B1&!C1) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A2&!B2&!C1),0x00000777,8.7584,True,0x00000777,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a221oi_2,5,5,(!A1&!B1&!C1) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A2&!B2&!C1),0x00000777,15.0144,True,0x00000777,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a221oi_4,5,5,(!A1&!B1&!C1) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A2&!B2&!C1),0x00000777,26.2752,False,0x00000777,0x00000777,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__a222oi_1,6,6,(!A1&!B1&!C1) | (!A1&!B1&!C2) | (!A1&!B2&!C1) | (!A2&!B1&!C1) | (!A1&!B2&!C2) | (!A2&!B1&!C2) | (!A2&!B2&!C1) | (!A2&!B2&!C2),0x0000077707770777,10.0096,True,0x0000077707770777,0x0000077707770777,0x0000077707770777,A1 A2 B1 B2 C1 C2
+sky130_fd_sc_hd__a22o_1,4,4,(B1&B2) | (A1&A2),0xF888,8.7584,True,0xEAC0,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a22o_2,4,4,(B1&B2) | (A1&A2),0xF888,10.0096,True,0xEAC0,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a22o_4,4,4,(B1&B2) | (A1&A2),0xF888,17.5168,False,0xEAC0,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a22oi_1,4,4,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2),0x0777,7.5072,True,0x0777,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a22oi_2,4,4,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2),0x0777,12.512,True,0x0777,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a22oi_4,4,4,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2),0x0777,21.2704,False,0x0777,0x0777,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__a2bb2o_1,4,4,(B1&B2) | (!A1_N&!A2_N),0xF111,10.0096,True,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a2bb2o_2,4,4,(B1&B2) | (!A1_N&!A2_N),0xF111,11.2608,True,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a2bb2o_4,4,4,(B1&B2) | (!A1_N&!A2_N),0xF111,20.0192,False,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a2bb2oi_1,4,4,(A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2),0x0EEE,8.7584,True,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a2bb2oi_2,4,4,(A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2),0x0EEE,15.0144,True,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a2bb2oi_4,4,4,(A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2),0x0EEE,26.2752,False,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__a311o_1,5,5,(A1&A2&A3) | (B1) | (C1),0xFFFFFF80,10.0096,True,0xFEEEEEEE,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a311o_2,5,5,(A1&A2&A3) | (B1) | (C1),0xFFFFFF80,11.2608,True,0xFEEEEEEE,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a311o_4,5,5,(A1&A2&A3) | (B1) | (C1),0xFFFFFF80,20.0192,False,0xFEEEEEEE,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a311oi_1,5,5,(!A1&!B1&!C1) | (!A2&!B1&!C1) | (!A3&!B1&!C1),0x0000007F,8.7584,True,0x0000007F,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a311oi_2,5,5,(!A1&!B1&!C1) | (!A2&!B1&!C1) | (!A3&!B1&!C1),0x0000007F,15.0144,True,0x0000007F,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a311oi_4,5,5,(!A1&!B1&!C1) | (!A2&!B1&!C1) | (!A3&!B1&!C1),0x0000007F,26.2752,False,0x0000007F,0x0000007F,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__a31o_1,4,4,(A1&A2&A3) | (B1),0xFF80,8.7584,True,0xEAAA,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a31o_2,4,4,(A1&A2&A3) | (B1),0xFF80,8.7584,True,0xEAAA,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a31o_4,4,4,(A1&A2&A3) | (B1),0xFF80,17.5168,False,0xEAAA,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a31oi_1,4,4,(!A1&!B1) | (!A2&!B1) | (!A3&!B1),0x007F,6.256,True,0x007F,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a31oi_2,4,4,(!A1&!B1) | (!A2&!B1) | (!A3&!B1),0x007F,12.512,True,0x007F,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a31oi_4,4,4,(!A1&!B1) | (!A2&!B1) | (!A3&!B1),0x007F,21.2704,False,0x007F,0x007F,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__a32o_1,5,5,(A1&A2&A3) | (B1&B2),0xFF808080,10.0096,True,0xEAAAC000,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a32o_2,5,5,(A1&A2&A3) | (B1&B2),0xFF808080,11.2608,True,0xEAAAC000,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a32o_4,5,5,(A1&A2&A3) | (B1&B2),0xFF808080,21.2704,False,0xEAAAC000,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a32oi_1,5,5,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A3&!B1) | (!A2&!B2) | (!A3&!B2),0x007F7F7F,8.7584,True,0x007F7F7F,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a32oi_2,5,5,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A3&!B1) | (!A2&!B2) | (!A3&!B2),0x007F7F7F,16.2656,True,0x007F7F7F,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a32oi_4,5,5,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A3&!B1) | (!A2&!B2) | (!A3&!B2),0x007F7F7F,27.5264,False,0x007F7F7F,0x007F7F7F,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__a41o_1,5,5,(A1&A2&A3&A4) | (B1),0xFFFF8000,10.0096,True,0xEAAAAAAA,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__a41o_2,5,5,(A1&A2&A3&A4) | (B1),0xFFFF8000,11.2608,True,0xEAAAAAAA,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__a41o_4,5,5,(A1&A2&A3&A4) | (B1),0xFFFF8000,21.2704,False,0xEAAAAAAA,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__a41oi_1,5,5,(!A1&!B1) | (!A2&!B1) | (!A3&!B1) | (!A4&!B1),0x00007FFF,8.7584,True,0x00007FFF,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__a41oi_2,5,5,(!A1&!B1) | (!A2&!B1) | (!A3&!B1) | (!A4&!B1),0x00007FFF,16.2656,True,0x00007FFF,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__a41oi_4,5,5,(!A1&!B1) | (!A2&!B1) | (!A3&!B1) | (!A4&!B1),0x00007FFF,27.5264,False,0x00007FFF,0x00007FFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__and2_0,2,2,(A&B),0x8,6.256,False,0x8,0x7,0x1,A B
+sky130_fd_sc_hd__and2_1,2,2,(A&B),0x8,6.256,True,0x8,0x7,0x1,A B
+sky130_fd_sc_hd__and2_2,2,2,(A&B),0x8,7.5072,True,0x8,0x7,0x1,A B
+sky130_fd_sc_hd__and2_4,2,2,(A&B),0x8,8.7584,False,0x8,0x7,0x1,A B
+sky130_fd_sc_hd__and2b_1,2,2,(!A_N&B),0x4,7.5072,True,0x2,0x2,0x1,A_N B
+sky130_fd_sc_hd__and2b_2,2,2,(!A_N&B),0x4,8.7584,True,0x2,0x2,0x1,A_N B
+sky130_fd_sc_hd__and2b_4,2,2,(!A_N&B),0x4,10.0096,False,0x2,0x2,0x1,A_N B
+sky130_fd_sc_hd__and3_1,3,3,(A&B&C),0x80,6.256,True,0x80,0x7F,0x01,A B C
+sky130_fd_sc_hd__and3_2,3,3,(A&B&C),0x80,7.5072,True,0x80,0x7F,0x01,A B C
+sky130_fd_sc_hd__and3_4,3,3,(A&B&C),0x80,11.2608,False,0x80,0x7F,0x01,A B C
+sky130_fd_sc_hd__and3b_1,3,3,(!A_N&B&C),0x40,8.7584,True,0x08,0x08,0x01,A_N B C
+sky130_fd_sc_hd__and3b_2,3,3,(!A_N&B&C),0x40,10.0096,True,0x08,0x08,0x01,A_N B C
+sky130_fd_sc_hd__and3b_4,3,3,(!A_N&B&C),0x40,12.512,False,0x08,0x08,0x01,A_N B C
+sky130_fd_sc_hd__and4_1,4,4,(A&B&C&D),0x8000,8.7584,True,0x8000,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__and4_2,4,4,(A&B&C&D),0x8000,10.0096,True,0x8000,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__and4_4,4,4,(A&B&C&D),0x8000,11.2608,False,0x8000,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__and4b_1,4,4,(!A_N&B&C&D),0x4000,10.0096,True,0x0080,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__and4b_2,4,4,(!A_N&B&C&D),0x4000,11.2608,True,0x0080,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__and4b_4,4,4,(!A_N&B&C&D),0x4000,13.7632,False,0x0080,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__and4bb_1,4,4,(!A_N&!B_N&C&D),0x1000,12.512,True,0x0008,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__and4bb_2,4,4,(!A_N&!B_N&C&D),0x1000,12.512,True,0x0008,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__and4bb_4,4,4,(!A_N&!B_N&C&D),0x1000,16.2656,False,0x0008,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__buf_1,1,1,(A),0x2,3.7536,True,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_12,1,1,(A),0x2,20.0192,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_16,1,1,(A),0x2,27.5264,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_2,1,1,(A),0x2,5.0048,True,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_4,1,1,(A),0x2,7.5072,True,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_6,1,1,(A),0x2,11.2608,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__buf_8,1,1,(A),0x2,15.0144,True,0x2,0x1,0x1,A
+sky130_fd_sc_hd__bufbuf_16,1,1,(A),0x2,32.5312,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__bufbuf_8,1,1,(A),0x2,18.768,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__bufinv_16,1,1,(!A),0x1,30.0288,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__bufinv_8,1,1,(!A),0x1,17.5168,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkbuf_1,1,1,(A),0x2,3.7536,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkbuf_16,1,1,(A),0x2,25.024,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkbuf_2,1,1,(A),0x2,5.0048,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkbuf_4,1,1,(A),0x2,7.5072,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkbuf_8,1,1,(A),0x2,13.7632,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s15_1,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s15_2,1,1,(A),0x2,11.2608,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s18_1,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s18_2,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s25_1,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s25_2,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s50_1,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkdlybuf4s50_2,1,1,(A),0x2,11.2608,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__clkinv_1,1,1,(!A),0x1,3.7536,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinv_16,1,1,(!A),0x1,30.0288,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinv_2,1,1,(!A),0x1,5.0048,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinv_4,1,1,(!A),0x1,8.7584,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinv_8,1,1,(!A),0x1,16.2656,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinvlp_2,1,1,(!A),0x1,5.0048,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__clkinvlp_4,1,1,(!A),0x1,7.5072,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__dlygate4sd1_1,1,1,(A),0x2,8.7584,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__dlygate4sd2_1,1,1,(A),0x2,8.7584,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__dlygate4sd3_1,1,1,(A),0x2,10.0096,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__dlymetal6s2s_1,1,1,(A),0x2,12.512,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__dlymetal6s4s_1,1,1,(A),0x2,12.512,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__dlymetal6s6s_1,1,1,(A),0x2,12.512,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__inv_1,1,1,(!A),0x1,3.7536,True,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_12,1,1,(!A),0x1,16.2656,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_16,1,1,(!A),0x1,20.0192,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_2,1,1,(!A),0x1,3.7536,True,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_4,1,1,(!A),0x1,6.256,True,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_6,1,1,(!A),0x1,8.7584,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__inv_8,1,1,(!A),0x1,11.2608,True,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkbufkapwr_1,1,1,(A),0x2,3.7536,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkbufkapwr_16,1,1,(A),0x2,25.024,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkbufkapwr_2,1,1,(A),0x2,5.0048,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkbufkapwr_4,1,1,(A),0x2,7.5072,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkbufkapwr_8,1,1,(A),0x2,13.7632,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkinvkapwr_1,1,1,(!A),0x1,3.7536,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkinvkapwr_16,1,1,(!A),0x1,30.0288,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkinvkapwr_2,1,1,(!A),0x1,5.0048,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkinvkapwr_4,1,1,(!A),0x1,8.7584,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_clkinvkapwr_8,1,1,(!A),0x1,16.2656,False,0x1,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_inputiso0n_1,2,2,(SLEEP_B&A),0x8,6.256,False,0x8,0x7,0x1,A SLEEP_B
+sky130_fd_sc_hd__lpflow_inputiso0p_1,2,2,(!SLEEP&A),0x2,7.5072,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_inputiso1n_1,2,2,(A) | (!SLEEP_B),0xB,7.5072,False,0xB,0x2,0x1,A SLEEP_B
+sky130_fd_sc_hd__lpflow_inputiso1p_1,2,2,(A) | (SLEEP),0xE,6.256,False,0xE,0x1,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrc_1,2,2,(A&!SLEEP),0x2,6.256,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrc_16,2,2,(A&!SLEEP),0x2,45.0432,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrc_2,2,2,(A&!SLEEP),0x2,8.7584,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrc_4,2,2,(A&!SLEEP),0x2,13.7632,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrc_8,2,2,(A&!SLEEP),0x2,23.7728,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_isobufsrckapwr_16,2,2,(A&!SLEEP),0x2,38.7872,False,0x2,0x2,0x1,A SLEEP
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1,1,1,(A),0x2,35.0336,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2,1,1,(A),0x2,35.0336,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4,1,1,(A),0x2,40.0384,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4,1,1,(A),0x2,40.0384,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1,1,1,(A),0x2,35.0336,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2,1,1,(A),0x2,35.0336,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4,1,1,(A),0x2,40.0384,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__maj3_1,3,3,(A&B) | (A&C) | (B&C),0xE8,10.0096,True,0xE8,0x17,0x17,A B C
+sky130_fd_sc_hd__maj3_2,3,3,(A&B) | (A&C) | (B&C),0xE8,11.2608,True,0xE8,0x17,0x17,A B C
+sky130_fd_sc_hd__maj3_4,3,3,(A&B) | (A&C) | (B&C),0xE8,13.7632,False,0xE8,0x17,0x17,A B C
+sky130_fd_sc_hd__mux2_1,3,3,(A0&!S) | (A1&S),0xCA,11.2608,True,0xAC,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2_2,3,3,(A0&!S) | (A1&S),0xCA,11.2608,True,0xAC,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2_4,3,3,(A0&!S) | (A1&S),0xCA,15.0144,False,0xAC,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2_8,3,3,(A0&!S) | (A1&S),0xCA,26.2752,False,0xAC,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2i_1,3,3,(!A0&!S) | (!A1&S),0x35,10.0096,True,0x1B,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2i_2,3,3,(!A0&!S) | (!A1&S),0x35,13.7632,True,0x1B,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux2i_4,3,3,(!A0&!S) | (!A1&S),0x35,22.5216,False,0x1B,0x1B,0x1B,A0 A1 S
+sky130_fd_sc_hd__mux4_1,6,6,(A0&!S0&!S1) | (A1&S0&!S1) | (A2&!S0&S1) | (A3&S0&S1),0xFF00F0F0CCCCAAAA,26.2752,True,0xAAAACCCCF0F0FF00,0x000F3355FF0F3355,0x000F3355FF0F3355,A0 A1 A2 A3 S0 S1
+sky130_fd_sc_hd__mux4_2,6,6,(A0&!S0&!S1) | (A1&S0&!S1) | (A2&!S0&S1) | (A3&S0&S1),0xFF00F0F0CCCCAAAA,22.5216,True,0xAAAACCCCF0F0FF00,0x000F3355FF0F3355,0x000F3355FF0F3355,A0 A1 A2 A3 S0 S1
+sky130_fd_sc_hd__mux4_4,6,6,(A0&!S0&!S1) | (A1&S0&!S1) | (A2&!S0&S1) | (A3&S0&S1),0xFF00F0F0CCCCAAAA,25.024,False,0xAAAACCCCF0F0FF00,0x000F3355FF0F3355,0x000F3355FF0F3355,A0 A1 A2 A3 S0 S1
+sky130_fd_sc_hd__nand2_1,2,2,(!A) | (!B),0x7,3.7536,True,0x7,0x7,0x1,A B
+sky130_fd_sc_hd__nand2_2,2,2,(!A) | (!B),0x7,6.256,True,0x7,0x7,0x1,A B
+sky130_fd_sc_hd__nand2_4,2,2,(!A) | (!B),0x7,11.2608,False,0x7,0x7,0x1,A B
+sky130_fd_sc_hd__nand2_8,2,2,(!A) | (!B),0x7,20.0192,False,0x7,0x7,0x1,A B
+sky130_fd_sc_hd__nand2b_1,2,2,(A_N) | (!B),0xB,6.256,True,0xB,0x2,0x1,A_N B
+sky130_fd_sc_hd__nand2b_2,2,2,(A_N) | (!B),0xB,8.7584,True,0xB,0x2,0x1,A_N B
+sky130_fd_sc_hd__nand2b_4,2,2,(A_N) | (!B),0xB,13.7632,False,0xB,0x2,0x1,A_N B
+sky130_fd_sc_hd__nand3_1,3,3,(!A) | (!B) | (!C),0x7F,5.0048,True,0x7F,0x7F,0x01,A B C
+sky130_fd_sc_hd__nand3_2,3,3,(!A) | (!B) | (!C),0x7F,10.0096,True,0x7F,0x7F,0x01,A B C
+sky130_fd_sc_hd__nand3_4,3,3,(!A) | (!B) | (!C),0x7F,17.5168,False,0x7F,0x7F,0x01,A B C
+sky130_fd_sc_hd__nand3b_1,3,3,(A_N) | (!B) | (!C),0xBF,7.5072,True,0xBF,0x08,0x01,A_N B C
+sky130_fd_sc_hd__nand3b_2,3,3,(A_N) | (!B) | (!C),0xBF,11.2608,True,0xBF,0x08,0x01,A_N B C
+sky130_fd_sc_hd__nand3b_4,3,3,(A_N) | (!B) | (!C),0xBF,20.0192,False,0xBF,0x08,0x01,A_N B C
+sky130_fd_sc_hd__nand4_1,4,4,(!A) | (!B) | (!C) | (!D),0x7FFF,6.256,True,0x7FFF,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__nand4_2,4,4,(!A) | (!B) | (!C) | (!D),0x7FFF,12.512,True,0x7FFF,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__nand4_4,4,4,(!A) | (!B) | (!C) | (!D),0x7FFF,21.2704,False,0x7FFF,0x7FFF,0x0001,A B C D
+sky130_fd_sc_hd__nand4b_1,4,4,(A_N) | (!B) | (!C) | (!D),0xBFFF,8.7584,True,0xBFFF,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__nand4b_2,4,4,(A_N) | (!B) | (!C) | (!D),0xBFFF,15.0144,True,0xBFFF,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__nand4b_4,4,4,(A_N) | (!B) | (!C) | (!D),0xBFFF,23.7728,False,0xBFFF,0x0080,0x0001,A_N B C D
+sky130_fd_sc_hd__nand4bb_1,4,4,(A_N) | (B_N) | (!C) | (!D),0xEFFF,11.2608,True,0xEFFF,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__nand4bb_2,4,4,(A_N) | (B_N) | (!C) | (!D),0xEFFF,16.2656,True,0xEFFF,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__nand4bb_4,4,4,(A_N) | (B_N) | (!C) | (!D),0xEFFF,27.5264,False,0xEFFF,0x0008,0x0001,A_N B_N C D
+sky130_fd_sc_hd__nor2_1,2,2,(!A&!B),0x1,3.7536,True,0x1,0x1,0x1,A B
+sky130_fd_sc_hd__nor2_2,2,2,(!A&!B),0x1,6.256,True,0x1,0x1,0x1,A B
+sky130_fd_sc_hd__nor2_4,2,2,(!A&!B),0x1,11.2608,False,0x1,0x1,0x1,A B
+sky130_fd_sc_hd__nor2_8,2,2,(!A&!B),0x1,20.0192,False,0x1,0x1,0x1,A B
+sky130_fd_sc_hd__nor2b_1,2,2,(!A&B_N),0x4,6.256,True,0x2,0x2,0x1,A B_N
+sky130_fd_sc_hd__nor2b_2,2,2,(!A&B_N),0x4,8.7584,True,0x2,0x2,0x1,A B_N
+sky130_fd_sc_hd__nor2b_4,2,2,(!A&B_N),0x4,13.7632,False,0x2,0x2,0x1,A B_N
+sky130_fd_sc_hd__nor3_1,3,3,(!A&!B&!C),0x01,5.0048,True,0x01,0x01,0x01,A B C
+sky130_fd_sc_hd__nor3_2,3,3,(!A&!B&!C),0x01,10.0096,True,0x01,0x01,0x01,A B C
+sky130_fd_sc_hd__nor3_4,3,3,(!A&!B&!C),0x01,16.2656,False,0x01,0x01,0x01,A B C
+sky130_fd_sc_hd__nor3b_1,3,3,(!A&!B&C_N),0x10,7.5072,True,0x02,0x02,0x01,A B C_N
+sky130_fd_sc_hd__nor3b_2,3,3,(!A&!B&C_N),0x10,12.512,True,0x02,0x02,0x01,A B C_N
+sky130_fd_sc_hd__nor3b_4,3,3,(!A&!B&C_N),0x10,18.768,False,0x02,0x02,0x01,A B C_N
+sky130_fd_sc_hd__nor4_1,4,4,(!A&!B&!C&!D),0x0001,6.256,True,0x0001,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__nor4_2,4,4,(!A&!B&!C&!D),0x0001,12.512,True,0x0001,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__nor4_4,4,4,(!A&!B&!C&!D),0x0001,21.2704,False,0x0001,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__nor4b_1,4,4,(!A&!B&!C&D_N),0x0100,8.7584,True,0x0002,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__nor4b_2,4,4,(!A&!B&!C&D_N),0x0100,15.0144,True,0x0002,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__nor4b_4,4,4,(!A&!B&!C&D_N),0x0100,23.7728,False,0x0002,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__nor4bb_1,4,4,(!A&!B&C_N&D_N),0x1000,10.0096,True,0x0008,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__nor4bb_2,4,4,(!A&!B&C_N&D_N),0x1000,16.2656,True,0x0008,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__nor4bb_4,4,4,(!A&!B&C_N&D_N),0x1000,25.024,False,0x0008,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__o2111a_1,5,5,(A1&B1&C1&D1) | (A2&B1&C1&D1),0xE0000000,11.2608,True,0x80808000,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o2111a_2,5,5,(A1&B1&C1&D1) | (A2&B1&C1&D1),0xE0000000,12.512,True,0x80808000,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o2111a_4,5,5,(A1&B1&C1&D1) | (A2&B1&C1&D1),0xE0000000,20.0192,False,0x80808000,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o2111ai_1,5,5,(!A1&!A2) | (!B1) | (!C1) | (!D1),0x1FFFFFFF,8.7584,True,0x1FFFFFFF,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o2111ai_2,5,5,(!A1&!A2) | (!B1) | (!C1) | (!D1),0x1FFFFFFF,15.0144,True,0x1FFFFFFF,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o2111ai_4,5,5,(!A1&!A2) | (!B1) | (!C1) | (!D1),0x1FFFFFFF,26.2752,False,0x1FFFFFFF,0x1FFFFFFF,0x00000007,A1 A2 B1 C1 D1
+sky130_fd_sc_hd__o211a_1,4,4,(A1&B1&C1) | (A2&B1&C1),0xE000,10.0096,True,0x8880,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o211a_2,4,4,(A1&B1&C1) | (A2&B1&C1),0xE000,10.0096,True,0x8880,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o211a_4,4,4,(A1&B1&C1) | (A2&B1&C1),0xE000,17.5168,False,0x8880,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o211ai_1,4,4,(!A1&!A2) | (!B1) | (!C1),0x1FFF,7.5072,True,0x1FFF,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o211ai_2,4,4,(!A1&!A2) | (!B1) | (!C1),0x1FFF,12.512,True,0x1FFF,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o211ai_4,4,4,(!A1&!A2) | (!B1) | (!C1),0x1FFF,21.2704,False,0x1FFF,0x1FFF,0x0007,A1 A2 B1 C1
+sky130_fd_sc_hd__o21a_1,3,3,(A1&B1) | (A2&B1),0xE0,7.5072,True,0xA8,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21a_2,3,3,(A1&B1) | (A2&B1),0xE0,8.7584,True,0xA8,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21a_4,3,3,(A1&B1) | (A2&B1),0xE0,15.0144,False,0xA8,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21ai_0,3,3,(!A1&!A2) | (!B1),0x1F,5.0048,False,0x1F,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21ai_1,3,3,(!A1&!A2) | (!B1),0x1F,5.0048,True,0x1F,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21ai_2,3,3,(!A1&!A2) | (!B1),0x1F,8.7584,True,0x1F,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21ai_4,3,3,(!A1&!A2) | (!B1),0x1F,16.2656,False,0x1F,0x1F,0x07,A1 A2 B1
+sky130_fd_sc_hd__o21ba_1,3,3,(A1&!B1_N) | (A2&!B1_N),0x0E,10.0096,True,0x0E,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o21ba_2,3,3,(A1&!B1_N) | (A2&!B1_N),0x0E,10.0096,True,0x0E,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o21ba_4,3,3,(A1&!B1_N) | (A2&!B1_N),0x0E,16.2656,False,0x0E,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o21bai_1,3,3,(!A1&!A2) | (B1_N),0xF1,7.5072,True,0xAB,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o21bai_2,3,3,(!A1&!A2) | (B1_N),0xF1,11.2608,True,0xAB,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o21bai_4,3,3,(!A1&!A2) | (B1_N),0xF1,18.768,False,0xAB,0x0E,0x07,A1 A2 B1_N
+sky130_fd_sc_hd__o221a_1,5,5,(A1&B1&C1) | (A2&B1&C1) | (A1&B2&C1) | (A2&B2&C1),0xEEE00000,11.2608,True,0xA8A8A800,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o221a_2,5,5,(A1&B1&C1) | (A2&B1&C1) | (A1&B2&C1) | (A2&B2&C1),0xEEE00000,11.2608,True,0xA8A8A800,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o221a_4,5,5,(A1&B1&C1) | (A2&B1&C1) | (A1&B2&C1) | (A2&B2&C1),0xEEE00000,20.0192,False,0xA8A8A800,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o221ai_1,5,5,(!B1&!B2) | (!A1&!A2) | (!C1),0x111FFFFF,8.7584,True,0x0357FFFF,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o221ai_2,5,5,(!B1&!B2) | (!A1&!A2) | (!C1),0x111FFFFF,15.0144,True,0x0357FFFF,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o221ai_4,5,5,(!B1&!B2) | (!A1&!A2) | (!C1),0x111FFFFF,26.2752,False,0x0357FFFF,0x0357FFFF,0x00000777,A1 A2 B1 B2 C1
+sky130_fd_sc_hd__o22a_1,4,4,(A1&B1) | (A2&B1) | (A1&B2) | (A2&B2),0xEEE0,8.7584,True,0xEEE0,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o22a_2,4,4,(A1&B1) | (A2&B1) | (A1&B2) | (A2&B2),0xEEE0,10.0096,True,0xEEE0,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o22a_4,4,4,(A1&B1) | (A2&B1) | (A1&B2) | (A2&B2),0xEEE0,17.5168,False,0xEEE0,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o22ai_1,4,4,(!B1&!B2) | (!A1&!A2),0x111F,6.256,True,0x0357,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o22ai_2,4,4,(!B1&!B2) | (!A1&!A2),0x111F,12.512,True,0x0357,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o22ai_4,4,4,(!B1&!B2) | (!A1&!A2),0x111F,20.0192,False,0x0357,0x0357,0x0357,A1 A2 B1 B2
+sky130_fd_sc_hd__o2bb2a_1,4,4,(!A1_N&B1) | (!A2_N&B1) | (!A1_N&B2) | (!A2_N&B2),0x7770,10.0096,True,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o2bb2a_2,4,4,(!A1_N&B1) | (!A2_N&B1) | (!A1_N&B2) | (!A2_N&B2),0x7770,11.2608,True,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o2bb2a_4,4,4,(!A1_N&B1) | (!A2_N&B1) | (!A1_N&B2) | (!A2_N&B2),0x7770,20.0192,False,0x0EEE,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o2bb2ai_1,4,4,(!B1&!B2) | (A1_N&A2_N),0x888F,8.7584,True,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o2bb2ai_2,4,4,(!B1&!B2) | (A1_N&A2_N),0x888F,15.0144,True,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o2bb2ai_4,4,4,(!B1&!B2) | (A1_N&A2_N),0x888F,27.5264,False,0x888F,0x0EEE,0x0357,A1_N A2_N B1 B2
+sky130_fd_sc_hd__o311a_1,5,5,(A1&B1&C1) | (A2&B1&C1) | (A3&B1&C1),0xFE000000,10.0096,True,0x88888880,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311a_2,5,5,(A1&B1&C1) | (A2&B1&C1) | (A3&B1&C1),0xFE000000,11.2608,True,0x88888880,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311a_4,5,5,(A1&B1&C1) | (A2&B1&C1) | (A3&B1&C1),0xFE000000,21.2704,False,0x88888880,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311ai_0,5,5,(!A1&!A2&!A3) | (!B1) | (!C1),0x01FFFFFF,8.7584,False,0x01FFFFFF,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311ai_1,5,5,(!A1&!A2&!A3) | (!B1) | (!C1),0x01FFFFFF,8.7584,True,0x01FFFFFF,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311ai_2,5,5,(!A1&!A2&!A3) | (!B1) | (!C1),0x01FFFFFF,16.2656,True,0x01FFFFFF,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o311ai_4,5,5,(!A1&!A2&!A3) | (!B1) | (!C1),0x01FFFFFF,26.2752,False,0x01FFFFFF,0x01FFFFFF,0x0000007F,A1 A2 A3 B1 C1
+sky130_fd_sc_hd__o31a_1,4,4,(A1&B1) | (A2&B1) | (A3&B1),0xFE00,8.7584,True,0xAAA8,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o31a_2,4,4,(A1&B1) | (A2&B1) | (A3&B1),0xFE00,10.0096,True,0xAAA8,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o31a_4,4,4,(A1&B1) | (A2&B1) | (A3&B1),0xFE00,17.5168,False,0xAAA8,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o31ai_1,4,4,(!A1&!A2&!A3) | (!B1),0x01FF,7.5072,True,0x01FF,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o31ai_2,4,4,(!A1&!A2&!A3) | (!B1),0x01FF,12.512,True,0x01FF,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o31ai_4,4,4,(!A1&!A2&!A3) | (!B1),0x01FF,21.2704,False,0x01FF,0x01FF,0x007F,A1 A2 A3 B1
+sky130_fd_sc_hd__o32a_1,5,5,(A1&B1) | (A1&B2) | (A2&B1) | (A3&B1) | (A2&B2) | (A3&B2),0xFEFEFE00,10.0096,True,0xEEEEEEE0,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o32a_2,5,5,(A1&B1) | (A1&B2) | (A2&B1) | (A3&B1) | (A2&B2) | (A3&B2),0xFEFEFE00,11.2608,True,0xEEEEEEE0,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o32a_4,5,5,(A1&B1) | (A1&B2) | (A2&B1) | (A3&B1) | (A2&B2) | (A3&B2),0xFEFEFE00,22.5216,False,0xEEEEEEE0,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o32ai_1,5,5,(!A1&!A2&!A3) | (!B1&!B2),0x010101FF,8.7584,True,0x00035557,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o32ai_2,5,5,(!A1&!A2&!A3) | (!B1&!B2),0x010101FF,16.2656,True,0x00035557,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o32ai_4,5,5,(!A1&!A2&!A3) | (!B1&!B2),0x010101FF,27.5264,False,0x00035557,0x00035557,0x00035557,A1 A2 A3 B1 B2
+sky130_fd_sc_hd__o41a_1,5,5,(A1&B1) | (A2&B1) | (A3&B1) | (A4&B1),0xFFFE0000,11.2608,True,0xAAAAAAA8,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__o41a_2,5,5,(A1&B1) | (A2&B1) | (A3&B1) | (A4&B1),0xFFFE0000,12.512,True,0xAAAAAAA8,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__o41a_4,5,5,(A1&B1) | (A2&B1) | (A3&B1) | (A4&B1),0xFFFE0000,21.2704,False,0xAAAAAAA8,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__o41ai_1,5,5,(!A1&!A2&!A3&!A4) | (!B1),0x0001FFFF,8.7584,True,0x0001FFFF,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__o41ai_2,5,5,(!A1&!A2&!A3&!A4) | (!B1),0x0001FFFF,16.2656,True,0x0001FFFF,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__o41ai_4,5,5,(!A1&!A2&!A3&!A4) | (!B1),0x0001FFFF,27.5264,False,0x0001FFFF,0x0001FFFF,0x00007FFF,A1 A2 A3 A4 B1
+sky130_fd_sc_hd__or2_0,2,2,(A) | (B),0xE,6.256,False,0xE,0x1,0x1,A B
+sky130_fd_sc_hd__or2_1,2,2,(A) | (B),0xE,6.256,True,0xE,0x1,0x1,A B
+sky130_fd_sc_hd__or2_2,2,2,(A) | (B),0xE,6.256,True,0xE,0x1,0x1,A B
+sky130_fd_sc_hd__or2_4,2,2,(A) | (B),0xE,8.7584,False,0xE,0x1,0x1,A B
+sky130_fd_sc_hd__or2b_1,2,2,(A) | (!B_N),0xB,7.5072,True,0xB,0x2,0x1,A B_N
+sky130_fd_sc_hd__or2b_2,2,2,(A) | (!B_N),0xB,8.7584,True,0xB,0x2,0x1,A B_N
+sky130_fd_sc_hd__or2b_4,2,2,(A) | (!B_N),0xB,11.2608,False,0xB,0x2,0x1,A B_N
+sky130_fd_sc_hd__or3_1,3,3,(A) | (B) | (C),0xFE,6.256,True,0xFE,0x01,0x01,A B C
+sky130_fd_sc_hd__or3_2,3,3,(A) | (B) | (C),0xFE,7.5072,True,0xFE,0x01,0x01,A B C
+sky130_fd_sc_hd__or3_4,3,3,(A) | (B) | (C),0xFE,11.2608,False,0xFE,0x01,0x01,A B C
+sky130_fd_sc_hd__or3b_1,3,3,(A) | (B) | (!C_N),0xEF,8.7584,True,0xEF,0x02,0x01,A B C_N
+sky130_fd_sc_hd__or3b_2,3,3,(A) | (B) | (!C_N),0xEF,8.7584,True,0xEF,0x02,0x01,A B C_N
+sky130_fd_sc_hd__or3b_4,3,3,(A) | (B) | (!C_N),0xEF,11.2608,False,0xEF,0x02,0x01,A B C_N
+sky130_fd_sc_hd__or4_1,4,4,(A) | (B) | (C) | (D),0xFFFE,7.5072,True,0xFFFE,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__or4_2,4,4,(A) | (B) | (C) | (D),0xFFFE,8.7584,True,0xFFFE,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__or4_4,4,4,(A) | (B) | (C) | (D),0xFFFE,11.2608,False,0xFFFE,0x0001,0x0001,A B C D
+sky130_fd_sc_hd__or4b_1,4,4,(A) | (B) | (C) | (!D_N),0xFEFF,10.0096,True,0xFEFF,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__or4b_2,4,4,(A) | (B) | (C) | (!D_N),0xFEFF,10.0096,True,0xFEFF,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__or4b_4,4,4,(A) | (B) | (C) | (!D_N),0xFEFF,13.7632,False,0xFEFF,0x0002,0x0001,A B C D_N
+sky130_fd_sc_hd__or4bb_1,4,4,(A) | (B) | (!C_N) | (!D_N),0xEFFF,11.2608,True,0xEFFF,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__or4bb_2,4,4,(A) | (B) | (!C_N) | (!D_N),0xEFFF,12.512,True,0xEFFF,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__or4bb_4,4,4,(A) | (B) | (!C_N) | (!D_N),0xEFFF,15.0144,False,0xEFFF,0x0008,0x0001,A B C_N D_N
+sky130_fd_sc_hd__probe_p_8,1,1,(A),0x2,15.0144,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__probec_p_8,1,1,(A),0x2,15.0144,False,0x2,0x1,0x1,A
+sky130_fd_sc_hd__xnor2_1,2,2,(!A&!B) | (A&B),0x9,8.7584,True,0x9,0x6,0x6,A B
+sky130_fd_sc_hd__xnor2_2,2,2,(!A&!B) | (A&B),0x9,16.2656,True,0x9,0x6,0x6,A B
+sky130_fd_sc_hd__xnor2_4,2,2,(!A&!B) | (A&B),0x9,27.5264,False,0x9,0x6,0x6,A B
+sky130_fd_sc_hd__xnor3_1,3,3,(!A&!B&!C) | (A&B&!C) | (A&!B&C) | (!A&B&C),0x69,22.5216,True,0x69,0x69,0x69,A B C
+sky130_fd_sc_hd__xnor3_2,3,3,(!A&!B&!C) | (A&B&!C) | (A&!B&C) | (!A&B&C),0x69,23.7728,True,0x69,0x69,0x69,A B C
+sky130_fd_sc_hd__xnor3_4,3,3,(!A&!B&!C) | (A&B&!C) | (A&!B&C) | (!A&B&C),0x69,26.2752,False,0x69,0x69,0x69,A B C
+sky130_fd_sc_hd__xor2_1,2,2,(A&!B) | (!A&B),0x6,8.7584,True,0x6,0x6,0x6,A B
+sky130_fd_sc_hd__xor2_2,2,2,(A&!B) | (!A&B),0x6,16.2656,True,0x6,0x6,0x6,A B
+sky130_fd_sc_hd__xor2_4,2,2,(A&!B) | (!A&B),0x6,27.5264,False,0x6,0x6,0x6,A B
+sky130_fd_sc_hd__xor3_1,3,3,(A&!B&!C) | (!A&B&!C) | (!A&!B&C) | (A&B&C),0x96,23.7728,True,0x96,0x69,0x69,A B C
+sky130_fd_sc_hd__xor3_2,3,3,(A&!B&!C) | (!A&B&!C) | (!A&!B&C) | (A&B&C),0x96,25.024,True,0x96,0x69,0x69,A B C
+sky130_fd_sc_hd__xor3_4,3,3,(A&!B&!C) | (!A&B&!C) | (!A&!B&C) | (A&B&C),0x96,27.5264,False,0x96,0x69,0x69,A B C

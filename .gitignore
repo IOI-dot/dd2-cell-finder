@@ -1,0 +1,39 @@
+# Links created by `make setup`; the real inputs remain outside the repository.
+pdk
+given
+
+# Build trees and local environments.
+build/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Agent-runtime state may contain credentials or local conversation state.
+.agents/
+
+# Local secrets. Keep committed examples explicit rather than committing values.
+.env
+.env.*
+!.env.example
+
+# Design System Studio generated/local artifacts.
+DesignSystemStudio/node_modules/
+DesignSystemStudio/.next/
+DesignSystemStudio/dist/
+DesignSystemStudio/showcase-dist/
+DesignSystemStudio/*.tsbuildinfo
+
+# OS/editor noise.
+.DS_Store
+*.swp
+
+# Never commit the PDK, supplied-file copies, build trees, or files over 50 MB.
+
+# Course inputs and third-party material that must never be committed (overview 5.1).
+DD2_Project1_student_pack/
+*.pdf
+references/
+# Agent run scratch (the JSONL audit lives in ai/runs/ and is committed).
+/runs/

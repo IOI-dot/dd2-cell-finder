@@ -1,0 +1,74 @@
+{
+  "area_um2": 12817.2928,
+  "cell_counts": {
+    "sky130_fd_sc_hd__a211oi_1": 9,
+    "sky130_fd_sc_hd__a21boi_1": 3,
+    "sky130_fd_sc_hd__a21o_1": 3,
+    "sky130_fd_sc_hd__a21oi_1": 101,
+    "sky130_fd_sc_hd__a221oi_1": 1,
+    "sky130_fd_sc_hd__a22o_1": 1,
+    "sky130_fd_sc_hd__a22oi_1": 4,
+    "sky130_fd_sc_hd__a31o_1": 1,
+    "sky130_fd_sc_hd__a31oi_1": 14,
+    "sky130_fd_sc_hd__a32oi_1": 2,
+    "sky130_fd_sc_hd__and2_1": 11,
+    "sky130_fd_sc_hd__and3_1": 11,
+    "sky130_fd_sc_hd__dfrtp_1": 323,
+    "sky130_fd_sc_hd__dfstp_1": 7,
+    "sky130_fd_sc_hd__inv_1": 117,
+    "sky130_fd_sc_hd__nand2_1": 102,
+    "sky130_fd_sc_hd__nand2b_1": 1,
+    "sky130_fd_sc_hd__nand3_1": 16,
+    "sky130_fd_sc_hd__nand4_1": 16,
+    "sky130_fd_sc_hd__nand4b_1": 1,
+    "sky130_fd_sc_hd__nor2_1": 156,
+    "sky130_fd_sc_hd__nor2b_1": 4,
+    "sky130_fd_sc_hd__nor3_1": 28,
+    "sky130_fd_sc_hd__nor4_1": 11,
+    "sky130_fd_sc_hd__nor4b_1": 2,
+    "sky130_fd_sc_hd__nor4bb_1": 3,
+    "sky130_fd_sc_hd__o2111ai_1": 1,
+    "sky130_fd_sc_hd__o211a_1": 2,
+    "sky130_fd_sc_hd__o21ai_1": 42,
+    "sky130_fd_sc_hd__o21bai_1": 2,
+    "sky130_fd_sc_hd__o221ai_1": 1,
+    "sky130_fd_sc_hd__o22a_1": 145,
+    "sky130_fd_sc_hd__o22ai_1": 10,
+    "sky130_fd_sc_hd__o311ai_1": 2,
+    "sky130_fd_sc_hd__o31ai_1": 9,
+    "sky130_fd_sc_hd__o32a_1": 1,
+    "sky130_fd_sc_hd__o32ai_1": 6,
+    "sky130_fd_sc_hd__or2_1": 1
+  },
+  "cells": 1170,
+  "design": "uart_apb",
+  "library": "reduced",
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/uart_apb.v; synth -flatten -top uart_apb_master; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/uart_apb/reduced/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/uart_apb/reduced/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:36:48+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14",
+      "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
+    },
+    "logs": [
+      "results/m1/baseline/uart_apb/reduced/A/yosys.log",
+      "results/m1/baseline/uart_apb/reduced/A/stat.txt",
+      "results/m1/baseline/uart_apb/reduced/A/stat.json"
+    ],
+    "started": "2026-10-26T10:36:47+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "script": "A",
+  "seconds": 0.504,
+  "top": "uart_apb_master"
+}

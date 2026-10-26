@@ -1,0 +1,10 @@
+/* Broken case for the Liberty reader (FR-010): the function uses an operator ($) that Liberty
+   does not have. The reader must reject it, not skip the cell. Do not edit (AGENTS.md). */
+library ("broken") {
+  cell ("bad_cell_1") {
+    area : 3.75;
+    pin ("A") { direction : "input"; capacitance : 0.002; }
+    pin ("B") { direction : "input"; capacitance : 0.002; }
+    pin ("Y") { direction : "output"; function : "A $ B"; }
+  }
+}

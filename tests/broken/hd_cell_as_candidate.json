@@ -1,0 +1,7 @@
+{
+  "about": "Broken case for the redundancy check (Option 2 handout 9.1): the function of HD's a21oi (Y = !((A1 & A2) | B1)) submitted as a candidate with its inputs renamed and reordered. The checker must classify it Exists, never New. Do not edit (AGENTS.md).",
+  "inputs": ["P", "Q", "R"],
+  "expression": "!(P | (Q & R))",
+  "expected": "Exists",
+  "expected_witness_family": "sky130_fd_sc_hd__a21oi"
+}

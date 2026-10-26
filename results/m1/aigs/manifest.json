@@ -1,0 +1,211 @@
+{
+  "artifacts": [
+    {
+      "aig_path": "results/m1/aigs/cpu8/synth.aig",
+      "aig_sha256": "b21cecf26969c84187edab3a1bb082fccf4fa5dfcee449ea78ef167e1131cc62",
+      "design": "cpu8",
+      "ffs_after_synth": 82,
+      "header": {
+        "A": 932,
+        "I": 10,
+        "L": 82,
+        "M": 1024,
+        "O": 13
+      },
+      "levels": 34,
+      "record": "results/m1/aigs/cpu8/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/cpu8/restructured.aig",
+      "aig_sha256": "e76111e93dace199076b4e4c05b6eb9824624d10fc6e8a1966fa7da1010a2e97",
+      "design": "cpu8",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 857,
+        "I": 10,
+        "L": 82,
+        "M": 949,
+        "O": 0
+      },
+      "levels": 30,
+      "record": "results/m1/aigs/cpu8/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    },
+    {
+      "aig_path": "results/m1/aigs/dsp8/synth.aig",
+      "aig_sha256": "54238e1f6925d2456240aae04b28936d2e12dcdd30013bfb6ba852841c0644bc",
+      "design": "dsp8",
+      "ffs_after_synth": 72,
+      "header": {
+        "A": 1677,
+        "I": 22,
+        "L": 72,
+        "M": 1771,
+        "O": 26
+      },
+      "levels": 52,
+      "record": "results/m1/aigs/dsp8/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/dsp8/restructured.aig",
+      "aig_sha256": "820b1b8010a22bbb1dc374ad2dd22825a72187369efcb9217cea4fe95636eadb",
+      "design": "dsp8",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 1305,
+        "I": 22,
+        "L": 72,
+        "M": 1399,
+        "O": 0
+      },
+      "levels": 48,
+      "record": "results/m1/aigs/dsp8/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    },
+    {
+      "aig_path": "results/m1/aigs/arlet6502/synth.aig",
+      "aig_sha256": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b",
+      "design": "arlet6502",
+      "ffs_after_synth": 143,
+      "header": {
+        "A": 2511,
+        "I": 13,
+        "L": 143,
+        "M": 2667,
+        "O": 25
+      },
+      "levels": 54,
+      "record": "results/m1/aigs/arlet6502/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/arlet6502/restructured.aig",
+      "aig_sha256": "71d54f107151b79a716790d7fdea1a74d4f5f97321ba841ee556399397cae4ff",
+      "design": "arlet6502",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 2093,
+        "I": 13,
+        "L": 143,
+        "M": 2249,
+        "O": 0
+      },
+      "levels": 48,
+      "record": "results/m1/aigs/arlet6502/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    },
+    {
+      "aig_path": "results/m1/aigs/uart_apb/synth.aig",
+      "aig_sha256": "035e167fc1d8119482831436fef23a01a6f518f9998ac880678dfb2a4dafbcf0",
+      "design": "uart_apb",
+      "ffs_after_synth": 330,
+      "header": {
+        "A": 3551,
+        "I": 37,
+        "L": 330,
+        "M": 3918,
+        "O": 69
+      },
+      "levels": 37,
+      "record": "results/m1/aigs/uart_apb/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/uart_apb/restructured.aig",
+      "aig_sha256": "a5ba671f9108f817a737c6c3f5a3cc9b6cf1d66499e3a71fb3b66cf1b4226f19",
+      "design": "uart_apb",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 1748,
+        "I": 37,
+        "L": 330,
+        "M": 2115,
+        "O": 0
+      },
+      "levels": 33,
+      "record": "results/m1/aigs/uart_apb/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    },
+    {
+      "aig_path": "results/m1/aigs/risc8/synth.aig",
+      "aig_sha256": "65b40c08b878e0686cdac34f3996239ae634c9eedb59504b8f0e1e60c7a68934",
+      "design": "risc8",
+      "ffs_after_synth": 696,
+      "header": {
+        "A": 5480,
+        "I": 30,
+        "L": 696,
+        "M": 6206,
+        "O": 83
+      },
+      "levels": 55,
+      "record": "results/m1/aigs/risc8/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/risc8/restructured.aig",
+      "aig_sha256": "a7167dd53c9561b042b3be335d41f2fbe4e2f5caa0b52e3706c34b58e5b0cbbc",
+      "design": "risc8",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 4875,
+        "I": 30,
+        "L": 696,
+        "M": 5601,
+        "O": 0
+      },
+      "levels": 45,
+      "record": "results/m1/aigs/risc8/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    },
+    {
+      "aig_path": "results/m1/aigs/fir10/synth.aig",
+      "aig_sha256": "85fdd2107f3b62f00ad37a5dc3d5d2beab80c81fc1e941f65be4192019beee03",
+      "design": "fir10",
+      "ffs_after_synth": 176,
+      "header": {
+        "A": 8217,
+        "I": 11,
+        "L": 176,
+        "M": 8404,
+        "O": 16
+      },
+      "levels": 67,
+      "record": "results/m1/aigs/fir10/synth.json",
+      "status": "pass",
+      "variant": "synth"
+    },
+    {
+      "aig_path": "results/m1/aigs/fir10/restructured.aig",
+      "aig_sha256": "80bae9af2aa328fd3024705e48057d139400e6822d3f393a305ebf4bd69b0d1e",
+      "design": "fir10",
+      "ffs_after_synth": null,
+      "header": {
+        "A": 6383,
+        "I": 11,
+        "L": 176,
+        "M": 6570,
+        "O": 0
+      },
+      "levels": 65,
+      "record": "results/m1/aigs/fir10/restructured.json",
+      "status": "pass",
+      "variant": "restructured"
+    }
+  ],
+  "expected_artifacts": 12,
+  "status": "pass",
+  "written": "2026-10-26T10:37:00+00:00"
+}

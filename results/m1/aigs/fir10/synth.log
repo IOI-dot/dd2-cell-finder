@@ -1,0 +1,1 @@
+$ yosys -q -p read_verilog /Users/noorelshahidi/DD2Project/given/designs/fir10.v; synth -flatten -top fir10; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/fir10/synth_zinit.aig

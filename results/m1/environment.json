@@ -1,0 +1,28 @@
+{
+  "checked": "2026-10-26T10:36:40+00:00",
+  "full_hd_lib": {
+    "cells": 428,
+    "path": "/Users/noorelshahidi/DD2Project/pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "sha256": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
+  },
+  "given": "/Users/noorelshahidi/DD2Project/given",
+  "liberty_import": {
+    "hd_reduced.lib": 189,
+    "hd_usable.lib": 307
+  },
+  "notes": [
+    "yosys is 0.70+post, not 0.33: Table 1 will differ from the handout (research D-2; see results/m1/table1.csv)",
+    "OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1",
+    "ngspice stress test runs in the dd2-layout-tools image (Option 1); not checked here"
+  ],
+  "pdk": "/Users/noorelshahidi/DD2Project/pdk",
+  "problems": [],
+  "status": "pass",
+  "tools": {
+    "iverilog": "Icarus Verilog version 13.0 (stable) (v13_0)",
+    "python": "3.14.6",
+    "sta": null,
+    "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",
+    "yosys-abc": "present (bundled with yosys)"
+  }
+}

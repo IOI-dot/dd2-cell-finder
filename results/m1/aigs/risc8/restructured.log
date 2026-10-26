@@ -1,0 +1,4 @@
+$ yosys-abc -c read /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/restructured.aig
+======== ABC command line "read /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/restructured.aig"
+Warning: The choice nodes in the original AIG are removed by strashing.
+[1;37m/Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth:[0m i/o =   30/   83  lat =  696  and =   4875  lev = 45

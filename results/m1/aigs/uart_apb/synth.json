@@ -1,0 +1,56 @@
+{
+  "aig_path": "results/m1/aigs/uart_apb/synth.aig",
+  "aig_sha256": "035e167fc1d8119482831436fef23a01a6f518f9998ac880678dfb2a4dafbcf0",
+  "commands": [
+    "read_verilog /Users/noorelshahidi/DD2Project/given/designs/uart_apb.v",
+    "synth -flatten -top uart_apb_master",
+    "tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/ffstat.json stat -json",
+    "async2sync",
+    "dffunmap",
+    "aigmap",
+    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig",
+    "write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/synth_zinit.aig"
+  ],
+  "design": "uart_apb",
+  "ffs_after_synth": 330,
+  "handout_ands": 4673,
+  "handout_ffs": 330,
+  "header": {
+    "A": 3551,
+    "I": 37,
+    "L": 330,
+    "M": 3918,
+    "O": 69
+  },
+  "levels": 37,
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog /Users/noorelshahidi/DD2Project/given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/uart_apb/synth_zinit.aig"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:36:59+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14"
+    },
+    "logs": [
+      "results/m1/aigs/uart_apb/synth.log"
+    ],
+    "started": "2026-10-26T10:36:58+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "variant": "synth",
+  "zinit_header": {
+    "A": 4541,
+    "I": 367,
+    "L": 331,
+    "M": 5239,
+    "O": 69
+  }
+}

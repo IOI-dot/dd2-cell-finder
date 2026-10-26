@@ -1,0 +1,44 @@
+{
+  "aig_path": "results/m1/aigs/uart_apb/restructured.aig",
+  "aig_sha256": "a5ba671f9108f817a737c6c3f5a3cc9b6cf1d66499e3a71fb3b66cf1b4226f19",
+  "commands": [
+    "read /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig",
+    "strash",
+    "dch -f",
+    "strash",
+    "print_stats",
+    "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/restructured.aig"
+  ],
+  "design": "uart_apb",
+  "has_choices": false,
+  "header": {
+    "A": 1748,
+    "I": 37,
+    "L": 330,
+    "M": 2115,
+    "O": 0
+  },
+  "levels": 33,
+  "run": {
+    "argv": [
+      "yosys-abc",
+      "-c",
+      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/restructured.aig"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:36:59+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "results/m1/aigs/uart_apb/synth.aig": "035e167fc1d8119482831436fef23a01a6f518f9998ac880678dfb2a4dafbcf0"
+    },
+    "logs": [
+      "results/m1/aigs/uart_apb/restructured.log"
+    ],
+    "started": "2026-10-26T10:36:59+00:00",
+    "status": "pass",
+    "tools": {
+      "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "variant": "restructured"
+}

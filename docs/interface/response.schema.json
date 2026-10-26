@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DD2 cell response (overview Appendix A), frozen 2026-10-26",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["request_id", "status", "reason", "cell", "stages", "transistors", "width_sites", "area_um2", "files", "checks", "ngspice_sha256", "tool_version"],
+  "properties": {
+    "request_id": {"type": "string"},
+    "status": {"enum": ["pass", "fail", "unsupported"]},
+    "reason": {"type": ["string", "null"]},
+    "cell": {"type": "string"},
+    "stages": {"type": "integer", "minimum": 0},
+    "transistors": {"type": "integer", "minimum": 0},
+    "width_sites": {"type": "integer", "minimum": 0},
+    "area_um2": {"type": "number", "minimum": 0},
+    "files": {"type": "object", "additionalProperties": false, "required": ["gds", "liberty", "verilog", "report"],
+              "properties": {"gds": {"type": "string"}, "liberty": {"type": "string"},
+                             "verilog": {"type": "string"}, "report": {"type": "string"}}},
+    "checks": {"type": "object", "additionalProperties": false,
+               "required": ["drc", "lvs", "rc_lvs", "truth_table", "abutment", "layers"],
+               "properties": {"drc": {"type": "integer"}, "lvs": {"type": "string"}, "rc_lvs": {"type": "string"},
+                              "truth_table": {"type": "string"}, "abutment": {"type": "integer"},
+                              "layers": {"type": "string"}}},
+    "ngspice_sha256": {"type": "string"},
+    "tool_version": {"type": "string"}
+  }
+}

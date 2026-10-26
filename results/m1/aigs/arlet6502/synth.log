@@ -1,0 +1,3 @@
+$ yosys -q -p read_verilog /Users/noorelshahidi/DD2Project/given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/arlet6502/synth_zinit.aig
+Warning: Treating undriven bit cpu.\RDY like $anyseq.
+Warning: Treating a total of 1 undriven bits in cpu like $anyseq.

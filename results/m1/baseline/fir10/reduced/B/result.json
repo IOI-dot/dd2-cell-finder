@@ -1,0 +1,76 @@
+{
+  "area_um2": 28935.2512,
+  "cell_counts": {
+    "sky130_fd_sc_hd__a21boi_1": 1,
+    "sky130_fd_sc_hd__a21o_1": 13,
+    "sky130_fd_sc_hd__a21oi_1": 142,
+    "sky130_fd_sc_hd__a22o_1": 50,
+    "sky130_fd_sc_hd__a22oi_1": 46,
+    "sky130_fd_sc_hd__a2bb2oi_1": 1,
+    "sky130_fd_sc_hd__a31oi_1": 13,
+    "sky130_fd_sc_hd__a32o_1": 2,
+    "sky130_fd_sc_hd__a32oi_1": 2,
+    "sky130_fd_sc_hd__and2_1": 53,
+    "sky130_fd_sc_hd__and3_1": 12,
+    "sky130_fd_sc_hd__and3b_1": 1,
+    "sky130_fd_sc_hd__and4_1": 3,
+    "sky130_fd_sc_hd__dfxtp_1": 176,
+    "sky130_fd_sc_hd__inv_1": 178,
+    "sky130_fd_sc_hd__maj3_1": 373,
+    "sky130_fd_sc_hd__mux2i_1": 160,
+    "sky130_fd_sc_hd__nand2_1": 570,
+    "sky130_fd_sc_hd__nand2b_1": 33,
+    "sky130_fd_sc_hd__nand3_1": 33,
+    "sky130_fd_sc_hd__nand4_1": 53,
+    "sky130_fd_sc_hd__nor2_1": 367,
+    "sky130_fd_sc_hd__nor2b_1": 89,
+    "sky130_fd_sc_hd__nor3_1": 10,
+    "sky130_fd_sc_hd__nor3b_1": 1,
+    "sky130_fd_sc_hd__nor4b_1": 1,
+    "sky130_fd_sc_hd__o21a_1": 4,
+    "sky130_fd_sc_hd__o21ai_1": 64,
+    "sky130_fd_sc_hd__o21bai_1": 10,
+    "sky130_fd_sc_hd__o22a_1": 12,
+    "sky130_fd_sc_hd__o22ai_1": 5,
+    "sky130_fd_sc_hd__o31ai_1": 7,
+    "sky130_fd_sc_hd__o32ai_1": 2,
+    "sky130_fd_sc_hd__o41ai_1": 1,
+    "sky130_fd_sc_hd__or2_1": 3,
+    "sky130_fd_sc_hd__or3_1": 1,
+    "sky130_fd_sc_hd__xnor2_1": 911,
+    "sky130_fd_sc_hd__xnor3_1": 4,
+    "sky130_fd_sc_hd__xor2_1": 410,
+    "sky130_fd_sc_hd__xor3_1": 3
+  },
+  "cells": 3820,
+  "design": "fir10",
+  "library": "reduced",
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/fir10.v; synth -flatten -top fir10; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/fir10/reduced/B/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; tee -q -o /Users/noorelshahidi/DD2Project/results/m1/baseline/fir10/reduced/B/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:36:57+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc",
+      "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
+    },
+    "logs": [
+      "results/m1/baseline/fir10/reduced/B/yosys.log",
+      "results/m1/baseline/fir10/reduced/B/stat.txt",
+      "results/m1/baseline/fir10/reduced/B/stat.json"
+    ],
+    "started": "2026-10-26T10:36:56+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "script": "B",
+  "seconds": 0.654,
+  "top": "fir10"
+}

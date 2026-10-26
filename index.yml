@@ -1,0 +1,90 @@
+version: 1
+project:
+  name: DD2 Cell Finder
+  course: CSCE 3304 Digital Design II - Fall 2026
+  option: Option 3
+  active_scope: Option 2 Milestone 1
+  delivery_mode: local-first, agentic CLI
+
+governance:
+  agent_instructions: AGENTS.md
+  constitution: .specify/memory/constitution.md
+  workflow: Spec Kit
+  machine_index: index.yml
+  required_logs:
+    - ai/use_log.md
+    - ai/mistakes_log.md
+
+authoritative_sources:
+  course_rules: DD2 Project 1 - Overview and Rules.pdf
+  option_1: DD2 Project 1 - Option 1 - From a Boolean Function to an HD Cell.pdf
+  option_2: DD2 Project 1 - Option 2 - Finding Cells Worth Adding.pdf
+  backend_guidance: Backend.md
+  visual_system:
+    path: DesignSystemStudio/
+    index: DesignSystemStudio/INDEX.md
+    use: approved future UI only
+
+inputs:
+  student_pack: DD2_Project1_student_pack/
+  pdk:
+    environment_variable: PDK_ROOT
+    expected_root: "${PDK_ROOT}/sky130A"
+    detected_root: ~/.ciel/sky130A   # PDK_ROOT=~/.ciel; HD has lib/techlef/verilog only (no spice/gds/lef) as of 2026-10-26
+    full_hd_liberty: libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  # The pack belongs outside the repo (../DD2_Project1_student_pack); reach it via the given/ link.
+  reduced_hd_library: given/hd_reduced.lib
+  usable_hd_library: given/hd_usable.lib
+  option_2_designs: given/designs/
+
+repository_map:
+  src: implementation source
+  tests: unit and integration tests
+  tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
+  tests/fixtures: tiny hand-written AIGs for unit tests
+  results: committed evidence used by reports
+  libs: generated Option 2 Liberty libraries
+  cells: generated Option 1 cell artifacts
+  prompts: versioned agent prompts
+  runs: JSONL agent-run audit trails and artifacts
+  report: technical and AI reports with sources
+  docs: architecture records and interface examples
+  specs: Spec Kit spec, plan, research, contracts, tasks
+  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs (cp1); LangGraph + AG-UI server later (US4)
+  ai/runs: committed agent run logs (JSONL) and their check files
+  .venv: local Python environment made by make setup; git-ignored
+  web: React front end on DesignSystemStudio + Graphite Cyan, AG-UI client (US4)
+  docker: flow, agent and web images plus compose (read-only protected mounts)
+  references: read-only upstream clones (ag-ui, langchain-skills); git-ignored
+  build: scratch outputs; git-ignored
+
+toolchain:
+  host_available:
+    - python3 (3.9.6, too old; use uv with Python >= 3.11)
+    - yosys (0.70 on host; Table 1 needs 0.33, see research D-2)
+    - yosys-abc
+    - iverilog
+    - docker
+    - specify
+  required_later:
+    - OpenSTA
+    - dd2-layout-tools container (Magic, Netgen, fixed ngspice)
+  runtime_notes:
+    - Docker uses Colima and must be running before building the course container.
+    - Tool versions are recorded by make check, never inferred from this index.
+
+protected_paths:
+  - DD2_Project1_student_pack/
+  - pdk/
+  - given/
+  - tests/broken/
+  - .specify/memory/constitution.md
+
+agentic_system:
+  command: make agent IN=<design>   # cp1: make agent-check (scripted run, no model yet)
+  rules:
+    - Tool schemas and protected-path permissions are enforced in deterministic code.
+    - Prompt files and model settings are versioned.
+    - Each model/tool call is logged with a run ID and result artifact.
+    - Runs have iteration, time, input-size, token, and cost limits.
+    - A fixed-choice pipeline is retained for required comparison.

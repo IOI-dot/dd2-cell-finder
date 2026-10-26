@@ -1,0 +1,122 @@
+{
+  "four_input_classes": 3904,
+  "hd_cells_exists": 323,
+  "hd_cells_not_exists": [],
+  "hd_cells_total": 323,
+  "pass_rule": "every HD cell Exists and no Table 4 row is 'mismatch' (row new_one_stage_small is 'definition-open', research Q-1)",
+  "run": {
+    "argv": [
+      "dd2",
+      "selftest"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:37:17+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
+    },
+    "logs": [],
+    "started": "2026-10-26T10:37:14+00:00",
+    "status": "pass",
+    "tools": {}
+  },
+  "table4": [
+    {
+      "handout": 24,
+      "measured": 24,
+      "row": "exists",
+      "status": "match"
+    },
+    {
+      "handout": 20,
+      "measured": 20,
+      "row": "exists_with_inverter",
+      "status": "match"
+    },
+    {
+      "handout": 38,
+      "measured": 38,
+      "row": "contained",
+      "status": "match"
+    },
+    {
+      "handout": 3822,
+      "measured": 3822,
+      "row": "new",
+      "status": "match"
+    },
+    {
+      "handout": 9,
+      "measured": 9,
+      "row": "new_one_stage",
+      "status": "match"
+    },
+    {
+      "definition_used": "New, negative unate, and some series-parallel form with <= 6 literals (12 transistors) and <= 3 in series in both networks",
+      "handout": 5,
+      "measured": 6,
+      "row": "new_one_stage_small",
+      "status": "definition-open",
+      "witnesses": [
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x0017"
+        },
+        {
+          "best_stage": [
+            6,
+            2,
+            3
+          ],
+          "tt": "0x011F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x013F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x037F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            2
+          ],
+          "tt": "0x077F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x17FF"
+        }
+      ]
+    },
+    {
+      "breakdown": {
+        "Contained": 2,
+        "Exists": 6
+      },
+      "handout": 8,
+      "measured": 8,
+      "row": "one_stage_read_once",
+      "status": "match"
+    }
+  ]
+}

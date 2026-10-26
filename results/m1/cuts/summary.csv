@@ -1,0 +1,13 @@
+design,variant,ands,cuts,checked,failures,pn_classes,npn_classes,pn_classes_4input,npn_classes_4input,status
+cpu8,synth,932,6054,6054,0,174,59,142,46,pass
+cpu8,restructured,857,5417,5417,0,174,56,146,46,pass
+dsp8,synth,1677,11942,11942,0,206,54,178,43,pass
+dsp8,restructured,1305,9744,9744,0,188,48,162,39,pass
+arlet6502,synth,2511,19162,19162,0,197,55,167,43,pass
+arlet6502,restructured,2093,14599,14599,0,193,50,165,40,pass
+uart_apb,synth,3551,29154,29154,0,191,43,158,32,pass
+uart_apb,restructured,1748,9196,9196,0,112,34,90,26,pass
+risc8,synth,5480,39098,39098,0,189,52,160,40,pass
+risc8,restructured,4875,32017,32017,0,175,46,148,36,pass
+fir10,synth,8217,77025,77025,0,203,54,173,42,pass
+fir10,restructured,6383,62114,62114,0,199,52,171,42,pass

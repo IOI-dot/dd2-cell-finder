@@ -1,9 +1,0 @@
-# links that make setup creates
-pdk
-given
-# build trees and local environments
-build/
-.venv/
-__pycache__/
-*.pyc
-# never commit files over 50 MB (overview, section 5.1)
