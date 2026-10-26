@@ -22,7 +22,7 @@ only Linux Yosys 0.33 reproduces the handout's Table 1 exactly (research D-2).
 `make all` runs the Option 2 flow inside `dd2-flow` when that image exists (otherwise on the host
 Yosys, and Table 1 is then labelled NOT REPRODUCED), then `o1-rules` and `o1-m1`, which need Docker
 with the course image. On the verification run of a clean clone (2026-10-27): setup 40 s (new venv
-with GDSfactory), check about 1 s, test 77 s, m1-docker 54 s, o1-m1 55 s.
+with GDSfactory), check about 1 s, test about 93 s (177 tests), all 134 s, agent-check 42 s.
 
 Any
 Python >= 3.11 works; uv picks the newest one installed, and `results/m1/environment.json` records

@@ -18,6 +18,14 @@ HD = "sky130_fd_sc_hd__"
 SUPPLIES = ["VGND", "VNB", "VPB", "VPWR"]
 
 
+def standalone_ok(d: dict) -> bool:
+    """A lone cell passes if it has no DRC error, or if every error is a tap rule; errors whose
+    reason could not be parsed never pass."""
+    if d["errors"] is None:
+        return False
+    return d["errors"] == 0 or (bool(d["rules"]) and set(d["rules"]) <= TAP_ONLY)
+
+
 def hd_gds() -> Path:
     return paths.ROOT / "pdk/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds"
 
@@ -120,7 +128,7 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     ck["layers"] = {"status": "pass" if not (e := layers.check(gds, name)) else "fail", "errors": e}
     _, log = eda.magic(work, eda.drc_script(["/w/cell.gds"], name), "drc_standalone")
     d = eda.parse_drc(log)
-    ck["drc_standalone"] = d | {"status": "pass" if set(d["rules"]) <= TAP_ONLY and d["errors"] is not None else "fail",
+    ck["drc_standalone"] = d | {"status": "pass" if standalone_ok(d) else "fail",
                                 "note": "a lone cell may only fail the tap rules nwell.4, LU.2, LU.3",
                                 "report": "drc_standalone.log"}
     fixtures = abut.build(hd_gds(), gds, name, cell.width, work / "abut")

@@ -253,7 +253,8 @@
           "plan_hd": [
             -0.24,
             0.24
-          ]
+          ],
+          "uncovered_um2": 0.0
         },
         {
           "layer": "li1 VGND rail",
@@ -265,7 +266,8 @@
           "plan_hd": [
             -0.085,
             0.085
-          ]
+          ],
+          "uncovered_um2": 0.0
         },
         {
           "layer": "met1 VPWR rail",
@@ -277,7 +279,8 @@
           "plan_hd": [
             2.48,
             2.96
-          ]
+          ],
+          "uncovered_um2": 0.0
         },
         {
           "layer": "li1 VPWR rail",
@@ -289,7 +292,8 @@
           "plan_hd": [
             2.635,
             2.805
-          ]
+          ],
+          "uncovered_um2": 0.0
         }
       ],
       "status": "pass"
@@ -683,11 +687,11 @@
       "dd2_ref__nand2_1"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:31:19+00:00",
+    "finished": "2026-10-26T22:46:16+00:00",
     "host": "Darwin arm64",
     "inputs": {},
     "logs": [],
-    "started": "2026-10-26T22:30:34+00:00",
+    "started": "2026-10-26T22:45:30+00:00",
     "status": "pass",
     "tools": {}
   },

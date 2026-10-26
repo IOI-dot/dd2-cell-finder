@@ -65,15 +65,15 @@ def frame_check(gds: Gds, frame: dict) -> list:
                        ("psdm", "psdm"), ("hvtp", "hvtp"), ("npc_band", "npc"), ("areaid_sc", "areaid")):
         row(layer, tuple(frame[key]["y"]), gds.yext(layer))
         row(f"{layer} x", tuple(_x(v, w) for v in frame[key]["x"]), _xext(gds, layer))
+    dbu = gds.ly.dbu
     for rail in ("VGND", "VPWR"):
         for lay in ("met1", "li1"):
             want = tuple(frame["rails"][rail][lay]["y"])
-            mid = sum(want) / 2
-            got = [b.bbox() for b in gds.boxes(lay) if b.bbox().bottom <= mid <= b.bbox().top]
-            got = (round(got[0].bottom, 3), round(got[0].top, 3)) if got else None
-            if lay == "li1" and got:            # the strip may merge with contacts reaching it
-                got = (max(got[0], want[0]), min(got[1], want[1])) if got[0] <= want[0] and got[1] >= want[1] else got
-            row(f"{lay} {rail} rail", want, got)
+            band = kdb.Region(kdb.Box(0, int(round(want[0] / dbu)), int(round(w / dbu)), int(round(want[1] / dbu))))
+            uncovered = band - gds.region(lay)
+            # the rail (met1) or strip (li1) must cover its whole band from x = 0 to the cell width
+            row(f"{lay} {rail} rail", want, want if uncovered.is_empty() else None)
+            rows[-1]["uncovered_um2"] = round(uncovered.area() * dbu * dbu, 6)
     return rows
 
 
@@ -124,39 +124,53 @@ def frame_xor(a: Gds, b: Gds) -> dict:
 
 def pin_check(gds: Gds, inputs) -> list:
     """Option 1 handout, Table 2: inputs on li1 over the poly contact in the npc band, Y on li1,
-    VGND/VPWR on the met1 rails, VPB on the n-well at the top edge, VNB at the bottom edge."""
+    VGND/VPWR on the met1 rails, VPB on the n-well at the top edge, VNB at the bottom edge.
+    A pin may carry several labels: every label needs a pin shape under it, and an input passes
+    the band rule if one of its labels lies in the npc band on li1 touching its poly contact."""
     errs = []
     dbu = gds.ly.dbu
+    pt = lambda x, y: kdb.Point(int(round(x / dbu)), int(round(y / dbu)))  # noqa: E731
 
-    def shapes_at(layer, x, y):
-        p = kdb.Point(int(round(x / dbu)), int(round(y / dbu)))
-        return any(b.inside(p) or b.bbox().contains(p) for b in gds.region(layer).each())
+    def shape_at(layer, x, y):
+        return next((q for q in gds.region(layer).each() if q.inside(pt(x, y)) or q.bbox().contains(pt(x, y))), None)
 
-    li = {t: (x, y) for t, x, y in gds.labels("li1.label")}
+    poly_contacts = kdb.Region(gds.cell.begin_shapes_rec(gds.ly.find_layer(66, 44))) & gds.region("poly") \
+        if gds.ly.find_layer(66, 44) is not None else kdb.Region()
+    # Table 2: an input's li1 lies over its poly contact in the npc band. HD itself sometimes widens
+    # npc locally (o21ai_1 puts B1's contact at y 1.375-1.545 with npc reaching 1.645), so the
+    # contact must lie inside the cell's npc layer; the generator keeps it in plan_hd.json's band.
+    band_contacts = poly_contacts & gds.region("npc")
+    labels = {}
+    for t, x, y in gds.labels("li1.label"):
+        labels.setdefault(t, []).append((x, y))
     for name in list(inputs) + ["Y"]:
-        if name not in li:
+        if name not in labels:
             errs.append(f"{name}: no li1 label (67/5)")
             continue
-        x, y = li[name]
-        if not shapes_at("li1", x, y):
-            errs.append(f"{name}: label not on li1")
-        if not shapes_at("li1.pin", x, y):
-            errs.append(f"{name}: no li1 pin shape (67/16) under the label")
-        if name != "Y" and not (0.975 <= y <= 1.345):
-            errs.append(f"{name}: input pin at y={y} is outside the npc band 0.975-1.345")
-        if name != "Y" and not shapes_at("poly", x, y):
-            errs.append(f"{name}: input pin is not over its poly contact")
-    m1 = {t: (x, y) for t, x, y in gds.labels("met1.label")}
+        for x, y in labels[name]:
+            if shape_at("li1", x, y) is None:
+                errs.append(f"{name}: label at ({x}, {y}) is not on li1")
+            if shape_at("li1.pin", x, y) is None:
+                errs.append(f"{name}: no li1 pin shape (67/16) under the label at ({x}, {y})")
+        if name != "Y":
+            good = [(x, y) for x, y in labels[name] if (li := shape_at("li1", x, y)) is not None
+                    and not (kdb.Region(li) & band_contacts).is_empty()]
+            if not good:
+                errs.append(f"{name}: its li1 pin does not lie over a poly contact inside the npc band (npc layer)")
+    m1 = {}
+    for t, x, y in gds.labels("met1.label"):
+        m1.setdefault(t, []).append((x, y))
     for name, ry in (("VGND", 0.0), ("VPWR", 2.72)):
-        if name not in m1 or abs(m1[name][1] - ry) > 0.24:
+        on_rail = [(x, y) for x, y in m1.get(name, []) if abs(y - ry) <= 0.24]
+        if not on_rail:
             errs.append(f"{name}: no met1 label (68/5) on its rail")
-        elif not shapes_at("met1.pin", *m1[name]):
+        elif not any(shape_at("met1.pin", x, y) is not None for x, y in on_rail):
             errs.append(f"{name}: no met1 pin shape (68/16) on the rail")
     for name, label, pin, ey in (("VPB", "nwell.label", "nwell.pin", 2.72), ("VNB", "pwell.label", "pwell.pin", 0.0)):
-        hit = [(x, y) for t, x, y in gds.labels(label) if t == name]
-        if not hit or abs(hit[0][1] - ey) > 1e-6:
+        hit = [(x, y) for t, x, y in gds.labels(label) if t == name and abs(y - ey) <= 1e-6]
+        if not hit:
             errs.append(f"{name}: no {label} label at the {'top' if ey else 'bottom'} edge")
-        elif not shapes_at(pin, *hit[0]):
+        elif shape_at(pin, *hit[0]) is None:
             errs.append(f"{name}: no {pin} shape at its label")
     return errs
 

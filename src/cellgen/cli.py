@@ -24,7 +24,18 @@ def main(argv=None) -> int:
     else:
         req = request.read(a.path)
         if req.status != "ok":
-            print(json.dumps({"status": req.status, "reason": req.reason}))
+            # Appendix A: a refused request still gets a response (fail or unsupported, with a reason)
+            data = req.data
+            name = data.get("name") or data.get("request_id") or "request"
+            resp = {"request_id": data.get("request_id"), "status": req.status, "reason": req.reason,
+                    "cell": data.get("name"), "stages": 0, "transistors": 0, "width_sites": 0, "area_um2": 0,
+                    "files": {"gds": "", "liberty": "", "verilog": "", "report": ""},
+                    "checks": {"drc": 0, "lvs": "not run", "rc_lvs": "not run", "truth_table": "not run",
+                               "abutment": 0, "layers": "not run"}, "ngspice_sha256": "", "tool_version": "cellgen"}
+            out = Path(a.out or flow.paths.ROOT / "cells") / name
+            out.mkdir(parents=True, exist_ok=True)
+            flow.provenance.write_json(out / "response.json", resp)
+            print(json.dumps({"status": req.status, "reason": req.reason, "response": str(out / "response.json")}))
             return 2
         try:
             rep = flow.build(req.data["name"], req.inputs, req.tt, request=req.data,

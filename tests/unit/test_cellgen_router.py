@@ -1,3 +1,4 @@
+import pytest
 from cellgen import router
 
 
@@ -29,3 +30,12 @@ def test_drc_parser_keeps_every_reason():
            "{All nwells must contain metal-connected N+ taps (nwell.4)} {{5 6 7 8}} {Some rule without a tag} {{9 9 9 9}}\n")
     d = eda.parse_drc(log)
     assert d["rules"] == sorted(["diff/tap.3", "nwell.4", "Some rule without a tag"]), d
+
+
+def test_standalone_drc_with_unparsed_errors_fails():
+    pytest.importorskip("klayout", reason="Option 1 needs KLayout/GDSfactory")
+    from cellgen import flow
+    assert not flow.standalone_ok({"errors": 2, "rules": []})
+    assert flow.standalone_ok({"errors": 3, "rules": ["LU.2", "LU.3", "nwell.4"]})
+    assert flow.standalone_ok({"errors": 0, "rules": []})
+    assert not flow.standalone_ok({"errors": None, "rules": []})

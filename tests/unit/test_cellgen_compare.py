@@ -68,4 +68,34 @@ def test_pin_check_generated_and_broken(nand2, tmp_path):
     labels = [(l, t, x, (0.5 if t == "A" else y)) for l, t, x, y in cell.labels if t != "VPB"]
     bad = layout.write_gds(layout.Cell(cell.name, cell.width, cell.rects, labels), tmp_path / "p.gds")
     errs = compare.pin_check(compare.Gds(bad, cell.name), ["A", "B"])
-    assert any("A" in e and "npc band" in e for e in errs) and any("VPB" in e for e in errs)
+    assert any(e.startswith("A:") and "npc band" in e for e in errs) and any("VPB" in e for e in errs)
+
+
+@pytest.mark.parametrize("hd, inputs", [("a21oi_1", ["A1", "A2", "B1"]), ("nand3_1", ["A", "B", "C"]),
+                                        ("o21ai_1", ["A1", "A2", "B1"]), ("a22oi_1", ["A1", "A2", "B1", "B2"])])
+def test_pin_check_accepts_cells_with_several_labels_per_pin(hd, inputs):
+    assert compare.pin_check(compare.Gds(HD, f"sky130_fd_sc_hd__{hd}"), inputs) == []
+
+
+def test_pin_check_requires_a_pin_shape_under_every_label(nand2, tmp_path):
+    cell, _ = nand2
+    ys = [(x, y) for l, t, x, y in cell.labels if t == "Y"]
+    x0, y0 = ys[0]
+    rects = [r for r in cell.rects if not (r.layer == "li1.pin" and r.box[0] <= x0 <= r.box[2] and r.box[1] <= y0 <= r.box[3])]
+    bad = write(cell, rects, tmp_path, "y.gds")
+    assert any("Y" in e and "pin shape" in e for e in compare.pin_check(compare.Gds(bad, cell.name), ["A", "B"]))
+
+
+@pytest.mark.parametrize("what", ["met1 short", "li1 gap"])
+def test_frame_check_requires_full_width_rails(nand2, tmp_path, what):
+    cell, _ = nand2
+    rects = []
+    for r in cell.rects:
+        if what == "met1 short" and r.layer == "met1" and r.net == "VPWR" and r.box[2] - r.box[0] > 1:
+            r = layout.Rect("met1", (r.box[0], r.box[1], 1.0, r.box[3]), r.net)
+        if what == "li1 gap" and r.layer == "li1" and r.net == "VGND" and r.box[1] < 0 and r.box[2] - r.box[0] > 1:
+            rects.append(layout.Rect("li1", (r.box[0], r.box[1], 0.6, r.box[3]), r.net))
+            r = layout.Rect("li1", (0.9, r.box[1], r.box[2], r.box[3]), r.net)
+        rects.append(r)
+    rows = compare.frame_check(compare.Gds(write(cell, rects, tmp_path, "r.gds"), cell.name), FRAME)
+    assert not all(r["match"] for r in rows), what

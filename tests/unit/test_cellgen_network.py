@@ -73,3 +73,14 @@ def test_hd_table_point_comes_from_the_delay_table():
     p = simulate.hd_table_point()
     assert p["table"] == "cell_rise" and p["variable_1"] == "input_net_transition"
     assert p["slew_ns"] == 0.122474 and p["load_pf"] == 0.00952062
+
+
+def test_invalid_request_still_gets_a_response(tmp_path):
+    pytest.importorskip("klayout", reason="Option 1 needs KLayout/GDSfactory")
+    from cellgen import cli
+    ex = json.loads((ROOT / "docs" / "interface" / "request_example.json").read_text())
+    bad = tmp_path / "bad.json"
+    bad.write_text(json.dumps(ex | {"inputs": list("ABCDE"), "expression": "A&B&C&D&E", "truth_table": "0x80000000"}))
+    assert cli.main(["request", str(bad), "--out", str(tmp_path / "cells"), "--work", str(tmp_path / "w")]) == 2
+    resp = json.loads((tmp_path / "cells" / ex["name"] / "response.json").read_text())
+    assert resp["status"] == "unsupported" and resp["request_id"] == ex["request_id"] and resp["reason"]
