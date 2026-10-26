@@ -1,0 +1,47 @@
+/* DD2 Project 1, Option 2 handout, section 6: the least a new cell needs.
+   This is one cell group, not a whole library: append it inside the library
+   group of hd_reduced.lib, before its final closing brace.
+   The area is an estimate; the capacitance and timing are placeholders. */
+  cell ("dd2_g5__maj4n_1") {
+    area : 8.7584;
+    pin ("A") { direction : "input"; capacitance : 0.0024; }
+    pin ("B") { direction : "input"; capacitance : 0.0024; }
+    pin ("C") { direction : "input"; capacitance : 0.0024; }
+    pin ("D") { direction : "input"; capacitance : 0.0024; }
+    pin ("Y") {
+      direction : "output";
+      function : "!((C&D) | (A&B&(C|D)))";
+      timing () {
+        related_pin : "A";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.10"); }
+        cell_fall (scalar) { values ("0.08"); }
+        rise_transition (scalar) { values ("0.10"); }
+        fall_transition (scalar) { values ("0.08"); }
+      }
+      timing () {
+        related_pin : "B";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.10"); }
+        cell_fall (scalar) { values ("0.08"); }
+        rise_transition (scalar) { values ("0.10"); }
+        fall_transition (scalar) { values ("0.08"); }
+      }
+      timing () {
+        related_pin : "C";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.10"); }
+        cell_fall (scalar) { values ("0.08"); }
+        rise_transition (scalar) { values ("0.10"); }
+        fall_transition (scalar) { values ("0.08"); }
+      }
+      timing () {
+        related_pin : "D";
+        timing_sense : "negative_unate";
+        cell_rise (scalar) { values ("0.10"); }
+        cell_fall (scalar) { values ("0.08"); }
+        rise_transition (scalar) { values ("0.10"); }
+        fall_transition (scalar) { values ("0.08"); }
+      }
+    }
+  }
