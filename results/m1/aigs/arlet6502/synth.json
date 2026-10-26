@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/arlet6502/synth.aig",
-  "aig_sha256": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b",
+  "aig_sha256": "6794395313183bce363d94af2d122aa834aab85e21ebd67f95ff7b262f576955",
   "commands": [
     "read_verilog given/designs/arlet6502.v",
     "synth -flatten -top cpu",
@@ -8,54 +8,54 @@
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger results/m1/aigs/arlet6502/synth.aig",
-    "write_aiger -zinit build/aigs/arlet6502/synth_zinit.aig"
+    "write_aiger -zinit results/m1/aigs/arlet6502/synth.aig",
+    "write_aiger build/aigs/arlet6502/synth_plain.aig"
   ],
   "design": "arlet6502",
   "ffs_after_synth": 143,
   "handout_ands": 3221,
   "handout_ffs": 143,
   "header": {
-    "A": 2511,
+    "A": 3221,
+    "B": 0,
+    "C": 0,
+    "I": 156,
+    "L": 144,
+    "M": 3521,
+    "O": 25
+  },
+  "levels": 68,
+  "outputs": 25,
+  "plain_header": {
+    "A": 2792,
     "B": 0,
     "C": 0,
     "I": 13,
     "L": 143,
-    "M": 2667,
+    "M": 2948,
     "O": 25
   },
-  "levels": 54,
-  "outputs": 25,
   "run": {
     "argv": [
       "yosys",
       "-q",
       "-p",
-      "read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/arlet6502/synth.aig; write_aiger -zinit build/aigs/arlet6502/synth_zinit.aig"
+      "read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/arlet6502/synth.aig; write_aiger build/aigs/arlet6502/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:50+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:10+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb"
     },
     "logs": [
       "results/m1/aigs/arlet6502/synth.log"
     ],
-    "started": "2026-10-26T12:34:49+00:00",
+    "started": "2026-10-26T15:16:09+00:00",
     "status": "pass",
     "tools": {
-      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
-  "variant": "synth",
-  "zinit_header": {
-    "A": 2940,
-    "B": 0,
-    "C": 0,
-    "I": 156,
-    "L": 144,
-    "M": 3240,
-    "O": 25
-  }
+  "variant": "synth"
 }

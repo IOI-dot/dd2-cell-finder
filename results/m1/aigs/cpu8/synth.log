@@ -1,1 +1,1 @@
-$ yosys -q -p read_verilog given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/cpu8/synth.aig; write_aiger -zinit build/aigs/cpu8/synth_zinit.aig
+$ yosys -q -p read_verilog given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/cpu8/synth.aig; write_aiger build/aigs/cpu8/synth_plain.aig

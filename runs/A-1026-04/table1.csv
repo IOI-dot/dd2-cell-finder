@@ -1,0 +1,3 @@
+design,script,usable_um2,reduced_um2,reduced_vs_usable_pct,handout_usable_um2,handout_reduced_um2,reduced_vs_handout_pct,matches_handout,yosys,handout_yosys
+cpu8,A,4186.5152,4186.5152,+0.00,4186.5,4186.5,+0.00,yes,Yosys 0.33 (git sha1 2584903a060),0.33
+cpu8,B,4367.9392,4359.1808,-0.20,4367.9,4359.2,-0.00,yes,Yosys 0.33 (git sha1 2584903a060),0.33

@@ -1,0 +1,4 @@
+$ yosys-abc -c cec runs/A-1026-04/aigs/cpu8/synth.aig runs/A-1026-04/aigs/cpu8/restructured.aig
+ABC command line: "cec runs/A-1026-04/aigs/cpu8/synth.aig runs/A-1026-04/aigs/cpu8/restructured.aig".
+
+Networks are equivalent.  Time =     0.10 sec

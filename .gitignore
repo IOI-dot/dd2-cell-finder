@@ -33,7 +33,11 @@ DesignSystemStudio/*.tsbuildinfo
 
 # Course inputs and third-party material that must never be committed (overview 5.1).
 DD2_Project1_student_pack/
+# Course handouts and planning documents (course material and private plans; never committed):
+#   DD2 Project 1 - Overview and Rules.pdf, Option 1 and Option 2 handouts,
+#   DD2_Agentic_Standard_Cell_Studio_Implementation_Plan.pdf / .docx
 *.pdf
+*.docx
 !report/*.pdf
 references/
 # Agent run outputs are evidence (Appendix B logs point into runs/); only bulky cut lists are skipped.

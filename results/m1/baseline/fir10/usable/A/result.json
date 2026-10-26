@@ -1,34 +1,34 @@
 {
-  "area_um2": 25557.0112,
+  "area_um2": 25968.656,
   "cell_counts": {
-    "sky130_fd_sc_hd__a211oi_1": 9,
-    "sky130_fd_sc_hd__a21o_1": 424,
-    "sky130_fd_sc_hd__a21oi_1": 827,
-    "sky130_fd_sc_hd__a221oi_1": 136,
-    "sky130_fd_sc_hd__a22o_1": 1,
-    "sky130_fd_sc_hd__a22oi_1": 34,
-    "sky130_fd_sc_hd__a31oi_1": 18,
-    "sky130_fd_sc_hd__a32oi_1": 2,
-    "sky130_fd_sc_hd__and2_1": 3,
+    "sky130_fd_sc_hd__a211oi_1": 6,
+    "sky130_fd_sc_hd__a21o_1": 33,
+    "sky130_fd_sc_hd__a21oi_1": 481,
+    "sky130_fd_sc_hd__a22oi_1": 183,
+    "sky130_fd_sc_hd__a31o_1": 2,
+    "sky130_fd_sc_hd__a31oi_1": 1,
+    "sky130_fd_sc_hd__a32oi_1": 1,
+    "sky130_fd_sc_hd__and2_0": 12,
+    "sky130_fd_sc_hd__and3_1": 2,
     "sky130_fd_sc_hd__dfxtp_1": 176,
-    "sky130_fd_sc_hd__inv_1": 301,
-    "sky130_fd_sc_hd__nand2_1": 972,
-    "sky130_fd_sc_hd__nand2b_1": 1,
-    "sky130_fd_sc_hd__nand3_1": 6,
-    "sky130_fd_sc_hd__nand4_1": 3,
-    "sky130_fd_sc_hd__nor2_1": 1167,
-    "sky130_fd_sc_hd__nor2b_1": 41,
-    "sky130_fd_sc_hd__nor3_1": 9,
-    "sky130_fd_sc_hd__o21a_1": 2,
-    "sky130_fd_sc_hd__o21ai_1": 487,
-    "sky130_fd_sc_hd__o22a_1": 18,
-    "sky130_fd_sc_hd__o22ai_1": 127,
-    "sky130_fd_sc_hd__o31ai_1": 1,
-    "sky130_fd_sc_hd__or2_2": 10,
-    "sky130_fd_sc_hd__or3_1": 1,
-    "sky130_fd_sc_hd__xnor2_1": 5
+    "sky130_fd_sc_hd__inv_1": 259,
+    "sky130_fd_sc_hd__nand2_1": 1265,
+    "sky130_fd_sc_hd__nor2_1": 1241,
+    "sky130_fd_sc_hd__nor2b_1": 8,
+    "sky130_fd_sc_hd__nor3_1": 13,
+    "sky130_fd_sc_hd__nor4_1": 11,
+    "sky130_fd_sc_hd__o21a_1": 497,
+    "sky130_fd_sc_hd__o21ai_0": 743,
+    "sky130_fd_sc_hd__o221a_1": 1,
+    "sky130_fd_sc_hd__o221ai_1": 1,
+    "sky130_fd_sc_hd__o22ai_1": 19,
+    "sky130_fd_sc_hd__o31a_1": 2,
+    "sky130_fd_sc_hd__o31ai_1": 2,
+    "sky130_fd_sc_hd__or2_0": 1,
+    "sky130_fd_sc_hd__xnor2_1": 6,
+    "sky130_fd_sc_hd__xor2_1": 1
   },
-  "cells": 4781,
+  "cells": 4967,
   "design": "fir10",
   "library": "usable",
   "run": {
@@ -39,8 +39,8 @@
       "read_verilog  given/designs/fir10.v; synth -flatten -top fir10; dfflibmap -liberty given/hd_usable.lib; abc -liberty given/hd_usable.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/fir10/usable/A/stat.txt stat -liberty given/hd_usable.lib; tee -q -o results/m1/baseline/fir10/usable/A/stat.json stat -json -liberty given/hd_usable.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:46+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:05+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc",
       "given/hd_usable.lib": "13a79aae465f997af6ea1d1d39bbfa6dc5c90593bf0c9d23d77c8a136e687872"
@@ -50,13 +50,13 @@
       "results/m1/baseline/fir10/usable/A/stat.txt",
       "results/m1/baseline/fir10/usable/A/stat.json"
     ],
-    "started": "2026-10-26T12:34:45+00:00",
+    "started": "2026-10-26T15:16:04+00:00",
     "status": "pass",
     "tools": {
-      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "A",
-  "seconds": 0.785,
+  "seconds": 1.151,
   "top": "fir10"
 }

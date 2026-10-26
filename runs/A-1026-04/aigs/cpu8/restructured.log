@@ -1,0 +1,6 @@
+$ yosys-abc -c read runs/A-1026-04/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger runs/A-1026-04/aigs/cpu8/restructured.aig
+ABC command line: "read runs/A-1026-04/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger runs/A-1026-04/aigs/cpu8/restructured.aig".
+
+[1;37mruns/A-1026-04/aigs/cpu8/synth:[0m i/o =   92/   13  lat =   83  and =   1209  lev = 34
+Warning: The choice nodes in the original AIG are removed by strashing.
+[1;37mruns/A-1026-04/aigs/cpu8/synth:[0m i/o =   92/   13  lat =   83  and =   1112  lev = 31

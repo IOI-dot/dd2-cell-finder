@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/risc8/synth.aig",
-  "aig_sha256": "65b40c08b878e0686cdac34f3996239ae634c9eedb59504b8f0e1e60c7a68934",
+  "aig_sha256": "5043149626bea592c0c428d0ae1c5731b8cad4013904dc0a2f263f1cbc8d948d",
   "commands": [
     "read_verilog given/designs/risc8.v",
     "synth -flatten -top cpu",
@@ -8,54 +8,54 @@
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger results/m1/aigs/risc8/synth.aig",
-    "write_aiger -zinit build/aigs/risc8/synth_zinit.aig"
+    "write_aiger -zinit results/m1/aigs/risc8/synth.aig",
+    "write_aiger build/aigs/risc8/synth_plain.aig"
   ],
   "design": "risc8",
   "ffs_after_synth": 696,
   "handout_ands": 7750,
   "handout_ffs": 696,
   "header": {
-    "A": 5480,
+    "A": 7750,
+    "B": 0,
+    "C": 0,
+    "I": 726,
+    "L": 697,
+    "M": 9173,
+    "O": 83
+  },
+  "levels": 58,
+  "outputs": 83,
+  "plain_header": {
+    "A": 5662,
     "B": 0,
     "C": 0,
     "I": 30,
     "L": 696,
-    "M": 6206,
+    "M": 6388,
     "O": 83
   },
-  "levels": 55,
-  "outputs": 83,
   "run": {
     "argv": [
       "yosys",
       "-q",
       "-p",
-      "read_verilog given/designs/risc8.v; synth -flatten -top cpu; tee -q -o build/aigs/risc8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/risc8/synth.aig; write_aiger -zinit build/aigs/risc8/synth_zinit.aig"
+      "read_verilog given/designs/risc8.v; synth -flatten -top cpu; tee -q -o build/aigs/risc8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/risc8/synth.aig; write_aiger build/aigs/risc8/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:51+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:12+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c"
     },
     "logs": [
       "results/m1/aigs/risc8/synth.log"
     ],
-    "started": "2026-10-26T12:34:50+00:00",
+    "started": "2026-10-26T15:16:11+00:00",
     "status": "pass",
     "tools": {
-      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
-  "variant": "synth",
-  "zinit_header": {
-    "A": 7568,
-    "B": 0,
-    "C": 0,
-    "I": 726,
-    "L": 697,
-    "M": 8991,
-    "O": 83
-  }
+  "variant": "synth"
 }

@@ -31,7 +31,7 @@ quoted handout rule. Spike scripts and their raw output are in [`research/`](res
   disk use small and lets a clean checkout run offline (Constitution II).
 - **Alternatives**: system Python 3.9 (fails the course minimum); conda (too much disk).
 
-### D-2 Yosys version for Table 1 reproduction (**open; verification task T004**)
+### D-2 Yosys version for Table 1 reproduction (**resolved 2026-10-26**)
 - **Measured**: the supplied `map.sh` on host Yosys 0.70 ([research/table1_yosys070_spike.txt](research/table1_yosys070_spike.txt)):
 
   | Design | A reduced (handout 0.33 → 0.70) | Δ | B reduced (0.33 → 0.70) | Δ | Reduced vs usable, A, on 0.70 |
@@ -50,7 +50,20 @@ quoted handout rule. Spike scripts and their raw output are in [`research/`](res
   small enough for the current disk. It sits behind a `YOSYS` Make variable. Host 0.70 stays
   available as a second recorded run, `make m1-baseline YOSYS=yosys`, so the report can explain the
   version effect from saved files.
-- **Status 2026-10-26 (M1 delivered on 0.70)**: `results/m1/table1.csv` is measured with host Yosys 0.70 and
+- **Resolution (2026-10-26, measured)**: the same 24 mappings were run three ways:
+
+  | Yosys build | Script A matches handout | Script B matches handout |
+  |---|---|---|
+  | 0.70 macOS (Homebrew) | 0 of 12 | 0 of 12 |
+  | 0.33 YoWASP (WebAssembly; needs yowasp-runtime 1.36, since 1.96 kills ABC silently) | 0 of 12 | 8 of 12 |
+  | **0.33 Linux (Ubuntu 24.04 package, `dd2-flow` image)** | **12 of 12** | **12 of 12** |
+
+  So the handout used Linux Yosys 0.33. ABC's results depend on the platform as well as the
+  version: the same 0.33 source gives other script A areas on WebAssembly, and its tie-breaking
+  (sorting and floating point) is the likely cause. The evidence is generated with `make m1-docker`.
+  In that run the reduced library costs at most +0.49% over the usable one (arlet6502, A), which
+  confirms the handout's "at most 0.5%".
+- **Earlier status (M1 first delivered on 0.70)**: `results/m1/table1.csv` is measured with host Yosys 0.70 and
   shows the handout values beside it. T004 is still open.
 - **Unverified**: the install was blocked in this session by a permission rule, so it has **not** been
   shown that YoWASP 0.33 reproduces Table 1 exactly. Task T004 runs it on cpu8 first. If cpu8/A/reduced
@@ -74,7 +87,10 @@ quoted handout rule. Spike scripts and their raw output are in [`research/`](res
 - **Verified on cpu8 (0.70)**: `write_aiger` fails after a plain `synth -flatten` with
   `Unsupported cell type: $_SDFFE_PP0P_`. With `async2sync; dffunmap; aigmap` it succeeds.
 - **Decision (synth variant)**: `read_verilog [-sv] <v>; synth -flatten -top <top>; async2sync; dffunmap; aigmap; write_aiger <out>.aig`.
-  **Measured (T013, 2026-10-26)**: plain `write_aiger` gives latches = flip-flops after `synth` on all six
+  **Resolved with Yosys 0.33 (2026-10-26)**: `write_aiger -zinit` gives exactly the handout's Table 2 AND
+  counts on all six designs (1265, 1973, 3221, 4673, 7750, 8795), so the handout wrote its AIGs with
+  `-zinit`. The synth AIG now uses `-zinit` (one extra initialisation latch); the plain AIG's header is
+  recorded beside it. Earlier measurement on 0.70: plain `write_aiger` gives latches = flip-flops after `synth` on all six
   designs (82, 72, 143, 330, 696, 176), the same as the handout's flip-flop column. `-zinit` adds one input
   and initialisation logic per flip-flop, plus one extra latch. So the flow uses plain `write_aiger` and
   records the `-zinit` AND count in `results/m1/aigs/compare.csv`. The `-zinit` AND counts (1178 … 8745) sit

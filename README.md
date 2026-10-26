@@ -6,14 +6,19 @@ Mohamed Azouz, Noor Elshahidi> · Option 3 (Options 1 and 2, connected) · AI us
 (LangGraph planned; at cp1 the wrapped tools, read-only checks and run logs exist, see section 8)
 
 ## 2. Quick start
-Tools used: Yosys 0.70+post (git 0c11ea0, the handout's Table 1 used 0.33), yosys-abc (bundled),
-Icarus Verilog 13.0, Python 3.14.6 in `.venv` (any Python >= 3.11), SKY130A via ciel
-(`dd7771c…`). Magic, Netgen and ngspice (Option 1) and OpenSTA (from M2) are not used by M1.
+Tools used for the evidence: the `dd2-flow` image (`docker/flow.Dockerfile`, Ubuntu 24.04):
+Yosys 0.33 (git 2584903a060) with its yosys-abc, Python 3.12. Icarus Verilog 13.0 on the host.
+SKY130A via ciel (`dd7771c…`). The course image `dd2-layout-tools`: Magic 8.3.684, Netgen 1.5.133,
+ngspice 47 with the BSIM4 fix (stress test passes). Host Yosys 0.70 also runs everything, but
+only Linux Yosys 0.33 reproduces the handout's Table 1 exactly (research D-2).
 
-    make setup     # about 1 s (pytest cached by uv; a first install takes longer)
-    make check     # under 1 s
-    make test      # about 20 s
-    make all       # about 40 s: the whole M1 flow into results/m1/
+    make setup        # links pdk/ and given/, creates .venv with pytest
+    make docker-flow  # once: builds dd2-flow (Yosys 0.33)
+    make check        # tools, PDK, supplied inputs
+    make m1-docker    # the M1 flow inside dd2-flow: writes results/m1 (about 1 minute)
+    make test         # host test suite; make test-docker runs it inside dd2-flow
+
+Without Docker, `make all` runs the same flow with the host Yosys.
 
 Timings were measured by the independent verification run on a fresh clone of a9e925a, on an
 Apple-silicon laptop (2026-10-26): setup 0.8 s, check 0.4 s, test 18.2 s, all 39.4 s. Any
@@ -73,12 +78,12 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | cp1 requirement | Evidence | Status |
 |---|---|---|
 | Environment (make check) | `results/m1/environment.json` | pass |
-| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | NOT REPRODUCED: 0/12 rows match the handout (Yosys 0.70+post vs the handout's 0.33; max deviation 4.49%) |
+| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | pass |
 | AIGs of every required design, synth and restructured: 12 artifacts | `results/m1/aigs/manifest.json` | pass |
-| Cut enumerator passing its check: 315522 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
+| Cut enumerator passing its check: 423381 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
 | Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-03.checks.json` | pass |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-04.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):
@@ -93,39 +98,39 @@ Table 4 self-test (4-input functions that depend on all inputs, up to input orde
 | new_one_stage_small | 5 | 6 | definition-open |
 | one_stage_read_once | 8 | 8 | match |
 
-Table 1 (um^2, Yosys 0.70+post; the handout's Yosys 0.33 values for comparison):
+Table 1 (um^2, Yosys 0.33; the handout's Yosys 0.33 values for comparison):
 
 | Design | Script | Usable | Reduced | Reduced vs usable | Handout reduced | Ours vs handout |
 |---|---|---:|---:|---:|---:|---:|
-| cpu8 | A | 4169.0 | 4195.3 | +0.63% | 4186.5 | +0.21% |
-| cpu8 | B | 4316.6 | 4321.6 | +0.12% | 4359.2 | -0.86% |
-| dsp8 | A | 5773.0 | 5794.3 | +0.37% | 5928.2 | -2.26% |
-| dsp8 | B | 6099.6 | 6102.1 | +0.04% | 6214.7 | -1.81% |
-| arlet6502 | A | 9285.2 | 9320.2 | +0.38% | 9701.8 | -3.93% |
-| arlet6502 | B | 9557.9 | 9546.7 | -0.12% | 9995.8 | -4.49% |
-| uart_apb | A | 12643.4 | 12817.3 | +1.38% | 12948.7 | -1.01% |
-| uart_apb | B | 13028.7 | 13030.0 | +0.01% | 13180.1 | -1.14% |
-| risc8 | A | 27764.1 | 28187.0 | +1.52% | 28263.4 | -0.27% |
-| risc8 | B | 28112.0 | 28109.5 | -0.01% | 27511.4 | +2.17% |
-| fir10 | A | 25557.0 | 26322.7 | +3.00% | 25968.7 | +1.36% |
-| fir10 | B | 28935.3 | 28935.3 | +0.00% | 29055.4 | -0.41% |
+| cpu8 | A | 4186.5 | 4186.5 | +0.00% | 4186.5 | +0.00% |
+| cpu8 | B | 4367.9 | 4359.2 | -0.20% | 4359.2 | -0.00% |
+| dsp8 | A | 5928.2 | 5928.2 | +0.00% | 5928.2 | -0.00% |
+| dsp8 | B | 6217.2 | 6214.7 | -0.04% | 6214.7 | +0.00% |
+| arlet6502 | A | 9654.3 | 9701.8 | +0.49% | 9701.8 | +0.00% |
+| arlet6502 | B | 9954.5 | 9995.8 | +0.41% | 9995.8 | +0.00% |
+| uart_apb | A | 12948.7 | 12948.7 | +0.00% | 12948.7 | -0.00% |
+| uart_apb | B | 13180.1 | 13180.1 | +0.00% | 13180.1 | +0.00% |
+| risc8 | A | 28265.9 | 28263.4 | -0.01% | 28263.4 | -0.00% |
+| risc8 | B | 27501.4 | 27511.4 | +0.04% | 27511.4 | -0.00% |
+| fir10 | A | 25968.7 | 25968.7 | +0.00% | 25968.7 | -0.00% |
+| fir10 | B | 29055.4 | 29055.4 | +0.00% | 29055.4 | -0.00% |
 
 Cuts per AIG:
 
 | Design | Variant | ANDs | Cuts | Failures | PN classes | NPN classes |
 |---|---|---:|---:|---:|---:|---:|
-| cpu8 | synth | 932 | 6054 | 0 | 174 | 59 |
-| cpu8 | restructured | 857 | 5417 | 0 | 174 | 56 |
-| dsp8 | synth | 1677 | 11942 | 0 | 206 | 54 |
-| dsp8 | restructured | 1305 | 9744 | 0 | 188 | 48 |
-| arlet6502 | synth | 2511 | 19162 | 0 | 197 | 55 |
-| arlet6502 | restructured | 2093 | 14599 | 0 | 193 | 50 |
-| uart_apb | synth | 3551 | 29154 | 0 | 191 | 43 |
-| uart_apb | restructured | 1748 | 9196 | 0 | 112 | 34 |
-| risc8 | synth | 5480 | 39098 | 0 | 189 | 52 |
-| risc8 | restructured | 4875 | 32017 | 0 | 175 | 46 |
-| fir10 | synth | 8217 | 77025 | 0 | 203 | 54 |
-| fir10 | restructured | 6383 | 62114 | 0 | 199 | 52 |
+| cpu8 | synth | 1265 | 10725 | 0 | 195 | 63 |
+| cpu8 | restructured | 1112 | 9048 | 0 | 197 | 60 |
+| dsp8 | synth | 1973 | 16445 | 0 | 200 | 54 |
+| dsp8 | restructured | 1533 | 13047 | 0 | 194 | 50 |
+| arlet6502 | synth | 3221 | 27091 | 0 | 205 | 51 |
+| arlet6502 | restructured | 2738 | 20766 | 0 | 208 | 61 |
+| uart_apb | synth | 4673 | 39290 | 0 | 203 | 45 |
+| uart_apb | restructured | 2971 | 17935 | 0 | 135 | 38 |
+| risc8 | synth | 7750 | 57178 | 0 | 173 | 45 |
+| risc8 | restructured | 6598 | 44225 | 0 | 174 | 47 |
+| fir10 | synth | 8795 | 92196 | 0 | 176 | 43 |
+| fir10 | restructured | 6937 | 75435 | 0 | 170 | 43 |
 <!-- m1-summary:end -->
 
 ## 7. Tests
@@ -149,10 +154,9 @@ Cuts per AIG:
 AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report.pdf (at submission)
 
 ## 9. Limitations
-- Table 1 is measured with Yosys 0.70, not the handout's 0.33. Areas differ by up to 4.5%, and on
-  0.70 the reduced library costs up to 3.0% over the usable one (fir10, script A), not the
-  handout's 0.5% or less. A pinned 0.33 (`yowasp-yosys==0.33.0.0.post574`) is planned and not yet
-  verified (task T004).
+- Table 1 and the handout's AIG AND counts reproduce exactly only with Linux Yosys 0.33
+  (`make m1-docker`). Host Yosys 0.70 differs by up to 4.5%, and the macOS/WebAssembly builds of 0.33
+  also differ on script A, because ABC's results depend on the platform (research D-2).
 - Table 4, row "New, one stage, at most 3 in series and 12 transistors": we measure 6, the
   handout says 5. The six functions are listed in `results/m1/redundancy/self_test.json`; the
   question is open with the TA (research Q-1).

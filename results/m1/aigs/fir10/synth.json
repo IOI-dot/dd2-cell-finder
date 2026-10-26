@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/fir10/synth.aig",
-  "aig_sha256": "85fdd2107f3b62f00ad37a5dc3d5d2beab80c81fc1e941f65be4192019beee03",
+  "aig_sha256": "77534a543f9fb2247956360d770277a6df898c5303bb32484c4bbba3e66792b5",
   "commands": [
     "read_verilog given/designs/fir10.v",
     "synth -flatten -top fir10",
@@ -8,54 +8,54 @@
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger results/m1/aigs/fir10/synth.aig",
-    "write_aiger -zinit build/aigs/fir10/synth_zinit.aig"
+    "write_aiger -zinit results/m1/aigs/fir10/synth.aig",
+    "write_aiger build/aigs/fir10/synth_plain.aig"
   ],
   "design": "fir10",
   "ffs_after_synth": 176,
   "handout_ands": 8795,
   "handout_ffs": 176,
   "header": {
-    "A": 8217,
+    "A": 8795,
+    "B": 0,
+    "C": 0,
+    "I": 187,
+    "L": 177,
+    "M": 9159,
+    "O": 16
+  },
+  "levels": 62,
+  "outputs": 16,
+  "plain_header": {
+    "A": 8267,
     "B": 0,
     "C": 0,
     "I": 11,
     "L": 176,
-    "M": 8404,
+    "M": 8454,
     "O": 16
   },
-  "levels": 67,
-  "outputs": 16,
   "run": {
     "argv": [
       "yosys",
       "-q",
       "-p",
-      "read_verilog given/designs/fir10.v; synth -flatten -top fir10; tee -q -o build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/fir10/synth.aig; write_aiger -zinit build/aigs/fir10/synth_zinit.aig"
+      "read_verilog given/designs/fir10.v; synth -flatten -top fir10; tee -q -o build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/fir10/synth.aig; write_aiger build/aigs/fir10/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:52+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:14+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc"
     },
     "logs": [
       "results/m1/aigs/fir10/synth.log"
     ],
-    "started": "2026-10-26T12:34:52+00:00",
+    "started": "2026-10-26T15:16:13+00:00",
     "status": "pass",
     "tools": {
-      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
-  "variant": "synth",
-  "zinit_header": {
-    "A": 8745,
-    "B": 0,
-    "C": 0,
-    "I": 187,
-    "L": 177,
-    "M": 9109,
-    "O": 16
-  }
+  "variant": "synth"
 }

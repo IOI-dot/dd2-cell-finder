@@ -5,12 +5,12 @@ Every status below is read from the record named in the Evidence column.
 | cp1 requirement | Evidence | Status |
 |---|---|---|
 | Environment (make check) | `results/m1/environment.json` | pass |
-| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | NOT REPRODUCED: 0/12 rows match the handout (Yosys 0.70+post vs the handout's 0.33; max deviation 4.49%) |
+| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | pass |
 | AIGs of every required design, synth and restructured: 12 artifacts | `results/m1/aigs/manifest.json` | pass |
-| Cut enumerator passing its check: 315522 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
+| Cut enumerator passing its check: 423381 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
 | Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-03.checks.json` | pass |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-04.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):
@@ -25,36 +25,36 @@ Table 4 self-test (4-input functions that depend on all inputs, up to input orde
 | new_one_stage_small | 5 | 6 | definition-open |
 | one_stage_read_once | 8 | 8 | match |
 
-Table 1 (um^2, Yosys 0.70+post; the handout's Yosys 0.33 values for comparison):
+Table 1 (um^2, Yosys 0.33; the handout's Yosys 0.33 values for comparison):
 
 | Design | Script | Usable | Reduced | Reduced vs usable | Handout reduced | Ours vs handout |
 |---|---|---:|---:|---:|---:|---:|
-| cpu8 | A | 4169.0 | 4195.3 | +0.63% | 4186.5 | +0.21% |
-| cpu8 | B | 4316.6 | 4321.6 | +0.12% | 4359.2 | -0.86% |
-| dsp8 | A | 5773.0 | 5794.3 | +0.37% | 5928.2 | -2.26% |
-| dsp8 | B | 6099.6 | 6102.1 | +0.04% | 6214.7 | -1.81% |
-| arlet6502 | A | 9285.2 | 9320.2 | +0.38% | 9701.8 | -3.93% |
-| arlet6502 | B | 9557.9 | 9546.7 | -0.12% | 9995.8 | -4.49% |
-| uart_apb | A | 12643.4 | 12817.3 | +1.38% | 12948.7 | -1.01% |
-| uart_apb | B | 13028.7 | 13030.0 | +0.01% | 13180.1 | -1.14% |
-| risc8 | A | 27764.1 | 28187.0 | +1.52% | 28263.4 | -0.27% |
-| risc8 | B | 28112.0 | 28109.5 | -0.01% | 27511.4 | +2.17% |
-| fir10 | A | 25557.0 | 26322.7 | +3.00% | 25968.7 | +1.36% |
-| fir10 | B | 28935.3 | 28935.3 | +0.00% | 29055.4 | -0.41% |
+| cpu8 | A | 4186.5 | 4186.5 | +0.00% | 4186.5 | +0.00% |
+| cpu8 | B | 4367.9 | 4359.2 | -0.20% | 4359.2 | -0.00% |
+| dsp8 | A | 5928.2 | 5928.2 | +0.00% | 5928.2 | -0.00% |
+| dsp8 | B | 6217.2 | 6214.7 | -0.04% | 6214.7 | +0.00% |
+| arlet6502 | A | 9654.3 | 9701.8 | +0.49% | 9701.8 | +0.00% |
+| arlet6502 | B | 9954.5 | 9995.8 | +0.41% | 9995.8 | +0.00% |
+| uart_apb | A | 12948.7 | 12948.7 | +0.00% | 12948.7 | -0.00% |
+| uart_apb | B | 13180.1 | 13180.1 | +0.00% | 13180.1 | +0.00% |
+| risc8 | A | 28265.9 | 28263.4 | -0.01% | 28263.4 | -0.00% |
+| risc8 | B | 27501.4 | 27511.4 | +0.04% | 27511.4 | -0.00% |
+| fir10 | A | 25968.7 | 25968.7 | +0.00% | 25968.7 | -0.00% |
+| fir10 | B | 29055.4 | 29055.4 | +0.00% | 29055.4 | -0.00% |
 
 Cuts per AIG:
 
 | Design | Variant | ANDs | Cuts | Failures | PN classes | NPN classes |
 |---|---|---:|---:|---:|---:|---:|
-| cpu8 | synth | 932 | 6054 | 0 | 174 | 59 |
-| cpu8 | restructured | 857 | 5417 | 0 | 174 | 56 |
-| dsp8 | synth | 1677 | 11942 | 0 | 206 | 54 |
-| dsp8 | restructured | 1305 | 9744 | 0 | 188 | 48 |
-| arlet6502 | synth | 2511 | 19162 | 0 | 197 | 55 |
-| arlet6502 | restructured | 2093 | 14599 | 0 | 193 | 50 |
-| uart_apb | synth | 3551 | 29154 | 0 | 191 | 43 |
-| uart_apb | restructured | 1748 | 9196 | 0 | 112 | 34 |
-| risc8 | synth | 5480 | 39098 | 0 | 189 | 52 |
-| risc8 | restructured | 4875 | 32017 | 0 | 175 | 46 |
-| fir10 | synth | 8217 | 77025 | 0 | 203 | 54 |
-| fir10 | restructured | 6383 | 62114 | 0 | 199 | 52 |
+| cpu8 | synth | 1265 | 10725 | 0 | 195 | 63 |
+| cpu8 | restructured | 1112 | 9048 | 0 | 197 | 60 |
+| dsp8 | synth | 1973 | 16445 | 0 | 200 | 54 |
+| dsp8 | restructured | 1533 | 13047 | 0 | 194 | 50 |
+| arlet6502 | synth | 3221 | 27091 | 0 | 205 | 51 |
+| arlet6502 | restructured | 2738 | 20766 | 0 | 208 | 61 |
+| uart_apb | synth | 4673 | 39290 | 0 | 203 | 45 |
+| uart_apb | restructured | 2971 | 17935 | 0 | 135 | 38 |
+| risc8 | synth | 7750 | 57178 | 0 | 173 | 45 |
+| risc8 | restructured | 6598 | 44225 | 0 | 174 | 47 |
+| fir10 | synth | 8795 | 92196 | 0 | 176 | 43 |
+| fir10 | restructured | 6937 | 75435 | 0 | 170 | 43 |

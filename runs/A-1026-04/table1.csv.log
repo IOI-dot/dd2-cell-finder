@@ -1,0 +1,5 @@
+cpu8       usable   A  4186.5152  pass
+cpu8       usable   B  4367.9392  pass
+cpu8       reduced  A  4186.5152  pass
+cpu8       reduced  B  4359.1808  pass
+wrote runs/A-1026-04/table1.csv

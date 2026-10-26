@@ -1,6 +1,10 @@
+/* Broken case: a Liberty file Yosys must reject (Option 2 handout 9.1). The function attribute of
+   pin Y is missing its terminating ";". Yosys 0.33 and 0.70 both refuse it, with and without -lib.
+   (An unbalanced brace was tried first, but Yosys 0.33 accepts that.) Do not edit (AGENTS.md). */
 library (broken) {
-  cell (bad) {
+  cell (bad_cell) {
     area : 1;
     pin (A) { direction : input; }
-    pin (Y) { direction : output; function : "!A"; 
+    pin (Y) { direction : output; function : "!A" }
   }
+}

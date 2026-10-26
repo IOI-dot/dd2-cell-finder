@@ -6344,14 +6344,14 @@
       "hdclasses"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:35:10+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:38+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8",
       "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
     },
     "logs": [],
-    "started": "2026-10-26T12:35:07+00:00",
+    "started": "2026-10-26T15:16:35+00:00",
     "status": "pass",
     "tools": {}
   }

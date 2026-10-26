@@ -1,4 +1,5 @@
 """make check: tool versions, PDK and supplied inputs. Writes results/m1/environment.json."""
+import os
 import re
 import sys
 from pathlib import Path
@@ -18,7 +19,9 @@ def liberty_import_count(lib: Path, log: Path) -> int | None:
 
 def pdk_version(pdk: Path) -> str:
     """ciel installs each PDK under versions/<commit>; record that commit."""
-    m = re.search(r"versions/([0-9a-f]{7,40})", str(Path(pdk).resolve()))
+    # Inside the dd2-flow container the PDK is a plain mount; the Makefile passes the host path.
+    real = os.environ.get("DD2_PDK_REALPATH") or str(Path(pdk).resolve())
+    m = re.search(r"versions/([0-9a-f]{7,40})", real)
     return f"ciel {m.group(1)}" if m else "unknown (not a ciel install)"
 
 
@@ -32,8 +35,8 @@ def check(given: Path, pdk: Path, out: Path) -> int:
     if not env["tools"]["yosys"]:
         problems.append("yosys not found on PATH (or $DD2_YOSYS)")
     elif TABLE1_YOSYS not in env["tools"]["yosys"].split()[1]:
-        notes.append(f"yosys is {env['tools']['yosys'].split()[1]}, not {TABLE1_YOSYS}: Table 1 "
-                     "will differ from the handout (research D-2; see results/m1/table1.csv)")
+        notes.append(f"yosys is {env['tools']['yosys'].split()[1]}, not {TABLE1_YOSYS}: Table 1 will "
+                     "differ from the handout; use `make m1-docker` (Linux Yosys 0.33) for evidence")
     if not env["tools"]["iverilog"]:
         problems.append("iverilog not found")
 

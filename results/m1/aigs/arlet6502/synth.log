@@ -1,3 +1,1 @@
-$ yosys -q -p read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/arlet6502/synth.aig; write_aiger -zinit build/aigs/arlet6502/synth_zinit.aig
-Warning: Treating undriven bit cpu.\RDY like $anyseq.
-Warning: Treating a total of 1 undriven bits in cpu like $anyseq.
+$ yosys -q -p read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/arlet6502/synth.aig; write_aiger build/aigs/arlet6502/synth_plain.aig

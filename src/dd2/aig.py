@@ -3,8 +3,10 @@
 synth:        read_verilog; synth -flatten -top; async2sync; dffunmap; aigmap; write_aiger
 restructured: ABC on the synth AIG: strash; dch -f; strash  (the last strash removes the choice
               nodes that dch leaves, research D-4)
-Plain write_aiger is used: its latch count equals the flip-flop count after synth, while -zinit
-adds an input and logic per flip-flop. The -zinit header is still recorded for comparison.
+The synth AIG is written with -zinit: with Yosys 0.33 its AND counts equal the handout's Table 2
+exactly for all six required designs (research D-4). -zinit adds one initialisation latch (and
+inputs/logic for the flip-flops' initial values); the plain AIG's header, whose latch count
+equals the flip-flop count, is recorded beside it.
 """
 import csv
 import json
@@ -156,7 +158,7 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None,
 
     cmds = [f"read_verilog {'-sv ' if design.sv else ''}{R(src)}", f"synth -flatten -top {design.top}",
             f"tee -q -o {R(scratch / 'ffstat.json')} stat -json", "async2sync", "dffunmap", "aigmap",
-            f"write_aiger {R(synth_aig)}", f"write_aiger -zinit {R(scratch / 'synth_zinit.aig')}"]
+            f"write_aiger -zinit {R(synth_aig)}", f"write_aiger {R(scratch / 'synth_plain.aig')}"]
     argv = tools.yosys_cmd() + ["-q", "-p", "; ".join(cmds)]
     rec = provenance.RunRecord(argv=[str(a) for a in argv], inputs=provenance.hash_inputs([src]),
                                tools={"yosys": tools.version(tools.yosys_cmd() + ["-V"])})
@@ -166,12 +168,13 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None,
         art.update(aig_sha256=provenance.sha256(synth_aig), header=header(synth_aig),
                    outputs=outputs(header(synth_aig)),
                    levels=read_aiger(synth_aig).levels(), ffs_after_synth=_ffs(scratch / "ffstat.json"),
-                   zinit_header=header(scratch / "synth_zinit.aig"),
+                   plain_header=header(scratch / "synth_plain.aig"),
                    handout_ffs=design.handout_ffs, handout_ands=design.handout_ands)
     rec.finish(code, logs=[d / "synth.log"])
-    if code == 0 and art.get("header", {}).get("L") != art.get("ffs_after_synth"):
+    ffs = art.get("ffs_after_synth")
+    if code == 0 and (art.get("plain_header", {}).get("L") != ffs or art.get("header", {}).get("L") != (ffs or 0) + 1):
         rec.status = "fail"
-        art["error"] = "latch count differs from flip-flop count"
+        art["error"] = "latches differ from flip-flops (+1 initialisation latch for -zinit)"
     art["run"] = rec.asdict()
     provenance.write_json(d / "synth.json", art)
     arts["synth"] = art
@@ -223,7 +226,7 @@ def run_all(given: Path, out: Path, names=None, scratch: Path | None = None) -> 
         s, r = arts["synth"], arts["restructured"]
         rows.append([n, s.get("ffs_after_synth"), s.get("handout_ffs"), s.get("header", {}).get("A"),
                      s.get("levels"), r.get("header", {}).get("A"), r.get("levels"),
-                     s.get("zinit_header", {}).get("A"), s.get("handout_ands"),
+                     s.get("plain_header", {}).get("A"), s.get("handout_ands"),
                      r.get("strash_only_ands"), r.get("equivalent_to_synth")])
         print(f"{n:10s} synth ANDs {rows[-1][3]} lev {rows[-1][4]} | restructured ANDs {rows[-1][5]} "
               f"lev {rows[-1][6]} | {s['run']['status']}/{r['run']['status']}")
@@ -236,7 +239,7 @@ def run_all(given: Path, out: Path, names=None, scratch: Path | None = None) -> 
     with open(Path(out) / "compare.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["design", "ffs_after_synth", "handout_ffs", "synth_ands", "synth_levels",
-                    "restructured_ands", "restructured_levels", "zinit_ands", "handout_ands",
+                    "restructured_ands", "restructured_levels", "plain_ands", "handout_ands",
                     "strash_only_ands", "restructured_equivalent"])
         w.writerows(rows)
     return 0 if ok else 1

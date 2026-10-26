@@ -3,42 +3,44 @@
 
 === cpu8 ===
 
-        +----------Local Count, excluding submodules.
-        |        +-Local Area, excluding submodules.
-        |        | 
-      467        - wires
-      569        - wire bits
-       16        - public wires
-      106        - public wire bits
-        6        - ports
-       23        - port bits
-      552  4.2E+03 cells
-        4   30.029   sky130_fd_sc_hd__a211oi_1
-        2   15.014   sky130_fd_sc_hd__a21o_1
-       96  480.461   sky130_fd_sc_hd__a21oi_1
-        5   43.792   sky130_fd_sc_hd__a22o_1
-       65  487.968   sky130_fd_sc_hd__a22oi_1
-        7   43.792   sky130_fd_sc_hd__a31oi_1
-        1    8.758   sky130_fd_sc_hd__a32oi_1
-       82 1.64E+03   sky130_fd_sc_hd__dfxtp_1
-       41  153.898   sky130_fd_sc_hd__inv_1
-       26   97.594   sky130_fd_sc_hd__nand2_1
-        4   25.024   sky130_fd_sc_hd__nand2b_1
-        4   20.019   sky130_fd_sc_hd__nand3_1
-      112  420.403   sky130_fd_sc_hd__nor2_1
-        4   20.019   sky130_fd_sc_hd__nor3_1
-        1    6.256   sky130_fd_sc_hd__nor4_1
-        2   17.517   sky130_fd_sc_hd__o2111ai_1
-        4   30.029   sky130_fd_sc_hd__o211ai_1
-       17   85.082   sky130_fd_sc_hd__o21ai_1
-        2   17.517   sky130_fd_sc_hd__o221ai_1
-       36  315.302   sky130_fd_sc_hd__o22a_1
-       28  175.168   sky130_fd_sc_hd__o22ai_1
-        1    7.507   sky130_fd_sc_hd__o31ai_1
-        1    8.758   sky130_fd_sc_hd__o32ai_1
-        3   18.768   sky130_fd_sc_hd__or2_1
-        4   25.024   sky130_fd_sc_hd__or3_1
+   Number of wires:                473
+   Number of wire bits:            581
+   Number of public wires:          19
+   Number of public wire bits:     115
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                555
+     sky130_fd_sc_hd__a211oi_1       3
+     sky130_fd_sc_hd__a21o_1         1
+     sky130_fd_sc_hd__a21oi_1       32
+     sky130_fd_sc_hd__a221o_1        2
+     sky130_fd_sc_hd__a221oi_1       1
+     sky130_fd_sc_hd__a22oi_1        7
+     sky130_fd_sc_hd__a311oi_1       1
+     sky130_fd_sc_hd__a31oi_1        3
+     sky130_fd_sc_hd__a32oi_1        2
+     sky130_fd_sc_hd__and2_1         2
+     sky130_fd_sc_hd__dfxtp_1       82
+     sky130_fd_sc_hd__inv_1         95
+     sky130_fd_sc_hd__nand2_1       26
+     sky130_fd_sc_hd__nand2b_1       1
+     sky130_fd_sc_hd__nand3_1        4
+     sky130_fd_sc_hd__nand4_1        1
+     sky130_fd_sc_hd__nor2_1        60
+     sky130_fd_sc_hd__nor2b_1        1
+     sky130_fd_sc_hd__nor3_1         7
+     sky130_fd_sc_hd__nor4_1         7
+     sky130_fd_sc_hd__o2111ai_1      1
+     sky130_fd_sc_hd__o211ai_1       3
+     sky130_fd_sc_hd__o21ai_1       28
+     sky130_fd_sc_hd__o221ai_1       5
+     sky130_fd_sc_hd__o22a_1        29
+     sky130_fd_sc_hd__o22ai_1      140
+     sky130_fd_sc_hd__o32ai_1        1
+     sky130_fd_sc_hd__or2_1          8
+     sky130_fd_sc_hd__or3_1          1
+     sky130_fd_sc_hd__xor2_1         1
 
-   Chip area for module '\cpu8': 4195.273600
-     of which used for sequential elements: 1641.574400 (39.13%)
+   Chip area for module '\cpu8': 4186.515200
 

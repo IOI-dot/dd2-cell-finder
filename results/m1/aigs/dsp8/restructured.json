@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/dsp8/restructured.aig",
-  "aig_sha256": "5d3208ecba1777d7ecc997a7f3a0ef3fb45575232b89a54abb798f125531ef0c",
+  "aig_sha256": "c13839b0727b8d63e1ac21ee1029b07bdfd150bbb404a878caf1db08a95dfcc1",
   "commands": [
     "read results/m1/aigs/dsp8/synth.aig",
     "strash",
@@ -14,15 +14,15 @@
   "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
-    "A": 1305,
-    "B": 26,
+    "A": 1533,
+    "B": 0,
     "C": 0,
-    "I": 22,
-    "L": 72,
-    "M": 1399,
-    "O": 0
+    "I": 94,
+    "L": 73,
+    "M": 1700,
+    "O": 26
   },
-  "levels": 48,
+  "levels": 49,
   "outputs": 26,
   "run": {
     "argv": [
@@ -31,21 +31,21 @@
       "read results/m1/aigs/dsp8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/dsp8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:49+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:09+00:00",
+    "host": "Linux aarch64",
     "inputs": {
-      "results/m1/aigs/dsp8/synth.aig": "54238e1f6925d2456240aae04b28936d2e12dcdd30013bfb6ba852841c0644bc"
+      "results/m1/aigs/dsp8/synth.aig": "af5dd337c3c27ed6e3b606dd1bd5f904d59aeed22638bd721e60bbd92ad6c529"
     },
     "logs": [
       "results/m1/aigs/dsp8/restructured.log",
       "results/m1/aigs/dsp8/cec.log"
     ],
-    "started": "2026-10-26T12:34:49+00:00",
+    "started": "2026-10-26T15:16:09+00:00",
     "status": "pass",
     "tools": {
-      "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"
     }
   },
-  "strash_only_ands": 1361,
+  "strash_only_ands": 1731,
   "variant": "restructured"
 }

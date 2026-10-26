@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/uart_apb/synth.aig",
-  "aig_sha256": "035e167fc1d8119482831436fef23a01a6f518f9998ac880678dfb2a4dafbcf0",
+  "aig_sha256": "32952305aa33ee8441be6c65faab8c5cd1a1450d1e27824c3826b1b9edff649e",
   "commands": [
     "read_verilog given/designs/uart_apb.v",
     "synth -flatten -top uart_apb_master",
@@ -8,54 +8,54 @@
     "async2sync",
     "dffunmap",
     "aigmap",
-    "write_aiger results/m1/aigs/uart_apb/synth.aig",
-    "write_aiger -zinit build/aigs/uart_apb/synth_zinit.aig"
+    "write_aiger -zinit results/m1/aigs/uart_apb/synth.aig",
+    "write_aiger build/aigs/uart_apb/synth_plain.aig"
   ],
   "design": "uart_apb",
   "ffs_after_synth": 330,
   "handout_ands": 4673,
   "handout_ffs": 330,
   "header": {
-    "A": 3551,
+    "A": 4673,
+    "B": 0,
+    "C": 0,
+    "I": 367,
+    "L": 331,
+    "M": 5371,
+    "O": 69
+  },
+  "levels": 18,
+  "outputs": 69,
+  "plain_header": {
+    "A": 3683,
     "B": 0,
     "C": 0,
     "I": 37,
     "L": 330,
-    "M": 3918,
+    "M": 4050,
     "O": 69
   },
-  "levels": 37,
-  "outputs": 69,
   "run": {
     "argv": [
       "yosys",
       "-q",
       "-p",
-      "read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger results/m1/aigs/uart_apb/synth.aig; write_aiger -zinit build/aigs/uart_apb/synth_zinit.aig"
+      "read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/uart_apb/synth.aig; write_aiger build/aigs/uart_apb/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T12:34:50+00:00",
-    "host": "Darwin arm64",
+    "finished": "2026-10-26T15:16:11+00:00",
+    "host": "Linux aarch64",
     "inputs": {
       "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14"
     },
     "logs": [
       "results/m1/aigs/uart_apb/synth.log"
     ],
-    "started": "2026-10-26T12:34:50+00:00",
+    "started": "2026-10-26T15:16:10+00:00",
     "status": "pass",
     "tools": {
-      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+      "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
-  "variant": "synth",
-  "zinit_header": {
-    "A": 4541,
-    "B": 0,
-    "C": 0,
-    "I": 367,
-    "L": 331,
-    "M": 5239,
-    "O": 69
-  }
+  "variant": "synth"
 }

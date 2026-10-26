@@ -1,3 +1,4 @@
 $ yosys-abc -c cec results/m1/aigs/dsp8/synth.aig results/m1/aigs/dsp8/restructured.aig
-======== ABC command line "cec results/m1/aigs/dsp8/synth.aig results/m1/aigs/dsp8/restructured.aig"
-Networks are equivalent.  Time =     0.08 sec
+ABC command line: "cec results/m1/aigs/dsp8/synth.aig results/m1/aigs/dsp8/restructured.aig".
+
+Networks are equivalent.  Time =     0.14 sec

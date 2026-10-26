@@ -1,7 +1,7 @@
-design,ffs_after_synth,handout_ffs,synth_ands,synth_levels,restructured_ands,restructured_levels,zinit_ands,handout_ands,strash_only_ands,restructured_equivalent
-cpu8,82,82,932,34,857,30,1178,1265,884,True
-dsp8,72,72,1677,52,1305,48,1893,1973,1361,True
-arlet6502,143,143,2511,54,2093,48,2940,3221,2426,True
-uart_apb,330,330,3551,37,1748,33,4541,4673,2215,True
-risc8,696,696,5480,55,4875,45,7568,7750,5211,True
-fir10,176,176,8217,67,6383,65,8745,8795,6492,True
+design,ffs_after_synth,handout_ffs,synth_ands,synth_levels,restructured_ands,restructured_levels,plain_ands,handout_ands,strash_only_ands,restructured_equivalent
+cpu8,82,82,1265,34,1112,31,1019,1265,1209,True
+dsp8,72,72,1973,53,1533,49,1757,1973,1731,True
+arlet6502,143,143,3221,68,2738,51,2792,3221,3157,True
+uart_apb,330,330,4673,18,2971,15,3683,4673,3339,True
+risc8,696,696,7750,58,6598,46,5662,7750,7492,True
+fir10,176,176,8795,62,6937,61,8267,8795,7757,True

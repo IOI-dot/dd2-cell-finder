@@ -6,14 +6,21 @@ GIVEN    ?= ../DD2_Project1_student_pack/given
 IN       ?=
 TOP      ?=
 SV       ?=
-# Yosys used by the flow. Table 1 reference is 0.33 (research D-2); override e.g.
-#   make m1 YOSYS="uv run --extra flow yowasp-yosys"
+# Yosys used by the flow. The handout's Table 1 is reproduced exactly only by Linux Yosys 0.33
+# (Ubuntu 24.04's package), which the dd2-flow image provides: use `make m1-docker` for evidence.
 YOSYS    ?= yosys
 
-PY  := .venv/bin/python
+PY  ?= .venv/bin/python
 DD2 := DD2_YOSYS="$(YOSYS)" PYTHONPATH=src $(PY) -m dd2
 
-.PHONY: setup check test all demo clean m1 m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+# The flow image: repository, given/ and the PDK mounted at their own absolute paths so the
+# links resolve unchanged; given/ and the PDK are read-only.
+DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_PDK_REALPATH="$(realpath pdk)" \
+	-v "$(CURDIR)":"$(CURDIR)" -w "$(CURDIR)" \
+	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
+	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
+
+.PHONY: setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
 
 setup:            ## links to the PDK and the given files (never copies), and the Python env
 	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
@@ -60,6 +67,15 @@ m1-summary:
 
 agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
 	PYTHONPATH=src:agent $(PY) -m dd2_agent.selfcheck
+
+docker-flow:      ## build the flow image (Ubuntu 24.04: Yosys 0.33, Icarus, Python 3.12)
+	docker build -f docker/flow.Dockerfile -t dd2-flow docker
+
+m1-docker:        ## the M1 flow inside dd2-flow: the evidence in results/m1 is made this way
+	$(DOCKER_FLOW) make m1 PY=python3
+
+test-docker:      ## the test suite inside dd2-flow
+	$(DOCKER_FLOW) sh -c "cd tests/broken && sha256sum -c SHA256SUMS --quiet && cd ../.. && python3 -m pytest -q -p no:cacheprovider"
 
 demo:             ## what the interview runs: make demo IN=<design.v> [TOP=<top>] [SV=1]
 	@test -n "$(IN)" || (echo "usage: make demo IN=<design.v> [TOP=<top>] [SV=1]" && exit 2)

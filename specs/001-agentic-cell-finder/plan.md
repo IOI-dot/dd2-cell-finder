@@ -15,13 +15,14 @@ Its deliverables are: AIGs of every required design (both variants), a cut enume
 own exhaustive check, Table 1 reproduced, the class table of HD, and a redundancy checker that passes
 its self-test against Table 4. The research spikes have already shown that the Table 4 definitions
 reproduce the handout on every row except one, which stays an open question (research D-7). They also
-showed that host Yosys 0.70 does not reproduce Table 1. The plan is to pin Yosys 0.33 (research D-2), but that
-is **not done yet** (T004 is blocked). M1 evidence is measured on 0.70 and labelled "NOT REPRODUCED".
+showed that host Yosys 0.70 does not reproduce Table 1. Linux Yosys 0.33 in the `dd2-flow` container
+(Ubuntu 24.04's package) reproduces all 24 Table 1 values and the handout's AIG AND counts exactly, and the
+M1 evidence is generated there (`make m1-docker`, research D-2).
 
 ## Technical Context
 
 **Language/Version**: Python ≥ 3.11 via `uv` (the host default 3.9.6 is too old); TypeScript 5 / React 19 for `web/` (later)
-**Primary Dependencies**: M1: stdlib only, plus Yosys 0.33 (`yowasp-yosys==0.33.0.0.post574`, verification T004) and its ABC. Later: OpenSTA, Icarus 13; `langgraph`, `langchain`, `ag-ui-langgraph`, `fastapi` (extra `[agent]`); `@ag-ui/client`, DesignSystemStudio components, Graphite Cyan tokens (`web/`)
+**Primary Dependencies**: M1: stdlib only, plus Yosys 0.33 and its ABC from Ubuntu 24.04 in the `dd2-flow` image (`docker/flow.Dockerfile`). Later: OpenSTA, Icarus 13; `langgraph`, `langchain`, `ag-ui-langgraph`, `fastapi` (extra `[agent]`); `@ag-ui/client`, DesignSystemStudio components, Graphite Cyan tokens (`web/`)
 **Storage**: files only. `results/` (committed evidence), `build/` (ignored scratch), `ai/runs/*.jsonl` (agent audit); LangGraph `SqliteSaver` for interrupt checkpoints (later). No database server.
 **Testing**: `pytest` (unit, contract, integration), with immutable negative cases in `tests/broken/` that `make test` must see fail
 **Target Platform**: macOS arm64 (this host) and Linux (the TA's clean machine and Docker)

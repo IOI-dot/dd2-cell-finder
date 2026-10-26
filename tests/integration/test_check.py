@@ -5,7 +5,9 @@ import sys
 from dd2 import paths
 
 DD2 = [sys.executable, "-m", "dd2"]
-ENV = {"PYTHONPATH": str(paths.ROOT / "src"), "PATH": __import__("os").environ["PATH"]}
+_os = __import__("os")
+ENV = {"PYTHONPATH": str(paths.ROOT / "src"), "PATH": _os.environ["PATH"]} | \
+      {k: v for k, v in _os.environ.items() if k == "DD2_PDK_REALPATH"}
 
 
 def run(*args):
