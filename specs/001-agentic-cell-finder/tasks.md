@@ -118,9 +118,9 @@ verified, so Table 1 is measured on 0.70) and T035 (fresh-clone run, commit; the
 
 Planned only. The Option 1 handout and the Option 1 owners own the detail. It is blocked here by R-0 and R-1 (research D-14).
 
-- [ ] T049 [US3] Build `dd2-layout-tools` from `../DD2_Project1_student_pack/container/` unchanged, and add the stress test to `make check`.
-- [ ] T050 [US3] Request reader in `src/cellgen/request.py`, reusing `dd2.boolfn` through its public functions only; refuse more than 4 inputs, or a mismatched table.
-- [ ] T051 [US3] Regenerate inv_1 and nand2_1 at 2.72 µm with every check (Option 1 cp1), then the six reference cells and the characterizer validation (cp2).
+- [x] T049 [US3] (built: `make o1-image`; the stress test runs in `make check`) Build `dd2-layout-tools` from `../DD2_Project1_student_pack/container/` unchanged, and add the stress test to `make check`.
+- [x] T050 [US3] (built as `src/cellgen/request.py`, using dd2.interface) Request reader in `src/cellgen/request.py`, reusing `dd2.boolfn` through its public functions only; refuse more than 4 inputs, or a mismatched table.
+- [ ] T051 [US3] (cp1 part done: inv_1 and nand2_1, `make o1-m1`; the six references and characterizer are cp2) Regenerate inv_1 and nand2_1 at 2.72 µm with every check (Option 1 cp1), then the six reference cells and the characterizer validation (cp2).
 - [ ] T052 [US3] Response writer in `src/cellgen/response.py`, which validates against `docs/interface/response.schema.json`.
 
 ---

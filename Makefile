@@ -15,12 +15,12 @@ DD2 := DD2_YOSYS="$(YOSYS)" PYTHONPATH=src $(PY) -m dd2
 
 # The flow image: repository, given/ and the PDK mounted at their own absolute paths so the
 # links resolve unchanged; given/ and the PDK are read-only.
-DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_PDK_REALPATH="$(realpath pdk)" \
+DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONTAINER=1 -e DD2_PDK_REALPATH="$(realpath pdk)" \
 	-v "$(CURDIR)":"$(CURDIR)" -w "$(CURDIR)" \
 	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
 	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
 
-.PHONY: setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+.PHONY: o1-m1 o1-image setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
 
 setup:            ## links to the PDK and the given files (never copies), and the Python env
 	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
@@ -28,11 +28,11 @@ setup:            ## links to the PDK and the given files (never copies), and th
 	ln -sfn "$(PDK_ROOT)/sky130A" pdk
 	ln -sfn "$(GIVEN)" given
 	test -x $(PY) || uv venv --python ">=3.11" .venv
-	uv pip install --python $(PY) -q "pytest>=8"
+	uv pip install --python $(PY) -q "pytest>=8" "gdsfactory==9.51.0"
 	@$(PY) -c 'import sys; assert sys.version_info >= (3, 11), sys.version'
 	@echo "setup: pdk -> $$(readlink pdk), given -> $$(readlink given)"
 
-check:            ## tool versions, PDK, supplied inputs (OpenSTA and ngspice reported for later)
+check:            ## tool versions, PDK, supplied inputs, course image + ngspice stress test (OpenSTA from M2)
 	@test -L pdk -a -L given || (echo "pdk/given links missing: run make setup" && exit 1)
 	$(DD2) check
 
@@ -40,7 +40,7 @@ test:             ## every test, including the broken cases in tests/broken/
 	cd tests/broken && shasum -a 256 -c SHA256SUMS --quiet
 	DD2_YOSYS="$(YOSYS)" $(PY) -m pytest -q
 
-all: m1           ## the whole flow implemented so far (M1)
+all: m1 o1-m1     ## the whole flow implemented so far (Option 2 M1 and Option 1 M1)
 
 m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
 
@@ -67,6 +67,12 @@ m1-summary:
 
 agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
 	PYTHONPATH=src:agent $(PY) -m dd2_agent.selfcheck
+
+o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
+	docker build -t dd2-layout-tools "$(realpath given)/../container"
+
+o1-m1:            ## Option 1 M1: frame check, inv_1 and nand2_1 regenerated and verified, request reader, network check
+	PYTHONPATH=src $(PY) -m cellgen.m1
 
 docker-flow:      ## build the flow image (Ubuntu 24.04: Yosys 0.33, Icarus, Python 3.12)
 	docker build -f docker/flow.Dockerfile -t dd2-flow docker

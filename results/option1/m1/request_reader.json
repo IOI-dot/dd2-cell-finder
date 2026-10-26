@@ -1,0 +1,26 @@
+[
+  {
+    "case": "appendix_a_example",
+    "reason": null,
+    "status": "ok",
+    "truth_table": "0x077F"
+  },
+  {
+    "case": "truth_table_mismatch",
+    "reason": "request.truth_table 0x077E does not match expression (0x077F)",
+    "status": "fail",
+    "truth_table": null
+  },
+  {
+    "case": "five_inputs",
+    "reason": "5 inputs: the generator takes at most 4 inputs and one output",
+    "status": "unsupported",
+    "truth_table": null
+  },
+  {
+    "case": "unknown_operator",
+    "reason": "request.expression: '!((C $ D) | (A & B))' does not match ^[A-Za-z0-9_!&|^() ]+$",
+    "status": "fail",
+    "truth_table": null
+  }
+]

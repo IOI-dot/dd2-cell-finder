@@ -1,0 +1,322 @@
+{
+  "cell": "dd2_ref__inv_1",
+  "checks": {
+    "abutment": {
+      "errors": 0,
+      "fixtures": {
+        "flip": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            3.87,
+            5.68
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "mirror": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            3.87,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "self": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            4.79,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "side": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            3.87,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        }
+      },
+      "status": "pass"
+    },
+    "drc": {
+      "errors": 0,
+      "status": "pass",
+      "where": "row tap|cell|inv_1|fill_1"
+    },
+    "drc_standalone": {
+      "bbox_um": [
+        -0.19,
+        -0.24,
+        1.57,
+        2.96
+      ],
+      "errors": 3,
+      "note": "a lone cell may only fail the tap rules nwell.4, LU.2, LU.3",
+      "report": "drc_standalone.log",
+      "rules": [
+        "LU.2",
+        "LU.3",
+        "nwell.4"
+      ],
+      "status": "pass"
+    },
+    "layers": {
+      "errors": [],
+      "status": "pass"
+    },
+    "lvs": {
+      "report": "lvs_schematic.out",
+      "result": "match",
+      "status": "pass"
+    },
+    "lvs_vs_installed": {
+      "report": "lvs_installed.out",
+      "result": "match",
+      "status": "pass"
+    },
+    "model": {
+      "errors": [],
+      "status": "pass"
+    },
+    "network": {
+      "errors": [],
+      "max_series": 1,
+      "status": "pass",
+      "transistors": 2
+    },
+    "ordering": {
+      "breaks": 0,
+      "gates": [
+        "A"
+      ],
+      "rows": {
+        "n": [
+          [
+            "VGND",
+            "Y"
+          ]
+        ],
+        "p": [
+          [
+            "VPWR",
+            "Y"
+          ]
+        ]
+      },
+      "status": "pass"
+    },
+    "spice": {
+      "dc_volts": {
+        "0": 1.8,
+        "1": 2.6671e-09
+      },
+      "errors": [],
+      "files": [
+        "tb_dc.spice",
+        "spice_dc.log",
+        "tb_tran.spice",
+        "spice_tran.log",
+        "tran.txt"
+      ],
+      "point": {
+        "load_pf": 0.009520618,
+        "slew_lower_pct": 20.0,
+        "slew_ns": 0.1224745,
+        "slew_upper_pct": 80.0
+      },
+      "slots": 4,
+      "status": "pass"
+    }
+  },
+  "comparison": {
+    "frame_xor_um2": {
+      "areaid": 0.0,
+      "boundary": 0.0,
+      "compared": true,
+      "hvtp": 0.0,
+      "identical": true,
+      "nsdm": 0.0,
+      "nwell": 0.0,
+      "psdm": 0.0
+    },
+    "gate_order": {
+      "installed": {
+        "diffusion_breaks": {
+          "n": 0,
+          "p": 0
+        },
+        "gates": [
+          "A"
+        ],
+        "pitch_um": [],
+        "x_um": [
+          0.6
+        ]
+      },
+      "ours": {
+        "diffusion_breaks": {
+          "n": 0,
+          "p": 0
+        },
+        "gates": [
+          "A"
+        ],
+        "pitch_um": [],
+        "x_um": [
+          0.615
+        ]
+      }
+    },
+    "installed": "sky130_fd_sc_hd__inv_1",
+    "parasitics": {
+      "installed": {
+        "c_fF_per_net": {
+          "A": 0.15617,
+          "VGND": 0.43915,
+          "VNB": 1.01811,
+          "VPB": 0.48146,
+          "VPWR": 0.40114,
+          "Y": 0.35195
+        },
+        "resistors": 0
+      },
+      "ours": {
+        "c_fF_per_net": {
+          "A": 0.14808,
+          "VGND": 0.37012,
+          "VNB": 1.0149,
+          "VPB": 0.48151,
+          "VPWR": 0.46375,
+          "Y": 0.34814
+        },
+        "resistors": 0
+      }
+    },
+    "pins": {
+      "installed": [
+        [
+          "Y",
+          0.905,
+          1.53
+        ],
+        [
+          "Y",
+          0.905,
+          1.19
+        ],
+        [
+          "A",
+          0.445,
+          1.19
+        ]
+      ],
+      "ours": [
+        [
+          "A",
+          0.5,
+          1.16
+        ],
+        [
+          "Y",
+          0.9,
+          0.58
+        ],
+        [
+          "Y",
+          0.9,
+          1.98
+        ]
+      ]
+    },
+    "timing": "pending: the characterizer is a cp2 deliverable (handout Table 7)",
+    "transistors_lvs_with_wl": "match",
+    "width_sites": {
+      "installed": 3,
+      "ours": 3
+    },
+    "wiring_layers": {
+      "installed": {
+        "li1_present": true,
+        "met1_outside_rails_um2": 0.0,
+        "ok": true
+      },
+      "ours": {
+        "li1_present": true,
+        "met1_outside_rails_um2": 0.0,
+        "ok": true
+      }
+    }
+  },
+  "failed_checks": [],
+  "inputs": [
+    "A"
+  ],
+  "layout": {
+    "diffusion_breaks": 0,
+    "gate_order": [
+      "A"
+    ],
+    "gate_pitch_um": [],
+    "layout_attempts": 25,
+    "pad_gap_um": [
+      0.03,
+      0.03
+    ],
+    "routed_nets": {
+      "Y": 1
+    },
+    "transistors": [
+      {
+        "gate": "A",
+        "kind": "n",
+        "l": 0.15,
+        "sa": 0.26,
+        "sb": 0.26,
+        "w": 0.65,
+        "x": 0.615
+      },
+      {
+        "gate": "A",
+        "kind": "p",
+        "l": 0.15,
+        "sa": 0.26,
+        "sb": 0.26,
+        "w": 1.0,
+        "x": 0.615
+      }
+    ],
+    "width_sites": 3,
+    "width_um": 1.38
+  },
+  "run": {
+    "argv": [
+      "cellgen",
+      "build",
+      "dd2_ref__inv_1"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T21:57:08+00:00",
+    "host": "Darwin arm64",
+    "inputs": {},
+    "logs": [],
+    "started": "2026-10-26T21:56:44+00:00",
+    "status": "pass",
+    "tools": {}
+  },
+  "sizing": {
+    "l_um": 0.15,
+    "nmos_w_um": 0.65,
+    "pmos_w_um": 1.0
+  },
+  "status": "pass",
+  "truth_table": "0x1"
+}

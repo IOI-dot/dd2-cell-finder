@@ -38,14 +38,15 @@ inputs:
   option_2_designs: given/designs/
 
 repository_map:
-  src: implementation source
+  src: implementation source (src/dd2 = Option 2 core; src/cellgen = Option 1 cell generator)
   tests: unit and integration tests
   tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
   tests/fixtures: tiny hand-written AIGs for unit tests
   tests/broken_proposed: broken cases written by AI, waiting for a human to review and promote
   results: committed evidence used by reports
   libs: generated Option 2 Liberty libraries
-  cells: generated Option 1 cell artifacts
+  cells: one folder per generated Option 1 cell (at cp1 dd2_ref__inv_1 and dd2_ref__nand2_1)
+  results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check)"
   prompts: versioned agent prompts
   runs: agent run outputs, committed as evidence (bulky cuts_full/ ignored)
   report: technical and AI reports with sources
@@ -70,7 +71,9 @@ toolchain:
     - specify
   required_later:
     - OpenSTA
-    - dd2-layout-tools container (Magic, Netgen, fixed ngspice)
+  images:
+    - dd2-layout-tools: course recipe unchanged; Magic 8.3.684, Netgen (reports 1.5.132), ngspice 47 fixed
+    - dd2-flow: docker/flow.Dockerfile; Ubuntu 24.04 Yosys 0.33 (reproduces Table 1)
   runtime_notes:
     - Docker uses Colima and must be running before building the course container.
     - Tool versions are recorded by make check, never inferred from this index.
@@ -95,10 +98,11 @@ agentic_system:
 status:
   updated: 2026-10-26
   milestone_1: >
-    Option 2 M1 implemented, verified twice by an independent subagent and fixed (115 tests). Table 1
-    measured on Yosys 0.70 and labelled NOT REPRODUCED; Table 4 row 6 open. Not pushed; no cp1 tag.
-  open_for_humans: [push and tag cp1, README names and IDs, Option 1 cp1 work, Yosys 0.33 (T004),
-                    review tests/broken_proposed, history rewrite decision (Q-4)]
+    Option 2 M1 and Option 1 M1 implemented. Table 1 (24/24) and the handout's AIG AND counts reproduce
+    exactly on Linux Yosys 0.33 (dd2-flow image); Table 4 row 6 open with the TA. inv_1 and nand2_1
+    regenerated at 3 sites, passing DRC, LVS (also vs installed), abutment, layers, SPICE and model.
+  open_for_humans: [tag cp1, README names and IDs (later), move tests/broken_proposed into tests/broken,
+                    "history rewrite decision (Q-4, recommendation is not to rewrite)"]
   evidence_index: results/m1/summary.md
   verification: specs/001-agentic-cell-finder/verification-2026-10-26.md   # findings table with status
   architecture: docs/architecture.md

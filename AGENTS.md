@@ -4,7 +4,9 @@
 Option 3: build the connected Option 1 and Option 2 tools. Option 2 finds repeated Boolean
 functions in synthesized circuits, identifies functions missing from SKY130 HD, and measures
 custom-cell savings. Option 1 later turns selected functions into verified HD-compatible cells.
-The active implementation scope is Option 2 Milestone 1. Use Python, Yosys/ABC and OpenSTA.
+Milestone 1 of both options is implemented (`src/dd2` for Option 2, `src/cellgen` for Option 1); the
+next scope is Milestone 2. Use Python, Yosys/ABC, OpenSTA, and for Option 1 GDSfactory/KLayout with
+Magic, Netgen and ngspice from the `dd2-layout-tools` image.
 
 ## Repository index
 Read `index.yml` before changing project files. It is the machine-readable map of repository
@@ -39,6 +41,9 @@ Update it whenever a tracked path, responsibility, or tool dependency changes.
 - `make test`: every pytest test, plus `tests/broken/SHA256SUMS`. Each check has a broken case.
 - `make all` (= `make m1`): regenerates `results/m1/`; `make m1-summary` writes `results/m1/summary.md`.
 - `make agent-check`: the scripted agent run (wrapped tools, policy refusals, Appendix B log).
+- `make o1-m1`: Option 1 M1 (frame check, inv_1 and nand2_1 regenerated and verified) into
+  `cells/` and `results/option1/m1/`; needs Docker with the course image (`make o1-image`).
+- Docker (Colima) shares only the home directory: tool work dirs must live under the repo, not /tmp.
 - Write a failing test first, run it red, then implement (Constitution III).
 
 ## Rules

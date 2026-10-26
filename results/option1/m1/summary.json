@@ -1,0 +1,61 @@
+{
+  "cells": {
+    "inv_1": {
+      "checks": {
+        "abutment": "pass",
+        "drc": "pass",
+        "drc_standalone": "pass",
+        "layers": "pass",
+        "lvs": "pass",
+        "lvs_vs_installed": "pass",
+        "model": "pass",
+        "network": "pass",
+        "ordering": "pass",
+        "spice": "pass"
+      },
+      "failed": [],
+      "status": "pass",
+      "width_sites": 3
+    },
+    "nand2_1": {
+      "checks": {
+        "abutment": "pass",
+        "drc": "pass",
+        "drc_standalone": "pass",
+        "layers": "pass",
+        "lvs": "pass",
+        "lvs_vs_installed": "pass",
+        "model": "pass",
+        "network": "pass",
+        "ordering": "pass",
+        "spice": "pass"
+      },
+      "failed": [],
+      "status": "pass",
+      "width_sites": 3
+    }
+  },
+  "frame_matches_installed": {
+    "sky130_fd_sc_hd__inv_1": true,
+    "sky130_fd_sc_hd__nand2_1": true
+  },
+  "network_check": {
+    "all_pass": true,
+    "single_stage_functions": 11
+  },
+  "request_reader": "pass",
+  "run": {
+    "argv": [
+      "cellgen",
+      "m1"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T21:57:37+00:00",
+    "host": "Darwin arm64",
+    "inputs": {},
+    "logs": [],
+    "started": "2026-10-26T21:56:42+00:00",
+    "status": "pass",
+    "tools": {}
+  }
+}

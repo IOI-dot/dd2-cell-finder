@@ -7,7 +7,7 @@ from dd2 import paths
 DD2 = [sys.executable, "-m", "dd2"]
 _os = __import__("os")
 ENV = {"PYTHONPATH": str(paths.ROOT / "src"), "PATH": _os.environ["PATH"]} | \
-      {k: v for k, v in _os.environ.items() if k == "DD2_PDK_REALPATH"}
+      {k: v for k, v in _os.environ.items() if k in ("DD2_PDK_REALPATH", "DD2_IN_CONTAINER")}
 
 
 def run(*args):
@@ -39,3 +39,15 @@ def test_environment_record_is_portable(tmp_path):
     text = json.dumps(env)
     assert str(paths.ROOT) not in text and "/Users/" not in text    # relative paths only
     assert env["pdk_version"].startswith("ciel ")                   # PDK revision recorded
+
+
+def test_course_image_and_stress_test_recorded(tmp_path):
+    # overview 5.1: make check runs the ngspice stress test (Option 1)
+    import os
+    if os.environ.get("DD2_IN_CONTAINER"):
+        return
+    run("check", "--out", str(tmp_path / "env.json"))
+    env = json.loads((tmp_path / "env.json").read_text())
+    st = env["course_image"]
+    assert st["stress_test"] == "pass" and st["ngspice"].startswith("ngspice-47")
+    assert len(st["ngspice_sha256"]) == 64 and st["magic"].startswith("8.3") and st["netgen"]

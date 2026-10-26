@@ -25,6 +25,28 @@ def pdk_version(pdk: Path) -> str:
     return f"ciel {m.group(1)}" if m else "unknown (not a ciel install)"
 
 
+COURSE_IMAGE = "dd2-layout-tools"
+
+
+def course_image() -> dict:
+    """Option 1's tools in the course image, and its ngspice stress test (overview 5.1)."""
+    import subprocess
+    if subprocess.run(["docker", "image", "inspect", COURSE_IMAGE], capture_output=True).returncode:
+        return {"status": "missing", "hint": "build it with `make o1-image` (Docker must be running)"}
+    script = ("/opt/dd2/stress_test/check_stress.sh; echo STRESS_EXIT=$?; "
+              "echo MAGIC=$(magic --version); echo NETGEN=$(netgen -batch quit 2>&1 | grep -m1 -o 'Netgen [0-9.]*')")
+    p = subprocess.run(["docker", "run", "--rm", "--network", "none", COURSE_IMAGE, "sh", "-c", script],
+                       capture_output=True, text=True, timeout=600)
+    out = p.stdout + p.stderr
+    m = re.search(r"ngspice: (ngspice-[\d.]+)\s+\S+\s+sha256 ([0-9a-f]{64})", out)
+    exit_code = re.search(r"STRESS_EXIT=(\d+)", out)
+    return {"status": "pass" if exit_code and exit_code.group(1) == "0" else "fail",
+            "stress_test": "pass" if "PASS: mobility stress is applied" in out else "fail",
+            "ngspice": m.group(1) if m else None, "ngspice_sha256": m.group(2) if m else None,
+            "magic": (re.search(r"MAGIC=(\S+)", out) or [None, None])[1],
+            "netgen": (re.search(r"NETGEN=(.+)", out) or [None, None])[1]}
+
+
 def check(given: Path, pdk: Path, out: Path) -> int:
     problems, notes = [], []
     env = {"tools": tools.versions(), "given": paths.rel(given), "pdk": paths.rel(pdk),
@@ -66,7 +88,14 @@ def check(given: Path, pdk: Path, out: Path) -> int:
 
     if not env["tools"]["sta"]:
         notes.append("OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1")
-    notes.append("ngspice stress test runs in the dd2-layout-tools image (Option 1); not checked here")
+    if os.environ.get("DD2_IN_CONTAINER"):
+        notes.append("inside the dd2-flow container: the course image and its ngspice stress test "
+                     "are checked by `make check` on the host")
+    else:
+        env["course_image"] = course_image()
+        ci = env["course_image"]
+        if ci["status"] != "pass":
+            problems.append(f"course image {COURSE_IMAGE}: {ci.get('hint') or 'ngspice stress test failed'}")
 
     env["problems"], env["notes"] = problems, notes
     env["status"] = "fail" if problems else "pass"

@@ -1,4 +1,5 @@
-"""The proposed broken cases must fail their checks (tests/broken_proposed/README.md)."""
+"""Broken cases proposed for tests/broken/: a Liberty file Yosys must reject (handout 9.1) and a
+restructured AIG ABC cec must reject. They are exercised here until a group member moves them."""
 import subprocess
 
 from dd2 import aig

@@ -1,0 +1,23 @@
+from cellgen import router
+
+
+def spacing(a, b):
+    dx = max(b[0] - a[2], a[0] - b[2], 0)
+    dy = max(b[1] - a[3], a[1] - b[3], 0)
+    return max(dx, dy) if min(dx, dy) == 0 else (dx * dx + dy * dy) ** 0.5
+
+
+def test_straight_connection():
+    w = router.connect([[(0.0, 0.0, 0.17, 0.17)], [(0.0, 1.0, 0.17, 1.17)]], (0.0, 0.0, 2.0, 2.0), [])
+    assert w and all(abs((r[2] - r[0]) - 0.17) < 1e-9 or abs((r[3] - r[1]) - 0.17) < 1e-9 for r in w)
+
+
+def test_detour_keeps_li_spacing():
+    obstacle = (0.0, 0.5, 0.6, 0.7)              # another net between the two terminals
+    w = router.connect([[(0.1, 0.0, 0.27, 0.17)], [(0.1, 1.2, 0.27, 1.37)]], (0.085, 0.085, 1.3, 1.3), [obstacle])
+    assert w and all(spacing(r, obstacle) >= 0.17 - 1e-9 for r in w)
+
+
+def test_impossible_route_returns_none():
+    wall = (0.0, 0.5, 2.0, 0.7)
+    assert router.connect([[(0.1, 0.0, 0.27, 0.17)], [(0.1, 1.2, 0.27, 1.37)]], (0.085, 0.085, 1.3, 1.3), [wall]) is None
