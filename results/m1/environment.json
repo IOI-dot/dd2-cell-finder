@@ -1,11 +1,11 @@
 {
-  "checked": "2026-10-26T10:36:40+00:00",
+  "checked": "2026-10-26T12:24:21+00:00",
   "full_hd_lib": {
     "cells": 428,
-    "path": "/Users/noorelshahidi/DD2Project/pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "path": "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
     "sha256": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
   },
-  "given": "/Users/noorelshahidi/DD2Project/given",
+  "given": "given",
   "liberty_import": {
     "hd_reduced.lib": 189,
     "hd_usable.lib": 307
@@ -15,7 +15,8 @@
     "OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1",
     "ngspice stress test runs in the dd2-layout-tools image (Option 1); not checked here"
   ],
-  "pdk": "/Users/noorelshahidi/DD2Project/pdk",
+  "pdk": "pdk",
+  "pdk_version": "ciel dd7771c384ed36b91a25e9f8b314355fc26561be",
   "problems": [],
   "status": "pass",
   "tools": {

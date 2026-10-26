@@ -149,7 +149,12 @@ Results over all P-classes that depend on all 4 inputs (3,904 classes):
   `0x077F` is among them). The handout says 5. Its unstated rule may fix one factored form per
   function, for example the first minimum-literal form found, instead of searching all of them. Four of
   the six have a minimum-literal form with 4 in series as well as one with 3. **Action**: ask the TA in
-  the cp1 meeting. Until then the self-test asserts rows 1–5 and 7 exactly, records row 6 as
+  the cp1 meeting. **Dual-pair argument (verified 2026-10-26):** the six form three dual pairs,
+  Y^d(x) = !Y(!x): 0x0017↔0x17FF, 0x011F↔0x077F, 0x013F↔0x037F. Taking the dual swaps the NMOS and
+  PMOS series depths and keeps the literal count ((6,2,3)↔(6,3,2)). So any definition that treats the
+  two networks alike gives an even count, never 5. An independent review found that 5 comes only from
+  testing the first minimum-literal form an enumerator happens to find, which depends on the
+  enumeration order. Until the TA answers, the self-test asserts rows 1–5 and 7 exactly, records row 6 as
   `measured: 6, handout: 5, status: definition-open` with the six witnesses, and the report says so.
   The count is not tuned to match.
 
@@ -262,6 +267,23 @@ All three PDFs were checked on 2026-10-26:
 - the three embedded figures, viewed: only the diagrams.
 
 Nothing hidden or suspicious was found.
+
+### D-17 Course lectures 9–10 (SCL and synthesis): what they change in the plan
+- **Library views.** A cell is shipped as Verilog, SPICE/CDL, Liberty, LEF and GDS. Our PDK has
+  only Liberty, Verilog and techlef for HD (R-1). Option 1 needs SPICE, GDS and LEF, and the M2
+  area model needs SPICE transistor counts.
+- **NLDM.** Delay and output slew are tables of input slew and output load. Input capacitance comes
+  from the Liberty. M2's placeholder timing (logical effort, Option 2 §6) stays a placeholder.
+  Option 1 must index by the 20–80% slew, the lecture's "input transition".
+- **Technology mapping.** The flow is RTL to generic logic, then an AIG (NAND2/INV), then
+  minimum-cost covering, with cell area as the cost. That is exactly why a new cell only helps if
+  ABC can cover AIG cuts with it. It also explains why the AIG's structure limits which cuts exist
+  (reference 12), and why script A (structural amap) never uses cells with repeated inputs while
+  script B (&nf, cut functions) does.
+- **Constraints.** The clock constrains reg-to-reg paths. Boundary paths need input/output delay,
+  output load and input transition. For M2's OpenSTA worst delay, use one SDC template per design
+  (clock period, `set_input_delay`, `set_output_delay`, `set_load`, `set_input_transition`), the
+  same for the baseline and the extended library, so delay changes come only from the new cells.
 
 ## Open questions
 

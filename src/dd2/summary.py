@@ -26,6 +26,27 @@ def _rows(p: Path):
         return []
 
 
+def table1_status(rows) -> str:
+    """pass only if every cell equals the handout to its printed precision."""
+    from .mapping import matches_handout
+    ok = [r for r in rows if matches_handout(float(r["usable_um2"]), float(r["handout_usable_um2"]))
+          and matches_handout(float(r["reduced_um2"]), float(r["handout_reduced_um2"]))]
+    if rows and len(ok) == len(rows):
+        return "pass"
+    dev = max((abs(float(r["reduced_vs_handout_pct"])) for r in rows), default=0.0)
+    ver = rows[0]["yosys"].split(" (")[0] if rows else "?"
+    return (f"NOT REPRODUCED: {len(ok)}/{len(rows)} rows match the handout "
+            f"({ver} vs the handout's 0.33; max deviation {dev:.2f}%)")
+
+
+def selftest_status(st: dict) -> str:
+    if st.get("run", {}).get("status") != "pass":
+        return "FAIL"
+    if any(r["status"] == "definition-open" for r in st.get("table4", [])):
+        return "pass on rows 1-5 and 7; row 6 open (Q-1)"
+    return "pass"
+
+
 def build(m1: Path) -> tuple:
     env = _load(m1 / "environment.json") or {}
     t1 = _rows(m1 / "table1.csv")
@@ -43,14 +64,13 @@ def build(m1: Path) -> tuple:
         return "pass" if ok else "FAIL"
 
     yosys = (t1[0]["yosys"].split(" (")[0] if t1 else "?")
-    max_dev = max((abs(float(r["reduced_vs_handout_pct"])) for r in t1 if r["reduced_vs_handout_pct"]), default=0.0)
     cut_total = sum(int(r["cuts"]) for r in cuts)
     cut_fail = sum(int(r["failures"]) for r in cuts)
     rows = [
         ("Environment (make check)", "results/m1/environment.json", st_(env.get("status") == "pass")),
-        (f"Table 1: {len(base)} mappings measured with {yosys}; the handout used Yosys 0.33 and our "
-         f"reduced-library areas differ from it by up to {max_dev:.2f}% (research D-2)",
-         "results/m1/table1.csv", st_(len(base) == 24 and all(b["run"]["status"] == "pass" for b in base))),
+        (f"Table 1: {len(base)} mappings measured (research D-2)", "results/m1/table1.csv",
+         table1_status(t1) if len(base) == 24 and all(b["run"]["status"] == "pass" for b in base)
+         else "FAIL: mappings missing or failed"),
         (f"AIGs of every required design, synth and restructured: {len(man.get('artifacts', []))} artifacts",
          "results/m1/aigs/manifest.json", st_(man.get("status") == "pass" and len(man.get("artifacts", [])) == 12)),
         (f"Cut enumerator passing its check: {cut_total} cuts, {cut_fail} failures",
@@ -60,7 +80,7 @@ def build(m1: Path) -> tuple:
          f"{hd.get('npn_classes_total')} NPN classes", "results/m1/hd_classes.csv",
          st_(hd.get("run", {}).get("status") == "pass")),
         (f"Redundancy self-test: {st.get('hd_cells_exists')}/{st.get('hd_cells_total')} HD cells Exists; "
-         "Table 4 below", "results/m1/redundancy/self_test.json", st_(st.get("run", {}).get("status") == "pass")),
+         "Table 4 below", "results/m1/redundancy/self_test.json", selftest_status(st)),
         ("Agentic rows: tools wrapped, checks read-only, runs logged",
          paths.rel(agent_checks[-1]) if agent_checks else "ai/runs/", st_(agent.get("status") == "pass")),
         ("Option 3: request/response format fixed (Appendix A)", "docs/interface/", st_(req_ok)),
@@ -81,7 +101,8 @@ def build(m1: Path) -> tuple:
     cl += [f"| {r['design']} | {r['variant']} | {r['ands']} | {r['cuts']} | {r['failures']} | "
            f"{r['pn_classes']} | {r['npn_classes']} |" for r in cuts]
     body = "\n".join(lines + t4 + t1l + cl)
-    ok = all(r[2] == "pass" for r in rows)
+    # A row may honestly fail to reproduce the handout; the run itself fails only on FAIL.
+    ok = not any(r[2].startswith("FAIL") for r in rows)
     return body, ok
 
 

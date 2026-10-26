@@ -36,7 +36,7 @@ TOOLS = {t.name: t for t in [
          lambda a, d: d / "baseline" / "table1.csv"),
     Tool("extract_aig", "Write the synth and restructured AIGs of one required design.",
          _obj(DESIGN, ["design"]),
-         lambda a, d: ["aig", "--designs", a["design"], "--out", d / "aigs"],
+         lambda a, d: ["aig", "--designs", a["design"], "--out", d / "aigs", "--scratch", d / "scratch"],
          lambda a, d: d / "aigs" / "manifest.json"),
     Tool("enumerate_cuts", "Enumerate and exhaustively check the 4-input cuts of one design's AIGs "
          "(run extract_aig first).", _obj(DESIGN, ["design"]),

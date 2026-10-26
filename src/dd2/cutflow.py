@@ -30,20 +30,21 @@ def process(aig_path: Path, out_dir: Path, full_path: Path, label: str) -> dict:
                                inputs=provenance.hash_inputs([aig_path]))
     c = cuts.enumerate_cuts(g, 4)
     fan = g.fanins()
-    total = checked = 0
-    failures, pn, npn, by_leaves, by_support = [], Counter(), Counter(), Counter(), Counter()
+    total = passed = 0
+    failures, pc, pn, npn, by_leaves, by_support = [], Counter(), Counter(), Counter(), Counter(), Counter()
     sample = []
     full_path.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(full_path, "wt") as full:
         for v in sorted(fan):
             for leaves, tt in c[v][:-1]:                   # the last cut is the trivial one
                 n = len(leaves)
-                ok = cutcheck.check(g, v, leaves, tt, fan)
                 total += 1
-                checked += 1
-                if not ok:
+                if cutcheck.check(g, v, leaves, tt, fan):
+                    passed += 1
+                else:
                     failures.append({"root": v, "leaves": list(leaves), "tt": bf.to_hex(tt, n)})
                 m, p, q = classify_cut(tt, n)
+                pc[f"{m}:{bf.to_hex(bf.canon_p(bf.shrink(tt, n, bf.depends_on(tt, n)), m), m)}"] += 1
                 by_leaves[n] += 1
                 by_support[m] += 1
                 pn[f"{m}:{bf.to_hex(p, m)}"] += 1
@@ -53,18 +54,21 @@ def process(aig_path: Path, out_dir: Path, full_path: Path, label: str) -> dict:
                 full.write(json.dumps(row) + "\n")
                 if total % SAMPLE_EVERY == 1:
                     sample.append(row)
-    rec.finish(1 if failures else 0)
+    checked = passed + len(failures)
+    expected = sum(len(c[v]) - 1 for v in fan)          # counted from the enumeration itself
+    rec.finish(1 if failures or checked != expected or total == 0 else 0)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{label}.sample.jsonl").write_text("".join(json.dumps(r) + "\n" for r in sample))
     summary = {
         "aig": paths.rel(aig_path), "header": {"I": g.I, "L": g.L, "O": g.O, "A": g.A},
-        "cuts_total": total, "cuts_checked": checked, "failures": failures,
+        "cuts_total": expected, "cuts_checked": checked, "cuts_passed": passed, "failures": failures,
         "max_cuts_per_node": max(len(v) - 1 for v in c.values()),
         "cuts_by_leaves": dict(sorted(by_leaves.items())),
         "cuts_by_support": dict(sorted(by_support.items())),
         "pn_classes": len(pn), "npn_classes": len(npn),
         "pn_classes_4input": sum(1 for k in pn if k.startswith("4:")),
         "npn_classes_4input": sum(1 for k in npn if k.startswith("4:")),
+        "p_classes": len(pc), "p_histogram": dict(pc.most_common()),
         "pn_histogram": dict(pn.most_common()), "npn_histogram": dict(npn.most_common()),
         "full_list": {"path": paths.rel(full_path), "sha256": provenance.sha256(full_path)},
         "sample": paths.rel(out_dir / f"{label}.sample.jsonl"), "sample_every": SAMPLE_EVERY,
@@ -108,6 +112,9 @@ def check_file(aig_path: Path, cuts_path: Path) -> int:
     fan = g.fanins()
     bad = 0
     recs = _records(Path(cuts_path))
+    if not recs:
+        print(f"cutcheck: FAIL, no cuts in {cuts_path}")
+        return 1
     for r in recs:
         if not cutcheck.check(g, r["root"], tuple(r["leaves"]), int(r["tt"], 16), fan):
             bad += 1

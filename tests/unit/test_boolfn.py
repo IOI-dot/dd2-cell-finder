@@ -17,7 +17,9 @@ def test_appendix_a_vector():
 def test_liberty_operators_and_precedence():
     names = ["A", "B", "C"]
     assert bf.eval_expr("A&B | C", names) == tt_of(lambda a, b, c: (a and b) or c, 3)
-    assert bf.eval_expr("A ^ B & C", names) == tt_of(lambda a, b, c: a ^ (b and c), 3)
+    # Liberty / Yosys precedence: ! > ^ > & > |  (verifier finding 7)
+    assert bf.eval_expr("A ^ B & C", names) == tt_of(lambda a, b, c: (a ^ b) and c, 3)
+    assert bf.eval_expr("A & B ^ C", names) == tt_of(lambda a, b, c: a and (b ^ c), 3)
     assert bf.eval_expr("(A+B)*C'", names) == tt_of(lambda a, b, c: (a or b) and not c, 3)
     assert bf.eval_expr("!A !B", names) == tt_of(lambda a, b, c: not a and not b, 3)
 

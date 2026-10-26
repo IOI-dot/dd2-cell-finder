@@ -1,44 +1,51 @@
 {
   "aig_path": "results/m1/aigs/fir10/restructured.aig",
-  "aig_sha256": "80bae9af2aa328fd3024705e48057d139400e6822d3f393a305ebf4bd69b0d1e",
+  "aig_sha256": "c2eb4a6c9074007b12949055b6eee82aa5a7d3c354df3dc0a7d4d95166c6a09b",
   "commands": [
     "read /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig",
     "strash",
+    "print_stats",
     "dch -f",
     "strash",
     "print_stats",
     "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/restructured.aig"
   ],
   "design": "fir10",
+  "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
     "A": 6383,
+    "B": 16,
+    "C": 0,
     "I": 11,
     "L": 176,
     "M": 6570,
     "O": 0
   },
   "levels": 65,
+  "outputs": 16,
   "run": {
     "argv": [
       "yosys-abc",
       "-c",
-      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/restructured.aig"
+      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/fir10/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T10:37:00+00:00",
+    "finished": "2026-10-26T12:24:42+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/fir10/synth.aig": "85fdd2107f3b62f00ad37a5dc3d5d2beab80c81fc1e941f65be4192019beee03"
     },
     "logs": [
-      "results/m1/aigs/fir10/restructured.log"
+      "results/m1/aigs/fir10/restructured.log",
+      "results/m1/aigs/fir10/cec.log"
     ],
-    "started": "2026-10-26T10:37:00+00:00",
+    "started": "2026-10-26T12:24:42+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
+  "strash_only_ands": 6492,
   "variant": "restructured"
 }

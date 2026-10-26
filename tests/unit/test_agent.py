@@ -66,3 +66,27 @@ def test_pass_without_check_file_is_a_failure(tmp_path):
     log = audit.RunLog("A-1026-97", tmp_path)
     log.result("pass", tmp_path / "missing.json")
     assert audit.verify(tmp_path / "A-1026-97.jsonl")
+
+
+@pytest.mark.parametrize("bad_id", ["../tests/broken", "A-1026-01/../../src", "", "x", "A-1026-1"])
+def test_malformed_run_ids_cannot_write(bad_id):
+    # verifier finding 5: may_write(runs/../tests/broken/..., "../tests/broken") used to pass
+    assert not policy.may_write(ROOT / "runs" / bad_id / "x.json", bad_id)
+
+
+def test_protected_set_covers_pdk_tests_and_agent():
+    roots = {str(p) for p in policy.PROTECTED_TREES}
+    for must in ("tests", "agent", "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"):
+        assert str(ROOT / must) in roots, must
+
+
+def test_every_tool_writes_only_inside_its_run(tmp_path):
+    for name, t in tools.TOOLS.items():
+        args = {"design": "cpu8"} if "design" in t.schema["properties"] else \
+               {"tt": "0x7", "arity": 2} if name == "classify" else {}
+        argv = [str(a) for a in t.argv(args, ROOT / "runs" / "A-1026-99")]
+        paths_in_argv = [a for a in argv if a.startswith(str(ROOT))]
+        assert all(policy.may_write(a, "A-1026-99") for a in paths_in_argv), (name, argv)
+    # extract_aig must get a run-local scratch directory, not build/
+    argv = tools.TOOLS["extract_aig"].argv({"design": "cpu8"}, ROOT / "runs" / "A-1026-99")
+    assert "--scratch" in [str(a) for a in argv]

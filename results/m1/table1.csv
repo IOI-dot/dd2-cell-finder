@@ -1,13 +1,13 @@
-design,script,usable_um2,reduced_um2,reduced_vs_usable_pct,handout_usable_um2,handout_reduced_um2,reduced_vs_handout_pct,yosys,handout_yosys
-cpu8,A,4168.9984,4195.2736,+0.63,4186.5,4186.5,+0.21,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-cpu8,B,4316.6400,4321.6448,+0.12,4367.9,4359.2,-0.86,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-dsp8,A,5773.0368,5794.3072,+0.37,5928.2,5928.2,-2.26,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-dsp8,B,6099.6000,6102.1024,+0.04,6217.2,6214.7,-1.81,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-arlet6502,A,9285.1552,9320.1888,+0.38,9654.3,9701.8,-3.93,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-arlet6502,B,9557.9168,9546.6560,-0.12,9954.5,9995.8,-4.49,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-uart_apb,A,12643.3760,12817.2928,+1.38,12948.7,12948.7,-1.01,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-uart_apb,B,13028.7456,13029.9968,+0.01,13180.1,13180.1,-1.14,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-risc8,A,27764.1280,28187.0336,+1.52,28265.9,28263.4,-0.27,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-risc8,B,28111.9616,28109.4592,-0.01,27501.4,27511.4,+2.17,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-fir10,A,25557.0112,26322.7456,+3.00,25968.7,25968.7,+1.36,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
-fir10,B,28935.2512,28935.2512,+0.00,29055.4,29055.4,-0.41,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+design,script,usable_um2,reduced_um2,reduced_vs_usable_pct,handout_usable_um2,handout_reduced_um2,reduced_vs_handout_pct,matches_handout,yosys,handout_yosys
+cpu8,A,4168.9984,4195.2736,+0.63,4186.5,4186.5,+0.21,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+cpu8,B,4316.6400,4321.6448,+0.12,4367.9,4359.2,-0.86,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+dsp8,A,5773.0368,5794.3072,+0.37,5928.2,5928.2,-2.26,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+dsp8,B,6099.6000,6102.1024,+0.04,6217.2,6214.7,-1.81,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+arlet6502,A,9285.1552,9320.1888,+0.38,9654.3,9701.8,-3.93,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+arlet6502,B,9557.9168,9546.6560,-0.12,9954.5,9995.8,-4.49,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+uart_apb,A,12643.3760,12817.2928,+1.38,12948.7,12948.7,-1.01,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+uart_apb,B,13028.7456,13029.9968,+0.01,13180.1,13180.1,-1.14,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+risc8,A,27764.1280,28187.0336,+1.52,28265.9,28263.4,-0.27,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+risc8,B,28111.9616,28109.4592,-0.01,27501.4,27511.4,+2.17,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+fir10,A,25557.0112,26322.7456,+3.00,25968.7,25968.7,+1.36,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33
+fir10,B,28935.2512,28935.2512,+0.00,29055.4,29055.4,-0.41,no,"Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)",0.33

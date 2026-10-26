@@ -15,7 +15,8 @@ Its deliverables are: AIGs of every required design (both variants), a cut enume
 own exhaustive check, Table 1 reproduced, the class table of HD, and a redundancy checker that passes
 its self-test against Table 4. The research spikes have already shown that the Table 4 definitions
 reproduce the handout on every row except one, which stays an open question (research D-7). They also
-showed that host Yosys 0.70 does not reproduce Table 1, so the flow pins Yosys 0.33 (research D-2).
+showed that host Yosys 0.70 does not reproduce Table 1. The plan is to pin Yosys 0.33 (research D-2), but that
+is **not done yet** (T004 is blocked). M1 evidence is measured on 0.70 and labelled "NOT REPRODUCED".
 
 ## Technical Context
 
@@ -86,11 +87,12 @@ tests/
 ├── unit/  contract/  integration/
 └── broken/              # immutable negative cases (never edited by AI; see AGENTS.md)
 results/m1/              # committed evidence (contracts/results-schema.md)
-agent/dd2_agent/         # (US4) LangGraph graph, tools.py, policy.py, budget.py, audit.py, server.py
+agent/dd2_agent/         # tools.py, policy.py, audit.py, selfcheck.py (cp1); LangGraph graph, budget later (US4)
 prompts/                 # (US4) versioned prompt files
-web/                     # (US4) Vite/React app using DesignSystemStudio + Graphite Cyan + @ag-ui/client
-docker/                  # flow.Dockerfile, agent.Dockerfile, web.Dockerfile, compose.yml
-docs/                    # architecture.md, interface/ (Appendix A examples), runbook.md
+backend/                 # planned API service (auth, RBAC, rate limits, Postgres + vector DB); design TBD with user
+web/                     # planned Vite/React app using DesignSystemStudio + Graphite Cyan + @ag-ui/client
+docker/                  # planned flow/agent/backend/web images, compose.yml with read-only mounts
+docs/                    # architecture.md (layers and layout), interface/ (Appendix A examples and schemas)
 ```
 
 **Structure decision**: a single Python project with a deterministic `src/dd2` core. `agent/` and

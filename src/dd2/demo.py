@@ -1,9 +1,19 @@
 """make demo IN=<design.v>: the M1 front end on one design, written only to build/demo/<name>/."""
+import re
 from collections import Counter
 from pathlib import Path
 
-from . import aig, boolfn as bf, cutflow, liberty, mapping, paths, provenance, redundancy
+from . import aig, cutflow, liberty, mapping, paths, provenance, redundancy, tools
 from .designs import Design
+
+
+def detect_top(src: Path, sv: bool) -> str | None:
+    """The top module Yosys picks with hierarchy -auto-top (the interview design is unseen)."""
+    log = paths.build("demo", "detect_top.log")
+    tools.run(tools.yosys_cmd() + ["-p", f"read_verilog {'-sv ' if sv else ''}{src}; hierarchy -auto-top"],
+              log, timeout=600)
+    m = re.search(r"Automatically selected (\S+) as design top module", log.read_text())
+    return m.group(1).lstrip("\\") if m else None
 
 
 def run(src: Path, top: str | None, sv: bool, given: Path, pdk: Path) -> int:
@@ -11,7 +21,11 @@ def run(src: Path, top: str | None, sv: bool, given: Path, pdk: Path) -> int:
     if not src.is_file():
         print(f"design not found: {src}")
         return 2
-    d = Design(src.stem, top or src.stem, required=False, sv=sv)
+    top = top or detect_top(src, sv)
+    if not top:
+        print("could not find the top module; pass TOP=<module>")
+        return 2
+    d = Design(src.stem, top, required=False, sv=sv)
     out = paths.build("demo", d.name)
     ok = True
     areas = {}
@@ -30,13 +44,14 @@ def run(src: Path, top: str | None, sv: bool, given: Path, pdk: Path) -> int:
             continue
         s = cutflow.process(out / "aigs" / d.name / f"{v}.aig", out / "cuts", out / "cuts" / f"{v}.jsonl.gz", v)
         ok &= s["run"]["status"] == "pass"
-        four = Counter({k: n for k, n in s["pn_histogram"].items() if k.startswith("4:")})
+        # keyed by P class: a PN class mixes both polarities, whose redundancy classes can differ
+        four = Counter({k: n for k, n in s["p_histogram"].items() if k.startswith("4:")})
         classes = Counter()
         for key, n in four.items():
             classes[redundancy.classify(int(key[2:], 16), 4, idx)["class"]] += n
         summary["variants"][v] = {"ands": a["header"]["A"], "cuts": s["cuts_total"],
                                   "failures": len(s["failures"]), "pn_classes": s["pn_classes"],
-                                  "four_input_pn_classes": len(four),
+                                  "four_input_p_classes": len(four),
                                   "four_input_cuts_by_redundancy_class": dict(classes),
                                   "top_new_4input": [k for k in four if redundancy.classify(
                                       int(k[2:], 16), 4, idx)["class"] == "New"][:10]}

@@ -26,6 +26,12 @@ class Aig:
     latches: list = field(default_factory=list)   # (lit, next, init)
     outputs: list = field(default_factory=list)
     ands: list = field(default_factory=list)       # (lhs, rhs0, rhs1), lhs even
+    B: int = 0
+    bad: list = field(default_factory=list)        # bad-state literals; ABC writes POs here
+
+    def all_outputs(self) -> list:
+        """Primary outputs, including those an AIGER writer stored as bad-state properties."""
+        return self.outputs + self.bad
 
     def fanins(self) -> dict:
         """AND variable -> (rhs0 literal, rhs1 literal)."""
@@ -65,7 +71,7 @@ def read_aiger(path: Path) -> Aig:
         raise ValueError(f"{path}: justice/fairness properties are not supported")
     if M < I + L + A:
         raise ValueError(f"{path}: M={M} < I+L+A={I + L + A}")
-    g = Aig(M, I, L, O, A)
+    g = Aig(M, I, L, O, A, B=B)
     pos = nl + 1
 
     def line():
@@ -87,7 +93,8 @@ def read_aiger(path: Path) -> Aig:
             t = [2 * (I + i + 1)] + t
         g.latches.append((t[0], t[1], t[2] if len(t) > 2 else 0))
     g.outputs = [line()[0] for _ in range(O)]
-    for _ in range(B + C):
+    g.bad = [line()[0] for _ in range(B)]
+    for _ in range(C):
         line()
     if fmt == "aag":
         g.ands = [tuple(line()) for _ in range(A)]
@@ -98,16 +105,32 @@ def read_aiger(path: Path) -> Aig:
             d1, pos = _decode(data, pos)
             r0 = lhs - d0
             g.ands.append((lhs, r0, r0 - d1))
+    defined = set(range(I + L + 1))                  # constant, inputs and latches
     for lhs, r0, r1 in g.ands:
-        if lhs & 1 or lhs >> 1 > M or r0 >> 1 > M or r1 >> 1 > M:
+        if lhs & 1 or r0 < 0 or r1 < 0 or lhs >> 1 > M or r0 >> 1 > M or r1 >> 1 > M:
             raise ValueError(f"{path}: bad AND {lhs} {r0} {r1}")
+        if r0 >> 1 not in defined or r1 >> 1 not in defined:
+            raise ValueError(f"{path}: AND {lhs} uses a node defined later; "
+                             "AND gates must be in topological order")
+        defined.add(lhs >> 1)
     return g
 
 
 def header(path: Path) -> dict:
     with open(path, "rb") as f:
         t = f.readline().decode("ascii").split()
-    return dict(zip("MILOA", map(int, t[1:6])))
+    vals = list(map(int, t[1:])) + [0, 0]
+    return dict(zip("MILOABC", vals[:7]))
+
+
+def outputs(h: dict) -> int:
+    return h.get("O", 0) + h.get("B", 0)
+
+
+def cec(a: Path, b: Path, log: Path) -> bool:
+    """ABC combinational equivalence of two AIGs (latches matched by order)."""
+    code, _ = tools.run(tools.abc_cmd() + ["-c", f"cec {a} {b}"], log, timeout=1800)
+    return code == 0 and "Networks are equivalent" in Path(log).read_text()
 
 
 FF_TYPES = re.compile(r"FF|DLATCH|_SR_")
@@ -118,10 +141,11 @@ def _ffs(stat_json: Path) -> int:
     return sum(v for k, v in mod.get("num_cells_by_type", {}).items() if FF_TYPES.search(k))
 
 
-def extract_design(design, given: Path, out: Path, src: Path | None = None) -> dict:
+def extract_design(design, given: Path, out: Path, src: Path | None = None,
+                   scratch: Path | None = None) -> dict:
     d = Path(out) / design.name
     d.mkdir(parents=True, exist_ok=True)
-    scratch = paths.build("aigs", design.name)
+    scratch = Path(scratch or paths.build("aigs")) / design.name
     scratch.mkdir(parents=True, exist_ok=True)
     src = Path(src) if src else Path(given) / "designs" / f"{design.name}.v"
     synth_aig, restr_aig = d / "synth.aig", d / "restructured.aig"
@@ -137,6 +161,7 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None) -> d
     art = {"design": design.name, "variant": "synth", "aig_path": paths.rel(synth_aig), "commands": cmds}
     if code == 0 and synth_aig.exists():
         art.update(aig_sha256=provenance.sha256(synth_aig), header=header(synth_aig),
+                   outputs=outputs(header(synth_aig)),
                    levels=read_aiger(synth_aig).levels(), ffs_after_synth=_ffs(scratch / "ffstat.json"),
                    zinit_header=header(scratch / "synth_zinit.aig"),
                    handout_ffs=design.handout_ffs, handout_ands=design.handout_ands)
@@ -148,7 +173,8 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None) -> d
     provenance.write_json(d / "synth.json", art)
     arts["synth"] = art
 
-    cmds = [f"read {synth_aig}", "strash", "dch -f", "strash", "print_stats", f"write_aiger {restr_aig}"]
+    cmds = [f"read {synth_aig}", "strash", "print_stats", "dch -f", "strash", "print_stats",
+            f"write_aiger {restr_aig}"]
     argv = tools.abc_cmd() + ["-c", "; ".join(cmds)]
     rec = provenance.RunRecord(argv=[str(a) for a in argv],
                                inputs=provenance.hash_inputs([synth_aig]) if synth_aig.exists() else {},
@@ -157,33 +183,45 @@ def extract_design(design, given: Path, out: Path, src: Path | None = None) -> d
     art = {"design": design.name, "variant": "restructured", "aig_path": paths.rel(restr_aig), "commands": cmds}
     if code == 0 and restr_aig.exists():
         log = (d / "restructured.log").read_text()
+        stats = [int(x) for x in re.findall(r"and =\s*(\d+)", log)]
         art.update(aig_sha256=provenance.sha256(restr_aig), header=header(restr_aig),
-                   levels=read_aiger(restr_aig).levels(),
-                   has_choices=bool(re.search(r"and =\s*\d+\s*\(choice", log)))
-        if art["has_choices"] or art["aig_sha256"] == arts["synth"].get("aig_sha256"):
+                   outputs=outputs(header(restr_aig)), levels=read_aiger(restr_aig).levels(),
+                   strash_only_ands=stats[0] if stats else None,
+                   has_choices=bool(re.search(r"and =\s*\d+\s*\(choice", log)),
+                   equivalent_to_synth=cec(synth_aig, restr_aig, d / "cec.log"))
+        problems = []
+        if art["has_choices"]:
+            problems.append("restructured AIG has choice nodes")
+        if art["outputs"] != arts["synth"].get("outputs"):
+            problems.append(f"outputs {art['outputs']} != synth {arts['synth'].get('outputs')}")
+        if not art["equivalent_to_synth"]:
+            problems.append("ABC cec: restructured is not equivalent to synth")
+        if problems:
             code = 1
-            art["error"] = "restructured AIG has choice nodes or equals the synth AIG"
-    rec.finish(code, logs=[d / "restructured.log"])
+            art["error"] = "; ".join(problems)
+    rec.finish(code, logs=[d / "restructured.log", d / "cec.log"])
     art["run"] = rec.asdict()
     provenance.write_json(d / "restructured.json", art)
     arts["restructured"] = art
     return arts
 
 
-def run_all(given: Path, out: Path, names=None) -> int:
+def run_all(given: Path, out: Path, names=None, scratch: Path | None = None) -> int:
     names = names or [d.name for d in designs.required()]
     manifest, rows, ok = [], [], True
     for n in names:
-        arts = extract_design(designs.get(n), given, out)
+        arts = extract_design(designs.get(n), given, out, scratch=scratch)
         for v, a in arts.items():
             ok &= a["run"]["status"] == "pass"
             manifest.append({k: a.get(k) for k in ("design", "variant", "aig_path", "aig_sha256",
-                                                   "header", "levels", "ffs_after_synth")}
+                                                   "header", "outputs", "levels", "ffs_after_synth",
+                                                   "equivalent_to_synth")}
                             | {"status": a["run"]["status"], "record": paths.rel(Path(out) / n / f"{v}.json")})
         s, r = arts["synth"], arts["restructured"]
         rows.append([n, s.get("ffs_after_synth"), s.get("handout_ffs"), s.get("header", {}).get("A"),
                      s.get("levels"), r.get("header", {}).get("A"), r.get("levels"),
-                     s.get("zinit_header", {}).get("A"), s.get("handout_ands")])
+                     s.get("zinit_header", {}).get("A"), s.get("handout_ands"),
+                     r.get("strash_only_ands"), r.get("equivalent_to_synth")])
         print(f"{n:10s} synth ANDs {rows[-1][3]} lev {rows[-1][4]} | restructured ANDs {rows[-1][5]} "
               f"lev {rows[-1][6]} | {s['run']['status']}/{r['run']['status']}")
     expected = 2 * len(names)
@@ -195,6 +233,7 @@ def run_all(given: Path, out: Path, names=None) -> int:
     with open(Path(out) / "compare.csv", "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["design", "ffs_after_synth", "handout_ffs", "synth_ands", "synth_levels",
-                    "restructured_ands", "restructured_levels", "zinit_ands", "handout_ands"])
+                    "restructured_ands", "restructured_levels", "zinit_ands", "handout_ands",
+                    "strash_only_ands", "restructured_equivalent"])
         w.writerows(rows)
     return 0 if ok else 1

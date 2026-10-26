@@ -5543,6 +5543,436 @@
     }
   ],
   "cells_total": 323,
+  "excluded": [
+    {
+      "name": "sky130_fd_sc_hd__conb_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__decap_12",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__decap_3",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__decap_4",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__decap_6",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__decap_8",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfbbn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfbbn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfbbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrtn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfrtp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfsbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfsbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfstp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfstp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfstp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfxbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfxbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfxtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfxtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dfxtp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__diode_2",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlclkp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlclkp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlclkp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrbn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrbn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtn_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlrtp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxbn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxbn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxtn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxtn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxtn_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__dlxtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ebufn_1",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ebufn_2",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ebufn_4",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ebufn_8",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__edfxbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__edfxtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvn_0",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvn_1",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvn_2",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvn_4",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvn_8",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvp_1",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvp_2",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvp_4",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__einvp_8",
+      "reason": "tri-state output"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fa_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fa_2",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fa_4",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fah_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fahcin_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__fahcon_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ha_1",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ha_2",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__ha_4",
+      "reason": "2 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_bleeder_1",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_decapkapwr_12",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_decapkapwr_3",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_decapkapwr_4",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_decapkapwr_6",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_decapkapwr_8",
+      "reason": "0 output pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__lpflow_inputisolatch_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__macro_sparecell",
+      "reason": "no input pins"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfbbn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfbbn_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfbbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrtn_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfrtp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfsbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfsbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfstp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfstp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfstp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfxbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfxbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfxtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfxtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdfxtp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdlclkp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdlclkp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sdlclkp_4",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sedfxbp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sedfxbp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sedfxtp_1",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sedfxtp_2",
+      "reason": "sequential"
+    },
+    {
+      "name": "sky130_fd_sc_hd__sedfxtp_4",
+      "reason": "sequential"
+    }
+  ],
+  "excluded_by_reason": {
+    "0 output pins": 12,
+    "2 output pins": 10,
+    "no input pins": 1,
+    "sequential": 69,
+    "tri-state output": 13
+  },
+  "excluded_total": 105,
   "npn_classes_total": 19,
   "p_classes_total": 77,
   "pn_classes": [
@@ -5914,14 +6344,14 @@
       "hdclasses"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T10:37:14+00:00",
+    "finished": "2026-10-26T12:24:59+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8",
       "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
     },
     "logs": [],
-    "started": "2026-10-26T10:37:12+00:00",
+    "started": "2026-10-26T12:24:56+00:00",
     "status": "pass",
     "tools": {}
   }

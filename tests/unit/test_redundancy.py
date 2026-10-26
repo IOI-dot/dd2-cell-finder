@@ -79,3 +79,10 @@ def test_table4(idx):
     # Row 6: measured 6 against the handout's 5 (research Q-1); recorded, never tuned.
     assert got["new_one_stage_small"]["measured"] == 6
     assert got["new_one_stage_small"]["status"] == "definition-open"
+
+
+@pytest.mark.parametrize("tt, n", [(0x6, 1), (0xFFFF, 1), (0x1FFFF, 4)])
+def test_table_too_wide_for_arity_is_rejected(idx, tt, n):
+    # verifier finding 11: 0x6 at arity 1 used to come back Exists (as buf_1)
+    with pytest.raises(ValueError, match="does not fit"):
+        redundancy.classify(tt, n, idx)

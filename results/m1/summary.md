@@ -5,12 +5,12 @@ Every status below is read from the record named in the Evidence column.
 | cp1 requirement | Evidence | Status |
 |---|---|---|
 | Environment (make check) | `results/m1/environment.json` | pass |
-| Table 1: 24 mappings measured with Yosys 0.70+post; the handout used Yosys 0.33 and our reduced-library areas differ from it by up to 4.49% (research D-2) | `results/m1/table1.csv` | pass |
+| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | NOT REPRODUCED: 0/12 rows match the handout (Yosys 0.70+post vs the handout's 0.33; max deviation 4.49%) |
 | AIGs of every required design, synth and restructured: 12 artifacts | `results/m1/aigs/manifest.json` | pass |
 | Cut enumerator passing its check: 315522 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
-| Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-01.checks.json` | pass |
+| Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-02.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):

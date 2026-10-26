@@ -1,0 +1,6 @@
+library (broken) {
+  cell (bad) {
+    area : 1;
+    pin (A) { direction : input; }
+    pin (Y) { direction : output; function : "!A"; 
+  }

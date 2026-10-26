@@ -25,3 +25,15 @@ def test_ascii_and_binary_agree(name):
 def test_malformed_header_raises():
     with pytest.raises(ValueError):
         aig.read_aiger(FX / "bad_header.aag")
+
+
+def test_bad_state_lines_are_outputs():
+    # ABC writes primary outputs as B (bad-state) lines; they must not be lost.
+    g = aig.read_aiger(FX / "xor_bad_output.aag")
+    assert (g.O, g.B) == (0, 1) and g.bad == [10] and g.all_outputs() == [10]
+    assert aig.header(FX / "xor_bad_output.aag") == {"M": 5, "I": 2, "L": 0, "O": 0, "A": 3, "B": 1, "C": 0}
+
+
+def test_and_gates_must_be_topological():
+    with pytest.raises(ValueError, match="topological"):
+        aig.read_aiger(FX / "unordered.aag")

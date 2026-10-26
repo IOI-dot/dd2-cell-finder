@@ -76,6 +76,8 @@ class HdIndex:
 
 
 def classify(tt: int, n: int, idx: HdIndex, names=None) -> dict:
+    if not 0 <= tt <= bf.mask(n):
+        raise ValueError(f"truth table {tt:#x} does not fit {n} inputs")
     names = list(names or NAMES[:n])
     ess, t = _support(tt, n)
     m = len(ess)
@@ -143,7 +145,11 @@ def _index(pdk: Path) -> HdIndex:
 
 
 def cli_classify(tt_hex: str, arity: int, pdk: Path) -> int:
-    print(json.dumps(classify(int(tt_hex, 16), arity, _index(pdk)), indent=2))
+    try:
+        print(json.dumps(classify(int(tt_hex, 16), arity, _index(pdk)), indent=2))
+    except ValueError as e:
+        print(f"classify: {e}")
+        return 2
     return 0
 
 

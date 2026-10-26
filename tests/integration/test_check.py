@@ -29,3 +29,11 @@ def test_check_passes_on_real_inputs(tmp_path):
 
 def test_usage_error_exit_2():
     assert run("no-such-command").returncode == 2
+
+
+def test_environment_record_is_portable(tmp_path):
+    run("check", "--out", str(tmp_path / "env.json"))
+    env = json.loads((tmp_path / "env.json").read_text())
+    text = json.dumps(env)
+    assert str(paths.ROOT) not in text and "/Users/" not in text    # relative paths only
+    assert env["pdk_version"].startswith("ciel ")                   # PDK revision recorded

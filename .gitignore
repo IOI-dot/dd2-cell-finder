@@ -34,6 +34,7 @@ DesignSystemStudio/*.tsbuildinfo
 # Course inputs and third-party material that must never be committed (overview 5.1).
 DD2_Project1_student_pack/
 *.pdf
+!report/*.pdf
 references/
-# Agent run scratch (the JSONL audit lives in ai/runs/ and is committed).
-/runs/
+# Agent run outputs are evidence (Appendix B logs point into runs/); only bulky cut lists are skipped.
+/runs/*/cuts_full/

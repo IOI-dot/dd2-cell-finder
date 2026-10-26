@@ -26,6 +26,13 @@ def yosys_script(verilog, top, lib, script, sv=False, stat_txt="stat.txt", stat_
             f"tee -q -o {stat_json} stat -json -liberty {lib}")
 
 
+HANDOUT_TOL_UM2 = 0.06   # the handout prints areas to 0.1 um^2; anything beyond rounding differs
+
+
+def matches_handout(ours: float, handout: float | None, tol: float = HANDOUT_TOL_UM2) -> bool:
+    return handout is not None and abs(ours - handout) <= tol
+
+
 def parse_stat(stat: dict, top: str):
     mods = stat["modules"]
     m = mods.get("\\" + top) or mods.get(top)
@@ -69,7 +76,7 @@ def write_table1(results, path: Path, names) -> Path:
         w = csv.writer(f)
         w.writerow(["design", "script", "usable_um2", "reduced_um2", "reduced_vs_usable_pct",
                     "handout_usable_um2", "handout_reduced_um2", "reduced_vs_handout_pct",
-                    "yosys", "handout_yosys"])
+                    "matches_handout", "yosys", "handout_yosys"])
         for n in names:
             ref = designs.HANDOUT_TABLE1.get(n, {})
             for s in SCRIPTS:
@@ -77,6 +84,7 @@ def write_table1(results, path: Path, names) -> Path:
                 hu, hr = ref.get(("usable", s)), ref.get(("reduced", s))
                 w.writerow([n, s, f"{u:.4f}", f"{r:.4f}", f"{100 * (r - u) / u:+.2f}",
                             hu, hr, f"{100 * (r - hr) / hr:+.2f}" if hr else "",
+                            "yes" if matches_handout(u, hu) and matches_handout(r, hr) else "no",
                             yosys, designs.HANDOUT_YOSYS])
     return path
 

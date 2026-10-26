@@ -44,25 +44,52 @@ def _strip_comments(text: str) -> str:
     return re.sub(r"/\*.*?\*/", " ", text, flags=re.S)
 
 
-def read_cells(path: Path) -> list:
+def _without_groups(body: str, pattern) -> str:
+    """The cell body with its pin groups cut out, so cell attributes are not read from pins."""
+    out, last = [], 0
+    for m in pattern.finditer(body):
+        if m.start() < last:
+            continue
+        depth, i = 1, m.end()
+        while depth:
+            depth += (body[i] == "{") - (body[i] == "}")
+            i += 1
+        out.append(body[last:m.start()])
+        last = i
+    return "".join(out) + body[last:]
+
+
+def read_cells(path: Path, skipped: list | None = None) -> list:
+    """Single-output combinational cells. Every other cell is appended to skipped as
+    (name, reason), so nothing is dropped silently."""
     text = _strip_comments(Path(path).read_text())
     cells = []
+    skip = skipped.append if skipped is not None else (lambda item: None)
     for name, body in _groups(text, _CELL):
         if _SEQ.search(body):
+            skip((name, "sequential"))
             continue
         pins = list(_groups(body, _PIN))
         ins = [p for p, b in pins if (_DIR.search(b) or [None, ""])[1] == "input"]
         outs = [(p, b) for p, b in pins if (_DIR.search(b) or [None, ""])[1] == "output"]
-        if len(outs) != 1 or not ins or "three_state" in outs[0][1]:
+        if len(outs) != 1:
+            skip((name, f"{len(outs)} output pins"))
+            continue
+        if not ins:
+            skip((name, "no input pins"))
+            continue
+        if "three_state" in outs[0][1]:
+            skip((name, "tri-state output"))
             continue
         fm = _FUNC.search(outs[0][1])
         if not fm:
+            skip((name, f"output pin {outs[0][0]} has no function"))
             continue
         try:
             tt = bf.eval_expr(fm.group(1), ins)
         except ValueError as e:
             raise ValueError(f"{path}: cell {name}: {e}") from None
-        am = _AREA.search(body[:body.find("pin")] if "pin" in body else body)
+        am = _AREA.search(_without_groups(body, _PIN))
         cells.append(LibCell(name, ins, outs[0][0], fm.group(1), tt, float(am.group(1)) if am else 0.0))
     return cells
 

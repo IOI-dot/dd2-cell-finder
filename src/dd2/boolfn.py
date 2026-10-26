@@ -189,26 +189,27 @@ def eval_expr(expr: str, names) -> int:
             v ^= full
         return v
 
-    def andx():
+    # Precedence as Liberty and Yosys read it: ! (and postfix ') > ^ > & (*, juxtaposition) > |
+    def xorx():
         v = unary()
+        while peek() == "^":
+            take()
+            v ^= unary()
+        return v
+
+    def andx():
+        v = xorx()
         while peek() in ("&", "*") or starts_unary(peek()):
             if peek() in ("&", "*"):
                 take()
-            v &= unary()
-        return v
-
-    def xorx():
-        v = andx()
-        while peek() == "^":
-            take()
-            v ^= andx()
+            v &= xorx()
         return v
 
     def orx():
-        v = xorx()
+        v = andx()
         while peek() in ("|", "+"):
             take()
-            v |= xorx()
+            v |= andx()
         return v
 
     v = orx()

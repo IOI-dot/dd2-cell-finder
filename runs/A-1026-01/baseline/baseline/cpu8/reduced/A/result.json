@@ -1,0 +1,61 @@
+{
+  "area_um2": 4195.2736,
+  "cell_counts": {
+    "sky130_fd_sc_hd__a211oi_1": 4,
+    "sky130_fd_sc_hd__a21o_1": 2,
+    "sky130_fd_sc_hd__a21oi_1": 96,
+    "sky130_fd_sc_hd__a22o_1": 5,
+    "sky130_fd_sc_hd__a22oi_1": 65,
+    "sky130_fd_sc_hd__a31oi_1": 7,
+    "sky130_fd_sc_hd__a32oi_1": 1,
+    "sky130_fd_sc_hd__dfxtp_1": 82,
+    "sky130_fd_sc_hd__inv_1": 41,
+    "sky130_fd_sc_hd__nand2_1": 26,
+    "sky130_fd_sc_hd__nand2b_1": 4,
+    "sky130_fd_sc_hd__nand3_1": 4,
+    "sky130_fd_sc_hd__nor2_1": 112,
+    "sky130_fd_sc_hd__nor3_1": 4,
+    "sky130_fd_sc_hd__nor4_1": 1,
+    "sky130_fd_sc_hd__o2111ai_1": 2,
+    "sky130_fd_sc_hd__o211ai_1": 4,
+    "sky130_fd_sc_hd__o21ai_1": 17,
+    "sky130_fd_sc_hd__o221ai_1": 2,
+    "sky130_fd_sc_hd__o22a_1": 36,
+    "sky130_fd_sc_hd__o22ai_1": 28,
+    "sky130_fd_sc_hd__o31ai_1": 1,
+    "sky130_fd_sc_hd__o32ai_1": 1,
+    "sky130_fd_sc_hd__or2_1": 3,
+    "sky130_fd_sc_hd__or3_1": 4
+  },
+  "cells": 552,
+  "design": "cpu8",
+  "library": "reduced",
+  "run": {
+    "argv": [
+      "yosys",
+      "-q",
+      "-p",
+      "read_verilog  /Users/noorelshahidi/DD2Project/given/designs/cpu8.v; synth -flatten -top cpu8; dfflibmap -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; abc -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o /Users/noorelshahidi/DD2Project/runs/A-1026-01/baseline/baseline/cpu8/reduced/A/stat.txt stat -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib; tee -q -o /Users/noorelshahidi/DD2Project/runs/A-1026-01/baseline/baseline/cpu8/reduced/A/stat.json stat -json -liberty /Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+    ],
+    "exit_code": 0,
+    "finished": "2026-10-26T10:34:48+00:00",
+    "host": "Darwin arm64",
+    "inputs": {
+      "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050",
+      "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
+    },
+    "logs": [
+      "runs/A-1026-01/baseline/baseline/cpu8/reduced/A/yosys.log",
+      "runs/A-1026-01/baseline/baseline/cpu8/reduced/A/stat.txt",
+      "runs/A-1026-01/baseline/baseline/cpu8/reduced/A/stat.json"
+    ],
+    "started": "2026-10-26T10:34:48+00:00",
+    "status": "pass",
+    "tools": {
+      "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
+    }
+  },
+  "script": "A",
+  "seconds": 0.291,
+  "top": "cpu8"
+}

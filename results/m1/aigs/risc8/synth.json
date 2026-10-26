@@ -17,12 +17,15 @@
   "handout_ffs": 696,
   "header": {
     "A": 5480,
+    "B": 0,
+    "C": 0,
     "I": 30,
     "L": 696,
     "M": 6206,
     "O": 83
   },
   "levels": 55,
+  "outputs": 83,
   "run": {
     "argv": [
       "yosys",
@@ -31,7 +34,7 @@
       "read_verilog /Users/noorelshahidi/DD2Project/given/designs/risc8.v; synth -flatten -top cpu; tee -q -o /Users/noorelshahidi/DD2Project/build/aigs/risc8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/risc8/synth.aig; write_aiger -zinit /Users/noorelshahidi/DD2Project/build/aigs/risc8/synth_zinit.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T10:37:00+00:00",
+    "finished": "2026-10-26T12:24:41+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c"
@@ -39,7 +42,7 @@
     "logs": [
       "results/m1/aigs/risc8/synth.log"
     ],
-    "started": "2026-10-26T10:36:59+00:00",
+    "started": "2026-10-26T12:24:40+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
@@ -48,6 +51,8 @@
   "variant": "synth",
   "zinit_header": {
     "A": 7568,
+    "B": 0,
+    "C": 0,
     "I": 726,
     "L": 697,
     "M": 8991,

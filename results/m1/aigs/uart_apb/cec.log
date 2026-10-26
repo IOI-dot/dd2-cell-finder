@@ -1,0 +1,3 @@
+$ yosys-abc -c cec /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/restructured.aig
+======== ABC command line "cec /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/synth.aig /Users/noorelshahidi/DD2Project/results/m1/aigs/uart_apb/restructured.aig"
+Networks are equivalent.  Time =     0.04 sec

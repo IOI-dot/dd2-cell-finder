@@ -13,7 +13,7 @@ YOSYS    ?= yosys
 PY  := .venv/bin/python
 DD2 := DD2_YOSYS="$(YOSYS)" PYTHONPATH=src $(PY) -m dd2
 
-.PHONY: setup check test all demo clean m1 m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+.PHONY: setup check test all demo clean m1 m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
 
 setup:            ## links to the PDK and the given files (never copies), and the Python env
 	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
@@ -35,7 +35,10 @@ test:             ## every test, including the broken cases in tests/broken/
 
 all: m1           ## the whole flow implemented so far (M1)
 
-m1: m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
+m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
+
+m1-env:           ## the environment record that goes with the evidence
+	$(DD2) check --out results/m1/environment.json
 
 m1-baseline:      ## Table 1: 6 designs x {usable, reduced} x {A, B}
 	$(DD2) baseline

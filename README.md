@@ -1,7 +1,8 @@
 # Project 1, Option 3: DD2 Cell Finder
 
 ## 1. Group
-<names and student IDs> · Option 3 (Options 1 and 2, connected) · AI used as an agentic system
+<names and student IDs, to be filled in by the group; commit authors so far: Omar Abdel Motalb,
+Mohamed Azouz, Noor Elshahidi> · Option 3 (Options 1 and 2, connected) · AI used as an agentic system
 (LangGraph planned; at cp1 the wrapped tools, read-only checks and run logs exist, see section 8)
 
 ## 2. Quick start
@@ -9,10 +10,12 @@ Tools used: Yosys 0.70+post (git 0c11ea0, the handout's Table 1 used 0.33), yosy
 Icarus Verilog 13.0, Python 3.14.6 in `.venv` (any Python >= 3.11), SKY130A via ciel
 (`dd7771c…`). Magic, Netgen and ngspice (Option 1) and OpenSTA (from M2) are not used by M1.
 
-    make setup     # under 1 minute: links pdk/ and given/, creates .venv with pytest
-    make check     # about 2 seconds
-    make test      # about 25 seconds
-    make all       # about 1 minute: the whole M1 flow into results/m1/
+    make setup     # 1 s (pytest cached by uv; first install longer): links pdk/, given/; .venv
+    make check     # under 1 s
+    make test      # 13 s (81 tests)
+    make all       # 35 s: the whole M1 flow into results/m1/
+
+Timings are from a fresh clone on an Apple-silicon laptop, 2026-10-26.
 
 `make setup` expects `PDK_ROOT` (default `~/.ciel`, containing `sky130A`) and
 `GIVEN` (default `../DD2_Project1_student_pack/given`). Nothing is copied.
@@ -33,9 +36,10 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | `make setup` | `PDK_ROOT`, `GIVEN` | `pdk`, `given` links; `.venv` |
 | `make check` | links, tools | `results/m1/environment.json`; fails on a missing tool or input |
 | `make test` | `tests/` | pytest; also verifies `tests/broken/SHA256SUMS` |
-| `make all` / `make m1` | the six required designs | everything under `results/m1/` |
+| `make all` / `make m1` | the six required designs | everything under `results/m1/` (starts with `m1-env`) |
+| `make m1-env` | links, tools | `results/m1/environment.json` (plain `make check` writes `build/environment.json`) |
 | `make m1-baseline` | designs, both libraries | `results/m1/baseline/**`, `results/m1/table1.csv` |
-| `make m1-aigs` | designs | `results/m1/aigs/<design>/{synth,restructured}.{aig,json,log}`, `manifest.json`, `compare.csv` |
+| `make m1-aigs` | designs | `results/m1/aigs/<design>/{synth,restructured}.{aig,json,log}`, `cec.log` (ABC equivalence), `manifest.json`, `compare.csv` |
 | `make m1-cuts` | the 12 AIGs | `results/m1/cuts/**` (summaries, 1% samples); full lists in `build/cuts/` |
 | `make m1-hdclasses` | full HD Liberty, reduced library | `results/m1/hd_classes.{json,csv}`, `hd_pn_classes.csv` |
 | `make m1-redundancy` | full HD Liberty | `results/m1/redundancy/{self_test,four_input_counts}.json` |
@@ -51,11 +55,13 @@ against the full HD library, and self-test that checker against Table 4 of the h
 ## 5. Layout
 - `src/dd2/`: the deterministic tool (standard library only)
 - `agent/dd2_agent/`: typed tool wrappers, policy guard, run logs (the agent layer)
-- `tests/`: unit, contract and integration tests; `tests/broken/` the immutable broken cases; `tests/fixtures/` tiny AIGs
+- `backend/`, `web/`, `docker/`: planned platform parts (placeholders; see `docs/architecture.md`)
+- `tests/`: unit, contract and integration tests; `tests/broken/` the immutable broken cases;
+  `tests/broken_proposed/` broken cases waiting for human review; `tests/fixtures/` tiny AIGs
 - `results/m1/`: every table and log the M1 evidence uses
 - `docs/interface/`: the Appendix A request/response examples and their JSON Schemas
 - `libs/`, `cells/`: Liberty files (M2) and Option 1 cells (later); empty at cp1
-- `ai/`: AI use and mistakes logs; `ai/runs/` agent run logs
+- `ai/`: AI use and mistakes logs; `ai/runs/` agent run logs; `runs/` the outputs those logs point to
 - `specs/001-agentic-cell-finder/`: specification, plan, research, contracts and tasks (Spec Kit)
 - `report/`: reports (at submission)
 
@@ -64,12 +70,12 @@ against the full HD library, and self-test that checker against Table 4 of the h
 | cp1 requirement | Evidence | Status |
 |---|---|---|
 | Environment (make check) | `results/m1/environment.json` | pass |
-| Table 1: 24 mappings measured with Yosys 0.70+post; the handout used Yosys 0.33 and our reduced-library areas differ from it by up to 4.49% (research D-2) | `results/m1/table1.csv` | pass |
+| Table 1: 24 mappings measured (research D-2) | `results/m1/table1.csv` | NOT REPRODUCED: 0/12 rows match the handout (Yosys 0.70+post vs the handout's 0.33; max deviation 4.49%) |
 | AIGs of every required design, synth and restructured: 12 artifacts | `results/m1/aigs/manifest.json` | pass |
 | Cut enumerator passing its check: 315522 cuts, 0 failures | `results/m1/cuts/summary.csv` | pass |
 | Class table of HD: 323 cells, 40 PN classes, 19 NPN classes | `results/m1/hd_classes.csv` | pass |
-| Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass |
-| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-01.checks.json` | pass |
+| Redundancy self-test: 323/323 HD cells Exists; Table 4 below | `results/m1/redundancy/self_test.json` | pass on rows 1-5 and 7; row 6 open (Q-1) |
+| Agentic rows: tools wrapped, checks read-only, runs logged | `ai/runs/A-1026-02.checks.json` | pass |
 | Option 3: request/response format fixed (Appendix A) | `docs/interface/` | pass |
 
 Table 4 self-test (4-input functions that depend on all inputs, up to input order):
@@ -129,7 +135,10 @@ Cuts per AIG:
 | Liberty reader | `tests/broken/invalid_function.lib`: an unknown operator must be rejected |
 | Environment check | `tests/broken/missing_given/`: `dd2 check` must fail and name the missing files |
 | Appendix A validator | requests with a wrong truth table, 5 inputs, a bad name or sizing (`tests/contract/test_interface.py`) |
-| Agent policy | writes into `tests/broken/`, `given/`, `src/`, `results/`, invalid arguments, unknown tools (`tests/unit/test_agent.py`) |
+| Agent policy | writes into `tests/broken/`, `given/`, `src/`, `results/`, malformed run IDs, invalid arguments, unknown tools (`tests/unit/test_agent.py`) |
+| Restructured AIG equivalence | proposed: `tests/broken_proposed/nonequivalent_restructured.aig` must fail ABC `cec` |
+| Liberty rejected by Yosys | proposed: `tests/broken_proposed/yosys_rejects.lib` (handout 9.1) |
+| Expression semantics | three mixed-operator functions are compared with Yosys `eval` (`tests/integration/test_precedence.py`) |
 
 `tests/broken/SHA256SUMS` makes any edit to a broken case fail the suite.
 
@@ -146,7 +155,10 @@ AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report
   question is open with the TA (research Q-1).
 - No candidate costing, area model, Liberty writer, extended mapping, cec or OpenSTA yet (M2).
 - The agent layer has no model yet: tools, policy and logs are exercised by a scripted run.
-- Option 1 (cell generation) is not started in this repository.
+- Option 1 (cell generation) is not started in this repository. For an Option 3 group, cp1 also
+  grades Option 1's inv_1 and nand2_1 at 2.72 um; that work, the course container and the ngspice
+  stress test in `make check` are open.
+- Two broken cases in `tests/broken_proposed/` wait for a human to review and promote them.
 
 ## 10. Third-party files
 - `given/` (linked, not copied): the course student pack, including the designs, each under

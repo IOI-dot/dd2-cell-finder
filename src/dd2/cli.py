@@ -13,7 +13,7 @@ def main(argv=None) -> int:
     c = sub.add_parser("check", help="tool versions, PDK and supplied inputs")
     c.add_argument("--given", type=Path, default=paths.given())
     c.add_argument("--pdk", type=Path, default=paths.pdk())
-    c.add_argument("--out", type=Path, default=paths.results("m1", "environment.json"))
+    c.add_argument("--out", type=Path, default=paths.build("environment.json"))
 
     b = sub.add_parser("baseline", help="map designs (handout section 2) and write Table 1")
     b.add_argument("--designs", nargs="*", default=None)
@@ -24,6 +24,7 @@ def main(argv=None) -> int:
     a.add_argument("--designs", nargs="*", default=None)
     a.add_argument("--out", type=Path, default=paths.results("m1", "aigs"))
     a.add_argument("--given", type=Path, default=paths.given())
+    a.add_argument("--scratch", type=Path, default=paths.build("aigs"))
 
     k = sub.add_parser("cuts", help="enumerate and check 4-input cuts of the M1 AIGs")
     k.add_argument("--aigs", type=Path, default=paths.results("m1", "aigs"))
@@ -72,7 +73,7 @@ def main(argv=None) -> int:
         return run_all(args.given, args.out, args.designs)
     if args.cmd == "aig":
         from .aig import run_all
-        return run_all(args.given, args.out, args.designs)
+        return run_all(args.given, args.out, args.designs, args.scratch)
     if args.cmd == "cuts":
         from .cutflow import run_all
         return run_all(args.aigs, args.out, args.full, args.designs)

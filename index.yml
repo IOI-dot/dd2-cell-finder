@@ -42,19 +42,21 @@ repository_map:
   tests: unit and integration tests
   tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
   tests/fixtures: tiny hand-written AIGs for unit tests
+  tests/broken_proposed: broken cases written by AI, waiting for a human to review and promote
   results: committed evidence used by reports
   libs: generated Option 2 Liberty libraries
   cells: generated Option 1 cell artifacts
   prompts: versioned agent prompts
-  runs: JSONL agent-run audit trails and artifacts
+  runs: agent run outputs, committed as evidence (bulky cuts_full/ ignored)
   report: technical and AI reports with sources
-  docs: architecture records and interface examples
+  docs: architecture.md (layers, layout, open design questions) and interface/ (Appendix A)
+  backend: planned API service (placeholder README; design to be agreed with the user)
   specs: Spec Kit spec, plan, research, contracts, tasks
   agent: dd2_agent package; typed tools, policy guard, Appendix B run logs (cp1); LangGraph + AG-UI server later (US4)
   ai/runs: committed agent run logs (JSONL) and their check files
   .venv: local Python environment made by make setup; git-ignored
-  web: React front end on DesignSystemStudio + Graphite Cyan, AG-UI client (US4)
-  docker: flow, agent and web images plus compose (read-only protected mounts)
+  web: planned AG-UI front end on DesignSystemStudio + Graphite Cyan (placeholder README)
+  docker: planned images and compose with read-only protected mounts (placeholder README)
   references: read-only upstream clones (ag-ui, langchain-skills); git-ignored
   build: scratch outputs; git-ignored
 
@@ -78,6 +80,7 @@ protected_paths:
   - pdk/
   - given/
   - tests/broken/
+  - tests/broken/SHA256SUMS
   - .specify/memory/constitution.md
 
 agentic_system:
@@ -88,3 +91,30 @@ agentic_system:
     - Each model/tool call is logged with a run ID and result artifact.
     - Runs have iteration, time, input-size, token, and cost limits.
     - A fixed-choice pipeline is retained for required comparison.
+
+status:
+  updated: 2026-10-26
+  milestone_1: >
+    Option 2 M1 implemented, verified by an independent subagent and fixed (106 tests). Table 1
+    measured on Yosys 0.70 and labelled NOT REPRODUCED; Table 4 row 6 open. Not pushed; no cp1 tag.
+  open_for_humans: [push and tag cp1, README names and IDs, Option 1 cp1 work, Yosys 0.33 (T004),
+                    review tests/broken_proposed, history rewrite decision (Q-4)]
+  evidence_index: results/m1/summary.md
+  verification: specs/001-agentic-cell-finder/verification-2026-10-26.md   # findings table with status
+  architecture: docs/architecture.md
+  plan: specs/001-agentic-cell-finder/{plan,research,tasks}.md
+  lectures_used: "Lectures 9-10 SCL and Synthesis (research D-17)"
+
+# The course tool is one part of a larger system the user is building. Its system design is
+# not decided yet; this records the agreed direction so the layout leaves room for it.
+future_platform:
+  status: planned, design to be agreed with the user (not started)
+  frontend: agentic UI (AG-UI client) on DesignSystemStudio components with the Graphite Cyan theme
+  agent: LangGraph/LangChain over the typed dd2 tools (agent/dd2_agent)
+  backend: >
+    service with the Backend.md practices (layered modules, DTO validation, authentication,
+    authorization/RBAC, rate limiting per user and IP, correlation IDs, audit trail, retries,
+    timeouts and circuit breakers, secrets outside the image, health endpoints, structured logs)
+  data: PostgreSQL; a vector database (pgvector or Pinecone) for retrieval; Redis if caching or
+    rate-limit state needs it
+  rule: the deterministic dd2 core stays dependency-free and must keep working offline for the TA

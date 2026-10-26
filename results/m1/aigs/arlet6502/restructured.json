@@ -1,44 +1,51 @@
 {
   "aig_path": "results/m1/aigs/arlet6502/restructured.aig",
-  "aig_sha256": "71d54f107151b79a716790d7fdea1a74d4f5f97321ba841ee556399397cae4ff",
+  "aig_sha256": "a44ef6844c7a1b61d90655931e5c289d915ec9f48728b6296e8c1709a0033e4b",
   "commands": [
     "read /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig",
     "strash",
+    "print_stats",
     "dch -f",
     "strash",
     "print_stats",
     "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/restructured.aig"
   ],
   "design": "arlet6502",
+  "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
     "A": 2093,
+    "B": 25,
+    "C": 0,
     "I": 13,
     "L": 143,
     "M": 2249,
     "O": 0
   },
   "levels": 48,
+  "outputs": 25,
   "run": {
     "argv": [
       "yosys-abc",
       "-c",
-      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/restructured.aig"
+      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/arlet6502/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T10:36:58+00:00",
+    "finished": "2026-10-26T12:24:39+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/arlet6502/synth.aig": "66851866241413abce8d8e93fc9b4679bff38de8d40bb7b073c77ffd67d6903b"
     },
     "logs": [
-      "results/m1/aigs/arlet6502/restructured.log"
+      "results/m1/aigs/arlet6502/restructured.log",
+      "results/m1/aigs/arlet6502/cec.log"
     ],
-    "started": "2026-10-26T10:36:58+00:00",
+    "started": "2026-10-26T12:24:39+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
+  "strash_only_ands": 2426,
   "variant": "restructured"
 }

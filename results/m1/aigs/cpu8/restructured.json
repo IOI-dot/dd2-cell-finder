@@ -1,44 +1,51 @@
 {
   "aig_path": "results/m1/aigs/cpu8/restructured.aig",
-  "aig_sha256": "e76111e93dace199076b4e4c05b6eb9824624d10fc6e8a1966fa7da1010a2e97",
+  "aig_sha256": "7f7372072177bd53b06a81ca432e4a8d467a0d6475d934722ab6b48aa0eaffe0",
   "commands": [
     "read /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig",
     "strash",
+    "print_stats",
     "dch -f",
     "strash",
     "print_stats",
     "write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/restructured.aig"
   ],
   "design": "cpu8",
+  "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
     "A": 857,
+    "B": 13,
+    "C": 0,
     "I": 10,
     "L": 82,
     "M": 949,
     "O": 0
   },
   "levels": 30,
+  "outputs": 13,
   "run": {
     "argv": [
       "yosys-abc",
       "-c",
-      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig; strash; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/restructured.aig"
+      "read /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger /Users/noorelshahidi/DD2Project/results/m1/aigs/cpu8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T10:36:57+00:00",
+    "finished": "2026-10-26T12:24:38+00:00",
     "host": "Darwin arm64",
     "inputs": {
       "results/m1/aigs/cpu8/synth.aig": "b21cecf26969c84187edab3a1bb082fccf4fa5dfcee449ea78ef167e1131cc62"
     },
     "logs": [
-      "results/m1/aigs/cpu8/restructured.log"
+      "results/m1/aigs/cpu8/restructured.log",
+      "results/m1/aigs/cpu8/cec.log"
     ],
-    "started": "2026-10-26T10:36:57+00:00",
+    "started": "2026-10-26T12:24:38+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.70+post (git sha1 0c11ea098be065e585a90a06e7b7da49936cf231, Release, AppleClang clang++ 21.0.0.21000334)"
     }
   },
+  "strash_only_ands": 884,
   "variant": "restructured"
 }

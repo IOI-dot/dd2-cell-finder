@@ -16,9 +16,16 @@ def liberty_import_count(lib: Path, log: Path) -> int | None:
     return int(m.group(1)) if code == 0 and m else None
 
 
+def pdk_version(pdk: Path) -> str:
+    """ciel installs each PDK under versions/<commit>; record that commit."""
+    m = re.search(r"versions/([0-9a-f]{7,40})", str(Path(pdk).resolve()))
+    return f"ciel {m.group(1)}" if m else "unknown (not a ciel install)"
+
+
 def check(given: Path, pdk: Path, out: Path) -> int:
     problems, notes = [], []
-    env = {"tools": tools.versions(), "given": str(given), "pdk": str(pdk)}
+    env = {"tools": tools.versions(), "given": paths.rel(given), "pdk": paths.rel(pdk),
+           "pdk_version": pdk_version(pdk)}
 
     if sys.version_info < (3, 11):
         problems.append(f"Python {sys.version.split()[0]} is older than 3.11; run make setup")
@@ -39,7 +46,7 @@ def check(given: Path, pdk: Path, out: Path) -> int:
 
     full = paths.full_hd_lib(pdk)
     if full.is_file():
-        env["full_hd_lib"] = {"path": str(full), "sha256": provenance.sha256(full),
+        env["full_hd_lib"] = {"path": paths.rel(full), "sha256": provenance.sha256(full),
                               "cells": len(re.findall(r"\n\s*cell\s*\(", full.read_text()))}
     else:
         problems.append(f"full HD Liberty not found at {full} (PDK_ROOT must contain sky130A)")
@@ -66,5 +73,5 @@ def check(given: Path, pdk: Path, out: Path) -> int:
         print(f"FAIL  {p}")
     for n in notes:
         print(f"NOTE  {n}")
-    print(f"check: {env['status']} ({out})")
+    print(f"check: {env['status']} ({paths.rel(out)})")
     return 1 if problems else 0

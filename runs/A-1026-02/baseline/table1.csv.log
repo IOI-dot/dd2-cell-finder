@@ -1,0 +1,5 @@
+cpu8       usable   A  4168.9984  pass
+cpu8       usable   B  4316.64  pass
+cpu8       reduced  A  4195.2736  pass
+cpu8       reduced  B  4321.6448  pass
+wrote runs/A-1026-02/baseline/table1.csv

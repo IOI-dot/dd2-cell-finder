@@ -32,3 +32,16 @@ def test_power_down_function_ignored(full):
 def test_invalid_function_rejected():
     with pytest.raises(ValueError, match="bad_cell_1"):
         liberty.read_cells(ROOT / "tests" / "broken" / "invalid_function.lib")
+
+
+def test_area_after_pins_and_skips_reported(tmp_path):
+    lib = tmp_path / "x.lib"
+    lib.write_text('library (x) {\n'
+                   '  cell (c1) { pin (A) { direction : input; } pin (Y) { direction : output; function : "!A"; }\n'
+                   '    area : 2.5; }\n'
+                   '  cell (c2) { area : 1; pin (A) { direction : input; } pin (Y) { direction : output; } }\n'
+                   '}\n')
+    skipped = []
+    cells = liberty.read_cells(lib, skipped)
+    assert [(c.name, c.area) for c in cells] == [("c1", 2.5)]       # finding 12: was area 0.0
+    assert skipped == [("c2", "output pin Y has no function")]       # recorded, not silent

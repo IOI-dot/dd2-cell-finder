@@ -22,3 +22,9 @@ def test_demo_dsp8_leaves_results_untouched():
     assert p.returncode == 0, p.stdout + p.stderr
     assert (paths.build("demo", "dsp8", "demo_summary.json")).exists()
     assert tree_hash(paths.results()) == before
+
+
+def test_demo_finds_top_module_without_TOP():
+    # finding 17: risc8's top is "cpu", not the file stem
+    from dd2 import demo
+    assert demo.detect_top(paths.given() / "designs" / "risc8.v", False) == "cpu"

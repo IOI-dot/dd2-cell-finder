@@ -1,6 +1,7 @@
 """Deterministic guard rails: argument validation, write authorisation and a digest of the
 protected checks. The model never decides any of these (overview 4.3, rule 4)."""
 import hashlib
+import re
 from pathlib import Path
 
 from dd2 import interface, paths
@@ -9,10 +10,12 @@ ROOT = paths.ROOT
 RUNS = ROOT / "runs"
 # Check scripts, broken cases, the flow's own code and the supplied inputs. Hashed before and
 # after every tool call; any change fails the run.
-PROTECTED_TREES = [ROOT / "tests" / "broken", ROOT / "src" / "dd2", ROOT / "Makefile",
+PROTECTED_TREES = [ROOT / "tests", ROOT / "src" / "dd2", ROOT / "agent", ROOT / "Makefile",
                    ROOT / "given" / "hd_reduced.lib", ROOT / "given" / "hd_usable.lib",
                    ROOT / "given" / "designs", ROOT / "given" / "scripts",
+                   ROOT / "pdk" / paths.FULL_HD_LIB,
                    ROOT / ".specify" / "memory" / "constitution.md"]
+RUN_ID = re.compile(r"^A-\d{4}-\d{2}$")
 
 
 def validate_args(schema: dict, args) -> list:
@@ -24,7 +27,11 @@ def run_dir(run_id: str) -> Path:
 
 
 def may_write(path: Path, run_id: str) -> bool:
-    """Only paths that resolve inside runs/<run_id>/ may be written."""
+    """Only paths that resolve inside runs/<run_id>/ may be written, for a well-formed run_id.
+    This is a guard before each call; the digest check after it detects anything that slipped
+    through. Real prevention (read-only mounts) comes with docker/compose.yml."""
+    if not RUN_ID.match(run_id or ""):
+        return False
     target = Path(path).resolve()
     return target.is_relative_to(run_dir(run_id).resolve())
 
