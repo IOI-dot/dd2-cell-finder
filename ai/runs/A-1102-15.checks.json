@@ -1,0 +1,43 @@
+{
+  "best": {
+    "breaks": 0,
+    "exit_code": 0,
+    "failed": [],
+    "met1_nets": [],
+    "report": "runs/A-1102-15/cells/f_o22ai/report.json",
+    "route_failures": [],
+    "settings": {
+      "order_index": 0,
+      "sizing": "hd"
+    },
+    "sites": 6,
+    "status": "pass",
+    "transistors": 8
+  },
+  "calls": {
+    "model": 0,
+    "tool": 1
+  },
+  "function": "!((A | B) & (C | D))",
+  "model": "none (fixed choices)",
+  "revisions": [
+    {
+      "breaks": 0,
+      "exit_code": 0,
+      "failed": [],
+      "met1_nets": [],
+      "report": "runs/A-1102-15/cells/f_o22ai/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 0,
+        "sizing": "hd"
+      },
+      "sites": 6,
+      "status": "pass",
+      "transistors": 8
+    }
+  ],
+  "run": "A-1102-15",
+  "seconds": 62.2,
+  "status": "pass"
+}

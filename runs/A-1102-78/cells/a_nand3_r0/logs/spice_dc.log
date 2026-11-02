@@ -1,0 +1,1 @@
+$ docker run --rm --network none -e PDK_ROOT=/pdk -v /Users/noorelshahidi/.ciel/ciel/sky130/versions/dd7771c384ed36b91a25e9f8b314355fc26561be/sky130A:/pdk/sky130A:ro -v /Users/noorelshahidi/DD2Project/runs/A-1102-78/work/a_nand3_r0:/w -w /w dd2-layout-tools ngspice -b tb_dc.spice

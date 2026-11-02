@@ -61,3 +61,50 @@ follows Backend.md's lib/app split and "modules talk through controlled entry po
    time budgets; prompt-injection handling for retrieved text; secrets management.
 8. **Artifacts.** Local disk, or object storage plus a CDN for GDS/Liberty/results.
 9. **Deployment.** Local docker compose only, or a cloud target (Backend.md mentions ECS/RDS).
+
+## Option 1 agent
+
+`make agent FUNC='...'` runs one headless graph (`agent/dd2_agent/graph.py`), with nobody intervening; the
+web app runs the same graph. There is one graph with three model roles (implementation plan 8.2). `make fixed` is
+the same tool and the same checks with no model.
+
+```
+ message or function
+        |
+   intent_parser ---- rule: forbidden requests refused, expressions parsed, no model
+        |             model: Request Interpreter -> typed Intent (build, try, compare, explain, show, restore, unclear)
+        v
+ invoke_allowed_tool <----------------------+   tool: build_cell -> cellgen build -> report.json
+        |                                   |   Magic, Netgen, ngspice, Icarus, KLayout, all in runs/<run>/
+   assess_retry ---- rule: clean cell stops, no model; a limit stops
+        |                                   |
+   fetch_context                            |
+        |                                   |
+ plan_one_bounded_action ---- model: Engineering Diagnostician -> typed Decision, closed list
+        |                                   |
+   validate_action ---- rule: schema, evidence ids, numbers, nets; one retry with the reason
+        +-----------------------------------+
+        |
+      finish ---- rule: verdict read from the best revision's check report -> ai/runs/<run>.checks.json
+        |
+ explain_evidence ---- model: Research Explainer -> page in OpenUI Lang, checked, or the fixed page
+        |
+     ai/runs/<run>.jsonl (one line per model or tool call; the last line is the verdict)
+```
+
+| Part | May read | May change |
+|---|---|---|
+| `build_cell` | PDK and `given/` | `runs/<run>/` only, checked by `policy.may_write` before each call |
+| Each model role | The numbers and names in its facts block | Nothing: it returns JSON or a page, and a program checks both |
+| `finish` | The check reports | `ai/runs/<run>.*` |
+
+The model is GPT-5.6 Sol through Codex CLI, with `agent/dd2_agent/codex_cli.py` turning the CLI into a normal
+chat API: `CodexCLI.complete` returns OpenAI-style JSON, `ChatCodexCLI` is a LangChain chat model, and the
+server exposes `POST /v1/chat/completions`. The rules are in [guardrails.md](guardrails.md), and the limits in
+`config/agent.toml`. Fixed choices (`agent/dd2_agent/fixed_choice.py`): the first ordering, hd sizing, default
+routing, one build. The default search in `make o1-m2` is stronger than that baseline, and
+`results/option1/m2/test_cells.csv` shows what it reaches with no model.
+
+## From the agent to the screen
+
+The transport is AG-UI, and the page language is OpenUI Lang. [web/README.md](../web/README.md) has the steps.

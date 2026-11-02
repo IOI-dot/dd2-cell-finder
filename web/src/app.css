@@ -1,0 +1,9 @@
+@import "../../DesignSystemStudio/design-system/globals.css";
+@source "./";
+@source "../../DesignSystemStudio/components/ui";
+
+html, body, #root { height: 100%; }
+.grid-paper { background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 48px 48px; background-position: -1px -1px; }
+@keyframes pulse-dot { 50% { opacity: .35; } }
+.pulse-dot { animation: pulse-dot 1.2s infinite; }
+@media (prefers-reduced-motion: reduce) { .pulse-dot { animation: none; } }

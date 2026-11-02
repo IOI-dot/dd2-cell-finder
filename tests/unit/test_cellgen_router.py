@@ -32,6 +32,12 @@ def test_drc_parser_keeps_every_reason():
     assert d["rules"] == sorted(["diff/tap.3", "nwell.4", "Some rule without a tag"]), d
 
 
+def test_drc_count_cannot_hide_listed_errors():
+    from cellgen import eda
+    d = eda.parse_drc("DRC_COUNT 0\nDRC_WHY {Local interconnect spacing < 0.17um (li.3)} {{1 2 3 4} {5 6 7 8}}\n")
+    assert d["errors"] == 2 and d["rules"] == ["li.3"]
+
+
 def test_standalone_drc_with_unparsed_errors_fails():
     pytest.importorskip("klayout", reason="Option 1 needs KLayout/GDSfactory")
     from cellgen import flow

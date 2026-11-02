@@ -114,6 +114,32 @@ def test_spice_rejects_deleted_pullup(work):
     assert r["status"] == "fail" and any("DC row 1" in e for e in r["errors"])
 
 
+def test_rc_lvs_rejects_a_broken_rc_netlist(work):
+    """RC-LVS compares the RC netlist's devices: one wrong connection in it must fail."""
+    d = work[0]
+    eda.magic(d, eda.extract_script("/w/cell.gds", NAME, rc=True), "extract_rc")
+    rc = d / "rc_for_broken.spice"
+    text = eda.rc_for_lvs((d / f"{NAME}_rc.spice").read_text())
+    lines = text.splitlines()
+    i = next(k for k, l in enumerate(lines) if l.startswith("X") and " VGND " in l)
+    lines[i] = lines[i].replace(" VGND ", " Y ", 1)
+    rc.write_text("\n".join(lines) + "\n")
+    r = eda.netgen_lvs(d, rc.name, NAME, "schematic.spice", NAME, "lvs_rc_broken")
+    assert r["result"] == "mismatch"
+
+
+def test_rc_lvs_rejects_a_missing_resistor(work):
+    """RC-LVS joins nets through their resistors: with one gone, a device hangs off a stray node."""
+    d = work[0]
+    eda.magic(d, eda.extract_script("/w/cell.gds", NAME, rc=True), "extract_rc2")
+    lines = (d / f"{NAME}_rc.spice").read_text().splitlines()
+    node = next(t for l in lines if l.startswith("X") for t in l.split()[1:5] if t.startswith("Y."))
+    kept = [l for l in lines if not (l.startswith("R") and node in l.split()[1:3])]   # parallel Rs too: a true open
+    assert len(kept) < len(lines)
+    (d / "rc_no_r.spice").write_text(eda.rc_for_lvs("\n".join(kept) + "\n"))
+    assert eda.netgen_lvs(d, "rc_no_r.spice", NAME, "schematic.spice", NAME, "lvs_rc_no_r")["result"] == "mismatch"
+
+
 def test_model_rejects_wrong_row(tmp_path):
     good = simulate.verilog_model(NAME, ["A", "B"], TT)
     (tmp_path / "bad.v").write_text(good.replace("4'h7", "4'h5"))      # row 1 wrong

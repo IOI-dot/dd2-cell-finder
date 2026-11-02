@@ -1,0 +1,51 @@
+{
+  "best": {
+    "breaks": null,
+    "exit_code": -15,
+    "failed": [
+      "build"
+    ],
+    "id": "r0",
+    "met1_nets": [],
+    "report": "runs/A-1102-129/cells/f_nor3/report.json",
+    "route_failures": [],
+    "settings": {
+      "order_index": 0,
+      "sizing": "hd"
+    },
+    "sites": null,
+    "stages": null,
+    "status": "fail",
+    "transistors": null
+  },
+  "calls": {
+    "model": 0,
+    "tool": 1
+  },
+  "function": "!(A | B | C)",
+  "model": "none (fixed choices)",
+  "revisions": [
+    {
+      "breaks": null,
+      "exit_code": -15,
+      "failed": [
+        "build"
+      ],
+      "id": "r0",
+      "met1_nets": [],
+      "report": "runs/A-1102-129/cells/f_nor3/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 0,
+        "sizing": "hd"
+      },
+      "sites": null,
+      "stages": null,
+      "status": "fail",
+      "transistors": null
+    }
+  ],
+  "run": "A-1102-129",
+  "seconds": 15.6,
+  "status": "fail"
+}

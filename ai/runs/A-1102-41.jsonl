@@ -1,0 +1,2 @@
+{"run": "A-1102-41", "step": 1, "agent": "fixed", "kind": "tool", "tool": "build_cell", "args": {"expr": "!(A & B & C)", "name": "f_nand3", "sizing": "hd", "order_index": 0}, "result": "runs/A-1102-41/cells/f_nand3/report.json", "exit_code": 0}
+{"run": "A-1102-41", "step": 2, "kind": "result", "status": "pass", "checks": "ai/runs/A-1102-41.checks.json"}

@@ -43,3 +43,8 @@ references/
 # Agent run outputs are evidence (Appendix B logs point into runs/); only bulky cut lists are skipped.
 /runs/*/cuts_full/
 /runs/*/work/
+
+# Web app and browser-test output.
+web/node_modules/
+web/dist/
+.playwright-mcp/

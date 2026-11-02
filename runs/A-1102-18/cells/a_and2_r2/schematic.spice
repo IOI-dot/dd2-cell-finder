@@ -1,0 +1,8 @@
+.subckt a_and2_r2 A B VGND VNB VPB VPWR Y
+X0 _s1 A n1 VNB sky130_fd_pr__nfet_01v8 w=650000u l=150000u
+X1 n1 B VGND VNB sky130_fd_pr__nfet_01v8 w=650000u l=150000u
+X2 Y _s1 VGND VNB sky130_fd_pr__nfet_01v8 w=650000u l=150000u
+X3 _s1 A VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1000000u l=150000u
+X4 _s1 B VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1000000u l=150000u
+X5 Y _s1 VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1000000u l=150000u
+.ends

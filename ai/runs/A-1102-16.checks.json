@@ -1,0 +1,25 @@
+{
+  "best": null,
+  "calls": {
+    "in": 1716,
+    "model": 3,
+    "out": 119,
+    "tool": 4
+  },
+  "function": "!((A | B) & (C | D))",
+  "limits": {
+    "max_model_calls": 6,
+    "max_seconds": 1800,
+    "max_tokens_in": 40000,
+    "max_tokens_out": 4000,
+    "max_tool_calls": 4,
+    "max_usd": 0.0
+  },
+  "model": "ollama:qwen2.5:1.5b",
+  "prompt": "prompts/diagnostician.md@269ad511",
+  "revisions": [],
+  "run": "A-1102-16",
+  "seconds": 258.0,
+  "status": "fail",
+  "stop": "tool calls"
+}

@@ -19,7 +19,7 @@ PROTECTED_TREES = [ROOT / "tests", ROOT / "src", ROOT / "agent", ROOT / "Makefil
                    ROOT / "pdk" / "libs.tech/magic/sky130A.magicrc",
                    ROOT / "pdk" / "libs.tech/netgen/sky130A_setup.tcl",
                    ROOT / ".specify" / "memory" / "constitution.md"]
-RUN_ID = re.compile(r"^A-\d{4}-\d{2}$")
+RUN_ID = re.compile(r"^A-\d{4}-\d{2,4}$")
 
 
 def validate_args(schema: dict, args) -> list:

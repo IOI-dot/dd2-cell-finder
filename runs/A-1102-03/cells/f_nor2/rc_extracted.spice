@@ -1,0 +1,32 @@
+* NGSPICE file created from f_nor2.ext - technology: sky130A
+
+.subckt f_nor2 A B VGND VNB VPB VPWR Y
+X0 a_111_297# B VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.26 ps=2.52 w=1 l=0.15 sa=0.26 sb=0.68
+X1 VGND A Y VNB sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15 sa=0.68 sb=0.26
+X2 Y B VGND VNB sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15 sa=0.26 sb=0.68
+X3 Y A a_111_297# VPB sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15 sa=0.68 sb=0.26
+C0 VPWR VPB 0.04959f
+C1 Y VPB 0.0151f
+C2 VPWR A 0.00887f
+C3 Y A 0.05773f
+C4 VPWR a_111_297# 0.00528f
+C5 Y a_111_297# 0.01381f
+C6 VGND VPB 0.00503f
+C7 Y VPWR 0.08811f
+C8 VGND A 0.03393f
+C9 B VPB 0.03893f
+C10 VGND a_111_297# 0
+C11 VGND VPWR 0.0171f
+C12 A B 0.02548f
+C13 Y VGND 0.08161f
+C14 VPWR B 0.03756f
+C15 Y B 0.03188f
+C16 A VPB 0.03824f
+C17 VGND B 0.0354f
+C18 VGND VNB 0.31287f
+C19 Y VNB 0.11819f
+C20 VPWR VNB 0.25886f
+C21 VPB VNB 0.33898f
+C22 a_111_297# VNB 0.05367f
+.ends
+

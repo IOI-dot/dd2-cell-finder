@@ -1,0 +1,18 @@
+# Settings of the Option 1 agent (overview 4.2: the limits and the model are part of the report).
+# No secret lives here: Codex CLI keeps its own login.
+[model]
+provider = "codex-cli"           # codex-cli | scripted (a rule set, logged as no model)
+name = "gpt-5.6-sol"
+reasoning_effort = "high"
+timeout_s = 180
+retries = 2                      # temporary failures, with backoff
+usd_per_mtok_in = 0.0            # the CLI bills a plan, not tokens; set both for a metered API
+usd_per_mtok_out = 0.0
+
+[limits]
+max_model_calls = 8              # the plan's safe count (Atlas 8.8)
+max_tool_calls = 4
+max_seconds = 3600
+max_tokens_in = 400000           # the CLI's own tool definitions make each call large
+max_tokens_out = 40000
+max_usd = 0.0

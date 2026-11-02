@@ -1,0 +1,528 @@
+{
+  "cell": "a_nand3_r0",
+  "checks": {
+    "abutment": {
+      "errors": 0,
+      "fixtures": {
+        "flip": {
+          "bbox_um": [
+            -0.19,
+            -2.96,
+            4.33,
+            5.68
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "mirror": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            4.33,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "self": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            6.63,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        },
+        "side": {
+          "bbox_um": [
+            -0.19,
+            -0.24,
+            4.33,
+            2.96
+          ],
+          "errors": 0,
+          "rules": []
+        }
+      },
+      "status": "pass"
+    },
+    "drc": {
+      "errors": 0,
+      "status": "pass",
+      "where": "row tap|cell|inv_1|fill_1"
+    },
+    "drc_standalone": {
+      "bbox_um": [
+        -0.19,
+        -0.24,
+        2.03,
+        2.96
+      ],
+      "errors": 5,
+      "note": "a lone cell may only fail the tap rules nwell.4, LU.2, LU.3",
+      "report": "drc_standalone.log",
+      "rules": [
+        "LU.2",
+        "LU.3",
+        "nwell.4"
+      ],
+      "status": "pass"
+    },
+    "frame": {
+      "rows": [
+        {
+          "layer": "boundary",
+          "match": true,
+          "measured": [
+            0.0,
+            2.72
+          ],
+          "plan_hd": [
+            0.0,
+            2.72
+          ]
+        },
+        {
+          "layer": "boundary x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "nwell",
+          "match": true,
+          "measured": [
+            1.305,
+            2.91
+          ],
+          "plan_hd": [
+            1.305,
+            2.91
+          ]
+        },
+        {
+          "layer": "nwell x",
+          "match": true,
+          "measured": [
+            -0.19,
+            2.03
+          ],
+          "plan_hd": [
+            -0.19,
+            2.0300000000000002
+          ]
+        },
+        {
+          "layer": "nsdm",
+          "match": true,
+          "measured": [
+            -0.19,
+            1.015
+          ],
+          "plan_hd": [
+            -0.19,
+            1.015
+          ]
+        },
+        {
+          "layer": "nsdm x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "psdm",
+          "match": true,
+          "measured": [
+            1.355,
+            2.91
+          ],
+          "plan_hd": [
+            1.355,
+            2.91
+          ]
+        },
+        {
+          "layer": "psdm x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "hvtp",
+          "match": true,
+          "measured": [
+            1.25,
+            2.72
+          ],
+          "plan_hd": [
+            1.25,
+            2.72
+          ]
+        },
+        {
+          "layer": "hvtp x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "npc",
+          "match": true,
+          "measured": [
+            0.975,
+            1.345
+          ],
+          "plan_hd": [
+            0.975,
+            1.345
+          ]
+        },
+        {
+          "layer": "npc x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "areaid",
+          "match": true,
+          "measured": [
+            0.0,
+            2.72
+          ],
+          "plan_hd": [
+            0.0,
+            2.72
+          ]
+        },
+        {
+          "layer": "areaid x",
+          "match": true,
+          "measured": [
+            0.0,
+            1.84
+          ],
+          "plan_hd": [
+            0.0,
+            1.84
+          ]
+        },
+        {
+          "layer": "met1 VGND rail",
+          "match": true,
+          "measured": [
+            -0.24,
+            0.24
+          ],
+          "plan_hd": [
+            -0.24,
+            0.24
+          ],
+          "uncovered_um2": 0.0
+        },
+        {
+          "layer": "li1 VGND rail",
+          "match": true,
+          "measured": [
+            -0.085,
+            0.085
+          ],
+          "plan_hd": [
+            -0.085,
+            0.085
+          ],
+          "uncovered_um2": 0.0
+        },
+        {
+          "layer": "met1 VPWR rail",
+          "match": true,
+          "measured": [
+            2.48,
+            2.96
+          ],
+          "plan_hd": [
+            2.48,
+            2.96
+          ],
+          "uncovered_um2": 0.0
+        },
+        {
+          "layer": "li1 VPWR rail",
+          "match": true,
+          "measured": [
+            2.635,
+            2.805
+          ],
+          "plan_hd": [
+            2.635,
+            2.805
+          ],
+          "uncovered_um2": 0.0
+        }
+      ],
+      "status": "pass"
+    },
+    "layers": {
+      "errors": [],
+      "status": "pass"
+    },
+    "lvs": {
+      "report": "lvs_schematic.out",
+      "result": "match",
+      "status": "pass"
+    },
+    "model": {
+      "errors": [],
+      "status": "pass"
+    },
+    "network": {
+      "errors": [],
+      "max_series": 3,
+      "stage_outputs": [
+        "Y"
+      ],
+      "stages": 1,
+      "status": "pass",
+      "transistors": 6
+    },
+    "ordering": {
+      "breaks": 0,
+      "gates": [
+        "C",
+        "B",
+        "A"
+      ],
+      "row_breaks": {
+        "n": 0,
+        "p": 0
+      },
+      "rows": {
+        "n": [
+          [
+            "VGND",
+            "n2",
+            "n1",
+            "Y"
+          ]
+        ],
+        "p": [
+          [
+            "VPWR",
+            "Y",
+            "VPWR",
+            "Y"
+          ]
+        ]
+      },
+      "status": "pass"
+    },
+    "pins": {
+      "errors": [],
+      "status": "pass"
+    },
+    "rc_lvs": {
+      "report": "lvs_rc.out",
+      "result": "match",
+      "status": "pass"
+    },
+    "spice": {
+      "dc_volts": {
+        "0": 1.8,
+        "1": 1.8,
+        "2": 1.8,
+        "3": 1.8,
+        "4": 1.8,
+        "5": 1.8,
+        "6": 1.8,
+        "7": 2.6078e-08
+      },
+      "errors": [],
+      "files": [
+        "tb_dc.spice",
+        "spice_dc.log",
+        "tb_tran.spice",
+        "spice_tran.log",
+        "tran.txt"
+      ],
+      "point": {
+        "load_pf": 0.00952062,
+        "slew_lower_pct": 20.0,
+        "slew_ns": 0.122474,
+        "slew_upper_pct": 80.0,
+        "table": "cell_rise",
+        "template": "del_1_7_7",
+        "variable_1": "input_net_transition",
+        "variable_2": "total_output_net_capacitance"
+      },
+      "slots": 48,
+      "status": "pass"
+    },
+    "wiring_layers": {
+      "li1_present": true,
+      "met1_outside_rails_um2": 0.0,
+      "ok": true,
+      "status": "pass"
+    }
+  },
+  "failed_checks": [],
+  "inputs": [
+    "A",
+    "B",
+    "C"
+  ],
+  "layout": {
+    "contacts": {
+      "n0 VGND": 1,
+      "n3 Y": 2,
+      "p0 VPWR": 3,
+      "p1 Y": 3,
+      "p2 VPWR": 1,
+      "p3 Y": 3
+    },
+    "diffusion_breaks": 0,
+    "gate_order": [
+      "C",
+      "B",
+      "A"
+    ],
+    "gate_pitch_um": [
+      0.48,
+      0.42
+    ],
+    "layout_attempts": 7,
+    "met1_nets": [],
+    "pad_dirs": [
+      "L",
+      "L",
+      "R"
+    ],
+    "pad_gap_um": [
+      -0.1,
+      0.065
+    ],
+    "pad_style": "y",
+    "routed_nets": {
+      "Y": 6
+    },
+    "row_breaks": {
+      "n": 0,
+      "p": 0
+    },
+    "transistors": [
+      {
+        "gate": "C",
+        "kind": "n",
+        "l": 0.15,
+        "sa": 0.26,
+        "sb": 1.16,
+        "w": 0.65,
+        "x": 0.395
+      },
+      {
+        "gate": "B",
+        "kind": "n",
+        "l": 0.15,
+        "sa": 0.74,
+        "sb": 0.68,
+        "w": 0.65,
+        "x": 0.875
+      },
+      {
+        "gate": "A",
+        "kind": "n",
+        "l": 0.15,
+        "sa": 1.16,
+        "sb": 0.26,
+        "w": 0.65,
+        "x": 1.295
+      },
+      {
+        "gate": "C",
+        "kind": "p",
+        "l": 0.15,
+        "sa": 0.26,
+        "sb": 1.16,
+        "w": 1.0,
+        "x": 0.395
+      },
+      {
+        "gate": "B",
+        "kind": "p",
+        "l": 0.15,
+        "sa": 0.74,
+        "sb": 0.68,
+        "w": 1.0,
+        "x": 0.875
+      },
+      {
+        "gate": "A",
+        "kind": "p",
+        "l": 0.15,
+        "sa": 1.16,
+        "sb": 0.26,
+        "w": 1.0,
+        "x": 1.295
+      }
+    ],
+    "width_sites": 4,
+    "width_um": 1.84
+  },
+  "layout_options": {
+    "order_index": 0
+  },
+  "run": {
+    "argv": [
+      "cellgen",
+      "build",
+      "a_nand3_r0"
+    ],
+    "exit_code": 0,
+    "finished": "2026-11-02T18:05:47+00:00",
+    "host": "Darwin arm64",
+    "inputs": {},
+    "logs": [],
+    "started": "2026-11-02T18:05:03+00:00",
+    "status": "pass",
+    "tools": {}
+  },
+  "sizing": {
+    "l_um": 0.15,
+    "nmos_w_um": 0.65,
+    "pmos_w_um": 1.0,
+    "policy": "hd"
+  },
+  "status": "pass",
+  "truth_table": "0x7F"
+}

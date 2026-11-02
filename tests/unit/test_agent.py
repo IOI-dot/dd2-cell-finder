@@ -85,14 +85,16 @@ def test_protected_set_covers_pdk_tests_agent_and_option1_checks():
 
 def test_option1_tool_is_wrapped():
     t = tools.TOOLS["build_reference_cell"]
-    assert t.module == "cellgen" and t.schema["properties"]["cell"]["enum"] == ["inv_1", "nand2_1"]
+    assert t.module == "cellgen" and t.schema["properties"]["cell"]["enum"][:2] == ["inv_1", "nand2_1"]
+    assert {"a21oi_1", "o21ai_1", "mux2_1"} <= set(t.schema["properties"]["cell"]["enum"])
 
 
 def test_every_tool_writes_only_inside_its_run(tmp_path):
     for name, t in tools.TOOLS.items():
         props = t.schema["properties"]
         args = {"design": "cpu8"} if "design" in props else {"cell": "inv_1"} if "cell" in props else \
-               {"tt": "0x7", "arity": 2} if name == "classify" else {}
+               {"tt": "0x7", "arity": 2} if name == "classify" else \
+               {"expr": "!A", "name": "c", "sizing": "hd"} if name == "build_cell" else {}
         argv = [str(a) for a in t.argv(args, ROOT / "runs" / "A-1026-99")]
         paths_in_argv = [a for a in argv if a.startswith(str(ROOT))]
         assert all(policy.may_write(a, "A-1026-99") for a in paths_in_argv), (name, argv)
@@ -130,3 +132,40 @@ def test_baseline_output_not_nested():
 
 def test_run_id_must_fullmatch():
     assert not policy.RUN_ID.fullmatch("A-1026-02\n")
+
+
+def slow_tool(script):
+    return tools.Tool("slow", "", {}, lambda a, d: [], lambda a, d: d / "out.json", module=script)
+
+
+def test_a_tool_that_times_out_is_a_failed_call(tmp_path, monkeypatch):
+    real = tools.subprocess.Popen
+    monkeypatch.setattr(tools.subprocess, "Popen", lambda a, **k: real(["sleep", "30"], **k))
+    monkeypatch.setattr(tools, "stop_containers", lambda r: None)
+    code, out = tools.execute(slow_tool("x"), {}, tmp_path, timeout=0.3)
+    assert code == 124 and "timeout" in (tmp_path / "out.json.log").read_text()
+
+
+def test_cancel_stops_the_tool_and_its_containers(tmp_path, monkeypatch):
+    import threading
+    real, stopped = tools.subprocess.Popen, []
+    monkeypatch.setattr(tools.subprocess, "Popen", lambda a, **k: real(["sleep", "30"], **k))
+    monkeypatch.setattr(tools, "stop_containers", stopped.append)
+    ev = threading.Event()
+    threading.Timer(0.2, ev.set).start()
+    code, _ = tools.execute(slow_tool("x"), {}, tmp_path, cancel=ev)
+    assert code == 130 and stopped == [tmp_path.name]
+
+
+def test_progress_lines_reach_the_callback_and_stay_out_of_the_log(tmp_path, monkeypatch):
+    real = tools.subprocess.Popen
+    script = """printf '@@ {"id": "a"}\\nplain\\n'"""
+    monkeypatch.setattr(tools.subprocess, "Popen", lambda a, **k: real(["sh", "-c", script], **k))
+    seen = []
+    code, _ = tools.execute(slow_tool("x"), {}, tmp_path, on_trace=seen.append)
+    assert code == 0 and seen == [{"id": "a"}] and (tmp_path / "out.json.log").read_text() == "plain\n"
+
+
+def test_a_busy_day_of_runs_is_still_a_valid_run_id():
+    assert policy.may_write(ROOT / "runs" / "A-1102-110" / "x", "A-1102-110")
+    assert not policy.may_write(ROOT / "runs" / "A-1102-1" / "x", "A-1102-1")

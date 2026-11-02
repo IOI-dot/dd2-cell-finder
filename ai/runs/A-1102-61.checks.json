@@ -1,0 +1,49 @@
+{
+  "best": {
+    "breaks": 1,
+    "exit_code": 0,
+    "failed": [],
+    "met1_nets": [
+      "Y",
+      "B"
+    ],
+    "report": "runs/A-1102-61/cells/f_xor2/report.json",
+    "route_failures": [],
+    "settings": {
+      "order_index": 0,
+      "sizing": "hd"
+    },
+    "sites": 8,
+    "status": "pass",
+    "transistors": 10
+  },
+  "calls": {
+    "model": 0,
+    "tool": 1
+  },
+  "function": "A ^ B",
+  "model": "none (fixed choices)",
+  "revisions": [
+    {
+      "breaks": 1,
+      "exit_code": 0,
+      "failed": [],
+      "met1_nets": [
+        "Y",
+        "B"
+      ],
+      "report": "runs/A-1102-61/cells/f_xor2/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 0,
+        "sizing": "hd"
+      },
+      "sites": 8,
+      "status": "pass",
+      "transistors": 10
+    }
+  ],
+  "run": "A-1102-61",
+  "seconds": 175.4,
+  "status": "pass"
+}

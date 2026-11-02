@@ -1,0 +1,75 @@
+* NGSPICE file created from a_mux2_r0.ext - technology: sky130A
+
+.subckt a_mux2_r0 A B C VGND VNB VPB VPWR Y
+X0 VPWR B a_243_297# VPB sky130_fd_pr__pfet_01v8_hvt ad=0.175 pd=1.35 as=0.175 ps=1.35 w=1 l=0.15 sa=1.26 sb=0.76
+X1 Y a_325_297# VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.26 ps=2.52 w=1 l=0.15 sa=0.26 sb=0.26
+X2 a_525_47# B a_325_297# VNB sky130_fd_pr__nfet_01v8 ad=0.11375 pd=1 as=0.11375 ps=1 w=0.65 l=0.15 sa=2.2 sb=1.7
+X3 VGND C a_55_47# VNB sky130_fd_pr__nfet_01v8 ad=0.25675 pd=1.44 as=0.169 ps=1.82 w=0.65 l=0.15 sa=0.26 sb=3.64
+X4 Y a_325_297# VGND VNB sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.25675 ps=1.44 w=0.65 l=0.15 sa=3.64 sb=0.26
+X5 a_325_297# a_55_47# a_325_47# VNB sky130_fd_pr__nfet_01v8 ad=0.11375 pd=1 as=0.11375 ps=1 w=0.65 l=0.15 sa=1.7 sb=2.2
+X6 a_243_297# a_55_47# a_325_297# VPB sky130_fd_pr__pfet_01v8_hvt ad=0.175 pd=1.35 as=0.175 ps=1.35 w=1 l=0.15 sa=0.76 sb=1.26
+X7 a_325_47# A VGND VNB sky130_fd_pr__nfet_01v8 ad=0.11375 pd=1 as=0.25675 ps=1.44 w=0.65 l=0.15 sa=1.2 sb=2.7
+X8 VPWR C a_55_47# VPB sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.26 ps=2.52 w=1 l=0.15 sa=0.26 sb=0.26
+X9 a_325_297# A a_243_297# VPB sky130_fd_pr__pfet_01v8_hvt ad=0.175 pd=1.35 as=0.26 ps=2.52 w=1 l=0.15 sa=0.26 sb=1.76
+X10 a_243_297# C VPWR VPB sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.175 ps=1.35 w=1 l=0.15 sa=1.76 sb=0.26
+X11 VGND C a_525_47# VNB sky130_fd_pr__nfet_01v8 ad=0.25675 pd=1.44 as=0.11375 ps=1 w=0.65 l=0.15 sa=2.7 sb=1.2
+C0 a_243_297# a_325_297# 0.08931f
+C1 C VGND 0.12703f
+C2 A VGND 0.02002f
+C3 C a_325_47# 0.0052f
+C4 a_525_47# VGND 0.00965f
+C5 A a_325_47# 0
+C6 a_325_47# VGND 0.01079f
+C7 a_325_297# Y 0.04425f
+C8 C B 0.04552f
+C9 C a_55_47# 0.20796f
+C10 a_243_297# VPWR 0.19803f
+C11 A a_55_47# 0.06052f
+C12 a_325_297# VPWR 0.06173f
+C13 C VPB 0.07151f
+C14 B VGND 0.01018f
+C15 A VPB 0.03412f
+C16 a_55_47# VGND 0.07277f
+C17 a_325_47# a_55_47# 0.004f
+C18 VPB VGND 0.01366f
+C19 VPWR Y 0.07048f
+C20 B a_55_47# 0.03434f
+C21 C a_243_297# 0.01921f
+C22 A a_243_297# 0.02107f
+C23 C a_325_297# 0.12548f
+C24 B VPB 0.0282f
+C25 A a_325_297# 0.00605f
+C26 VPB a_55_47# 0.05824f
+C27 a_325_297# a_525_47# 0.01192f
+C28 a_243_297# VGND 0.00416f
+C29 a_325_297# VGND 0.10453f
+C30 a_325_47# a_243_297# 0
+C31 a_325_47# a_325_297# 0.00647f
+C32 C Y 0.00193f
+C33 a_525_47# Y 0
+C34 C VPWR 0.05215f
+C35 A VPWR 0.00903f
+C36 VGND Y 0.04285f
+C37 B a_243_297# 0.01343f
+C38 B a_325_297# 0.04665f
+C39 a_243_297# a_55_47# 0.02831f
+C40 a_325_297# a_55_47# 0.0488f
+C41 VPWR VGND 0.02555f
+C42 VPB a_243_297# 0.01534f
+C43 VPB a_325_297# 0.06158f
+C44 B Y 0
+C45 B VPWR 0.01535f
+C46 VPB Y 0.01719f
+C47 a_55_47# VPWR 0.09037f
+C48 A C 0.01745f
+C49 C a_525_47# 0.0032f
+C50 VPB VPWR 0.14622f
+C51 VGND VNB 0.67618f
+C52 Y VNB 0.14757f
+C53 VPWR VNB 0.51764f
+C54 VPB VNB 0.95915f
+C55 a_325_47# VNB 0.15926f
+C56 a_243_297# VNB 0.02987f
+C57 a_325_297# VNB 0.12605f
+.ends
+

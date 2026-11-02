@@ -1,0 +1,13 @@
+{
+  "calls": {
+    "in": 0,
+    "model": 0,
+    "out": 0,
+    "tool": 1
+  },
+  "model": "codex-cli:gpt-5.6-sol effort=high",
+  "run": "A-1102-122",
+  "seconds": 14.3,
+  "status": "fail",
+  "stop": "canceled"
+}

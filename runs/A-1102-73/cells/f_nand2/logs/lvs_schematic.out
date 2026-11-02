@@ -1,0 +1,26 @@
+
+Subcircuit summary:
+Circuit 1: f_nand2                         |Circuit 2: f_nand2                         
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (2)            |sky130_fd_pr__pfet_01v8_hvt (2)            
+sky130_fd_pr__nfet_01v8 (2)                |sky130_fd_pr__nfet_01v8 (2)                
+Number of devices: 4                       |Number of devices: 4                       
+Number of nets: 8                          |Number of nets: 8                          
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: f_nand2                         |Circuit 2: f_nand2                         
+-------------------------------------------|-------------------------------------------
+VGND                                       |VGND                                       
+A                                          |A                                          
+VNB                                        |VNB                                        
+B                                          |B                                          
+VPWR                                       |VPWR                                       
+VPB                                        |VPB                                        
+Y                                          |Y                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes f_nand2 and f_nand2 are equivalent.
+Circuits match uniquely.

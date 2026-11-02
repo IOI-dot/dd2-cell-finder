@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/__main__.py", line 5, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/cli.py", line 38, in main
+    rep = flow.build(a.name, names, bf.eval_expr(a.expr, names), sizing=a.sizing, layout_opts=opts,
+                     out_root=a.out, work_root=a.work)
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/flow.py", line 186, in build
+    stress.annotate(rc_path, sized_rc, gds, name)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/stress.py", line 69, in annotate
+    key = (m.group(5), _net(m.group(3)), tuple(sorted((_net(m.group(2)), _net(m.group(4))))))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: no device in the .ext file for: X0 a_153_297.t2 C.t3 VPWR.t5 VPB.t8 sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15

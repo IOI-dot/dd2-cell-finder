@@ -1,0 +1,6 @@
+function,mode,run,run_id,status,stop,sites,met1_nets,breaks,builds,model_calls,tokens_in,tokens_out,seconds,model,failure,log_ok
+nand2,fixed,1,A-1102-123,pass,,3,0,0,1,0,0,0,37.9,no model call,,True
+nand2,agent,1,A-1102-124,pass,nothing to improve,3,0,0,1,1,13463,654,38.0,codex-cli:gpt-5.6-sol effort=high,,True
+nor2,fixed,1,A-1102-125,pass,,3,0,0,1,0,0,0,29.5,no model call,,True
+nor2,agent,1,A-1102-126,pass,nothing to improve,3,0,0,1,1,13462,577,38.7,codex-cli:gpt-5.6-sol effort=high,,True
+nand3,fixed,1,A-1102-127,pass,,4,0,0,1,0,0,0,42.2,no model call,,True

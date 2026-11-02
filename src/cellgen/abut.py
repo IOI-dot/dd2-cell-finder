@@ -4,7 +4,8 @@ Each fixture is a GDS assembled with KLayout instance transforms, then checked b
 DRC. Rows always contain a tap cell (a lone logic cell fails nwell.4 by design).
   side      tap | X | inv_1 | fill_1
   mirror    tap | X mirrored left-right | inv_1 | fill_1
-  self      tap | X | X mirrored | X           (the cell next to itself both ways)
+  self      tap | X | X mirrored | X | tap     (the cell next to itself both ways; two taps, as a
+            real row has, so that three wide cells stay within the latch-up distance of a tap)
   flip      the side row, a row flipped upside down above it (sharing VPWR) and one below it
             (sharing VGND)
 """
@@ -41,7 +42,7 @@ def build(hd_gds: Path, cell_gds: Path, cell: str, width: float, out: Path) -> d
     specs = {
         "side": [(base, 0.0, False, ())],
         "mirror": [(base, 0.0, False, (1,))],
-        "self": [([HD + "tapvpwrvgnd_1", cell, cell, cell], 0.0, False, (2,))],
+        "self": [([HD + "tapvpwrvgnd_1", cell, cell, cell, HD + "tapvpwrvgnd_1"], 0.0, False, (2,))],
         "flip": [(base, 0.0, False, ()), (base, ROW_H, True, ()), (base, -ROW_H, True, ())],
     }
     files = {}

@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/__main__.py", line 5, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/cli.py", line 38, in main
+    rep = flow.build(a.name, names, bf.eval_expr(a.expr, names), sizing=a.sizing, layout_opts=opts,
+                     out_root=a.out, work_root=a.work)
+  File "/Users/noorelshahidi/DD2Project/src/cellgen/flow.py", line 253, in build
+    (out / "rc_extracted.spice").write_text(hd_port_order(sized_rc.read_text(), name, inputs, y))
+                                                          ~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/A-1102-14/work/a_a22oi_r3/a_a22oi_r3_rc_sasb.spice'

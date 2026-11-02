@@ -1,0 +1,43 @@
+{
+  "best": {
+    "breaks": 0,
+    "exit_code": 0,
+    "failed": [],
+    "met1_nets": [],
+    "report": "runs/A-1102-39/cells/f_nor2/report.json",
+    "route_failures": [],
+    "settings": {
+      "order_index": 0,
+      "sizing": "hd"
+    },
+    "sites": 3,
+    "status": "pass",
+    "transistors": 4
+  },
+  "calls": {
+    "model": 0,
+    "tool": 1
+  },
+  "function": "!(A | B)",
+  "model": "none (fixed choices)",
+  "revisions": [
+    {
+      "breaks": 0,
+      "exit_code": 0,
+      "failed": [],
+      "met1_nets": [],
+      "report": "runs/A-1102-39/cells/f_nor2/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 0,
+        "sizing": "hd"
+      },
+      "sites": 3,
+      "status": "pass",
+      "transistors": 4
+    }
+  ],
+  "run": "A-1102-39",
+  "seconds": 59.9,
+  "status": "pass"
+}

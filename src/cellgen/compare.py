@@ -83,12 +83,19 @@ def gate_order(gds: Gds) -> dict:
     ndiff = kdb.Region([d for d in gds.region("diff").each() if d.bbox().top < int(1.0 / gds.ly.dbu)])
     poly = gds.region("poly")
     gates = sorted((g.bbox() for g in (poly & ndiff).each()), key=lambda b: b.left)
-    labels = [l for l in gds.labels() if l[0] != "Y"]
+    labels = [l for l in gds.labels() if l[0] not in ("Y", "X")]
+    li = gds.region("li1")
+    lic = gds.ly.find_layer(66, 44)
+    contacts = kdb.Region(gds.cell.begin_shapes_rec(lic)) if lic is not None else kdb.Region()
+    at = lambda s, x, y: s.inside(kdb.Point(int(round(x / gds.ly.dbu)), int(round(y / gds.ly.dbu))))   # noqa: E731
     names = []
     for g in gates:
         shape = next((q for q in poly.each() if q.inside(g.center())), None)
-        hit = [n for n, x, y in labels if shape is not None and
-               shape.inside(kdb.Point(int(round(x / gds.ly.dbu)), int(round(y / gds.ly.dbu))))]
+        hit = [n for n, x, y in labels if shape is not None and at(shape, x, y)]
+        if shape is not None and not hit:            # the pin sits beside the poly: follow its contact to li1
+            for c in (contacts & kdb.Region(shape)).each():
+                wire = next((q for q in li.each() if not (kdb.Region(q) & kdb.Region(c)).is_empty()), None)
+                hit += [n for n, x, y in labels if wire is not None and at(wire, x, y)]
         names.append(hit[0] if hit else "?")
     xs = [round(g.left * gds.ly.dbu, 3) for g in gates]
     nseg = len([d for d in gds.region("diff").each() if d.bbox().top < int(1.0 / gds.ly.dbu)])
@@ -97,14 +104,15 @@ def gate_order(gds: Gds) -> dict:
             "diffusion_breaks": {"n": nseg - 1, "p": pseg - 1}}
 
 
-def wiring_layers(gds: Gds) -> dict:
-    """li1 inside the cell; met1 only in the two rails."""
+def wiring_layers(gds: Gds, met1_allowed: bool = False) -> dict:
+    """li1 inside the cell; met1 only in the two rails, unless the caller says this cell may use it
+    (a multi-stage cell whose li1 routing was shown to fail: handout Table 3)."""
     rails = kdb.Region(kdb.Box(-10**6, int(-0.24 / gds.ly.dbu), 10**6, int(0.24 / gds.ly.dbu)))
     rails += kdb.Region(kdb.Box(-10**6, int(2.48 / gds.ly.dbu), 10**6, int(2.96 / gds.ly.dbu)))
     met1_outside = gds.region("met1") - rails
     return {"met1_outside_rails_um2": round(met1_outside.area() * gds.ly.dbu ** 2, 4),
             "li1_present": not gds.region("li1").is_empty(),
-            "ok": met1_outside.is_empty() and not gds.region("li1").is_empty()}
+            "ok": (met1_allowed or met1_outside.is_empty()) and not gds.region("li1").is_empty()}
 
 
 def frame_xor(a: Gds, b: Gds) -> dict:
@@ -122,7 +130,21 @@ def frame_xor(a: Gds, b: Gds) -> dict:
     return out
 
 
-def pin_check(gds: Gds, inputs) -> list:
+def pin_shapes(gds: Gds) -> dict:
+    """Layer and size of the li1 shape under each pin label, for Table 4's pin row."""
+    out = {}
+    dbu = gds.ly.dbu
+    for name, x, y in gds.labels("li1.label"):
+        p = kdb.Point(int(round(x / dbu)), int(round(y / dbu)))
+        shape = next((q for q in gds.region("li1").each() if q.inside(p)), None)
+        if shape is not None:
+            b = shape.bbox()
+            out.setdefault(name, []).append({"layer": "li1", "w_um": round(b.width() * dbu, 3), "h_um": round(b.height() * dbu, 3),
+                                             "area_um2": round(shape.area() * dbu ** 2, 4)})
+    return out
+
+
+def pin_check(gds: Gds, inputs, out="Y") -> list:
     """Option 1 handout, Table 2: inputs on li1 over the poly contact in the npc band, Y on li1,
     VGND/VPWR on the met1 rails, VPB on the n-well at the top edge, VNB at the bottom edge.
     A pin may carry several labels: every label needs a pin shape under it, and an input passes
@@ -143,7 +165,7 @@ def pin_check(gds: Gds, inputs) -> list:
     labels = {}
     for t, x, y in gds.labels("li1.label"):
         labels.setdefault(t, []).append((x, y))
-    for name in list(inputs) + ["Y"]:
+    for name in list(inputs) + [out]:
         if name not in labels:
             errs.append(f"{name}: no li1 label (67/5)")
             continue
@@ -152,7 +174,7 @@ def pin_check(gds: Gds, inputs) -> list:
                 errs.append(f"{name}: label at ({x}, {y}) is not on li1")
             if shape_at("li1.pin", x, y) is None:
                 errs.append(f"{name}: no li1 pin shape (67/16) under the label at ({x}, {y})")
-        if name != "Y":
+        if name != out:
             good = [(x, y) for x, y in labels[name] if (li := shape_at("li1", x, y)) is not None
                     and not (kdb.Region(li) & band_contacts).is_empty()]
             if not good:

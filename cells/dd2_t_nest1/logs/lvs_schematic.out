@@ -1,0 +1,28 @@
+
+Subcircuit summary:
+Circuit 1: dd2_t_nest1                     |Circuit 2: dd2_t_nest1                     
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (4)            |sky130_fd_pr__pfet_01v8_hvt (4)            
+sky130_fd_pr__nfet_01v8 (4)                |sky130_fd_pr__nfet_01v8 (4)                
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 12                         |Number of nets: 12                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: dd2_t_nest1                     |Circuit 2: dd2_t_nest1                     
+-------------------------------------------|-------------------------------------------
+VNB                                        |VNB                                        
+VPB                                        |VPB                                        
+A                                          |A                                          
+B                                          |B                                          
+C                                          |C                                          
+VGND                                       |VGND                                       
+D                                          |D                                          
+Y                                          |Y                                          
+VPWR                                       |VPWR                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes dd2_t_nest1 and dd2_t_nest1 are equivalent.
+Circuits match uniquely.

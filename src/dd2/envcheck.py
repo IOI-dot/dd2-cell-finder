@@ -26,6 +26,7 @@ def pdk_version(pdk: Path) -> str:
 
 
 COURSE_IMAGE = "dd2-layout-tools"
+STA_IMAGE = "dd2-sta"
 
 
 def course_image() -> dict:
@@ -45,6 +46,14 @@ def course_image() -> dict:
             "ngspice": m.group(1) if m else None, "ngspice_sha256": m.group(2) if m else None,
             "magic": (re.search(r"MAGIC=(\S+)", out) or [None, None])[1],
             "netgen": (re.search(r"NETGEN=(.+)", out) or [None, None])[1]}
+
+
+def opensta() -> str | None:
+    """OpenSTA's version, from its image; there is no arm64 image to pull, see docker/build_sta.sh."""
+    import subprocess
+    p = subprocess.run(["docker", "run", "--rm", "--network", "none", STA_IMAGE, "sta", "-version"],
+                       capture_output=True, text=True, timeout=120)
+    return p.stdout.strip().splitlines()[-1] if p.returncode == 0 and p.stdout.strip() else None
 
 
 def check(given: Path, pdk: Path, out: Path) -> int:
@@ -97,8 +106,6 @@ def check(given: Path, pdk: Path, out: Path) -> int:
         if got != want:
             problems.append(f"Yosys imported {got} cell types from {name}, expected {want}")
 
-    if not env["tools"]["sta"]:
-        notes.append("OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1")
     if os.environ.get("DD2_IN_CONTAINER"):
         notes.append("inside the dd2-flow container: the course image and its ngspice stress test "
                      "are checked by `make check` on the host")
@@ -107,6 +114,9 @@ def check(given: Path, pdk: Path, out: Path) -> int:
         ci = env["course_image"]
         if ci["status"] != "pass":
             problems.append(f"course image {COURSE_IMAGE}: {ci.get('hint') or 'ngspice stress test failed'}")
+        env["opensta"] = opensta()
+        if not env["opensta"]:
+            problems.append(f"OpenSTA missing: build image {STA_IMAGE} with `make o1-sta` (Table 5 needs it)")
 
     env["problems"], env["notes"] = problems, notes
     env["status"] = "fail" if problems else "pass"

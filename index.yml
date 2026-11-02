@@ -46,19 +46,22 @@ repository_map:
   results: committed evidence used by reports
   libs: generated Option 2 Liberty libraries
   cells: one folder per generated Option 1 cell (at cp1 dd2_ref__inv_1 and dd2_ref__nand2_1)
-  results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check)"
+  results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check; m2 = Tables 4, 5 and 6, sizings, agent against fixed choices)"
+  cells: generated views of every reference and test cell (GDS, netlists, model, report, comparison picture)
+  data/designs: "designs that are not in the student pack: spm.v from OpenLane (Apache-2.0) for Table 5"
+  config: "agent settings: config/agent.toml (model, limits); secrets only in the environment"
   prompts: versioned agent prompts
   runs: agent run outputs, committed as evidence (bulky cuts_full/ ignored)
   report: technical and AI reports with sources
   docs: architecture.md (layers, layout, open design questions) and interface/ (Appendix A)
   backend: planned API service (placeholder README; design to be agreed with the user)
   specs: Spec Kit spec, plan, research, contracts, tasks
-  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs (cp1); LangGraph + AG-UI server later (US4)
+  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), fixed-choice version, comparison; AG-UI server later (US4)
   ai/runs: committed agent run logs (JSONL) and their check files
   .venv: local Python environment made by make setup; git-ignored
-  web: planned AG-UI front end on DesignSystemStudio + Graphite Cyan (placeholder README)
-  docker: planned images and compose with read-only protected mounts (placeholder README)
-  references: read-only upstream clones (ag-ui, langchain-skills); git-ignored
+  web: "generative front end: AG-UI client, OpenUI Lang renderer, component library, 3D views; built on DesignSystemStudio + Graphite Cyan"
+  docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta); compose with read-only protected mounts is planned"
+  references: read-only upstream material (ag-ui, langchain-skills, openui); git-ignored
   build: scratch outputs; git-ignored
 
 toolchain:
@@ -74,6 +77,7 @@ toolchain:
   images:
     - dd2-layout-tools: course recipe unchanged; Magic 8.3.684, Netgen (reports 1.5.132), ngspice 47 fixed
     - dd2-flow: docker/flow.Dockerfile; Ubuntu 24.04 Yosys 0.33 (reproduces Table 1)
+    - dd2-sta: docker/build_sta.sh; OpenSTA pinned by commit, compiled on a tmpfs (make o1-sta)
   runtime_notes:
     - Docker uses Colima and must be running before building the course container.
     - Tool versions are recorded by make check, never inferred from this index.
@@ -87,7 +91,7 @@ protected_paths:
   - .specify/memory/constitution.md
 
 agentic_system:
-  command: make agent IN=<design>   # cp1: make agent-check (scripted run, no model yet)
+  command: make agent FUNC='<expression>'   # make fixed for the fixed-choice version, make agent-compare for both on the test cells
   rules:
     - Tool schemas and protected-path permissions are enforced in deterministic code.
     - Prompt files and model settings are versioned.

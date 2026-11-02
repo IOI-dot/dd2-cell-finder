@@ -28,7 +28,7 @@
           "bbox_um": [
             -0.19,
             -0.24,
-            4.79,
+            5.25,
             2.96
           ],
           "errors": 0,
@@ -63,7 +63,7 @@
         1.57,
         2.96
       ],
-      "errors": 3,
+      "errors": 5,
       "note": "a lone cell may only fail the tap rules nwell.4, LU.2, LU.3",
       "report": "drc_standalone.log",
       "rules": [
@@ -319,6 +319,10 @@
     "network": {
       "errors": [],
       "max_series": 1,
+      "stage_outputs": [
+        "Y"
+      ],
+      "stages": 1,
       "status": "pass",
       "transistors": 2
     },
@@ -327,6 +331,10 @@
       "gates": [
         "A"
       ],
+      "row_breaks": {
+        "n": 0,
+        "p": 0
+      },
       "rows": {
         "n": [
           [
@@ -347,10 +355,15 @@
       "errors": [],
       "status": "pass"
     },
+    "rc_lvs": {
+      "report": "lvs_rc.out",
+      "result": "match",
+      "status": "pass"
+    },
     "spice": {
       "dc_volts": {
         "0": 1.8,
-        "1": 2.6671e-09
+        "1": 4.6513e-09
       },
       "errors": [],
       "files": [
@@ -397,7 +410,8 @@
         "nsdm": 0.0,
         "nwell": 0.0,
         "psdm": 0.0
-      }
+      },
+      "y_extents": "pass"
     },
     "gate_order": {
       "installed": {
@@ -431,29 +445,41 @@
     "parasitics": {
       "installed": {
         "c_fF_per_net": {
-          "A": 0.15617,
-          "VGND": 0.43915,
-          "VNB": 1.01811,
-          "VPB": 0.48146,
-          "VPWR": 0.40114,
-          "Y": 0.35195
+          "A": 0.37185,
+          "VGND": 0.51931,
+          "VNB": 1.83366,
+          "VPB": 0.62394,
+          "VPWR": 0.61852,
+          "Y": 0.5118
         },
-        "note": "Magic extresist (tolerance 10) keeps no resistor in a cell this small",
-        "r_ohm_total": 0,
-        "resistors": 0
+        "r_ohm_per_net": {
+          "A": 547.518,
+          "VGND": 166.951,
+          "VNB": 1612.5,
+          "VPB": 350.853,
+          "VPWR": 264.904,
+          "Y": 392.228
+        },
+        "r_ohm_total": 3334.954
       },
       "ours": {
         "c_fF_per_net": {
-          "A": 0.14808,
-          "VGND": 0.37012,
-          "VNB": 1.0149,
-          "VPB": 0.48151,
-          "VPWR": 0.46375,
-          "Y": 0.34814
+          "A": 0.3032,
+          "VGND": 0.50159,
+          "VNB": 1.79422,
+          "VPB": 0.61197,
+          "VPWR": 0.6096,
+          "Y": 0.54808
         },
-        "note": "Magic extresist (tolerance 10) keeps no resistor in a cell this small",
-        "r_ohm_total": 0,
-        "resistors": 0
+        "r_ohm_per_net": {
+          "A": 569.173,
+          "VGND": 173.082,
+          "VNB": 1612.5,
+          "VPB": 350.853,
+          "VPWR": 270.332,
+          "Y": 438.3
+        },
+        "r_ohm_total": 3414.24
       }
     },
     "pins": {
@@ -478,44 +504,92 @@
       "ours": [
         [
           "A",
-          0.5,
+          0.69,
           1.16
         ],
         [
           "Y",
           0.9,
-          0.58
+          0.38
         ],
         [
           "Y",
           0.9,
-          1.98
+          2.34
         ]
       ],
-      "ours_errors": []
+      "ours_errors": [],
+      "shapes_installed": {
+        "A": [
+          {
+            "area_um2": 0.0792,
+            "h_um": 0.24,
+            "layer": "li1",
+            "w_um": 0.33
+          }
+        ],
+        "Y": [
+          {
+            "area_um2": 0.6693,
+            "h_um": 2.21,
+            "layer": "li1",
+            "w_um": 0.33
+          },
+          {
+            "area_um2": 0.6693,
+            "h_um": 2.21,
+            "layer": "li1",
+            "w_um": 0.33
+          }
+        ]
+      },
+      "shapes_ours": {
+        "A": [
+          {
+            "area_um2": 0.0561,
+            "h_um": 0.17,
+            "layer": "li1",
+            "w_um": 0.33
+          }
+        ],
+        "Y": [
+          {
+            "area_um2": 0.7565,
+            "h_um": 2.13,
+            "layer": "li1",
+            "w_um": 0.46
+          },
+          {
+            "area_um2": 0.7565,
+            "h_um": 2.13,
+            "layer": "li1",
+            "w_um": 0.46
+          }
+        ]
+      }
     },
     "timing": {
       "installed": [
         {
-          "delay_in_fall_ns": 0.13609,
-          "delay_in_rise_ns": 0.07743,
+          "delay_in_fall_ns": 0.12216,
+          "delay_in_rise_ns": 0.08861,
           "input_rise_gives": "fall",
           "pin": "A",
           "side_inputs": 0,
-          "transition_in_fall_ns": 0.10245,
-          "transition_in_rise_ns": 0.05561
+          "transition_in_fall_ns": 0.09247,
+          "transition_in_rise_ns": 0.06061
         }
       ],
-      "method": "ngspice on both RC-extracted cells, 50% delay and 20-80% transition; the calibrated characterizer is cp2 work",
+      "method": "ngspice on both RC-extracted cells with SA/SB, 50% delay and 20-80% transition",
       "ours": [
         {
-          "delay_in_fall_ns": 0.13604,
-          "delay_in_rise_ns": 0.0774,
+          "delay_in_fall_ns": 0.12246,
+          "delay_in_rise_ns": 0.08885,
           "input_rise_gives": "fall",
           "pin": "A",
           "side_inputs": 0,
-          "transition_in_fall_ns": 0.10242,
-          "transition_in_rise_ns": 0.05561
+          "transition_in_fall_ns": 0.09278,
+          "transition_in_rise_ns": 0.06075
         }
       ],
       "point": {
@@ -530,7 +604,29 @@
       }
     },
     "transistors": {
-      "lvs_with_wl": "match"
+      "count_installed": 2,
+      "count_ours": 2,
+      "lvs_with_wl": "match",
+      "w_installed": [
+        [
+          "n",
+          0.65
+        ],
+        [
+          "p",
+          1.0
+        ]
+      ],
+      "w_ours": [
+        [
+          "n",
+          0.65
+        ],
+        [
+          "p",
+          1.0
+        ]
+      ]
     },
     "width_sites": {
       "installed": 3,
@@ -554,18 +650,33 @@
     "A"
   ],
   "layout": {
+    "contacts": {
+      "n0 VGND": 2,
+      "n1 Y": 2,
+      "p0 VPWR": 3,
+      "p1 Y": 3
+    },
     "diffusion_breaks": 0,
     "gate_order": [
       "A"
     ],
     "gate_pitch_um": [],
-    "layout_attempts": 25,
-    "pad_gap_um": [
-      0.03,
-      0.03
+    "layout_attempts": 1,
+    "met1_nets": [],
+    "pad_dirs": [
+      "C"
     ],
+    "pad_gap_um": [
+      -0.1,
+      -0.1
+    ],
+    "pad_style": "x",
     "routed_nets": {
-      "Y": 1
+      "Y": 3
+    },
+    "row_breaks": {
+      "n": 0,
+      "p": 0
     },
     "transistors": [
       {
@@ -590,6 +701,7 @@
     "width_sites": 3,
     "width_um": 1.38
   },
+  "layout_options": {},
   "reference": {
     "function": "(!A)",
     "inputs": [
@@ -614,18 +726,19 @@
       "dd2_ref__inv_1"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:45:28+00:00",
+    "finished": "2026-11-02T20:02:06+00:00",
     "host": "Darwin arm64",
     "inputs": {},
     "logs": [],
-    "started": "2026-10-26T22:44:55+00:00",
+    "started": "2026-11-02T20:01:31+00:00",
     "status": "pass",
     "tools": {}
   },
   "sizing": {
     "l_um": 0.15,
     "nmos_w_um": 0.65,
-    "pmos_w_um": 1.0
+    "pmos_w_um": 1.0,
+    "policy": "hd"
   },
   "status": "pass",
   "truth_table": "0x1"

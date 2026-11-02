@@ -20,7 +20,7 @@ DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONT
 	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
 	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
 
-.PHONY: o1-rules o1-m1 o1-image setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+.PHONY: o1-rules o1-m1 o1-m2 o1-sta o1-image agent fixed agent-compare agent-server web setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
 
 setup:            ## links to the PDK and the given files (never copies), and the Python env
 	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
@@ -28,7 +28,7 @@ setup:            ## links to the PDK and the given files (never copies), and th
 	ln -sfn "$(PDK_ROOT)/sky130A" pdk
 	ln -sfn "$(GIVEN)" given
 	test -x $(PY) || uv venv --python ">=3.11" .venv
-	uv pip install --python $(PY) -q "pytest>=8" "gdsfactory==9.51.0"
+	uv pip install --python $(PY) -q "pytest>=8" "gdsfactory==9.51.0" "langgraph>=1,<2" "ag-ui-langgraph==0.0.47" "fastapi>=0.115" "uvicorn>=0.30"
 	@$(PY) -c 'import sys; assert sys.version_info >= (3, 11), sys.version'
 	@echo "setup: pdk -> $$(readlink pdk), given -> $$(readlink given)"
 
@@ -44,8 +44,8 @@ test:             ## every test, including the broken cases in tests/broken/
 # host Yosys runs it and Table 1 is labelled NOT REPRODUCED.
 FLOW_M1 := $(if $(shell docker image inspect dd2-flow >/dev/null 2>&1 && echo yes),m1-docker,m1)
 
-all:              ## the whole flow implemented so far (Option 2 M1 and Option 1 M1)
-	$(MAKE) $(FLOW_M1) o1-rules o1-m1
+all:              ## the whole flow implemented so far (Option 2 M1 and Option 1 M1, M2)
+	$(MAKE) $(FLOW_M1) o1-rules o1-m1 o1-m2
 
 m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
 
@@ -70,11 +70,36 @@ m1-redundancy:    ## redundancy checker self-test against Table 4
 m1-summary:
 	$(DD2) summary
 
+o1-m2:            ## Option 1 M2: references (Table 4), test cells (Table 6), characterizer (Table 5), summary
+	PYTHONPATH=src $(PY) -m cellgen.m2 refs
+	PYTHONPATH=src $(PY) -m cellgen.m2 tests
+	PYTHONPATH=src $(PY) -m cellgen.m2 table5
+	PYTHONPATH=src $(PY) -m cellgen.m2 timing
+	PYTHONPATH=src $(PY) -m cellgen.m2 summary
+
+agent:            ## one headless agent run: make agent FUNC='!(A & (B | C))' [AGENT_FLAGS=--scripted]
+	PYTHONPATH=src:agent $(PY) -m dd2_agent.graph --func '$(FUNC)' $(AGENT_FLAGS)
+
+fixed:            ## the fixed-choice version on one function: make fixed FUNC='...'
+	PYTHONPATH=src:agent $(PY) -m dd2_agent.fixed_choice '$(FUNC)'
+
+agent-compare:    ## agent against fixed choices on the test cells -> results/option1/m2/agent_vs_fixed.csv
+	PYTHONPATH=src:agent $(PY) -m dd2_agent.compare
+
+agent-server:     ## the back end for the web app, on 127.0.0.1:8123
+	PYTHONPATH=src:agent $(PY) -m dd2_agent.server
+
+web:              ## the web app on 127.0.0.1:5173 (run agent-server too; needs DesignSystemStudio/ on this machine)
+	cd web && pnpm install --frozen-lockfile && pnpm dev
+
 agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
 	PYTHONPATH=src:agent $(PY) -m dd2_agent.selfcheck
 
 o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
 	docker build -t dd2-layout-tools "$(realpath given)/../container"
+
+o1-sta:           ## OpenSTA in image dd2-sta, compiled on a tmpfs (about 3 GB of RAM, 170 MB of disk)
+	docker/build_sta.sh
 
 o1-rules:         ## the design-rule table behind the layout numbers -> results/option1/rules.csv
 	PYTHONPATH=src $(PY) -m cellgen.rules_table

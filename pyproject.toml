@@ -9,7 +9,8 @@ dependencies = []  # the M1 core is standard library only (research D-1)
 dev = ["pytest>=8"]
 # Option 1 (cellgen): layout with GDSfactory, geometry checks with KLayout (pinned after the cp1 run).
 cell = ["gdsfactory==9.51.0"]
-agent = ["langgraph>=1,<2", "langchain>=1.2", "ag-ui-langgraph==0.0.47", "fastapi>=0.115"]
+agent = ["langgraph>=1,<2"]
+web = ["langchain>=1.2", "ag-ui-langgraph==0.0.47", "fastapi>=0.115"]  # the planned AG-UI server
 
 [build-system]
 requires = ["hatchling"]

@@ -1,0 +1,1 @@
+{"cell": "f_xor3", "status": "fail", "failed": ["lvs", "rc_lvs", "spice", "route"]}
