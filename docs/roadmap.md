@@ -21,9 +21,18 @@ No tag exists yet for `cp2`. Nobody moves a checkpoint tag once its deadline has
 Milestones 1 and 2 are built: network, Euler ordering, layout, DRC, abutment, extraction, LVS, RC-LVS, SPICE,
 Verilog model, characterizer and OpenSTA timing. Records are in `results/option1/`.
 
-### Option 2 (`src/dd2`)
+### Option 2 (`src/dd2`, `src/dd2m2`)
 
-Milestone 1 is built. Milestone 2 is being delivered separately by a teammate, and is not in the studio yet.
+Milestones 1 and 2 are built, Milestone 2 by Omar on WSL: costs, an area model with its held-out error, ranked
+candidates, ten requests, an estimated-cell Liberty, both-script mappings of every design with ABC cec, OpenSTA and
+the tutorial testbenches. Records are in `results/m1/`, `results/m2/` and `TA_M2/`. The Table 4 count (six against
+five) is open with the TA.
+
+### Option 3 (`src/cellgen/deliver.py`, `src/dd2m2/option3.py`)
+
+The loop runs from the command line with `make o3`. Option 1 builds, checks and characterizes each requested cell
+and answers in Appendix A; only a cell that passes, with its Liberty, replaces the estimated one; Option 2 then
+remaps every design with and without the real cells into `results/option3/`.
 
 ### The agent (`agent/dd2_agent`)
 
@@ -44,6 +53,7 @@ checks each reply, and only the check scripts decide whether a cell passes.
 | Run, middle | The run in order, with real tables and graphs, following the live step. A step's page adds every call and its raw log. |
 | Agent, right | The chat, streamed, with short updates and a closing summary. Model, tool and guardrail actions stay one line until opened. |
 | Mic | Speech to text with Parakeet on this machine. The audio is never saved or sent anywhere. |
+| Option 2 tab | Option 2's saved records, and what Option 1 answered for each requested cell. |
 | Evidence tab | The saved records of Option 1 Milestone 2. |
 
 Rules the interface follows: no game elements, no scroll areas inside the page, no cut-off text, and small 3D views
@@ -52,8 +62,8 @@ only where they explain something.
 ## How Options 1 and 2 connect
 
 The contract is Appendix A, unchanged. `docs/interface/` holds its schemas, `dd2.interface` validates both sides,
-`cellgen.request` reads a request, and `cellgen.flow.response` writes a response. So most of the connection already
-exists, and what is missing is the loop around it.
+`cellgen.request` reads a request, and `cellgen.flow.response` writes a response. All ten Option 2 requests passed
+the validator and the request reader unchanged, so no format change was needed.
 
 ```text
 design
@@ -81,29 +91,16 @@ the candidate is excluded. A failed cell is never added to the library, and its 
 
 ### The agent
 
-The Option 2 agent is a second bounded graph that reuses the same guardrails, audit log, budget and tool policy. Its
-tools are `discover_candidates`, `request_cell` and `map_design`. The model chooses which ranked candidate to request
-next, and when to stop. It cannot change a ranking, an area, a mapping result or a `cec` verdict. `request_cell` runs
-the existing Option 1 agent, so a whole design run contains several complete cell runs.
+One bounded agent serves both options, with the same guardrails, audit log, budget and tool policy. For Option 2 it
+answers from the saved records only, opens the section a question is about, and builds a requested candidate with
+Option 1. It cannot change a ranking, an area, a mapping result or a `cec` verdict. A later step is to let it run the
+loop for a design: request the next ranked candidate, wait for Option 1's answer, and stop when another cell is
+unlikely to help.
 
 ### The studio
 
-No new layout is needed, so it stays uncrowded. A run gains a level above the one we have:
-
-- **Pipeline:** Discovery, Candidates, Cells, Mapping and Savings. Under Cells, one row per requested cell.
-- **Run:** new views for the ranked candidates, the mapped result and the savings. Pressing a cell opens today's
-  cell run unchanged.
-- **Agent:** the same chat. "Which function saved the most?" opens that step.
-- **Evidence:** a second section for Option 2, beside Option 1.
-
-### What we need from the Option 2 push
-
-Before wiring anything, confirm these four things in the pushed code:
-
-1. The command that takes a design and writes ranked candidates, and its output file.
-2. Where requests are written, and whether they pass `dd2.interface.validate_request`.
-3. How a passing cell's Liberty group is added, and what remap command follows.
-4. Where the area and `cec` results are saved.
+Each option has a tab, and the agent panel is shared. The Option 2 tab lists its sections on the left (status,
+measured savings, candidates, area model, mappings, real cells), and Option 1's tab is the live run view as before.
 
 ## What we plan to add for the demo
 
@@ -123,17 +120,17 @@ starts only after Items 1 to 3, and each result must come from the same check sc
 
 ### Now, for `cp2`
 
-1. Commit the studio work on a branch with a proper name. `foundry-game` no longer describes it.
-2. Rerun `dd2_agent.compare` with the code frozen, then `python -m cellgen.m2 summary`. The current
-   `results/option1/m2/agent_vs_fixed.csv` is partial and stale, and the Evidence tab shows it.
-3. Run an independent verification, then update `README.md` and `ai/`.
-4. Merge, and tag `cp2` once the team agrees. Option 2's M2 must be in the tag.
+1. Done: Option 2 M2 merged with Option 1 active again, on branch `option3`.
+2. Done: the loop from the command line (`make o3`), the Option 2 tab, and the agent's Option 2 intents.
+3. Rerun `dd2_agent.compare` with the code frozen, then `python -m cellgen.m2 summary`. The current
+   `results/option1/m2/agent_vs_fixed.csv` is partial and stale.
+4. Omar reruns `make check`, `make test` and `make m2` on WSL from this branch, to confirm nothing of his changed.
+5. Run an independent verification, push, and tag `cp2` once the team agrees.
 
-### After the Option 2 push
+### Next
 
-1. Confirm the four points above, then connect the loop from the command line first.
-2. Add the Option 2 agent and its fixed-choice version, with the same logs.
-3. Add the design run to the studio.
+1. The Option 2 agent drives the loop for a design, with a fixed-choice version and the same logs.
+2. The design run in the studio: Discovery, Candidates, Cells, Mapping and Savings as live steps.
 
 ### Before `final`
 

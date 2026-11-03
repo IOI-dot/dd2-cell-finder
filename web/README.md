@@ -1,5 +1,17 @@
 # web/: Atlas Cell Studio front end
 
+The studio has one tab per option, and the agent panel on the right is shared by both:
+
+- **Option 1 · Cells**: the live run of a cell build, described below.
+- **Option 2 · Designs**: Option 2's saved Milestone 2 records (`src/Option2.tsx`): status and open items,
+  measured savings, ranked candidates, the area model, every mapping with its equivalence and timing, and, for
+  Option 3, what Option 1 answered for each requested cell. They come from `/api/option2`, which only reads
+  `results/m2/` and `cells/<name>/response.json`.
+- **Evidence**: Option 1 Milestone 2's saved records.
+
+The agent answers Option 2 questions from those records, with the same number check as every answer, opens the
+section a question is about, and builds a requested candidate with Option 1 on request ("build candidate M2-002").
+
 A generative UI for the Option 1 agent. Its few UI primitives are in `src/ui.tsx`, and its colours in `src/app.css`.
 
     make agent-server   # back end on 127.0.0.1:8123

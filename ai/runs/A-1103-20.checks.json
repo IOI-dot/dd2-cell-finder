@@ -1,0 +1,46 @@
+{
+  "best": null,
+  "calls": {
+    "in": 17299,
+    "model": 1,
+    "out": 61,
+    "tool": 0
+  },
+  "function": "",
+  "intent": {
+    "candidate": "",
+    "expression": "",
+    "focus": "o2-candidates",
+    "kind": "ABOUT_OPTION2",
+    "options": [],
+    "order_index": 0,
+    "reason": "Opening Option 2\u2019s ranked candidates and what Option 1 built.",
+    "revision": "",
+    "sizing": "hd"
+  },
+  "limits": {
+    "max_model_calls": 8,
+    "max_seconds": 3600,
+    "max_tokens_in": 400000,
+    "max_tokens_out": 40000,
+    "max_tool_calls": 4,
+    "max_usd": 0.0
+  },
+  "model": "codex-cli:gpt-5.6-sol effort=high",
+  "model_settings": {
+    "name": "gpt-5.6-sol",
+    "provider": "codex-cli",
+    "reasoning_effort": "high",
+    "retries": 2,
+    "timeout_s": 180,
+    "usd_per_mtok_in": 0.0,
+    "usd_per_mtok_out": 0.0
+  },
+  "prompt": "prompts/diagnostician.md@05b1d63a",
+  "revisions": [],
+  "run": "A-1103-20",
+  "seconds": 16.1,
+  "status": "fail",
+  "stop": "about project",
+  "usd": 0.0
+}

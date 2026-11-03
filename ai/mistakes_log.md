@@ -77,3 +77,6 @@ index.yml and the plan still listed tool/tutorial validation as pending after
 the successful WSL run. Updated those descriptions from saved evidence.
 Table 4 remains unresolved. Older platform/Option 3 plans were still prominent;
 archived them unchanged so the active repository describes Option 2.
+| M-048 | L-013 | The subscript display rule turned cell names such as `dd2_g4__n4_17ff_1` into `dd2_g4_n₄_17ff_1`, dropping an underscore, because it only looked for a letter or digit before `_`. | Seen on the Option 2 page. The rule now needs a stand-alone helper net. | Yes. Every test passed; the display layer had none for names with double underscores. |
+| M-049 | L-013 | The first Option 2 facts gave the agent unrounded floats and no note that TOTAL covers only the six required designs, so it quoted `-17.516799999997602` and called the total inconsistent. | Asking it a real question in the browser. The facts are now at record precision with that note. | Yes. The number check passed, because the numbers were real. |
+

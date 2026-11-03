@@ -37,7 +37,7 @@ def cell_handle(rev: dict) -> str:
 
 
 NO_BUILD = ("FORBIDDEN", "UNCLEAR", "ABOUT_PROJECT")
-CHAT_ONLY = NO_BUILD + ("EXPLAIN_CHECK", "DISPLAY_PREVIEW")      # answered in the chat, with no report page
+CHAT_ONLY = NO_BUILD + ("EXPLAIN_CHECK", "DISPLAY_PREVIEW", "ABOUT_OPTION2")      # answered in the chat, with no report page
 
 
 def page_facts(run_id: str, v: dict) -> dict:

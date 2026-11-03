@@ -3,6 +3,7 @@
   POST /agent                 the agent over AG-UI (ag-ui-langgraph streams its events)
   GET  /api/evidence/{handle} read-only evidence for the panels, by the handles of generative_ui.py
   GET  /api/overview          the milestone tables
+  GET  /api/option2           Option 2's saved records, and what Option 1 answered for each request
   GET  /api/estimates         how long each stage took in past runs
   POST /api/transcribe        a short WAV recording to text, on this machine
   POST /v1/chat/completions   the model as a normal chat API (agent/dd2_agent/codex_cli.py)
@@ -23,12 +24,12 @@ from ag_ui.encoder import EventEncoder
 from ag_ui_langgraph import LangGraphAgent
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel
 
 from dd2 import paths
 
-from . import audit, codex_cli, generative_ui, graph, model, timings, voice
+from . import audit, codex_cli, generative_ui, graph, model, option2, timings, voice
 
 ROOT = paths.ROOT
 M2 = paths.results("option1", "m2")
@@ -270,6 +271,16 @@ def create_app(cfg: dict | None = None) -> FastAPI:
     @app.get("/api/estimates")
     def estimates():
         return timings.estimates(graph.TIMES)
+
+    @app.get("/api/option2")
+    def option2_view():
+        return option2.view()
+
+    @app.get("/api/option2/figure/{name}")
+    def option2_figure(name: str):
+        if name not in option2.figures():
+            raise HTTPException(404, "no such figure")
+        return FileResponse(option2.FIGURES / name, media_type="image/png")
 
     @app.post("/api/transcribe")
     async def transcribe(request: Request):

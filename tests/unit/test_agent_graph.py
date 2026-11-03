@@ -252,7 +252,7 @@ def test_a_project_answer_may_only_quote_numbers_from_the_notes():
 def test_a_project_question_builds_nothing():
     st = {"revisions": []}
     r = graph.Run.route(graph.Run.__new__(graph.Run), model.Intent(kind="ABOUT_PROJECT", expression="", sizing="hd", order_index=0, revision="",
-                                                                   reason="We build standard cells.", options=[], focus=""), st)
+                                                                   reason="We build standard cells.", options=[], focus="", candidate=""), st)
     assert r["stop"] == "about project" and "expr" not in r and r["intent"]["kind"] == "ABOUT_PROJECT"
 
 
@@ -284,7 +284,7 @@ def test_an_answer_may_quote_numbers_from_the_run_facts():
 
 
 def test_a_question_about_a_step_can_only_open_a_real_step():
-    good = {"kind": "EXPLAIN_CHECK", "expression": "", "sizing": "hd", "order_index": 0, "revision": "", "reason": "x", "options": [], "focus": "euler"}
+    good = {"kind": "EXPLAIN_CHECK", "expression": "", "sizing": "hd", "order_index": 0, "revision": "", "reason": "x", "options": [], "focus": "euler", "candidate": ""}
     assert model.Intent(**good).focus == "euler"
     with pytest.raises(ValueError):
         model.Intent(**(good | {"focus": "../../etc"}))

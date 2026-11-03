@@ -35,7 +35,7 @@ DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONT
 	m1 m1-reference m1-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary \
 	m2 m2-fit m2-aigs-cuts m2-tutorials m2-baseline m2-candidates m2-library m2-map m2-plots readiness ta \
 	o1-image o1-sta o1-rules o1-m1 o1-m2 docker-flow test-docker \
-	agent fixed agent-compare agent-check agent-server web
+	o3 o3-cells o3-map agent fixed agent-compare agent-check agent-server web
 
 ## ---- setup and checks -------------------------------------------------------------------------
 
@@ -148,6 +148,19 @@ docker-flow:      ## build the flow image (Ubuntu 24.04: Yosys 0.33, Icarus, Pyt
 	docker build -f docker/flow.Dockerfile -t dd2-flow docker
 test-docker:      ## the test suite inside dd2-flow
 	$(DOCKER_FLOW) sh -c "cd tests/broken && sha256sum -c SHA256SUMS --quiet && cd ../.. && python3 -m pytest -q -p no:cacheprovider"
+
+## ---- Option 3: the two options connected ------------------------------------------------------
+
+o3: o3-cells o3-map ## Option 1 builds Option 2's requests, then Option 2 remaps with the cells that passed
+
+o3-cells:         ## Option 1 builds, checks and characterizes every cell in results/m2/requests.json
+	PYTHONPATH=src $(PY) -m cellgen.deliver results/m2/requests.json
+
+# Where no native OpenSTA is installed (macOS), docker/bin/sta runs it from image dd2-sta.
+STA_PATH := $(if $(shell command -v sta 2>/dev/null),,$(CURDIR)/docker/bin:)
+
+o3-map:           ## Option 2 maps the designs onto the real cells, into results/option3/
+	PATH="$(STA_PATH)$$PATH" $(M2).option3
 
 ## ---- the agent and the studio ---------------------------------------------------------------
 

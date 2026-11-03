@@ -6,6 +6,7 @@ import { Chat } from "./Chat";
 import { Evidence } from "./Evidence";
 import { library } from "./library";
 import { SendContext } from "./panels";
+import { Option2Nav, Option2View } from "./Option2";
 import { RunView } from "./RunView";
 import { STAGES, stage, type Estimates } from "./stages";
 import { Steps, estimateFor, inStage, span, stateOf } from "./Steps";
@@ -15,7 +16,8 @@ import { useAgent } from "./useAgent";
 type Pane = "steps" | "run" | "agent";
 
 export function App() {
-  const [tab, setTab] = useState("work");
+  const [tab, setTab] = useState("o1");
+  const [section, setSection] = useState("o2-status");
   const [model, setModel] = useState("");
   const [view, setView] = useState("run");
   const [pane, setPane] = useState<Pane>("run");
@@ -23,8 +25,15 @@ export function App() {
   const [picked, setPicked] = useState<string | null>(null);
   const [chosenRev, setChosenRev] = useState("");
 
-  /* The agent can open a step when you ask about it. */
-  const onFocus = useCallback((stage: string) => { setTab("work"); setView("run"); setPane("run"); setPicked(stage); }, []);
+  /* The agent can open a step, or a section of Option 2, when you ask about it. */
+  const openSection = useCallback((id: string) => {
+    setTab("o2"); setPane("run"); setSection(id);
+    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  }, []);
+  const onFocus = useCallback((stage: string) => {
+    if (stage.startsWith("o2-")) openSection(stage);
+    else { setTab("o1"); setView("run"); setPane("run"); setPicked(stage); }
+  }, [openSection]);
   const { run, stop, running, started, steps, log, messages, page, state } = useAgent(onFocus);
   const shownTurn = steps[0]?.turn;
   useEffect(() => { setView("run"); setPicked(null); setChosenRev(""); }, [shownTurn]);
@@ -67,19 +76,25 @@ export function App() {
         <header className="flex min-h-14 flex-none items-center gap-3 border-b bg-sidebar px-3 lg:gap-6 lg:px-4">
           <strong className="font-semibold">Atlas <span className="hidden font-normal text-info sm:inline">Cell Studio</span></strong>
           <Tabs value={tab} onValueChange={setTab}>
-            <TabsList className="h-auto"><TabsTrigger className="min-h-11 lg:min-h-8" value="work">Workbench</TabsTrigger><TabsTrigger className="min-h-11 lg:min-h-8" value="evidence">Evidence</TabsTrigger></TabsList>
+            <TabsList className="h-auto"><TabsTrigger className="min-h-11 lg:min-h-8" value="o1">Option 1 · Cells</TabsTrigger><TabsTrigger className="min-h-11 lg:min-h-8" value="o2">Option 2 · Designs</TabsTrigger><TabsTrigger className="min-h-11 lg:min-h-8" value="evidence">Evidence</TabsTrigger></TabsList>
           </Tabs>
           {running && <span data-testid="clock" className="ml-auto font-mono text-sm text-info">{fmt(now - started)}{left >= 1000 && <span className="text-muted-foreground">, about {fmt(left)} left</span>}</span>}
           <Badge variant="outline" className={`hidden font-mono text-xs lg:inline-flex ${running ? "" : "ml-auto"}`}>{model}</Badge>
         </header>
         {tab === "evidence" && <main className="min-h-0 flex-1 overflow-auto p-4 lg:p-6"><Evidence /></main>}
-        {/* The workbench stays mounted behind Evidence, so the chat, scroll positions and open step survive a tab switch. */}
+        {/* Both options stay mounted behind Evidence and behind each other, so the chat, scroll positions and open step survive a tab switch. */}
         {(
-          <div className={`min-h-0 flex-1 grid-cols-1 lg:grid-cols-[16rem_minmax(0,1fr)_22rem] ${tab === "work" ? "grid" : "hidden"}`}>
-            <aside aria-label="Pipeline" className={`min-h-0 flex-col gap-3 border-r bg-sidebar p-3 lg:flex ${pane === "steps" ? "flex" : "hidden"}`}>
+          <div className={`min-h-0 flex-1 grid-cols-1 lg:grid-cols-[16rem_minmax(0,1fr)_22rem] ${tab === "evidence" ? "hidden" : "grid"}`}>
+            <aside aria-label="Pipeline" className={`min-h-0 flex-col gap-3 border-r bg-sidebar p-3 ${pane === "steps" ? "flex" : "hidden"} ${tab === "o1" ? "lg:flex" : "lg:hidden"}`}>
               <Steps steps={steps} running={running} picked={picked} onPick={pick} revision={revision} revisions={revisions} best={best} onRevision={setChosenRev} estimates={estimates} />
             </aside>
-            <main className={`relative min-h-0 min-w-0 flex-col lg:flex ${pane === "run" ? "flex" : "hidden"}`}>
+            <aside aria-label="Option 2 sections" className={`min-h-0 flex-col gap-3 border-r bg-sidebar p-3 ${pane === "steps" ? "flex" : "hidden"} ${tab === "o2" ? "lg:flex" : "lg:hidden"}`}>
+              <Option2Nav active={section} onPick={openSection} />
+            </aside>
+            <main className={`relative min-h-0 min-w-0 flex-col ${tab === "o2" && pane === "run" ? "flex" : "hidden"} ${tab === "o2" ? "lg:flex" : "lg:hidden"}`}>
+              <Option2View />
+            </main>
+            <main className={`relative min-h-0 min-w-0 flex-col ${tab === "o1" && pane === "run" ? "flex" : "hidden"} ${tab === "o1" ? "lg:flex" : "lg:hidden"}`}>
               {page && (
                 <div className="flex-none border-b p-2">
                   <Tabs value={view} onValueChange={setView}>
@@ -96,7 +111,7 @@ export function App() {
             </aside>
           </div>
         )}
-        {tab === "work" && (
+        {tab !== "evidence" && (
           <nav aria-label="Panels" className="grid flex-none grid-cols-3 border-t bg-sidebar lg:hidden">
             {panes.map(([id, name]) => (
               <button key={id} aria-current={pane === id} onClick={() => setPane(id)} className={`min-h-12 text-sm ${pane === id ? "font-semibold text-foreground" : "text-muted-foreground"}`}>{name}</button>

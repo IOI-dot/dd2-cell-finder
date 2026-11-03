@@ -27,7 +27,7 @@ from pydantic import ValidationError
 from dd2 import boolfn as bf
 from dd2 import paths, provenance
 
-from . import audit, codex_cli, generative_ui, model, policy, timings, tools
+from . import audit, codex_cli, generative_ui, model, option2, policy, timings, tools
 
 AGENT = "diagnostician"
 ORDERS = 6
@@ -333,6 +333,7 @@ class Run:
         revs = st.get("revisions", [])
         known = {"current_function": st.get("expr", ""), "last_stop": st.get("ended", ""), "decisions": st.get("history", []),
                  "revisions": [{k: r.get(k) for k in ("id", "status", "sites", "settings", "failed", "met1_nets", "breaks", "route_failures", "error")} for r in revs],
+                 "option2": option2.facts(),
                  "untried": [i for i in range(ORDERS) if i not in {r["settings"].get("order_index") for r in revs}]}
         user = f"<context>\n{json.dumps(known)}\n</context>\n<request>\n{said}\n</request>"
         text, err = self.ask(system, user, model.json_format(model.Intent), ref, "interpreter")
@@ -343,7 +344,8 @@ class Run:
         except (ValidationError, ValueError):
             self.log.model("interpreter", self.model_label, ref, *self.used, "refused reply: not the required JSON")
             return base | {"intent": {"kind": "UNCLEAR", "reason": "The request could not be read."}, "stop": "request not understood"}
-        self.log.model("interpreter", self.model_label, ref, *self.used, f"{it.kind}: {it.expression} {it.reason[:120]}")
+        self.log.model("interpreter", self.model_label, ref, *self.used,
+                       f"{it.kind}: {it.expression} {it.reason[:120]}" + (f" [focus {it.focus}]" if it.focus else "") + (f" [candidate {it.candidate}]" if it.candidate else ""))
         self.say("intent", f"Understood as {it.kind.replace('_', ' ').lower()}", "ok", f"{it.expression} {it.reason}".strip()[:200], "guard", "request")
         if it.kind in generative_ui.CHAT_ONLY:
             it.reason = checked_reply(it.reason, system + user, PROJECT_FALLBACK)
@@ -353,9 +355,10 @@ class Run:
         routed = self.route(it, st)
         kind = routed["intent"]["kind"]
         words = {"BUILD_CELL": f"On it: building {routed.get('expr')}.", "TRY_CANDIDATE": "Trying that now, as a new revision.",
-                 "COMPARE_CANDIDATES": "Building both sizings to compare them.", "RESTORE_REVISION": "Going back to that revision."}
+                 "COMPARE_CANDIDATES": "Building both sizings to compare them.", "RESTORE_REVISION": "Going back to that revision.",
+                 "BUILD_CANDIDATE": routed["intent"].get("reason")}
         self.say("reply", words.get(kind) or routed["intent"].get("reason") or "Bringing that up.", kind="reply", data={"options": routed["intent"].get("options", [])})
-        if it.focus and revs and kind in generative_ui.CHAT_ONLY:
+        if it.focus and (revs or it.focus.startswith("o2-")) and kind in generative_ui.CHAT_ONLY:
             self.say("focus", f"Opened the {it.focus} step", "ok", "", "focus", "", {"stage": it.focus})
         return base | routed
 
@@ -371,9 +374,16 @@ class Run:
             return {"intent": intent, "expr": expr, "settings": {"sizing": "hd", "order_index": 0}, "pending": [{"sizing": "stack", "order_index": 0}]}
         if it.kind in ("EXPLAIN_CHECK", "DISPLAY_PREVIEW", "RESTORE_REVISION") and have:
             return {"intent": intent, "stop": it.kind.lower()}
+        if it.kind == "BUILD_CANDIDATE":
+            req = option2.request_for(it.candidate)
+            if req is None:
+                return {"intent": {"kind": "UNCLEAR", "reason": f"Option 2 has no requested candidate {it.candidate or 'by that name'}.", "options": []},
+                        "stop": "request not understood"}
+            return {"intent": intent | {"reason": f"Building Option 2's {req['request_id']}, {req['name']}, with Option 1."},
+                    "expr": req["expression"], "revisions": [], "history": [], "settings": {"sizing": "hd", "order_index": 0}}
         if it.kind == "FORBIDDEN":
             return {"intent": intent, "stop": "refused"}
-        if it.kind == "ABOUT_PROJECT":
+        if it.kind in ("ABOUT_PROJECT", "ABOUT_OPTION2"):
             return {"intent": intent, "stop": "about project"}
         readings = [o.model_dump() for o in it.options if expression_ok(o.expression)][:4]    # a button must be buildable
         return {"intent": {"kind": "UNCLEAR", "reason": it.reason or "Nothing has been built yet, so there is nothing to act on.", "options": readings},

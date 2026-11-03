@@ -54,8 +54,9 @@ def main(argv=None) -> int:
             print(json.dumps({"status": req.status, "reason": req.reason, "response": str(out / "response.json")}))
             return 2
         try:
-            rep = flow.build(req.data["name"], req.inputs, req.tt, request=req.data,
-                             out_root=a.out, work_root=a.work)
+            from . import deliver
+            resp = deliver.deliver(req.data, out_root=a.out, work_root=a.work)
+            rep = json.loads((Path(a.out or flow.paths.ROOT / "cells") / req.data["name"] / "report.json").read_text())
         except ValueError as e:                   # e.g. needs more than one stage (cp2)
             print(json.dumps({"status": "unsupported", "reason": str(e)}))
             return 2

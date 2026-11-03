@@ -1,0 +1,26 @@
+{
+  "area_um2": 11.2608,
+  "cell": "dd2_g4__n4_17ff_1",
+  "checks": {
+    "abutment": 0,
+    "drc": 0,
+    "layers": "pass",
+    "lvs": "mismatch",
+    "rc_lvs": "mismatch",
+    "truth_table": "fail"
+  },
+  "files": {
+    "gds": "cells/dd2_g4__n4_17ff_1/cell.gds",
+    "liberty": "cells/dd2_g4__n4_17ff_1/cell.lib",
+    "report": "cells/dd2_g4__n4_17ff_1/report.json",
+    "verilog": "cells/dd2_g4__n4_17ff_1/cell.v"
+  },
+  "ngspice_sha256": "",
+  "reason": "failed checks: lvs, rc_lvs, spice, route",
+  "request_id": "M2-001",
+  "stages": 1,
+  "status": "fail",
+  "tool_version": "cellgen",
+  "transistors": 12,
+  "width_sites": 9
+}

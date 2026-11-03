@@ -1,7 +1,7 @@
 const SUB = "₀₁₂₃₄₅₆₇₈₉";
 
 /** Helper nets read as engineers write them: _s1 becomes s₁. Names such as web_cell_r0 stay as they are. */
-export const pretty = (t: string) => t.replace(/(?<![A-Za-z0-9])_([A-Za-z]+)(\d+)/g, (_, name, n: string) => name + [...n].map((c) => SUB[+c]).join(""));
+export const pretty = (t: string) => t.replace(/(?<![A-Za-z0-9_])_([A-Za-z]+)(\d+)(?![A-Za-z0-9_])/g, (_, name, n: string) => name + [...n].map((c) => SUB[+c]).join(""));
 
 const TOKENS = /([!(]*[A-Za-z]\w*\)*(?:\s*[&|^]\s*[!(]*[A-Za-z]\w*\)*)+)|\b(r\d+)\b/g;
 

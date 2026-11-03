@@ -40,7 +40,8 @@ inputs:
 repository_map:
   src/dd2: Option 2 Milestone 1 core and the original check implementations
   src/dd2m2: Option 2 Milestone 2 (cost and area model, mapped cones, requests and Liberty, mapping, proofs, timing, plots)
-  src/cellgen: Option 1 cell generator (network, Euler ordering, layout, DRC, LVS, RC-LVS, SPICE, characterizer, OpenSTA)
+  src/cellgen: Option 1 cell generator (network, Euler ordering, layout, DRC, LVS, RC-LVS, SPICE, characterizer, OpenSTA); deliver.py answers Option 2's requests
+  src/dd2m2/option3.py: Option 3, remapping the designs onto the cells Option 1 delivered, into results/option3/
   tests: unit and integration tests; tests/m2 holds the Option 2 Milestone 2 tests
   tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
   tests/fixtures: tiny hand-written AIGs for unit tests
@@ -48,6 +49,7 @@ repository_map:
   results/m1: Option 2 Milestone 1 evidence
   results/m2: Option 2 Milestone 2 evidence (mappings, proofs, timing, figures, readiness.json)
   results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check; m2 = Tables 4, 5 and 6, sizings, agent against fixed choices)"
+  results/option3: Option 3 evidence (each requested cell, estimated against real area; mappings with real cells)
   results/validation: test and tool-version logs from the Option 2 WSL run
   TA_M2: TA-facing copies of Option 2 M2 figures and tables, refreshed by make ta (never recomputed)
   libs: generated Option 2 Liberty libraries (hd_extended_estimated.lib)
@@ -62,10 +64,10 @@ repository_map:
   docs: roadmap.md, architecture.md, option2-m2-plan.md and interface/ (Appendix A)
   backend: planned API service (placeholder README)
   specs: Spec Kit spec, plan, research, contracts, tasks
-  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), stage time estimates (timings.py), Parakeet speech to text (voice.py), fixed-choice version, comparison; AG-UI server (server.py)
+  agent: dd2_agent package; option2.py serves Option 2's saved records to the studio and the agent; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), stage time estimates (timings.py), Parakeet speech to text (voice.py), fixed-choice version, comparison; AG-UI server (server.py)
   ai/runs: committed agent run logs (JSONL) and their check files
   web: "the studio: AG-UI client, OpenUI Lang renderer, live run and step pages (RunView, stepviews), 3D views, minimal UI primitives (ui.tsx)"
-  docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta)"
+  docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta); bin/sta runs OpenSTA from dd2-sta where none is installed"
   .venv: local Python environment made by make setup; git-ignored
   references: read-only upstream material (ag-ui, langchain-skills, openui); git-ignored
   build: scratch outputs; git-ignored
@@ -96,6 +98,7 @@ protected_paths:
   - .specify/memory/constitution.md
 
 agentic_system:
+  option3: make o3 (make o3-cells, then make o3-map)
   command: make agent FUNC='<expression>'   # make fixed for the fixed-choice version, make agent-compare for both on the test cells
   studio: make agent-server and make web
   rules:

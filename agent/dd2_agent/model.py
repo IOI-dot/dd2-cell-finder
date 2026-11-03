@@ -47,14 +47,16 @@ class Reading(BaseModel):
 class Intent(BaseModel):
     """What the Request Interpreter may extract from a sentence (implementation plan, Appendix A)."""
     model_config = ConfigDict(extra="forbid")
-    kind: Literal["BUILD_CELL", "TRY_CANDIDATE", "COMPARE_CANDIDATES", "EXPLAIN_CHECK", "DISPLAY_PREVIEW", "RESTORE_REVISION", "ABOUT_PROJECT", "FORBIDDEN", "UNCLEAR"]
+    kind: Literal["BUILD_CELL", "TRY_CANDIDATE", "COMPARE_CANDIDATES", "EXPLAIN_CHECK", "DISPLAY_PREVIEW", "RESTORE_REVISION", "ABOUT_PROJECT", "ABOUT_OPTION2", "BUILD_CANDIDATE", "FORBIDDEN", "UNCLEAR"]
     expression: str
     sizing: Literal["hd", "stack"]
     order_index: int
     revision: str
     reason: str
     options: list[Reading]
-    focus: Literal["", "network", "euler", "layout", "frame", "drc", "abutment", "extract", "lvs", "rc", "spice", "verilog", "model"]
+    focus: Literal["", "network", "euler", "layout", "frame", "drc", "abutment", "extract", "lvs", "rc", "spice", "verilog", "model",
+                   "o2-status", "o2-savings", "o2-candidates", "o2-model", "o2-mappings", "o2-cells"]
+    candidate: str
 
 
 def json_format(schema: type[BaseModel]) -> dict:

@@ -55,3 +55,12 @@ Checked: the frozen broken-case hashes, and the whole suite on macOS (385 passed
 want of the WSL tools and tutorial inputs). The ten Option 2 requests pass the Appendix A validator and the
 Option 1 request reader unchanged.
 
+### Option 3 connected, and Option 2 in the studio, 2026-11-03
+Noor Elshahidi, with Claude Code (Claude Opus 5.5). Added `cellgen.deliver` (Option 1 builds, checks and
+characterizes each requested cell, gated on Table 5, and answers in Appendix A), `dd2m2.option3` (only passing
+cells, with their real Liberty groups, replace the estimated ones; designs remapped into `results/option3/`),
+`make o3`, a Docker wrapper for OpenSTA on macOS, the read-only `/api/option2` view, the Option 2 tab, and the
+agent's `ABOUT_OPTION2` and `BUILD_CANDIDATE` intents (interpreter prompt v7). Kept: Option 2's code and evidence
+unchanged. Checked: tests first for each part, the whole suite (397 passed, 5 skipped for WSL-only inputs), live
+questions and a candidate build in the browser, and the interpreter's chosen section recorded in the run log.
+

@@ -347,18 +347,20 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     return rep
 
 
-def response(req: dict, rep: dict) -> dict:
-    """Appendix A response. Liberty and characterization are cp2/cp3 work, so status stays fail."""
+def response(req: dict, rep: dict, liberty: bool = False) -> dict:
+    """Appendix A response. A cell passes only when every check passed and its Liberty file exists:
+    Option 2 cannot map onto a cell it cannot read (cellgen.deliver writes the Liberty)."""
     ck = rep["checks"]
     name = rep["cell"]
-    return {"request_id": req["request_id"], "status": "fail",
-            "reason": "no Liberty yet: the characterizer is a cp2 deliverable" if rep["status"] == "pass"
-            else "failed checks: " + ", ".join(rep["failed_checks"]),
-            "cell": name, "stages": 1, "transistors": ck["network"]["transistors"],
+    ok = rep["status"] == "pass"
+    reason = (None if liberty else "every check passed, but the cell has no Liberty file yet") if ok \
+        else "failed checks: " + ", ".join(rep["failed_checks"])
+    return {"request_id": req["request_id"], "status": "pass" if ok and liberty else "fail", "reason": reason,
+            "cell": name, "stages": ck["network"].get("stages", 1), "transistors": ck["network"]["transistors"],
             "width_sites": rep["layout"]["width_sites"], "area_um2": round(rep["layout"]["width_um"] * 2.72, 4),
             "files": {"gds": f"cells/{name}/cell.gds", "liberty": f"cells/{name}/cell.lib",
                       "verilog": f"cells/{name}/cell.v", "report": f"cells/{name}/report.json"},
-            "checks": {"drc": ck["drc"]["errors"], "lvs": ck["lvs"]["result"], "rc_lvs": "not run",
+            "checks": {"drc": ck["drc"]["errors"], "lvs": ck["lvs"]["result"], "rc_lvs": ck.get("rc_lvs", {}).get("result", "not run"),
                        "truth_table": "pass" if ck["spice"]["status"] == ck["model"]["status"] == "pass" else "fail",
                        "abutment": ck["abutment"]["errors"], "layers": ck["layers"]["status"]},
             "ngspice_sha256": "", "tool_version": "cellgen"}

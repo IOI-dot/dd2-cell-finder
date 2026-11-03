@@ -1,0 +1,8 @@
+#!/bin/sh
+# OpenSTA from image dd2-sta, for a machine without a native sta (Option 2's timing step calls `sta`).
+# The repository is mounted at its own path, read-write, and the student pack read-only, so the
+# absolute paths in a Tcl script resolve unchanged inside the container. No network.
+repo=$(cd "$(dirname "$0")/../.." && pwd)
+given=$(cd "$repo/given" && pwd -P)
+exec docker run --rm --network none -v "$repo":"$repo" -v "$given":"$given":ro -v "$given":"$repo/given":ro \
+  -w "$PWD" dd2-sta sta -no_init "$@"

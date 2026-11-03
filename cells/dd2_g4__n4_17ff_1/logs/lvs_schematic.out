@@ -1,0 +1,21 @@
+
+Subcircuit summary:
+Circuit 1: dd2_g4__n4_17ff_1               |Circuit 2: dd2_g4__n4_17ff_1               
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__nfet_01v8 (6)                |sky130_fd_pr__nfet_01v8 (6)                
+sky130_fd_pr__pfet_01v8_hvt (6)            |sky130_fd_pr__pfet_01v8_hvt (6)            
+Number of devices: 12                      |Number of devices: 12                      
+Number of nets: 15 **Mismatch**            |Number of nets: 14 **Mismatch**            
+---------------------------------------------------------------------------------------
+NET mismatches: Class fragments follow (with fanout counts):
+Circuit 1: dd2_g4__n4_17ff_1               |Circuit 2: dd2_g4__n4_17ff_1               
+
+---------------------------------------------------------------------------------------
+Net: a_521_47#                             |Net: n3                                    
+  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 3        
+                                           |                                           
+Net: a_343_47#                             |(no matching net)                          
+  sky130_fd_pr__nfet_01v8/(1|3) = 1        |                                           
+---------------------------------------------------------------------------------------
+Netlists do not match.
+Netlists do not match.
