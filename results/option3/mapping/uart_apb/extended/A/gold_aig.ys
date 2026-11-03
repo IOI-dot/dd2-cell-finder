@@ -1,0 +1,6 @@
+read_rtlil "/Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/extended/A/gold.il"
+async2sync
+dffunmap
+aigmap
+write_json "/Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/extended/A/gold_state.json"
+

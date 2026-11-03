@@ -1,0 +1,8 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/B/gold_write_aig.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/B/gold_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module cpu8 from JSON tree.
+
+2. Executing AIGER backend.

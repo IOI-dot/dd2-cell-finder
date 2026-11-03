@@ -1,0 +1,8 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/fir10/extended/B/gold_write_aig.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/fir10/extended/B/gold_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module fir10 from JSON tree.
+
+2. Executing AIGER backend.

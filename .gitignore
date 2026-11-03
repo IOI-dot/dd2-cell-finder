@@ -50,8 +50,13 @@ DD2_Project1_student_pack/
 *.docx
 !report/*.pdf
 references/
-# Gate-level state dumps of the Option 3 remapping are tens of MB each; the mapping proofs and areas are kept.
-/results/option3/mapping/**/gate_state.json
+# Intermediate proof files of the Option 3 remapping (state dumps, IL) are tens of MB each and can be regenerated
+# with make o3-map; the netlists, proofs, timing and areas are kept.
+/results/option3/mapping/**/gate_state*.json
+/results/option3/mapping/**/gold_state*.json
+/results/option3/mapping/**/*.il
+/results/option3/mapping/**/gold.json
+/results/option3/mapping/**/mapped.json
 # Agent run outputs are evidence (Appendix B logs point into runs/); only bulky cut lists are skipped.
 /runs/*/cuts_full/
 /runs/*/work/

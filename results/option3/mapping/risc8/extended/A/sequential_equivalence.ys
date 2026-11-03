@@ -1,0 +1,12 @@
+read_rtlil "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/extended/A/gold.il"
+rename cpu gold
+design -stash reference
+read_rtlil "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/extended/A/gate.il"
+rename cpu gate
+design -copy-from reference -as gold gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct -seq 8
+equiv_status -assert
+

@@ -1,0 +1,28 @@
+
+Subcircuit summary:
+Circuit 1: dd2_g4__n4_80ea_1               |Circuit 2: dd2_g4__n4_80ea_1               
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__nfet_01v8 (8)                |sky130_fd_pr__nfet_01v8 (8)                
+sky130_fd_pr__pfet_01v8_hvt (8)            |sky130_fd_pr__pfet_01v8_hvt (8)            
+Number of devices: 16                      |Number of devices: 16                      
+Number of nets: 16                         |Number of nets: 16                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: dd2_g4__n4_80ea_1               |Circuit 2: dd2_g4__n4_80ea_1               
+-------------------------------------------|-------------------------------------------
+D                                          |D                                          
+C                                          |C                                          
+B                                          |B                                          
+Y                                          |Y                                          
+VPWR                                       |VPWR                                       
+VNB                                        |VNB                                        
+VPB                                        |VPB                                        
+VGND                                       |VGND                                       
+A                                          |A                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes dd2_g4__n4_80ea_1 and dd2_g4__n4_80ea_1 are equivalent.
+Circuits match uniquely.

@@ -1,0 +1,11 @@
+request_id,cell,status,estimated_area_um2,real_area_um2,area_error_pct,reason
+M2-001,dd2_g4__n4_17ff_1,fail,8.7584,,,"failed checks: lvs, rc_lvs, spice, route"
+M2-002,dd2_g4__n3_2b_1,pass,10.0096,11.2608,12.5,
+M2-003,dd2_g4__n4_2bff_1,pass,10.0096,12.512,25.0,
+M2-004,dd2_g4__n4_e888_1,pass,10.0096,12.512,25.0,
+M2-005,dd2_g4__n4_80ea_1,pass,12.512,15.0144,20.0,
+M2-006,dd2_g4__n4_8eff_1,fail,11.2608,,,"failed checks: lvs, rc_lvs, spice, route"
+M2-007,dd2_g4__n3_8e_1,pass,11.2608,16.2656,44.44,
+M2-008,dd2_g4__n4_02ab_1,pass,10.0096,12.512,25.0,
+M2-009,dd2_g4__n3_9f_1,pass,12.512,11.2608,-10.0,
+M2-010,dd2_g4__n4_008e_1,pass,11.2608,16.2656,44.44,

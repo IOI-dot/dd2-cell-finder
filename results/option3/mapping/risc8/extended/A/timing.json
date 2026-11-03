@@ -1,0 +1,13 @@
+{
+  "constraints": {
+    "clock_period_ns": 100,
+    "clock_slew_ns": 0.1,
+    "input_slew_ns": 0.1,
+    "output_load_pf": 0.01
+  },
+  "errors": [],
+  "note": "pre-layout comparison; estimated cells have placeholder timing; no extracted interconnect",
+  "status": "pass",
+  "tool_exit_code": 0,
+  "worst_arrival_ns": 24.737925
+}

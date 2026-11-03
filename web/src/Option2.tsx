@@ -103,6 +103,7 @@ export function Option2View() {
         {v.option3.best_of_both.length > 0 ? (
           <>
             <h3 className="text-sm font-medium">Measured savings with the real cells</h3>
+            <p className="text-xs text-muted-foreground">Mapped on this machine's tools, so these numbers are not comparable with the M2 rows above; run <code className="font-mono">make o3-map</code> on the M2 toolchain for that. A mapping that used none of the new cells changed only because the library grew: its saving is not the new cells' doing. Each mapping's note is in <code className="font-mono">results/option3/table5_estimated.csv</code>.</p>
             <Grid head={["Design", "Baseline (µm²)", "With real cells (µm²)", "Saving (µm²)", "Reduction"]}
               rows={v.option3.best_of_both.map((b) => [b.design, um2(b.baseline_best_um2), um2(b.extended_best_um2), um2(b.saving_um2), pct(b.reduction_pct)])} />
           </>

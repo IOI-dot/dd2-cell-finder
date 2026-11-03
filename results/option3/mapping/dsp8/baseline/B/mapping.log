@@ -1,0 +1,1039 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/dsp8/baseline/B/mapping.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/dsp8/baseline/B/mapping.ys' --
+
+1. Executing Verilog-2005 frontend: /Users/noorelshahidi/DD2Project/given/designs/dsp8.v
+Parsing Verilog input from `/Users/noorelshahidi/DD2Project/given/designs/dsp8.v' to AST representation.
+Generating RTLIL representation for module `\dsp8'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dsp8
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dsp8
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10 in module dsp8.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+     1/8: $0\x3[7:0]
+     2/8: $0\x2[7:0]
+     3/8: $0\x1[7:0]
+     4/8: $0\x0[7:0]
+     5/8: $0\acc[15:0]
+     6/8: $0\dout[7:0]
+     7/8: $0\b[7:0]
+     8/8: $0\a[7:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dsp8.\a' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$84' with positive edge clock.
+Creating register for signal `\dsp8.\b' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$85' with positive edge clock.
+Creating register for signal `\dsp8.\dout' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$86' with positive edge clock.
+Creating register for signal `\dsp8.\acc' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$87' with positive edge clock.
+Creating register for signal `\dsp8.\x0' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$88' with positive edge clock.
+Creating register for signal `\dsp8.\x1' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$89' with positive edge clock.
+Creating register for signal `\dsp8.\x2' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$90' with positive edge clock.
+Creating register for signal `\dsp8.\x3' using process `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+  created $dff cell `$procdff$91' with positive edge clock.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+Removing empty process `dsp8.$proc$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:40$10'.
+Cleaned up 2 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~3 debug messages>
+
+2.3. Executing CHECK pass (checking for obvious problems).
+Checking module dsp8...
+Found and reported 0 problems.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dsp8...
+Found and reported 0 problems.
+
+2.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 62 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Computing hashes of 48 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+    New ctrl vector for $pmux cell $procmux$46: { $auto$opt_reduce.cc:137:opt_pmux$93 $procmux$53_CMP }
+  Optimizing cells in module \dsp8.
+Performed a total of 1 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 49 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+2.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 49 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing FSM pass (extract and optimize FSM).
+
+2.9.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.9.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.9.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.9.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.9.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.9.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 49 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~21 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 49 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$84 ($dff) from module dsp8 (D = $procmux$74_Y, Q = \a, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$94 ($sdff) from module dsp8 (D = $procmux$74_Y, Q = \a).
+Adding SRST signal on $procdff$85 ($dff) from module dsp8 (D = $procmux$66_Y, Q = \b, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$98 ($sdff) from module dsp8 (D = $procmux$66_Y, Q = \b).
+Adding SRST signal on $procdff$86 ($dff) from module dsp8 (D = $procmux$46_Y, Q = \dout, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$102 ($sdff) from module dsp8 (D = $procmux$46_Y, Q = \dout).
+Adding SRST signal on $procdff$87 ($dff) from module dsp8 (D = $procmux$35_Y, Q = \acc, rval = 16'0000000000000000).
+Adding EN signal on $auto$ff.cc:337:slice$106 ($sdff) from module dsp8 (D = $procmux$35_Y, Q = \acc).
+Adding SRST signal on $procdff$88 ($dff) from module dsp8 (D = \x, Q = \x0, rval = 8'00000000).
+Adding SRST signal on $procdff$89 ($dff) from module dsp8 (D = \x0, Q = \x1, rval = 8'00000000).
+Adding SRST signal on $procdff$90 ($dff) from module dsp8 (D = \x1, Q = \x2, rval = 8'00000000).
+Adding SRST signal on $procdff$91 ($dff) from module dsp8 (D = \x2, Q = \x3, rval = 8'00000000).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~5 debug messages>
+
+2.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 45 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+2.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.10.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.10.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.10.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.10.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.10.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.10.23. Finished fast OPT passes. (There is nothing left to do.)
+
+2.11. Executing WREDUCE pass (reducing word size of cells).
+Removed top 8 bits (of 16) from port B of cell dsp8.$add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:31$2 ($add).
+Removed top 8 bits (of 16) from port B of cell dsp8.$sub$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:32$3 ($sub).
+Removed top 1 bits (of 4) from port B of cell dsp8.$procmux$54_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell dsp8.$procmux$55_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell dsp8.$procmux$56_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell dsp8.$procmux$57_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell dsp8.$procmux$58_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell dsp8.$procmux$59_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell dsp8.$procmux$68_CMP0 ($eq).
+
+2.12. Executing PEEPOPT pass (run peephole optimizers).
+
+2.13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.14. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module dsp8:
+  creating $macc model for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:65$11 ($add).
+  creating $macc model for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:33$4 ($add).
+  creating $macc model for $sub$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:32$3 ($sub).
+  creating $macc model for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:31$2 ($add).
+  creating $macc model for $mul$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:30$1 ($mul).
+  creating $alu model for $macc $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:31$2.
+  creating $alu model for $macc $sub$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:32$3.
+  creating $alu model for $macc $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:33$4.
+  creating $alu model for $macc $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:65$11.
+  creating $macc cell for $mul$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:30$1: $auto$alumacc.cc:427:replace_macc$114
+  creating $alu cell for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:65$11: $auto$alumacc.cc:578:replace_alu$115
+  creating $alu cell for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:33$4: $auto$alumacc.cc:578:replace_alu$118
+  creating $alu cell for $sub$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:32$3: $auto$alumacc.cc:578:replace_alu$121
+  creating $alu cell for $add$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:31$2: $auto$alumacc.cc:578:replace_alu$124
+  created 4 $alu and 1 $macc cells.
+
+2.15. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module dsp8 that may be considered for resource sharing.
+  Analyzing resource sharing options for $shl$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:34$5 ($shl):
+    Found 1 activation_patterns using ctrl signal $procmux$37_CMP.
+    No candidates found.
+  Analyzing resource sharing options for $shr$/Users/noorelshahidi/DD2Project/given/designs/dsp8.v:35$6 ($shr):
+    Found 1 activation_patterns using ctrl signal $procmux$36_CMP.
+    No candidates found.
+
+2.16. Executing OPT pass (performing simple optimizations).
+
+2.16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.16.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.16.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.16.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.16.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.17. Executing MEMORY pass.
+
+2.17.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.17.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.17.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.17.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.17.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.17.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.17.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.17.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.17.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~4 debug messages>
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.19.5. Finished fast OPT passes.
+
+2.20. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 44 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.21.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $pmux $procmux$35 in front of them:
+        $auto$alumacc.cc:578:replace_alu$118
+        $auto$alumacc.cc:578:replace_alu$121
+        $auto$alumacc.cc:578:replace_alu$124
+
+2.21.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~4 debug messages>
+
+2.21.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~1 debug messages>
+
+2.21.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.21.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+2.21.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+    New ctrl vector for $pmux cell $procmux$35: { $procmux$36_CMP $procmux$37_CMP $auto$opt_reduce.cc:137:opt_pmux$135 }
+  Optimizing cells in module \dsp8.
+Performed a total of 1 changes.
+
+2.21.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 45 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.21.14. Executing OPT_SHARE pass.
+
+2.21.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.21.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.21.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.21.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dsp8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+2.21.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dsp8.
+Performed a total of 0 changes.
+
+2.21.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 45 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Removed a total of 0 cells.
+
+2.21.22. Executing OPT_SHARE pass.
+
+2.21.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+
+2.21.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+
+2.21.26. Finished fast OPT passes. (There is nothing left to do.)
+
+2.22. Executing TECHMAP pass (map to technology primitives).
+
+2.22.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.70/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.70/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+2.22.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $pmux.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \a * \b (8x8 bits, unsigned)
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $sdffe.
+Using template $paramod$constmap:898072f24d7e398f78566a3fd0c31b33c76c712a$paramod$426bd7c823f8ad16a56bcef9164db2145d21ad88\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$constmap:898072f24d7e398f78566a3fd0c31b33c76c712a$paramod$8d6d1237f17d4132d7713e7bb738ba63d1c6f7aa\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shr.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod$02488ff6fa51b28bbfa470bdd9b0e548b3357746\_90_alu for cells of type $alu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1012 debug messages>
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~761 debug messages>
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 1179 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Computing hashes of 1099 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Computing hashes of 1072 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Computing hashes of 1071 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+<suppressed ~324 debug messages>
+Removed a total of 108 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 64 unused cells and 404 unused wires.
+<suppressed ~65 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing ABC pass (technology mapping using ABC).
+
+2.24.1. Summary of detected clock domains:
+  63 cells in clk=\clk, en={ }, arst={ }, srst=\rst
+  646 cells in clk=\clk, en=$auto$simple.cc:193:make_patterns_logic$108, arst={ }, srst=\rst
+  28 cells in clk=\clk, en=!$auto$opt_reduce.cc:137:opt_pmux$93, arst={ }, srst=\rst
+  89 cells in clk=\clk, en=$auto$simple.cc:193:make_patterns_logic$100, arst={ }, srst=\rst
+  181 cells in clk=\clk, en=$auto$simple.cc:193:make_patterns_logic$96, arst={ }, srst=\rst
+
+2.24.2. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, synchronously reset by \rst
+
+2.24.3. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $auto$simple.cc:193:make_patterns_logic$108, synchronously reset by \rst
+
+2.24.4. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by !$auto$opt_reduce.cc:137:opt_pmux$93, synchronously reset by \rst
+
+2.24.5. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $auto$simple.cc:193:make_patterns_logic$100, synchronously reset by \rst
+
+2.24.6. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $auto$simple.cc:193:make_patterns_logic$96, synchronously reset by \rst
+
+2.24.6.1. Executed ABC.
+Extracted 31 gates and 64 wires to a netlist network with 33 inputs and 30 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.24.6.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        8
+ABC RESULTS:               MUX cells:        7
+ABC RESULTS:               NOR cells:        1
+ABC RESULTS:               NOT cells:        3
+ABC RESULTS:                OR cells:        8
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:       33
+ABC RESULTS:          output signals:       30
+Removing temp directory.
+
+2.24.6.1. Executed ABC.
+Extracted 630 gates and 734 wires to a netlist network with 102 inputs and 36 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.24.6.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       89
+ABC RESULTS:            ANDNOT cells:       18
+ABC RESULTS:               MUX cells:       39
+ABC RESULTS:              NAND cells:      265
+ABC RESULTS:               NOR cells:       13
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:       47
+ABC RESULTS:             ORNOT cells:        5
+ABC RESULTS:              XNOR cells:       46
+ABC RESULTS:               XOR cells:       94
+ABC RESULTS:        internal signals:      596
+ABC RESULTS:           input signals:      102
+ABC RESULTS:          output signals:       36
+Removing temp directory.
+
+2.24.6.1. Executed ABC.
+Extracted 20 gates and 48 wires to a netlist network with 28 inputs and 12 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.24.6.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        3
+ABC RESULTS:               MUX cells:        7
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOR cells:        5
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:             ORNOT cells:        1
+ABC RESULTS:        internal signals:        8
+ABC RESULTS:           input signals:       28
+ABC RESULTS:          output signals:       12
+Removing temp directory.
+
+2.24.6.1. Executed ABC.
+Extracted 81 gates and 104 wires to a netlist network with 23 inputs and 79 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.24.6.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       57
+ABC RESULTS:               MUX cells:        1
+ABC RESULTS:               NOR cells:        2
+ABC RESULTS:               NOT cells:        9
+ABC RESULTS:                OR cells:        3
+ABC RESULTS:               XOR cells:        7
+ABC RESULTS:        internal signals:        2
+ABC RESULTS:           input signals:       23
+ABC RESULTS:          output signals:       79
+Removing temp directory.
+
+2.24.6.1. Executed ABC.
+Extracted 173 gates and 255 wires to a netlist network with 82 inputs and 35 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+2.24.6.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       53
+ABC RESULTS:            ANDNOT cells:        5
+ABC RESULTS:               MUX cells:        7
+ABC RESULTS:              NAND cells:       65
+ABC RESULTS:               NOR cells:       16
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:       22
+ABC RESULTS:             ORNOT cells:        2
+ABC RESULTS:              XNOR cells:        3
+ABC RESULTS:               XOR cells:        5
+ABC RESULTS:        internal signals:      138
+ABC RESULTS:           input signals:       82
+ABC RESULTS:          output signals:       35
+Removing temp directory.
+Removing global temp directory.
+
+2.25. Executing OPT pass (performing simple optimizations).
+
+2.25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dsp8.
+<suppressed ~1 debug messages>
+
+2.25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dsp8'.
+Computing hashes of 997 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+Computing hashes of 996 cells of `\dsp8'.
+Finding duplicate cells in `\dsp8'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+2.25.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.25.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 0 unused cells and 755 unused wires.
+<suppressed ~3 debug messages>
+
+2.25.5. Finished fast OPT passes.
+
+2.26. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `dsp8'. Setting top module to dsp8.
+
+2.26.1. Analyzing design hierarchy..
+Top module:  \dsp8
+
+2.26.2. Analyzing design hierarchy..
+Top module:  \dsp8
+Removed 0 unused modules.
+
+2.27. Printing statistics.
+
+=== dsp8 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      850 wires
+     1132 wire bits
+       17 public wires
+      120 public wire bits
+        9 ports
+       48 port bits
+      996 cells
+       23   $_ANDNOT_
+      210   $_AND_
+       61   $_MUX_
+      331   $_NAND_
+       36   $_NOR_
+       15   $_NOT_
+       11   $_ORNOT_
+       82   $_OR_
+        8   $_SDFFE_PP0N_
+       32   $_SDFFE_PP0P_
+       32   $_SDFF_PP0_
+       49   $_XNOR_
+      106   $_XOR_
+
+2.28. Executing CHECK pass (checking for obvious problems).
+Checking module dsp8...
+Found and reported 0 problems.
+
+3. Executing RTLIL backend.
+Output filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/dsp8/baseline/B/gold.il
+
+4. Executing JSON backend.
+
+5. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__dlxtp_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    unmapped dff/dlatch cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__dlxtp_1 _DLATCH_P_ (.D( D), .GATE( E), .Q( Q));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+Mapping DFF/DLATCH cells in module `\dsp8':
+  mapped 72 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Summary of detected clock domains:
+  1108 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+6.2. Extracting gate netlist of module `\dsp8' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /var/folders/jy/nvk6cfgj3k7cnsqlx9nb7vf00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_cb544121.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+6.2.1. Executed ABC.
+Extracted 1036 gates and 1130 wires to a netlist network with 93 inputs and 73 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /var/folders/jy/nvk6cfgj3k7cnsqlx9nb7vf00000gn/T/yosys-liberty-scl-cache-501/yosys_merged_cb544121.scl 
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -R 1000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       84
+ABC RESULTS:   sky130_fd_sc_hd__a221o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:       35
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      115
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       82
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:       73
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       21
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       50
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__o22a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:       95
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       37
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:        1
+ABC RESULTS:        internal signals:      964
+ABC RESULTS:           input signals:       93
+ABC RESULTS:          output signals:       73
+Removing temp directory.
+Removing global temp directory.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dsp8..
+Removed 0 unused cells and 1041 unused wires.
+<suppressed ~3 debug messages>
+8. Executing JSON backend.
+
+9. Executing Verilog backend.
+Dumping module `\dsp8'.

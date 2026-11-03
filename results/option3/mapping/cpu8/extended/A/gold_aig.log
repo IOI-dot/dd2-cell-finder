@@ -1,0 +1,29 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/A/gold_aig.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/A/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/A/gold.il
+
+2. Executing ASYNC2SYNC pass.
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module cpu8: replaced 404 cells with 2077 new cells, skipped 171 cells.
+  replaced 8 cell types:
+      12 $_ANDNOT_
+     204 $_MUX_
+      93 $_NAND_
+       8 $_NOR_
+       9 $_ORNOT_
+      56 $_OR_
+      10 $_XNOR_
+      12 $_XOR_
+  not replaced 4 cell types:
+      76 $_AND_
+      82 $_DFF_P_
+      11 $_NOT_
+       2 $scopeinfo
+
+5. Executing JSON backend.

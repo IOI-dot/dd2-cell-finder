@@ -1,0 +1,3 @@
+$ yosys-abc -c cec /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/A/gold.aig /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/A/gate.aig
+======== ABC command line "cec /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/A/gold.aig /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/A/gate.aig"
+Networks are equivalent.  Time =     0.06 sec

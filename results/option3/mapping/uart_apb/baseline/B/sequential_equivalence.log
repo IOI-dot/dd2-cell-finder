@@ -1,0 +1,616 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/sequential_equivalence.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/sequential_equivalence.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/gold.il
+Renaming module \uart_apb_master to \gold.
+
+2. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/gate.il
+Renaming module \uart_apb_master to \gate.
+
+3. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: u_uart_rx.state_gold (\u_uart_rx.state_gold), u_uart_rx.state_gate ({ \$auto$ff.cc:337:slice$2219.IQ_gate \$auto$ff.cc:337:slice$2218.IQ_gate \$auto$ff.cc:337:slice$2217.IQ_gate \$auto$ff.cc:337:slice$2216.IQ_gate }) -> u_uart_rx.state
+Presumably equivalent wires: u_uart_tx.state_gold (\u_uart_tx.state_gold), u_uart_tx.state_gate ({ \$auto$ff.cc:337:slice$2297.IQ_gate \$auto$ff.cc:337:slice$2296.IQ_gate \$auto$ff.cc:337:slice$2295.IQ_gate \$auto$ff.cc:337:slice$2294.IQ_gate }) -> u_uart_tx.state
+Presumably equivalent wires: u_apb_master.state_gold (\u_apb_master.state_gold), u_apb_master.state_gate ({ \$auto$ff.cc:337:slice$2316.IQ_gate \$auto$ff.cc:337:slice$2315.IQ_gate \$auto$ff.cc:337:slice$2314.IQ_gate \$auto$ff.cc:337:slice$2313.IQ_gate }) -> u_apb_master.state
+Presumably equivalent wires: u_cmd_parser.timeout_cnt_gold (\u_cmd_parser.timeout_cnt_gold), u_cmd_parser.timeout_cnt_gate ({ \$auto$ff.cc:337:slice$2815.IQ_gate \$auto$ff.cc:337:slice$2814.IQ_gate \$auto$ff.cc:337:slice$2813.IQ_gate \$auto$ff.cc:337:slice$2812.IQ_gate \$auto$ff.cc:337:slice$2811.IQ_gate \$auto$ff.cc:337:slice$2810.IQ_gate \$auto$ff.cc:337:slice$2809.IQ_gate \$auto$ff.cc:337:slice$2808.IQ_gate \$auto$ff.cc:337:slice$2807.IQ_gate \$auto$ff.cc:337:slice$2806.IQ_gate \$auto$ff.cc:337:slice$2805.IQ_gate \$auto$ff.cc:337:slice$2804.IQ_gate \$auto$ff.cc:337:slice$2803.IQ_gate \$auto$ff.cc:337:slice$2802.IQ_gate \$auto$ff.cc:337:slice$2801.IQ_gate \$auto$ff.cc:337:slice$2800.IQ_gate \$auto$ff.cc:337:slice$2799.IQ_gate \$auto$ff.cc:337:slice$2798.IQ_gate \$auto$ff.cc:337:slice$2797.IQ_gate \$auto$ff.cc:337:slice$2796.IQ_gate \$auto$ff.cc:337:slice$2795.IQ_gate \$auto$ff.cc:337:slice$2794.IQ_gate \$auto$ff.cc:337:slice$2793.IQ_gate \$auto$ff.cc:337:slice$2792.IQ_gate \$auto$ff.cc:337:slice$2791.IQ_gate \$auto$ff.cc:337:slice$2790.IQ_gate \$auto$ff.cc:337:slice$2789.IQ_gate \$auto$ff.cc:337:slice$2788.IQ_gate \$auto$ff.cc:337:slice$2787.IQ_gate \$auto$ff.cc:337:slice$2786.IQ_gate \$auto$ff.cc:337:slice$2785.IQ_gate \$auto$ff.cc:337:slice$2784.IQ_gate }) -> u_cmd_parser.timeout_cnt
+Presumably equivalent wires: u_cmd_parser.is_write_gold (\u_cmd_parser.is_write_gold), u_cmd_parser.is_write_gate (\$auto$ff.cc:337:slice$1567.IQ_gate) -> u_cmd_parser.is_write
+Presumably equivalent wires: u_cmd_parser.byte_cnt_gold (\u_cmd_parser.byte_cnt_gold), u_cmd_parser.byte_cnt_gate ({ \$auto$ff.cc:337:slice$1454.IQ_gate \$auto$ff.cc:337:slice$1453.IQ_gate }) -> u_cmd_parser.byte_cnt
+Presumably equivalent wires: u_uart_rx.tick_cnt_gold (\u_uart_rx.tick_cnt_gold), u_uart_rx.tick_cnt_gate ({ \$auto$ff.cc:337:slice$1948.IQ_gate \$auto$ff.cc:337:slice$1947.IQ_gate \$auto$ff.cc:337:slice$1946.IQ_gate \$auto$ff.cc:337:slice$1945.IQ_gate }) -> u_uart_rx.tick_cnt
+Presumably equivalent wires: u_uart_rx.bit_cnt_gold (\u_uart_rx.bit_cnt_gold), u_uart_rx.bit_cnt_gate ({ \$auto$ff.cc:337:slice$1990.IQ_gate \$auto$ff.cc:337:slice$1989.IQ_gate \$auto$ff.cc:337:slice$1988.IQ_gate }) -> u_uart_rx.bit_cnt
+Presumably equivalent wires: u_uart_rx.shift_reg_gold (\u_uart_rx.shift_reg_gold), u_uart_rx.shift_reg_gate ({ \$auto$ff.cc:337:slice$1904.IQ_gate \$auto$ff.cc:337:slice$1903.IQ_gate \$auto$ff.cc:337:slice$1902.IQ_gate \$auto$ff.cc:337:slice$1901.IQ_gate \$auto$ff.cc:337:slice$1900.IQ_gate \$auto$ff.cc:337:slice$1899.IQ_gate \$auto$ff.cc:337:slice$1898.IQ_gate \$auto$ff.cc:337:slice$1897.IQ_gate }) -> u_uart_rx.shift_reg
+Presumably equivalent wires: u_uart_rx.rx_sync1_gold (\u_uart_rx.rx_sync1_gold), u_uart_rx.rx_sync1_gate (\$auto$ff.cc:337:slice$2587.IQ_gate) -> u_uart_rx.rx_sync1
+Presumably equivalent wires: u_uart_rx.rx_sync2_gold (\u_uart_rx.rx_sync2_gold), u_uart_rx.rx_sync2_gate (\$auto$ff.cc:337:slice$2588.IQ_gate) -> u_uart_rx.rx_sync2
+Presumably equivalent wires: u_cmd_parser.state_gold (\u_cmd_parser.state_gold), u_cmd_parser.state_gate ({ \$auto$ff.cc:337:slice$1413.IQ_gate \$auto$ff.cc:337:slice$1412.IQ_gate \$auto$ff.cc:337:slice$1411.IQ_gate }) -> u_cmd_parser.state
+Presumably equivalent wires: u_resp_builder.state_gold (\u_resp_builder.state_gold), u_resp_builder.state_gate ({ \$auto$ff.cc:337:slice$2101.IQ_gate \$auto$ff.cc:337:slice$2100.IQ_gate \$auto$ff.cc:337:slice$2099.IQ_gate \$auto$ff.cc:337:slice$2098.IQ_gate \$auto$ff.cc:337:slice$2097.IQ_gate }) -> u_resp_builder.state
+Presumably equivalent wires: u_uart_tx.tick_cnt_gold (\u_uart_tx.tick_cnt_gold), u_uart_tx.tick_cnt_gate ({ \$auto$ff.cc:337:slice$1670.IQ_gate \$auto$ff.cc:337:slice$1669.IQ_gate \$auto$ff.cc:337:slice$1668.IQ_gate \$auto$ff.cc:337:slice$1667.IQ_gate }) -> u_uart_tx.tick_cnt
+Presumably equivalent wires: u_uart_tx.bit_cnt_gold (\u_uart_tx.bit_cnt_gold), u_uart_tx.bit_cnt_gate ({ \$auto$ff.cc:337:slice$1718.IQ_gate \$auto$ff.cc:337:slice$1717.IQ_gate \$auto$ff.cc:337:slice$1716.IQ_gate }) -> u_uart_tx.bit_cnt
+Presumably equivalent wires: u_uart_tx.shift_reg_gold (\u_uart_tx.shift_reg_gold), u_uart_tx.shift_reg_gate ({ \$auto$ff.cc:337:slice$1733.IQ_gate \$auto$ff.cc:337:slice$1732.IQ_gate \$auto$ff.cc:337:slice$1731.IQ_gate \$auto$ff.cc:337:slice$1730.IQ_gate \$auto$ff.cc:337:slice$1729.IQ_gate \$auto$ff.cc:337:slice$1728.IQ_gate \$auto$ff.cc:337:slice$1727.IQ_gate \$auto$ff.cc:337:slice$1726.IQ_gate }) -> u_uart_tx.shift_reg
+Presumably equivalent wires: u_baud_gen.counter_gold (\u_baud_gen.counter_gold), u_baud_gen.counter_gate ({ \$auto$ff.cc:337:slice$2529.IQ_gate \$auto$ff.cc:337:slice$2528.IQ_gate \$auto$ff.cc:337:slice$2527.IQ_gate \$auto$ff.cc:337:slice$2526.IQ_gate \$auto$ff.cc:337:slice$2525.IQ_gate \$auto$ff.cc:337:slice$2524.IQ_gate \$auto$ff.cc:337:slice$2523.IQ_gate \$auto$ff.cc:337:slice$2522.IQ_gate \$auto$ff.cc:337:slice$2521.IQ_gate \$auto$ff.cc:337:slice$2520.IQ_gate \$auto$ff.cc:337:slice$2519.IQ_gate \$auto$ff.cc:337:slice$2518.IQ_gate \$auto$ff.cc:337:slice$2517.IQ_gate \$auto$ff.cc:337:slice$2516.IQ_gate \$auto$ff.cc:337:slice$2515.IQ_gate \$auto$ff.cc:337:slice$2514.IQ_gate }) -> u_baud_gen.counter
+Presumably equivalent wires: u_resp_builder.error_reg_gold (\u_resp_builder.error_reg_gold), u_resp_builder.error_reg_gate (\$auto$ff.cc:337:slice$1600.IQ_gate) -> u_resp_builder.error_reg
+Presumably equivalent wires: u_resp_builder.is_read_gold (\u_resp_builder.is_read_gold), u_resp_builder.is_read_gate (\$auto$ff.cc:337:slice$1736.IQ_gate) -> u_resp_builder.is_read
+Presumably equivalent wires: u_resp_builder.data_reg_gold (\u_resp_builder.data_reg_gold), u_resp_builder.data_reg_gate ({ \$auto$ff.cc:337:slice$1878.IQ_gate \$auto$ff.cc:337:slice$1877.IQ_gate \$auto$ff.cc:337:slice$1876.IQ_gate \$auto$ff.cc:337:slice$1875.IQ_gate \$auto$ff.cc:337:slice$1874.IQ_gate \$auto$ff.cc:337:slice$1873.IQ_gate \$auto$ff.cc:337:slice$1872.IQ_gate \$auto$ff.cc:337:slice$1871.IQ_gate \$auto$ff.cc:337:slice$1870.IQ_gate \$auto$ff.cc:337:slice$1869.IQ_gate \$auto$ff.cc:337:slice$1868.IQ_gate \$auto$ff.cc:337:slice$1867.IQ_gate \$auto$ff.cc:337:slice$1866.IQ_gate \$auto$ff.cc:337:slice$1865.IQ_gate \$auto$ff.cc:337:slice$1864.IQ_gate \$auto$ff.cc:337:slice$1863.IQ_gate \$auto$ff.cc:337:slice$1862.IQ_gate \$auto$ff.cc:337:slice$1861.IQ_gate \$auto$ff.cc:337:slice$1860.IQ_gate \$auto$ff.cc:337:slice$1859.IQ_gate \$auto$ff.cc:337:slice$1858.IQ_gate \$auto$ff.cc:337:slice$1857.IQ_gate \$auto$ff.cc:337:slice$1856.IQ_gate \$auto$ff.cc:337:slice$1855.IQ_gate \$auto$ff.cc:337:slice$1854.IQ_gate \$auto$ff.cc:337:slice$1853.IQ_gate \$auto$ff.cc:337:slice$1852.IQ_gate \$auto$ff.cc:337:slice$1851.IQ_gate \$auto$ff.cc:337:slice$1850.IQ_gate \$auto$ff.cc:337:slice$1849.IQ_gate \$auto$ff.cc:337:slice$1848.IQ_gate \$auto$ff.cc:337:slice$1847.IQ_gate }) -> u_resp_builder.data_reg
+Presumably equivalent wires: u_resp_builder.byte_cnt_gold (\u_resp_builder.byte_cnt_gold), u_resp_builder.byte_cnt_gate ({ \$auto$ff.cc:337:slice$1599.IQ_gate \$auto$ff.cc:337:slice$1598.IQ_gate }) -> u_resp_builder.byte_cnt
+Presumably equivalent wires: lock_armed_gold (\lock_armed_gold), lock_armed_gate (\$auto$ff.cc:337:slice$1996.IQ_gate) -> lock_armed
+Presumably equivalent wires: resp_valid_gold (\u_apb_master.resp_valid_gold), resp_valid_gate (\$auto$ff.cc:337:slice$2042.IQ_gate) -> resp_valid
+Presumably equivalent wires: resp_is_read_gold (\u_apb_master.resp_is_read_gold), resp_is_read_gate (\$auto$ff.cc:337:slice$1998.IQ_gate) -> resp_is_read
+Presumably equivalent wires: resp_error_gold (\u_apb_master.resp_error_gold), resp_error_gate (\$auto$ff.cc:337:slice$1879.IQ_gate) -> resp_error
+Presumably equivalent wires: resp_data_gold (\u_apb_master.resp_data_gold), resp_data_gate ({ \$auto$ff.cc:337:slice$1826.IQ_gate \$auto$ff.cc:337:slice$1825.IQ_gate \$auto$ff.cc:337:slice$1824.IQ_gate \$auto$ff.cc:337:slice$1823.IQ_gate \$auto$ff.cc:337:slice$1822.IQ_gate \$auto$ff.cc:337:slice$1821.IQ_gate \$auto$ff.cc:337:slice$1820.IQ_gate \$auto$ff.cc:337:slice$1819.IQ_gate \$auto$ff.cc:337:slice$1818.IQ_gate \$auto$ff.cc:337:slice$1817.IQ_gate \$auto$ff.cc:337:slice$1816.IQ_gate \$auto$ff.cc:337:slice$1815.IQ_gate \$auto$ff.cc:337:slice$1814.IQ_gate \$auto$ff.cc:337:slice$1813.IQ_gate \$auto$ff.cc:337:slice$1812.IQ_gate \$auto$ff.cc:337:slice$1811.IQ_gate \$auto$ff.cc:337:slice$1810.IQ_gate \$auto$ff.cc:337:slice$1809.IQ_gate \$auto$ff.cc:337:slice$1808.IQ_gate \$auto$ff.cc:337:slice$1807.IQ_gate \$auto$ff.cc:337:slice$1806.IQ_gate \$auto$ff.cc:337:slice$1805.IQ_gate \$auto$ff.cc:337:slice$1804.IQ_gate \$auto$ff.cc:337:slice$1803.IQ_gate \$auto$ff.cc:337:slice$1802.IQ_gate \$auto$ff.cc:337:slice$1801.IQ_gate \$auto$ff.cc:337:slice$1800.IQ_gate \$auto$ff.cc:337:slice$1799.IQ_gate \$auto$ff.cc:337:slice$1798.IQ_gate \$auto$ff.cc:337:slice$1797.IQ_gate \$auto$ff.cc:337:slice$1796.IQ_gate \$auto$ff.cc:337:slice$1795.IQ_gate }) -> resp_data
+Presumably equivalent wires: cmd_valid_gold (\u_cmd_parser.cmd_valid_gold), cmd_valid_gate (\$auto$ff.cc:337:slice$2783.IQ_gate) -> cmd_valid
+Presumably equivalent wires: cmd_write_gold (\u_cmd_parser.cmd_write_gold), cmd_write_gate (\$auto$ff.cc:337:slice$1559.IQ_gate) -> cmd_write
+Presumably equivalent wires: cmd_wdata_gold (\u_cmd_parser.cmd_wdata_gold), cmd_wdata_gate ({ \$auto$ff.cc:337:slice$1526.IQ_gate \$auto$ff.cc:337:slice$1525.IQ_gate \$auto$ff.cc:337:slice$1524.IQ_gate \$auto$ff.cc:337:slice$1523.IQ_gate \$auto$ff.cc:337:slice$1522.IQ_gate \$auto$ff.cc:337:slice$1521.IQ_gate \$auto$ff.cc:337:slice$1520.IQ_gate \$auto$ff.cc:337:slice$1519.IQ_gate \$auto$ff.cc:337:slice$1518.IQ_gate \$auto$ff.cc:337:slice$1517.IQ_gate \$auto$ff.cc:337:slice$1516.IQ_gate \$auto$ff.cc:337:slice$1515.IQ_gate \$auto$ff.cc:337:slice$1514.IQ_gate \$auto$ff.cc:337:slice$1513.IQ_gate \$auto$ff.cc:337:slice$1512.IQ_gate \$auto$ff.cc:337:slice$1511.IQ_gate \$auto$ff.cc:337:slice$1510.IQ_gate \$auto$ff.cc:337:slice$1509.IQ_gate \$auto$ff.cc:337:slice$1508.IQ_gate \$auto$ff.cc:337:slice$1507.IQ_gate \$auto$ff.cc:337:slice$1506.IQ_gate \$auto$ff.cc:337:slice$1505.IQ_gate \$auto$ff.cc:337:slice$1504.IQ_gate \$auto$ff.cc:337:slice$1503.IQ_gate \$auto$ff.cc:337:slice$1502.IQ_gate \$auto$ff.cc:337:slice$1501.IQ_gate \$auto$ff.cc:337:slice$1500.IQ_gate \$auto$ff.cc:337:slice$1499.IQ_gate \$auto$ff.cc:337:slice$1498.IQ_gate \$auto$ff.cc:337:slice$1497.IQ_gate \$auto$ff.cc:337:slice$1496.IQ_gate \$auto$ff.cc:337:slice$1495.IQ_gate }) -> cmd_wdata
+Presumably equivalent wires: cmd_addr_gold (\u_cmd_parser.cmd_addr_gold), cmd_addr_gate ({ \$auto$ff.cc:337:slice$1490.IQ_gate \$auto$ff.cc:337:slice$1489.IQ_gate \$auto$ff.cc:337:slice$1488.IQ_gate \$auto$ff.cc:337:slice$1487.IQ_gate \$auto$ff.cc:337:slice$1486.IQ_gate \$auto$ff.cc:337:slice$1485.IQ_gate \$auto$ff.cc:337:slice$1484.IQ_gate \$auto$ff.cc:337:slice$1483.IQ_gate \$auto$ff.cc:337:slice$1482.IQ_gate \$auto$ff.cc:337:slice$1481.IQ_gate \$auto$ff.cc:337:slice$1480.IQ_gate \$auto$ff.cc:337:slice$1479.IQ_gate \$auto$ff.cc:337:slice$1478.IQ_gate \$auto$ff.cc:337:slice$1477.IQ_gate \$auto$ff.cc:337:slice$1476.IQ_gate \$auto$ff.cc:337:slice$1475.IQ_gate \$auto$ff.cc:337:slice$1474.IQ_gate \$auto$ff.cc:337:slice$1473.IQ_gate \$auto$ff.cc:337:slice$1472.IQ_gate \$auto$ff.cc:337:slice$1471.IQ_gate \$auto$ff.cc:337:slice$1470.IQ_gate \$auto$ff.cc:337:slice$1469.IQ_gate \$auto$ff.cc:337:slice$1468.IQ_gate \$auto$ff.cc:337:slice$1467.IQ_gate \$auto$ff.cc:337:slice$1466.IQ_gate \$auto$ff.cc:337:slice$1465.IQ_gate \$auto$ff.cc:337:slice$1464.IQ_gate \$auto$ff.cc:337:slice$1463.IQ_gate \$auto$ff.cc:337:slice$1462.IQ_gate \$auto$ff.cc:337:slice$1461.IQ_gate \$auto$ff.cc:337:slice$1460.IQ_gate \$auto$ff.cc:337:slice$1459.IQ_gate }) -> cmd_addr
+Presumably equivalent wires: tx_busy_gold (\u_uart_tx.busy_gold), tx_busy_gate (\$auto$ff.cc:337:slice$1634.IQ_gate) -> tx_busy
+Presumably equivalent wires: tx_start_gold (\u_resp_builder.tx_start_gold), tx_start_gate (\$auto$ff.cc:337:slice$3177.IQ_gate) -> tx_start
+Presumably equivalent wires: tx_data_gold (\u_resp_builder.tx_data_gold), tx_data_gate ({ \$auto$ff.cc:337:slice$1612.IQ_gate \$auto$ff.cc:337:slice$1611.IQ_gate \$auto$ff.cc:337:slice$1610.IQ_gate \$auto$ff.cc:337:slice$1609.IQ_gate \$auto$ff.cc:337:slice$1608.IQ_gate \$auto$ff.cc:337:slice$1607.IQ_gate \$auto$ff.cc:337:slice$1606.IQ_gate \$auto$ff.cc:337:slice$1605.IQ_gate }) -> tx_data
+Presumably equivalent wires: rx_valid_gold (\u_uart_rx.valid_gold), rx_valid_gate (\$auto$ff.cc:337:slice$2589.IQ_gate) -> rx_valid
+Presumably equivalent wires: rx_data_gold (\u_uart_rx.data_gold), rx_data_gate ({ \$auto$ff.cc:337:slice$1892.IQ_gate \$auto$ff.cc:337:slice$1891.IQ_gate \$auto$ff.cc:337:slice$1890.IQ_gate \$auto$ff.cc:337:slice$1889.IQ_gate \$auto$ff.cc:337:slice$1888.IQ_gate \$auto$ff.cc:337:slice$1887.IQ_gate \$auto$ff.cc:337:slice$1886.IQ_gate \$auto$ff.cc:337:slice$1885.IQ_gate }) -> rx_data
+Presumably equivalent wires: baud_tick_gold (\u_baud_gen.tick_gold), baud_tick_gate (\$auto$ff.cc:337:slice$2513.IQ_gate) -> baud_tick
+Presumably equivalent wires: locked_gold (\lock_reg_gold), locked_gate (\$auto$ff.cc:337:slice$1997.IQ_gate) -> locked
+Presumably equivalent wires: PSLVERR_gold (\PSLVERR_gold), PSLVERR_gate (\PSLVERR_gate) -> PSLVERR
+Presumably equivalent wires: PREADY_gold (\PREADY_gold), PREADY_gate (\PREADY_gate) -> PREADY
+Presumably equivalent wires: PRDATA_gold (\PRDATA_gold), PRDATA_gate (\PRDATA_gate) -> PRDATA
+Presumably equivalent wires: PWDATA_gold (\u_apb_master.PWDATA_gold), PWDATA_gate ({ \$auto$ff.cc:337:slice$1791.IQ_gate \$auto$ff.cc:337:slice$1790.IQ_gate \$auto$ff.cc:337:slice$1789.IQ_gate \$auto$ff.cc:337:slice$1788.IQ_gate \$auto$ff.cc:337:slice$1787.IQ_gate \$auto$ff.cc:337:slice$1786.IQ_gate \$auto$ff.cc:337:slice$1785.IQ_gate \$auto$ff.cc:337:slice$1784.IQ_gate \$auto$ff.cc:337:slice$1783.IQ_gate \$auto$ff.cc:337:slice$1782.IQ_gate \$auto$ff.cc:337:slice$1781.IQ_gate \$auto$ff.cc:337:slice$1780.IQ_gate \$auto$ff.cc:337:slice$1779.IQ_gate \$auto$ff.cc:337:slice$1778.IQ_gate \$auto$ff.cc:337:slice$1777.IQ_gate \$auto$ff.cc:337:slice$1776.IQ_gate \$auto$ff.cc:337:slice$1775.IQ_gate \$auto$ff.cc:337:slice$1774.IQ_gate \$auto$ff.cc:337:slice$1773.IQ_gate \$auto$ff.cc:337:slice$1772.IQ_gate \$auto$ff.cc:337:slice$1771.IQ_gate \$auto$ff.cc:337:slice$1770.IQ_gate \$auto$ff.cc:337:slice$1769.IQ_gate \$auto$ff.cc:337:slice$1768.IQ_gate \$auto$ff.cc:337:slice$1767.IQ_gate \$auto$ff.cc:337:slice$1766.IQ_gate \$auto$ff.cc:337:slice$1765.IQ_gate \$auto$ff.cc:337:slice$1764.IQ_gate \$auto$ff.cc:337:slice$1763.IQ_gate \$auto$ff.cc:337:slice$1762.IQ_gate \$auto$ff.cc:337:slice$1761.IQ_gate \$auto$ff.cc:337:slice$1760.IQ_gate }) -> PWDATA
+Presumably equivalent wires: PWRITE_gold (\u_apb_master.PWRITE_gold), PWRITE_gate (\$auto$ff.cc:337:slice$1792.IQ_gate) -> PWRITE
+Presumably equivalent wires: PENABLE_gold (\u_apb_master.PENABLE_gold), PENABLE_gate (\$auto$ff.cc:337:slice$1995.IQ_gate) -> PENABLE
+Presumably equivalent wires: PSEL_gold (\u_apb_master.PSEL_gold), PSEL_gate (\$auto$ff.cc:337:slice$1757.IQ_gate) -> PSEL
+Presumably equivalent wires: PADDR_gold (\u_apb_master.PADDR_gold), PADDR_gate ({ \$auto$ff.cc:337:slice$2030.IQ_gate \$auto$ff.cc:337:slice$2029.IQ_gate \$auto$ff.cc:337:slice$2028.IQ_gate \$auto$ff.cc:337:slice$2027.IQ_gate \$auto$ff.cc:337:slice$2026.IQ_gate \$auto$ff.cc:337:slice$2025.IQ_gate \$auto$ff.cc:337:slice$2024.IQ_gate \$auto$ff.cc:337:slice$2023.IQ_gate \$auto$ff.cc:337:slice$2022.IQ_gate \$auto$ff.cc:337:slice$2021.IQ_gate \$auto$ff.cc:337:slice$2020.IQ_gate \$auto$ff.cc:337:slice$2019.IQ_gate \$auto$ff.cc:337:slice$2018.IQ_gate \$auto$ff.cc:337:slice$2017.IQ_gate \$auto$ff.cc:337:slice$2016.IQ_gate \$auto$ff.cc:337:slice$2015.IQ_gate \$auto$ff.cc:337:slice$2014.IQ_gate \$auto$ff.cc:337:slice$2013.IQ_gate \$auto$ff.cc:337:slice$2012.IQ_gate \$auto$ff.cc:337:slice$2011.IQ_gate \$auto$ff.cc:337:slice$2010.IQ_gate \$auto$ff.cc:337:slice$2009.IQ_gate \$auto$ff.cc:337:slice$2008.IQ_gate \$auto$ff.cc:337:slice$2007.IQ_gate \$auto$ff.cc:337:slice$2006.IQ_gate \$auto$ff.cc:337:slice$2005.IQ_gate \$auto$ff.cc:337:slice$2004.IQ_gate \$auto$ff.cc:337:slice$2003.IQ_gate \$auto$ff.cc:337:slice$2002.IQ_gate \$auto$ff.cc:337:slice$2001.IQ_gate \$auto$ff.cc:337:slice$2000.IQ_gate \$auto$ff.cc:337:slice$1999.IQ_gate }) -> PADDR
+Presumably equivalent wires: uart_tx_gold (\u_uart_tx.tx_gold), uart_tx_gate (\$auto$ff.cc:337:slice$2699.IQ_gate) -> uart_tx
+Presumably equivalent wires: uart_rx_gold (\uart_rx_gold), uart_rx_gate (\uart_rx_gate) -> uart_rx
+Presumably equivalent wires: rst_n_gold (\rst_n_gold), rst_n_gate (\rst_n_gate) -> rst_n
+Presumably equivalent wires: clk_gold (\clk_gold), clk_gate (\clk_gate) -> clk
+Changing input B of cell $flatten\$abc$5233$blif$5233$51.$auto$liberty.cc:125:parse_func_reduce$167_gate ($_OR_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$47.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1999.IQ_gate -> \PADDR [0]
+Changing input A of cell $flatten\$abc$5233$blif$5233$46.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2000.IQ_gate -> \PADDR [1]
+Changing input A of cell $flatten\$abc$5233$blif$5233$45.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2001.IQ_gate -> \PADDR [2]
+Changing input A of cell $flatten\$abc$5233$blif$5233$44.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2002.IQ_gate -> \PADDR [3]
+Changing input A of cell $flatten\$abc$5233$blif$5233$43.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2003.IQ_gate -> \PADDR [4]
+Changing input A of cell $flatten\$abc$5233$blif$5233$42.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2004.IQ_gate -> \PADDR [5]
+Changing input A of cell $flatten\$abc$5233$blif$5233$41.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2005.IQ_gate -> \PADDR [6]
+Changing input A of cell $flatten\$abc$5233$blif$5233$40.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2006.IQ_gate -> \PADDR [7]
+Changing input A of cell $flatten\$abc$5233$blif$5233$39.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2007.IQ_gate -> \PADDR [8]
+Changing input A of cell $flatten\$abc$5233$blif$5233$38.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2008.IQ_gate -> \PADDR [9]
+Changing input A of cell $flatten\$abc$5233$blif$5233$37.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2009.IQ_gate -> \PADDR [10]
+Changing input A of cell $flatten\$abc$5233$blif$5233$36.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2010.IQ_gate -> \PADDR [11]
+Changing input A of cell $flatten\$abc$5233$blif$5233$35.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2011.IQ_gate -> \PADDR [12]
+Changing input A of cell $flatten\$abc$5233$blif$5233$34.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2012.IQ_gate -> \PADDR [13]
+Changing input A of cell $flatten\$abc$5233$blif$5233$33.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2013.IQ_gate -> \PADDR [14]
+Changing input A of cell $flatten\$abc$5233$blif$5233$32.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2014.IQ_gate -> \PADDR [15]
+Changing input A of cell $flatten\$abc$5233$blif$5233$314.$auto$liberty.cc:62:parse_func_reduce$1623_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$31.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2015.IQ_gate -> \PADDR [16]
+Changing input A of cell $flatten\$abc$5233$blif$5233$308.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1760.IQ_gate -> \PWDATA [0]
+Changing input A of cell $flatten\$abc$5233$blif$5233$307.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1761.IQ_gate -> \PWDATA [1]
+Changing input A of cell $flatten\$abc$5233$blif$5233$306.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1762.IQ_gate -> \PWDATA [2]
+Changing input A of cell $flatten\$abc$5233$blif$5233$305.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1763.IQ_gate -> \PWDATA [3]
+Changing input A of cell $flatten\$abc$5233$blif$5233$304.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1764.IQ_gate -> \PWDATA [4]
+Changing input A of cell $flatten\$abc$5233$blif$5233$303.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1765.IQ_gate -> \PWDATA [5]
+Changing input A of cell $flatten\$abc$5233$blif$5233$302.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1766.IQ_gate -> \PWDATA [6]
+Changing input A of cell $flatten\$abc$5233$blif$5233$301.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1767.IQ_gate -> \PWDATA [7]
+Changing input A of cell $flatten\$abc$5233$blif$5233$300.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1768.IQ_gate -> \PWDATA [8]
+Changing input A of cell $flatten\$abc$5233$blif$5233$30.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2016.IQ_gate -> \PADDR [17]
+Changing input A of cell $flatten\$abc$5233$blif$5233$299.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1769.IQ_gate -> \PWDATA [9]
+Changing input A of cell $flatten\$abc$5233$blif$5233$298.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1770.IQ_gate -> \PWDATA [10]
+Changing input A of cell $flatten\$abc$5233$blif$5233$297.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1771.IQ_gate -> \PWDATA [11]
+Changing input A of cell $flatten\$abc$5233$blif$5233$296.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1772.IQ_gate -> \PWDATA [12]
+Changing input A of cell $flatten\$abc$5233$blif$5233$295.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1773.IQ_gate -> \PWDATA [13]
+Changing input A of cell $flatten\$abc$5233$blif$5233$294.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1774.IQ_gate -> \PWDATA [14]
+Changing input A of cell $flatten\$abc$5233$blif$5233$293.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1775.IQ_gate -> \PWDATA [15]
+Changing input A of cell $flatten\$abc$5233$blif$5233$292.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1776.IQ_gate -> \PWDATA [16]
+Changing input A of cell $flatten\$abc$5233$blif$5233$291.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1777.IQ_gate -> \PWDATA [17]
+Changing input A of cell $flatten\$abc$5233$blif$5233$290.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1778.IQ_gate -> \PWDATA [18]
+Changing input A of cell $flatten\$abc$5233$blif$5233$29.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2017.IQ_gate -> \PADDR [18]
+Changing input A of cell $flatten\$abc$5233$blif$5233$289.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1779.IQ_gate -> \PWDATA [19]
+Changing input A of cell $flatten\$abc$5233$blif$5233$288.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1780.IQ_gate -> \PWDATA [20]
+Changing input A of cell $flatten\$abc$5233$blif$5233$287.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1781.IQ_gate -> \PWDATA [21]
+Changing input A of cell $flatten\$abc$5233$blif$5233$286.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1782.IQ_gate -> \PWDATA [22]
+Changing input A of cell $flatten\$abc$5233$blif$5233$285.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1783.IQ_gate -> \PWDATA [23]
+Changing input A of cell $flatten\$abc$5233$blif$5233$284.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1784.IQ_gate -> \PWDATA [24]
+Changing input A of cell $flatten\$abc$5233$blif$5233$283.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1785.IQ_gate -> \PWDATA [25]
+Changing input A of cell $flatten\$abc$5233$blif$5233$282.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1786.IQ_gate -> \PWDATA [26]
+Changing input A of cell $flatten\$abc$5233$blif$5233$281.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1787.IQ_gate -> \PWDATA [27]
+Changing input A of cell $flatten\$abc$5233$blif$5233$280.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1788.IQ_gate -> \PWDATA [28]
+Changing input A of cell $flatten\$abc$5233$blif$5233$28.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2018.IQ_gate -> \PADDR [19]
+Changing input A of cell $flatten\$abc$5233$blif$5233$279.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1789.IQ_gate -> \PWDATA [29]
+Changing input A of cell $flatten\$abc$5233$blif$5233$278.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1790.IQ_gate -> \PWDATA [30]
+Changing input A of cell $flatten\$abc$5233$blif$5233$277.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1791.IQ_gate -> \PWDATA [31]
+Changing input A of cell $flatten\$abc$5233$blif$5233$276.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$1792.IQ_gate -> \PWRITE
+Changing input A of cell $flatten\$abc$5233$blif$5233$27.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2019.IQ_gate -> \PADDR [20]
+Changing input A of cell $flatten\$abc$5233$blif$5233$26.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2020.IQ_gate -> \PADDR [21]
+Changing input A of cell $flatten\$abc$5233$blif$5233$25.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2021.IQ_gate -> \PADDR [22]
+Changing input A of cell $flatten\$abc$5233$blif$5233$24.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2022.IQ_gate -> \PADDR [23]
+Changing input A of cell $flatten\$abc$5233$blif$5233$23.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2023.IQ_gate -> \PADDR [24]
+Changing input A of cell $flatten\$abc$5233$blif$5233$22.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2024.IQ_gate -> \PADDR [25]
+Changing input A of cell $flatten\$abc$5233$blif$5233$21.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2025.IQ_gate -> \PADDR [26]
+Changing input A of cell $flatten\$abc$5233$blif$5233$20.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2026.IQ_gate -> \PADDR [27]
+Changing input A of cell $flatten\$abc$5233$blif$5233$19.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2027.IQ_gate -> \PADDR [28]
+Changing input A of cell $flatten\$abc$5233$blif$5233$18.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2028.IQ_gate -> \PADDR [29]
+Changing input A of cell $flatten\$abc$5233$blif$5233$17.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2029.IQ_gate -> \PADDR [30]
+Changing input A of cell $flatten\$abc$5233$blif$5233$16.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$auto$ff.cc:337:slice$2030.IQ_gate -> \PADDR [31]
+Changing input A of cell $flatten\$abc$5233$blif$5233$145.$auto$liberty.cc:62:parse_func_reduce$1583_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$141.$auto$liberty.cc:62:parse_func_reduce$1623_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$76.$auto$liberty.cc:62:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$1995.IQ_gate -> \PENABLE
+Changing input A of cell $flatten\$abc$5233$blif$5233$50.$auto$liberty.cc:62:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$1792.IQ_gate -> \PWRITE
+Changing input A of cell $flatten\$abc$5233$blif$5233$398.$auto$liberty.cc:62:parse_func_reduce$1369_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$313.$auto$liberty.cc:62:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$312.$auto$liberty.cc:109:parse_func_reduce$165_gate ($_AND_): \$auto$ff.cc:337:slice$1757.IQ_gate -> \PSEL
+Changing input A of cell $flatten\$abc$5233$blif$5233$309.$auto$liberty.cc:62:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$15.$auto$liberty.cc:62:parse_func_reduce$1409_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$147.$auto$liberty.cc:62:parse_func_reduce$1369_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $flatten\$abc$5233$blif$5233$140.$auto$liberty.cc:62:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$1997.IQ_gate -> \locked
+Changing input A of cell $abc$4716$blif$4716$5_gold ($_NOT_): \u_resp_builder.state_gold [3] -> \u_resp_builder.state [3]
+Changing input A of cell $abc$4716$blif$4716$6_gold ($_NOT_): \u_apb_master.state_gold [0] -> \u_apb_master.state [0]
+Changing input A of cell $abc$4716$blif$4716$7_gold ($_NOT_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$8_gold ($_NOT_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4716$blif$4716$9_gold ($_NOT_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4716$blif$4716$10_gold ($_NOT_): \u_uart_tx.state_gold [2] -> \u_uart_tx.state [2]
+Changing input A of cell $abc$4716$blif$4716$11_gold ($_NOT_): \u_cmd_parser.timeout_cnt_gold [8] -> \u_cmd_parser.timeout_cnt [8]
+Changing input A of cell $abc$4716$blif$4716$12_gold ($_NOT_): \u_cmd_parser.timeout_cnt_gold [9] -> \u_cmd_parser.timeout_cnt [9]
+Changing input A of cell $abc$4716$blif$4716$13_gold ($_NOT_): \u_cmd_parser.timeout_cnt_gold [18] -> \u_cmd_parser.timeout_cnt [18]
+Changing input A of cell $abc$4716$blif$4716$14_gold ($_NOT_): \u_cmd_parser.timeout_cnt_gold [19] -> \u_cmd_parser.timeout_cnt [19]
+Changing input B of cell $abc$4716$blif$4716$18_gold ($_ANDNOT_): \u_baud_gen.counter_gold [3] -> \u_baud_gen.counter [3]
+Changing input A of cell $abc$4716$blif$4716$18_gold ($_ANDNOT_): \u_baud_gen.counter_gold [2] -> \u_baud_gen.counter [2]
+Changing input B of cell $abc$4716$blif$4716$19_gold ($_ANDNOT_): \u_baud_gen.counter_gold [5] -> \u_baud_gen.counter [5]
+Changing input A of cell $abc$4716$blif$4716$19_gold ($_ANDNOT_): \u_baud_gen.counter_gold [4] -> \u_baud_gen.counter [4]
+Changing input B of cell $abc$4716$blif$4716$21_gold ($_NOR_): \u_baud_gen.counter_gold [15] -> \u_baud_gen.counter [15]
+Changing input A of cell $abc$4716$blif$4716$21_gold ($_NOR_): \u_baud_gen.counter_gold [14] -> \u_baud_gen.counter [14]
+Changing input B of cell $abc$4716$blif$4716$22_gold ($_ANDNOT_): \u_baud_gen.counter_gold [0] -> \u_baud_gen.counter [0]
+Changing input A of cell $abc$4716$blif$4716$22_gold ($_ANDNOT_): \u_baud_gen.counter_gold [1] -> \u_baud_gen.counter [1]
+Changing input B of cell $abc$4716$blif$4716$25_gold ($_NOR_): \u_baud_gen.counter_gold [12] -> \u_baud_gen.counter [12]
+Changing input A of cell $abc$4716$blif$4716$25_gold ($_NOR_): \u_baud_gen.counter_gold [11] -> \u_baud_gen.counter [11]
+Changing input B of cell $abc$4716$blif$4716$26_gold ($_NOR_): \u_baud_gen.counter_gold [13] -> \u_baud_gen.counter [13]
+Changing input A of cell $abc$4716$blif$4716$26_gold ($_NOR_): \u_baud_gen.counter_gold [10] -> \u_baud_gen.counter [10]
+Changing input B of cell $abc$4716$blif$4716$28_gold ($_ANDNOT_): \u_baud_gen.counter_gold [7] -> \u_baud_gen.counter [7]
+Changing input A of cell $abc$4716$blif$4716$28_gold ($_ANDNOT_): \u_baud_gen.counter_gold [6] -> \u_baud_gen.counter [6]
+Changing input B of cell $abc$4716$blif$4716$29_gold ($_NOR_): \u_baud_gen.counter_gold [9] -> \u_baud_gen.counter [9]
+Changing input A of cell $abc$4716$blif$4716$29_gold ($_NOR_): \u_baud_gen.counter_gold [8] -> \u_baud_gen.counter [8]
+Changing input B of cell $abc$4716$blif$4716$35_gold ($_ORNOT_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input B of cell $abc$4716$blif$4716$36_gold ($_ORNOT_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input B of cell $abc$4716$blif$4716$37_gold ($_ORNOT_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4716$blif$4716$38_gold ($_NOR_): \u_uart_tx.state_gold [2] -> \u_uart_tx.state [2]
+Changing input A of cell $abc$4716$blif$4716$38_gold ($_NOR_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4716$blif$4716$40_gold ($_ORNOT_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4716$blif$4716$41_gold ($_ORNOT_): \u_uart_tx.state_gold [2] -> \u_uart_tx.state [2]
+Changing input B of cell $abc$4716$blif$4716$48_gold ($_AND_): \u_baud_gen.counter_gold [0] -> \u_baud_gen.counter [0]
+Changing input A of cell $abc$4716$blif$4716$48_gold ($_AND_): \u_baud_gen.counter_gold [1] -> \u_baud_gen.counter [1]
+Changing input A of cell $abc$4716$blif$4716$49_gold ($_AND_): \u_baud_gen.counter_gold [2] -> \u_baud_gen.counter [2]
+Changing input A of cell $abc$4716$blif$4716$50_gold ($_AND_): \u_baud_gen.counter_gold [3] -> \u_baud_gen.counter [3]
+Changing input A of cell $abc$4716$blif$4716$51_gold ($_NAND_): \u_baud_gen.counter_gold [4] -> \u_baud_gen.counter [4]
+Changing input A of cell $abc$4716$blif$4716$52_gold ($_ANDNOT_): \u_baud_gen.counter_gold [5] -> \u_baud_gen.counter [5]
+Changing input A of cell $abc$4716$blif$4716$53_gold ($_NAND_): \u_baud_gen.counter_gold [6] -> \u_baud_gen.counter [6]
+Changing input A of cell $abc$4716$blif$4716$54_gold ($_ANDNOT_): \u_baud_gen.counter_gold [7] -> \u_baud_gen.counter [7]
+Changing input A of cell $abc$4716$blif$4716$55_gold ($_AND_): \u_baud_gen.counter_gold [8] -> \u_baud_gen.counter [8]
+Changing input A of cell $abc$4716$blif$4716$56_gold ($_AND_): \u_baud_gen.counter_gold [9] -> \u_baud_gen.counter [9]
+Changing input A of cell $abc$4716$blif$4716$57_gold ($_AND_): \u_baud_gen.counter_gold [10] -> \u_baud_gen.counter [10]
+Changing input A of cell $abc$4716$blif$4716$58_gold ($_AND_): \u_baud_gen.counter_gold [11] -> \u_baud_gen.counter [11]
+Changing input A of cell $abc$4716$blif$4716$59_gold ($_AND_): \u_baud_gen.counter_gold [12] -> \u_baud_gen.counter [12]
+Changing input A of cell $abc$4716$blif$4716$60_gold ($_AND_): \u_baud_gen.counter_gold [13] -> \u_baud_gen.counter [13]
+Changing input A of cell $abc$4716$blif$4716$61_gold ($_NAND_): \u_baud_gen.counter_gold [14] -> \u_baud_gen.counter [14]
+Changing input A of cell $abc$4716$blif$4716$62_gold ($_XNOR_): \u_baud_gen.counter_gold [15] -> \u_baud_gen.counter [15]
+Changing input B of cell $abc$4716$blif$4716$63_gold ($_AND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$63_gold ($_AND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input B of cell $abc$4716$blif$4716$64_gold ($_AND_): \u_uart_rx.tick_cnt_gold [0] -> \u_uart_rx.tick_cnt [0]
+Changing input A of cell $abc$4716$blif$4716$64_gold ($_AND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input B of cell $abc$4716$blif$4716$65_gold ($_AND_): \u_uart_rx.tick_cnt_gold [1] -> \u_uart_rx.tick_cnt [1]
+Changing input A of cell $abc$4716$blif$4716$65_gold ($_AND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input B of cell $abc$4716$blif$4716$66_gold ($_AND_): \u_uart_rx.tick_cnt_gold [2] -> \u_uart_rx.tick_cnt [2]
+Changing input A of cell $abc$4716$blif$4716$66_gold ($_AND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input A of cell $abc$4716$blif$4716$67_gold ($_NAND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input B of cell $abc$4716$blif$4716$72_gold ($_OR_): \u_resp_builder.state_gold [3] -> \u_resp_builder.state [3]
+Changing input A of cell $abc$4716$blif$4716$72_gold ($_OR_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$74_gold ($_ORNOT_): \u_uart_tx.state_gold [0] -> \u_uart_tx.state [0]
+Changing input B of cell $abc$4716$blif$4716$84_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [1] -> \u_cmd_parser.timeout_cnt [1]
+Changing input A of cell $abc$4716$blif$4716$84_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [0] -> \u_cmd_parser.timeout_cnt [0]
+Changing input A of cell $abc$4716$blif$4716$85_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [2] -> \u_cmd_parser.timeout_cnt [2]
+Changing input A of cell $abc$4716$blif$4716$86_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [3] -> \u_cmd_parser.timeout_cnt [3]
+Changing input A of cell $abc$4716$blif$4716$87_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [4] -> \u_cmd_parser.timeout_cnt [4]
+Changing input A of cell $abc$4716$blif$4716$88_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [5] -> \u_cmd_parser.timeout_cnt [5]
+Changing input A of cell $abc$4716$blif$4716$89_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [6] -> \u_cmd_parser.timeout_cnt [6]
+Changing input A of cell $abc$4716$blif$4716$90_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [7] -> \u_cmd_parser.timeout_cnt [7]
+Changing input A of cell $abc$4716$blif$4716$91_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [8] -> \u_cmd_parser.timeout_cnt [8]
+Changing input A of cell $abc$4716$blif$4716$92_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [9] -> \u_cmd_parser.timeout_cnt [9]
+Changing input A of cell $abc$4716$blif$4716$93_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [10] -> \u_cmd_parser.timeout_cnt [10]
+Changing input A of cell $abc$4716$blif$4716$94_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [11] -> \u_cmd_parser.timeout_cnt [11]
+Changing input A of cell $abc$4716$blif$4716$95_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [12] -> \u_cmd_parser.timeout_cnt [12]
+Changing input A of cell $abc$4716$blif$4716$96_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [13] -> \u_cmd_parser.timeout_cnt [13]
+Changing input A of cell $abc$4716$blif$4716$97_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [14] -> \u_cmd_parser.timeout_cnt [14]
+Changing input A of cell $abc$4716$blif$4716$98_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [15] -> \u_cmd_parser.timeout_cnt [15]
+Changing input A of cell $abc$4716$blif$4716$99_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [16] -> \u_cmd_parser.timeout_cnt [16]
+Changing input A of cell $abc$4716$blif$4716$100_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [17] -> \u_cmd_parser.timeout_cnt [17]
+Changing input A of cell $abc$4716$blif$4716$101_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [18] -> \u_cmd_parser.timeout_cnt [18]
+Changing input A of cell $abc$4716$blif$4716$102_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [19] -> \u_cmd_parser.timeout_cnt [19]
+Changing input A of cell $abc$4716$blif$4716$103_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [20] -> \u_cmd_parser.timeout_cnt [20]
+Changing input A of cell $abc$4716$blif$4716$104_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [21] -> \u_cmd_parser.timeout_cnt [21]
+Changing input A of cell $abc$4716$blif$4716$105_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [22] -> \u_cmd_parser.timeout_cnt [22]
+Changing input A of cell $abc$4716$blif$4716$106_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [23] -> \u_cmd_parser.timeout_cnt [23]
+Changing input A of cell $abc$4716$blif$4716$107_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [24] -> \u_cmd_parser.timeout_cnt [24]
+Changing input A of cell $abc$4716$blif$4716$108_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [25] -> \u_cmd_parser.timeout_cnt [25]
+Changing input A of cell $abc$4716$blif$4716$109_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [26] -> \u_cmd_parser.timeout_cnt [26]
+Changing input A of cell $abc$4716$blif$4716$110_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [27] -> \u_cmd_parser.timeout_cnt [27]
+Changing input A of cell $abc$4716$blif$4716$111_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [28] -> \u_cmd_parser.timeout_cnt [28]
+Changing input A of cell $abc$4716$blif$4716$112_gold ($_AND_): \u_cmd_parser.timeout_cnt_gold [29] -> \u_cmd_parser.timeout_cnt [29]
+Changing input A of cell $abc$4716$blif$4716$113_gold ($_NAND_): \u_cmd_parser.timeout_cnt_gold [30] -> \u_cmd_parser.timeout_cnt [30]
+Changing input A of cell $abc$4716$blif$4716$114_gold ($_XNOR_): \u_cmd_parser.timeout_cnt_gold [31] -> \u_cmd_parser.timeout_cnt [31]
+Changing input B of cell $abc$4716$blif$4716$116_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [30] -> \u_cmd_parser.timeout_cnt [30]
+Changing input A of cell $abc$4716$blif$4716$116_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [31] -> \u_cmd_parser.timeout_cnt [31]
+Changing input A of cell $abc$4716$blif$4716$119_gold ($_AND_): \u_resp_builder.state_gold [2] -> \u_resp_builder.state [2]
+Changing input B of cell $abc$4716$blif$4716$121_gold ($_OR_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input A of cell $abc$4716$blif$4716$121_gold ($_OR_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input S of cell $abc$4716$blif$4716$122_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$122_gold ($_MUX_): \u_resp_builder.data_reg_gold [22] -> \u_resp_builder.data_reg [22]
+Changing input S of cell $abc$4716$blif$4716$123_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$123_gold ($_MUX_): \u_resp_builder.data_reg_gold [21] -> \u_resp_builder.data_reg [21]
+Changing input A of cell $abc$4716$blif$4716$124_gold ($_AND_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$125_gold ($_AND_): \u_resp_builder.data_reg_gold [24] -> \u_resp_builder.data_reg [24]
+Changing input A of cell $abc$4716$blif$4716$125_gold ($_AND_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$126_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4716$blif$4716$126_gold ($_ORNOT_): \u_resp_builder.data_reg_gold [26] -> \u_resp_builder.data_reg [26]
+Changing input B of cell $abc$4716$blif$4716$127_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4716$blif$4716$127_gold ($_ORNOT_): \u_resp_builder.data_reg_gold [27] -> \u_resp_builder.data_reg [27]
+Changing input B of cell $abc$4716$blif$4716$128_gold ($_AND_): \u_resp_builder.data_reg_gold [28] -> \u_resp_builder.data_reg [28]
+Changing input A of cell $abc$4716$blif$4716$128_gold ($_AND_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$129_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4716$blif$4716$129_gold ($_ORNOT_): \u_resp_builder.data_reg_gold [29] -> \u_resp_builder.data_reg [29]
+Changing input B of cell $abc$4716$blif$4716$130_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$131_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$132_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$133_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$134_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$135_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$136_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$137_gold ($_ANDNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input S of cell $abc$4716$blif$4716$138_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$138_gold ($_MUX_): \u_resp_builder.data_reg_gold [0] -> \u_resp_builder.data_reg [0]
+Changing input S of cell $abc$4716$blif$4716$139_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$139_gold ($_MUX_): \u_resp_builder.data_reg_gold [1] -> \u_resp_builder.data_reg [1]
+Changing input S of cell $abc$4716$blif$4716$140_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$140_gold ($_MUX_): \u_resp_builder.data_reg_gold [2] -> \u_resp_builder.data_reg [2]
+Changing input S of cell $abc$4716$blif$4716$141_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$141_gold ($_MUX_): \u_resp_builder.data_reg_gold [3] -> \u_resp_builder.data_reg [3]
+Changing input S of cell $abc$4716$blif$4716$142_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$142_gold ($_MUX_): \u_resp_builder.data_reg_gold [4] -> \u_resp_builder.data_reg [4]
+Changing input S of cell $abc$4716$blif$4716$143_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$143_gold ($_MUX_): \u_resp_builder.data_reg_gold [5] -> \u_resp_builder.data_reg [5]
+Changing input S of cell $abc$4716$blif$4716$144_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$144_gold ($_MUX_): \u_resp_builder.data_reg_gold [6] -> \u_resp_builder.data_reg [6]
+Changing input S of cell $abc$4716$blif$4716$145_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$145_gold ($_MUX_): \u_resp_builder.data_reg_gold [7] -> \u_resp_builder.data_reg [7]
+Changing input S of cell $abc$4716$blif$4716$146_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$146_gold ($_MUX_): \u_resp_builder.data_reg_gold [8] -> \u_resp_builder.data_reg [8]
+Changing input S of cell $abc$4716$blif$4716$147_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$147_gold ($_MUX_): \u_resp_builder.data_reg_gold [9] -> \u_resp_builder.data_reg [9]
+Changing input S of cell $abc$4716$blif$4716$148_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$148_gold ($_MUX_): \u_resp_builder.data_reg_gold [10] -> \u_resp_builder.data_reg [10]
+Changing input S of cell $abc$4716$blif$4716$149_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$149_gold ($_MUX_): \u_resp_builder.data_reg_gold [11] -> \u_resp_builder.data_reg [11]
+Changing input S of cell $abc$4716$blif$4716$150_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$150_gold ($_MUX_): \u_resp_builder.data_reg_gold [12] -> \u_resp_builder.data_reg [12]
+Changing input S of cell $abc$4716$blif$4716$151_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$151_gold ($_MUX_): \u_resp_builder.data_reg_gold [13] -> \u_resp_builder.data_reg [13]
+Changing input S of cell $abc$4716$blif$4716$152_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$152_gold ($_MUX_): \u_resp_builder.data_reg_gold [14] -> \u_resp_builder.data_reg [14]
+Changing input S of cell $abc$4716$blif$4716$153_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$153_gold ($_MUX_): \u_resp_builder.data_reg_gold [15] -> \u_resp_builder.data_reg [15]
+Changing input S of cell $abc$4716$blif$4716$154_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$154_gold ($_MUX_): \u_resp_builder.data_reg_gold [16] -> \u_resp_builder.data_reg [16]
+Changing input S of cell $abc$4716$blif$4716$155_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$155_gold ($_MUX_): \u_resp_builder.data_reg_gold [17] -> \u_resp_builder.data_reg [17]
+Changing input S of cell $abc$4716$blif$4716$156_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$156_gold ($_MUX_): \u_resp_builder.data_reg_gold [18] -> \u_resp_builder.data_reg [18]
+Changing input S of cell $abc$4716$blif$4716$157_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$157_gold ($_MUX_): \u_resp_builder.data_reg_gold [19] -> \u_resp_builder.data_reg [19]
+Changing input S of cell $abc$4716$blif$4716$158_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$158_gold ($_MUX_): \u_resp_builder.data_reg_gold [20] -> \u_resp_builder.data_reg [20]
+Changing input B of cell $abc$4716$blif$4716$159_gold ($_ORNOT_): \u_apb_master.state_gold [3] -> \u_apb_master.state [3]
+Changing input A of cell $abc$4716$blif$4716$159_gold ($_ORNOT_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input B of cell $abc$4716$blif$4716$161_gold ($_OR_): \u_apb_master.state_gold [3] -> \u_apb_master.state [3]
+Changing input A of cell $abc$4716$blif$4716$161_gold ($_OR_): \u_apb_master.state_gold [0] -> \u_apb_master.state [0]
+Changing input A of cell $abc$4716$blif$4716$169_gold ($_NAND_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4716$blif$4716$170_gold ($_NAND_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input B of cell $abc$4716$blif$4716$172_gold ($_OR_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input A of cell $abc$4716$blif$4716$172_gold ($_OR_): \u_uart_tx.state_gold [0] -> \u_uart_tx.state [0]
+Changing input B of cell $abc$4716$blif$4716$173_gold ($_OR_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4716$blif$4716$173_gold ($_OR_): \u_uart_tx.state_gold [0] -> \u_uart_tx.state [0]
+Changing input A of cell $abc$4716$blif$4716$174_gold ($_ORNOT_): \u_uart_tx.state_gold [0] -> \u_uart_tx.state [0]
+Changing input A of cell $abc$4716$blif$4716$175_gold ($_OR_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input A of cell $abc$4716$blif$4716$180_gold ($_NAND_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4716$blif$4716$183_gold ($_OR_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$183_gold ($_OR_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$184_gold ($_AND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$185_gold ($_AND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$186_gold ($_AND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$187_gold ($_AND_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4716$blif$4716$188_gold ($_NAND_): \u_resp_builder.state_gold [1] -> \u_resp_builder.state [1]
+Changing input B of cell $abc$4716$blif$4716$189_gold ($_ORNOT_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input A of cell $abc$4716$blif$4716$191_gold ($_AND_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input A of cell $abc$4716$blif$4716$192_gold ($_NAND_): \u_resp_builder.state_gold [1] -> \u_resp_builder.state [1]
+Changing input B of cell $abc$4716$blif$4716$193_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$194_gold ($_ORNOT_): \u_resp_builder.state_gold [3] -> \u_resp_builder.state [3]
+Changing input A of cell $abc$4716$blif$4716$197_gold ($_NAND_): \u_resp_builder.state_gold [2] -> \u_resp_builder.state [2]
+Changing input B of cell $abc$4716$blif$4716$198_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4716$blif$4716$199_gold ($_ORNOT_): \u_resp_builder.state_gold [3] -> \u_resp_builder.state [3]
+Changing input A of cell $abc$4716$blif$4716$205_gold ($_AND_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$206_gold ($_OR_): \u_uart_rx.state_gold [0] -> \u_uart_rx.state [0]
+Changing input A of cell $abc$4716$blif$4716$207_gold ($_NAND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input B of cell $abc$4716$blif$4716$209_gold ($_OR_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4716$blif$4716$209_gold ($_OR_): \u_uart_rx.state_gold [0] -> \u_uart_rx.state [0]
+Changing input A of cell $abc$4716$blif$4716$211_gold ($_ANDNOT_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4716$blif$4716$213_gold ($_OR_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4716$blif$4716$213_gold ($_OR_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$214_gold ($_AND_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4716$blif$4716$215_gold ($_ANDNOT_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4716$blif$4716$219_gold ($_ORNOT_): \u_uart_rx.state_gold [0] -> \u_uart_rx.state [0]
+Changing input A of cell $abc$4716$blif$4716$219_gold ($_ORNOT_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input A of cell $abc$4716$blif$4716$222_gold ($_OR_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4716$blif$4716$225_gold ($_AND_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$227_gold ($_AND_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$229_gold ($_AND_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$231_gold ($_AND_): \u_uart_rx.state_gold [2] -> \u_uart_rx.state [2]
+Changing input A of cell $abc$4716$blif$4716$232_gold ($_NAND_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input A of cell $abc$4716$blif$4716$235_gold ($_NAND_): \u_uart_tx.state_gold [2] -> \u_uart_tx.state [2]
+Changing input B of cell $abc$4716$blif$4716$237_gold ($_NAND_): \u_uart_tx.state_gold [0] -> \u_uart_tx.state [0]
+Changing input A of cell $abc$4716$blif$4716$238_gold ($_NAND_): \u_uart_tx.state_gold [2] -> \u_uart_tx.state [2]
+Changing input B of cell $abc$4716$blif$4716$241_gold ($_NAND_): \u_apb_master.state_gold [3] -> \u_apb_master.state [3]
+Changing input A of cell $abc$4716$blif$4716$241_gold ($_NAND_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input B of cell $abc$4716$blif$4716$243_gold ($_OR_): \u_apb_master.state_gold [1] -> \u_apb_master.state [1]
+Changing input A of cell $abc$4716$blif$4716$243_gold ($_OR_): \u_apb_master.state_gold [0] -> \u_apb_master.state [0]
+Changing input A of cell $abc$4716$blif$4716$244_gold ($_ANDNOT_): \u_apb_master.state_gold [1] -> \u_apb_master.state [1]
+Changing input B of cell $abc$4716$blif$4716$245_gold ($_OR_): \u_apb_master.state_gold [2] -> \u_apb_master.state [2]
+Changing input A of cell $abc$4716$blif$4716$245_gold ($_OR_): \u_apb_master.state_gold [1] -> \u_apb_master.state [1]
+Changing input A of cell $abc$4716$blif$4716$246_gold ($_OR_): \u_apb_master.state_gold [2] -> \u_apb_master.state [2]
+Changing input A of cell $abc$4716$blif$4716$247_gold ($_NOR_): \u_baud_gen.counter_gold [0] -> \u_baud_gen.counter [0]
+Changing input B of cell $abc$4716$blif$4716$248_gold ($_XOR_): \u_baud_gen.counter_gold [0] -> \u_baud_gen.counter [0]
+Changing input A of cell $abc$4716$blif$4716$248_gold ($_XOR_): \u_baud_gen.counter_gold [1] -> \u_baud_gen.counter [1]
+Changing input A of cell $abc$4716$blif$4716$250_gold ($_XOR_): \u_baud_gen.counter_gold [2] -> \u_baud_gen.counter [2]
+Changing input A of cell $abc$4716$blif$4716$252_gold ($_XOR_): \u_baud_gen.counter_gold [3] -> \u_baud_gen.counter [3]
+Changing input A of cell $abc$4716$blif$4716$253_gold ($_OR_): \u_baud_gen.counter_gold [4] -> \u_baud_gen.counter [4]
+Changing input A of cell $abc$4716$blif$4716$256_gold ($_XNOR_): \u_baud_gen.counter_gold [5] -> \u_baud_gen.counter [5]
+Changing input A of cell $abc$4716$blif$4716$257_gold ($_OR_): \u_baud_gen.counter_gold [6] -> \u_baud_gen.counter [6]
+Changing input A of cell $abc$4716$blif$4716$260_gold ($_XNOR_): \u_baud_gen.counter_gold [7] -> \u_baud_gen.counter [7]
+Changing input A of cell $abc$4716$blif$4716$261_gold ($_XOR_): \u_baud_gen.counter_gold [8] -> \u_baud_gen.counter [8]
+Changing input A of cell $abc$4716$blif$4716$262_gold ($_XOR_): \u_baud_gen.counter_gold [9] -> \u_baud_gen.counter [9]
+Changing input A of cell $abc$4716$blif$4716$263_gold ($_XOR_): \u_baud_gen.counter_gold [10] -> \u_baud_gen.counter [10]
+Changing input A of cell $abc$4716$blif$4716$264_gold ($_XOR_): \u_baud_gen.counter_gold [11] -> \u_baud_gen.counter [11]
+Changing input A of cell $abc$4716$blif$4716$265_gold ($_XOR_): \u_baud_gen.counter_gold [12] -> \u_baud_gen.counter [12]
+Changing input A of cell $abc$4716$blif$4716$266_gold ($_XOR_): \u_baud_gen.counter_gold [13] -> \u_baud_gen.counter [13]
+Changing input A of cell $abc$4716$blif$4716$267_gold ($_XOR_): \u_baud_gen.counter_gold [14] -> \u_baud_gen.counter [14]
+Changing input B of cell $abc$4716$blif$4716$268_gold ($_ANDNOT_): \u_cmd_parser.timeout_cnt_gold [0] -> \u_cmd_parser.timeout_cnt [0]
+Changing input B of cell $abc$4716$blif$4716$269_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [1] -> \u_cmd_parser.timeout_cnt [1]
+Changing input A of cell $abc$4716$blif$4716$269_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [0] -> \u_cmd_parser.timeout_cnt [0]
+Changing input A of cell $abc$4716$blif$4716$272_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [2] -> \u_cmd_parser.timeout_cnt [2]
+Changing input B of cell $abc$4716$blif$4716$275_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [3] -> \u_cmd_parser.timeout_cnt [3]
+Changing input A of cell $abc$4716$blif$4716$275_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [2] -> \u_cmd_parser.timeout_cnt [2]
+Changing input A of cell $abc$4716$blif$4716$276_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [3] -> \u_cmd_parser.timeout_cnt [3]
+Changing input A of cell $abc$4716$blif$4716$279_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [4] -> \u_cmd_parser.timeout_cnt [4]
+Changing input B of cell $abc$4716$blif$4716$282_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [5] -> \u_cmd_parser.timeout_cnt [5]
+Changing input A of cell $abc$4716$blif$4716$282_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [4] -> \u_cmd_parser.timeout_cnt [4]
+Changing input A of cell $abc$4716$blif$4716$283_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [5] -> \u_cmd_parser.timeout_cnt [5]
+Changing input A of cell $abc$4716$blif$4716$286_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [6] -> \u_cmd_parser.timeout_cnt [6]
+Changing input A of cell $abc$4716$blif$4716$289_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [7] -> \u_cmd_parser.timeout_cnt [7]
+Changing input B of cell $abc$4716$blif$4716$292_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [6] -> \u_cmd_parser.timeout_cnt [6]
+Changing input A of cell $abc$4716$blif$4716$292_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [7] -> \u_cmd_parser.timeout_cnt [7]
+Changing input A of cell $abc$4716$blif$4716$293_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [8] -> \u_cmd_parser.timeout_cnt [8]
+Changing input A of cell $abc$4716$blif$4716$296_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [9] -> \u_cmd_parser.timeout_cnt [9]
+Changing input A of cell $abc$4716$blif$4716$299_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [10] -> \u_cmd_parser.timeout_cnt [10]
+Changing input B of cell $abc$4716$blif$4716$302_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [11] -> \u_cmd_parser.timeout_cnt [11]
+Changing input A of cell $abc$4716$blif$4716$302_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [10] -> \u_cmd_parser.timeout_cnt [10]
+Changing input A of cell $abc$4716$blif$4716$303_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [11] -> \u_cmd_parser.timeout_cnt [11]
+Changing input A of cell $abc$4716$blif$4716$306_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [12] -> \u_cmd_parser.timeout_cnt [12]
+Changing input B of cell $abc$4716$blif$4716$309_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [13] -> \u_cmd_parser.timeout_cnt [13]
+Changing input A of cell $abc$4716$blif$4716$309_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [12] -> \u_cmd_parser.timeout_cnt [12]
+Changing input A of cell $abc$4716$blif$4716$310_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [13] -> \u_cmd_parser.timeout_cnt [13]
+Changing input A of cell $abc$4716$blif$4716$313_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [14] -> \u_cmd_parser.timeout_cnt [14]
+Changing input A of cell $abc$4716$blif$4716$316_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [15] -> \u_cmd_parser.timeout_cnt [15]
+Changing input B of cell $abc$4716$blif$4716$319_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [14] -> \u_cmd_parser.timeout_cnt [14]
+Changing input A of cell $abc$4716$blif$4716$319_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [15] -> \u_cmd_parser.timeout_cnt [15]
+Changing input A of cell $abc$4716$blif$4716$320_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [16] -> \u_cmd_parser.timeout_cnt [16]
+Changing input B of cell $abc$4716$blif$4716$323_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [17] -> \u_cmd_parser.timeout_cnt [17]
+Changing input A of cell $abc$4716$blif$4716$323_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [16] -> \u_cmd_parser.timeout_cnt [16]
+Changing input A of cell $abc$4716$blif$4716$324_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [17] -> \u_cmd_parser.timeout_cnt [17]
+Changing input A of cell $abc$4716$blif$4716$327_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [18] -> \u_cmd_parser.timeout_cnt [18]
+Changing input A of cell $abc$4716$blif$4716$330_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [19] -> \u_cmd_parser.timeout_cnt [19]
+Changing input A of cell $abc$4716$blif$4716$333_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [20] -> \u_cmd_parser.timeout_cnt [20]
+Changing input B of cell $abc$4716$blif$4716$336_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [21] -> \u_cmd_parser.timeout_cnt [21]
+Changing input A of cell $abc$4716$blif$4716$336_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [20] -> \u_cmd_parser.timeout_cnt [20]
+Changing input A of cell $abc$4716$blif$4716$337_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [21] -> \u_cmd_parser.timeout_cnt [21]
+Changing input A of cell $abc$4716$blif$4716$340_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [22] -> \u_cmd_parser.timeout_cnt [22]
+Changing input A of cell $abc$4716$blif$4716$343_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [23] -> \u_cmd_parser.timeout_cnt [23]
+Changing input B of cell $abc$4716$blif$4716$346_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [22] -> \u_cmd_parser.timeout_cnt [22]
+Changing input A of cell $abc$4716$blif$4716$346_gold ($_ORNOT_): \u_cmd_parser.timeout_cnt_gold [23] -> \u_cmd_parser.timeout_cnt [23]
+Changing input A of cell $abc$4716$blif$4716$347_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [24] -> \u_cmd_parser.timeout_cnt [24]
+Changing input B of cell $abc$4716$blif$4716$350_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [25] -> \u_cmd_parser.timeout_cnt [25]
+Changing input A of cell $abc$4716$blif$4716$350_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [24] -> \u_cmd_parser.timeout_cnt [24]
+Changing input A of cell $abc$4716$blif$4716$351_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [25] -> \u_cmd_parser.timeout_cnt [25]
+Changing input A of cell $abc$4716$blif$4716$354_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [26] -> \u_cmd_parser.timeout_cnt [26]
+Changing input B of cell $abc$4716$blif$4716$357_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [27] -> \u_cmd_parser.timeout_cnt [27]
+Changing input A of cell $abc$4716$blif$4716$357_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [26] -> \u_cmd_parser.timeout_cnt [26]
+Changing input A of cell $abc$4716$blif$4716$358_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [27] -> \u_cmd_parser.timeout_cnt [27]
+Changing input A of cell $abc$4716$blif$4716$361_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [28] -> \u_cmd_parser.timeout_cnt [28]
+Changing input B of cell $abc$4716$blif$4716$364_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [29] -> \u_cmd_parser.timeout_cnt [29]
+Changing input A of cell $abc$4716$blif$4716$364_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [28] -> \u_cmd_parser.timeout_cnt [28]
+Changing input A of cell $abc$4716$blif$4716$365_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [29] -> \u_cmd_parser.timeout_cnt [29]
+Changing input A of cell $abc$4716$blif$4716$368_gold ($_OR_): \u_cmd_parser.timeout_cnt_gold [30] -> \u_cmd_parser.timeout_cnt [30]
+Changing input A of cell $abc$4700$blif$4700$3_gold ($_NAND_): \u_cmd_parser.state_gold [1] -> \u_cmd_parser.state [1]
+Changing input A of cell $abc$4701$blif$4701$1_gold ($_NOT_): \u_cmd_parser.byte_cnt_gold [0] -> \u_cmd_parser.byte_cnt [0]
+Changing input B of cell $abc$4692$blif$4692$32_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$24_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input S of cell $abc$4705$blif$4705$4_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$4_gold ($_MUX_): \u_uart_tx.shift_reg_gold [2] -> \u_uart_tx.shift_reg [2]
+Changing input B of cell $abc$4692$blif$4692$15_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$6_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4713$blif$4713$10_gold ($_AND_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input A of cell $abc$4713$blif$4713$10_gold ($_AND_): \u_uart_rx.tick_cnt_gold [3] -> \u_uart_rx.tick_cnt [3]
+Changing input B of cell $abc$4713$blif$4713$14_gold ($_AND_): \u_uart_rx.tick_cnt_gold [0] -> \u_uart_rx.tick_cnt [0]
+Changing input A of cell $abc$4713$blif$4713$14_gold ($_AND_): \u_uart_rx.tick_cnt_gold [1] -> \u_uart_rx.tick_cnt [1]
+Changing input S of cell $abc$4705$blif$4705$3_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$3_gold ($_MUX_): \u_uart_tx.shift_reg_gold [1] -> \u_uart_tx.shift_reg [1]
+Changing input A of cell $abc$4713$blif$4713$3_gold ($_NOT_): \u_uart_rx.tick_cnt_gold [2] -> \u_uart_rx.tick_cnt [2]
+Changing input B of cell $abc$4692$blif$4692$19_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input D of cell $auto$ff.cc:337:slice$1903_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [7] -> \u_uart_rx.shift_reg [7]
+Changing input D of cell $auto$ff.cc:337:slice$1902_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [6] -> \u_uart_rx.shift_reg [6]
+Changing input D of cell $auto$ff.cc:337:slice$1901_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [5] -> \u_uart_rx.shift_reg [5]
+Changing input D of cell $auto$ff.cc:337:slice$1900_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [4] -> \u_uart_rx.shift_reg [4]
+Changing input D of cell $auto$ff.cc:337:slice$1899_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [3] -> \u_uart_rx.shift_reg [3]
+Changing input D of cell $auto$ff.cc:337:slice$1898_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [2] -> \u_uart_rx.shift_reg [2]
+Changing input D of cell $auto$ff.cc:337:slice$1897_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [1] -> \u_uart_rx.shift_reg [1]
+Changing input D of cell $auto$ff.cc:337:slice$1891_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [6] -> \u_uart_rx.shift_reg [6]
+Changing input D of cell $auto$ff.cc:337:slice$1890_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [5] -> \u_uart_rx.shift_reg [5]
+Changing input D of cell $auto$ff.cc:337:slice$1889_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [4] -> \u_uart_rx.shift_reg [4]
+Changing input D of cell $auto$ff.cc:337:slice$1888_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [3] -> \u_uart_rx.shift_reg [3]
+Changing input D of cell $auto$ff.cc:337:slice$1887_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [2] -> \u_uart_rx.shift_reg [2]
+Changing input D of cell $auto$ff.cc:337:slice$1886_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [1] -> \u_uart_rx.shift_reg [1]
+Changing input D of cell $auto$ff.cc:337:slice$1885_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [0] -> \u_uart_rx.shift_reg [0]
+Changing input A of cell $abc$4714$blif$4714$16_gold ($_AND_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4707$blif$4707$10_gold ($_OR_): \u_uart_tx.bit_cnt_gold [2] -> \u_uart_tx.bit_cnt [2]
+Changing input B of cell $abc$4707$blif$4707$2_gold ($_AND_): \u_uart_tx.bit_cnt_gold [0] -> \u_uart_tx.bit_cnt [0]
+Changing input A of cell $abc$4707$blif$4707$2_gold ($_AND_): \u_uart_tx.bit_cnt_gold [1] -> \u_uart_tx.bit_cnt [1]
+Changing input S of cell $abc$4708$blif$4708$3_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4708$blif$4708$3_gold ($_MUX_): \u_uart_tx.shift_reg_gold [7] -> \u_uart_tx.shift_reg [7]
+Changing input A of cell $abc$4713$blif$4713$2_gold ($_NOT_): \u_uart_rx.tick_cnt_gold [0] -> \u_uart_rx.tick_cnt [0]
+Changing input B of cell $abc$4692$blif$4692$25_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4704$blif$4704$9_gold ($_AND_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4706$blif$4706$10_gold ($_AND_): \u_uart_tx.tick_cnt_gold [2] -> \u_uart_tx.tick_cnt [2]
+Changing input A of cell $abc$4716$blif$4716$1_gold ($_NOT_): \u_uart_rx.state_gold [3] -> \u_uart_rx.state [3]
+Changing input A of cell $abc$4698$blif$4698$11_gold ($_OR_): \u_cmd_parser.is_write_gold -> \u_cmd_parser.is_write
+Changing input B of cell $abc$4692$blif$4692$12_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$30_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input S of cell $abc$4697$blif$4697$3_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4697$blif$4697$3_gold ($_MUX_): \u_resp_builder.data_reg_gold [30] -> \u_resp_builder.data_reg [30]
+Changing input A of cell $abc$4697$blif$4697$3_gold ($_MUX_): \u_resp_builder.error_reg_gold -> \u_resp_builder.error_reg
+Changing input B of cell $abc$4692$blif$4692$8_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$28_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$7_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4700$blif$4700$18_gold ($_OR_): \u_cmd_parser.state_gold [1] -> \u_cmd_parser.state [1]
+Changing input A of cell $abc$4700$blif$4700$18_gold ($_OR_): \u_cmd_parser.state_gold [0] -> \u_cmd_parser.state [0]
+Changing input B of cell $abc$4692$blif$4692$35_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input S of cell $abc$4697$blif$4697$2_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4697$blif$4697$2_gold ($_MUX_): \u_resp_builder.data_reg_gold [25] -> \u_resp_builder.data_reg [25]
+Changing input A of cell $abc$4697$blif$4697$2_gold ($_MUX_): \u_resp_builder.error_reg_gold -> \u_resp_builder.error_reg
+Changing input B of cell $abc$4692$blif$4692$17_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$20_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input S of cell $abc$4705$blif$4705$6_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$6_gold ($_MUX_): \u_uart_tx.shift_reg_gold [4] -> \u_uart_tx.shift_reg [4]
+Changing input S of cell $abc$4705$blif$4705$7_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$7_gold ($_MUX_): \u_uart_tx.shift_reg_gold [5] -> \u_uart_tx.shift_reg [5]
+Changing input B of cell $abc$4692$blif$4692$29_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input S of cell $abc$4705$blif$4705$5_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$5_gold ($_MUX_): \u_uart_tx.shift_reg_gold [3] -> \u_uart_tx.shift_reg [3]
+Changing input A of cell $abc$4714$blif$4714$12_gold ($_XNOR_): \u_uart_rx.bit_cnt_gold [2] -> \u_uart_rx.bit_cnt [2]
+Changing input B of cell $abc$4710$blif$4710$4_gold ($_ORNOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4710$blif$4710$4_gold ($_ORNOT_): \u_resp_builder.data_reg_gold [31] -> \u_resp_builder.data_reg [31]
+Changing input B of cell $abc$4692$blif$4692$14_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4698$blif$4698$13_gold ($_AND_): \u_cmd_parser.is_write_gold -> \u_cmd_parser.is_write
+Changing input B of cell $abc$4696$blif$4696$7_gold ($_AND_): \u_resp_builder.state_gold [3] -> \u_resp_builder.state [3]
+Changing input B of cell $abc$4692$blif$4692$13_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$26_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$10_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4706$blif$4706$9_gold ($_AND_): \u_uart_tx.tick_cnt_gold [0] -> \u_uart_tx.tick_cnt [0]
+Changing input A of cell $abc$4706$blif$4706$9_gold ($_AND_): \u_uart_tx.tick_cnt_gold [1] -> \u_uart_tx.tick_cnt [1]
+Changing input A of cell $abc$4707$blif$4707$15_gold ($_AND_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4707$blif$4707$11_gold ($_AND_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4692$blif$4692$5_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4714$blif$4714$15_gold ($_OR_): \u_uart_rx.bit_cnt_gold [1] -> \u_uart_rx.bit_cnt [1]
+Changing input A of cell $abc$4714$blif$4714$15_gold ($_OR_): \u_uart_rx.bit_cnt_gold [0] -> \u_uart_rx.bit_cnt [0]
+Changing input B of cell $abc$4692$blif$4692$33_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$11_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4701$blif$4701$13_gold ($_XOR_): \u_cmd_parser.byte_cnt_gold [0] -> \u_cmd_parser.byte_cnt [0]
+Changing input A of cell $abc$4701$blif$4701$13_gold ($_XOR_): \u_cmd_parser.byte_cnt_gold [1] -> \u_cmd_parser.byte_cnt [1]
+Changing input A of cell $abc$4716$blif$4716$0_gold ($_NOT_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input A of cell $abc$4700$blif$4700$43_gold ($_NAND_): \u_cmd_parser.state_gold [1] -> \u_cmd_parser.state [1]
+Changing input B of cell $abc$4692$blif$4692$9_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4704$blif$4704$1_gold ($_NOT_): \u_resp_builder.byte_cnt_gold [0] -> \u_resp_builder.byte_cnt [0]
+Changing input A of cell $abc$4696$blif$4696$0_gold ($_NOT_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input B of cell $abc$4700$blif$4700$2_gold ($_ANDNOT_): \u_cmd_parser.state_gold [2] -> \u_cmd_parser.state [2]
+Changing input A of cell $abc$4700$blif$4700$2_gold ($_ANDNOT_): \u_cmd_parser.state_gold [0] -> \u_cmd_parser.state [0]
+Changing input A of cell $abc$4714$blif$4714$0_gold ($_NOT_): \u_uart_rx.bit_cnt_gold [2] -> \u_uart_rx.bit_cnt [2]
+Changing input B of cell $abc$4692$blif$4692$16_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$31_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4706$blif$4706$3_gold ($_NOT_): \u_uart_tx.tick_cnt_gold [2] -> \u_uart_tx.tick_cnt [2]
+Changing input B of cell $abc$4692$blif$4692$34_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4698$blif$4698$0_gold ($_NOT_): \u_cmd_parser.is_write_gold -> \u_cmd_parser.is_write
+Changing input A of cell $abc$4701$blif$4701$0_gold ($_NOT_): \u_cmd_parser.byte_cnt_gold [1] -> \u_cmd_parser.byte_cnt [1]
+Changing input B of cell $abc$4700$blif$4700$19_gold ($_NOR_): \u_cmd_parser.state_gold [0] -> \u_cmd_parser.state [0]
+Changing input A of cell $abc$4700$blif$4700$19_gold ($_NOR_): \u_cmd_parser.state_gold [2] -> \u_cmd_parser.state [2]
+Changing input B of cell $abc$4692$blif$4692$3_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4706$blif$4706$0_gold ($_NOT_): \u_uart_tx.tick_cnt_gold [3] -> \u_uart_tx.tick_cnt [3]
+Changing input B of cell $abc$4697$blif$4697$0_gold ($_AND_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+Changing input A of cell $abc$4716$blif$4716$3_gold ($_NOT_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4706$blif$4706$16_gold ($_XOR_): \u_uart_tx.tick_cnt_gold [0] -> \u_uart_tx.tick_cnt [0]
+Changing input A of cell $abc$4706$blif$4706$16_gold ($_XOR_): \u_uart_tx.tick_cnt_gold [1] -> \u_uart_tx.tick_cnt [1]
+Changing input S of cell $abc$4709$blif$4709$2_gold ($_MUX_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4709$blif$4709$1_gold ($_AND_): \u_apb_master.state_gold [1] -> \u_apb_master.state [1]
+Changing input B of cell $abc$4704$blif$4704$8_gold ($_XOR_): \u_resp_builder.byte_cnt_gold [0] -> \u_resp_builder.byte_cnt [0]
+Changing input A of cell $abc$4704$blif$4704$8_gold ($_XOR_): \u_resp_builder.byte_cnt_gold [1] -> \u_resp_builder.byte_cnt [1]
+Changing input B of cell $abc$4707$blif$4707$14_gold ($_OR_): \u_uart_tx.bit_cnt_gold [0] -> \u_uart_tx.bit_cnt [0]
+Changing input A of cell $abc$4707$blif$4707$14_gold ($_OR_): \u_uart_tx.bit_cnt_gold [1] -> \u_uart_tx.bit_cnt [1]
+Changing input A of cell $abc$4713$blif$4713$15_gold ($_NAND_): \u_uart_rx.tick_cnt_gold [2] -> \u_uart_rx.tick_cnt [2]
+Changing input A of cell $abc$4713$blif$4713$16_gold ($_NAND_): \u_uart_rx.tick_cnt_gold [3] -> \u_uart_rx.tick_cnt [3]
+Changing input B of cell $abc$4713$blif$4713$17_gold ($_ANDNOT_): \u_uart_rx.tick_cnt_gold [3] -> \u_uart_rx.tick_cnt [3]
+Changing input A of cell $abc$4713$blif$4713$17_gold ($_ANDNOT_): \u_uart_rx.tick_cnt_gold [2] -> \u_uart_rx.tick_cnt [2]
+Changing input A of cell $abc$4713$blif$4713$0_gold ($_NOT_): \u_uart_rx.tick_cnt_gold [3] -> \u_uart_rx.tick_cnt [3]
+Changing input S of cell $abc$4705$blif$4705$8_gold ($_MUX_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input B of cell $abc$4705$blif$4705$8_gold ($_MUX_): \u_uart_tx.shift_reg_gold [6] -> \u_uart_tx.shift_reg [6]
+Changing input A of cell $abc$4706$blif$4706$1_gold ($_NOT_): \u_uart_tx.tick_cnt_gold [1] -> \u_uart_tx.tick_cnt [1]
+Changing input B of cell $abc$4712$blif$4712$0_gold ($_AND_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4692$blif$4692$23_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4714$blif$4714$2_gold ($_NOT_): \u_uart_rx.bit_cnt_gold [1] -> \u_uart_rx.bit_cnt [1]
+Changing input B of cell $abc$4692$blif$4692$21_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4697$blif$4697$1_gold ($_ANDNOT_): \u_resp_builder.error_reg_gold -> \u_resp_builder.error_reg
+Changing input A of cell $abc$4697$blif$4697$1_gold ($_ANDNOT_): \u_resp_builder.is_read_gold -> \u_resp_builder.is_read
+Changing input A of cell $abc$4704$blif$4704$0_gold ($_NOT_): \u_resp_builder.byte_cnt_gold [1] -> \u_resp_builder.byte_cnt [1]
+Changing input B of cell $abc$4692$blif$4692$22_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4706$blif$4706$2_gold ($_NOT_): \u_uart_tx.tick_cnt_gold [0] -> \u_uart_tx.tick_cnt [0]
+Changing input B of cell $abc$4714$blif$4714$14_gold ($_ANDNOT_): \u_uart_rx.bit_cnt_gold [0] -> \u_uart_rx.bit_cnt [0]
+Changing input A of cell $abc$4714$blif$4714$14_gold ($_ANDNOT_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input A of cell $abc$4714$blif$4714$1_gold ($_NOT_): \u_uart_rx.bit_cnt_gold [0] -> \u_uart_rx.bit_cnt [0]
+Changing input B of cell $abc$4696$blif$4696$6_gold ($_AND_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input A of cell $abc$4700$blif$4700$20_gold ($_OR_): \u_cmd_parser.state_gold [2] -> \u_cmd_parser.state [2]
+Changing input B of cell $abc$4708$blif$4708$4_gold ($_AND_): \u_uart_tx.shift_reg_gold [0] -> \u_uart_tx.shift_reg [0]
+Changing input A of cell $abc$4708$blif$4708$4_gold ($_AND_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4713$blif$4713$1_gold ($_NOT_): \u_uart_rx.tick_cnt_gold [1] -> \u_uart_rx.tick_cnt [1]
+Changing input A of cell $abc$4709$blif$4709$0_gold ($_NOT_): \u_apb_master.PWRITE_gold -> \PWRITE
+Changing input B of cell $abc$4692$blif$4692$18_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4700$blif$4700$37_gold ($_ANDNOT_): \u_cmd_parser.state_gold [1] -> \u_cmd_parser.state [1]
+Changing input A of cell $abc$4700$blif$4700$0_gold ($_NOT_): \u_cmd_parser.state_gold [2] -> \u_cmd_parser.state [2]
+Changing input B of cell $abc$4713$blif$4713$24_gold ($_XOR_): \u_uart_rx.tick_cnt_gold [0] -> \u_uart_rx.tick_cnt [0]
+Changing input A of cell $abc$4713$blif$4713$24_gold ($_XOR_): \u_uart_rx.tick_cnt_gold [1] -> \u_uart_rx.tick_cnt [1]
+Changing input S of cell $abc$4710$blif$4710$3_gold ($_MUX_): \u_resp_builder.state_gold [4] -> \u_resp_builder.state [4]
+Changing input B of cell $abc$4710$blif$4710$3_gold ($_MUX_): \u_resp_builder.data_reg_gold [23] -> \u_resp_builder.data_reg [23]
+Changing input D of cell $auto$ff.cc:337:slice$1892_gold ($_DFFE_PN0P_): \u_uart_rx.shift_reg_gold [7] -> \u_uart_rx.shift_reg [7]
+Changing input D of cell $auto$ff.cc:337:slice$1904_gold ($_DFFE_PN0P_): \u_uart_rx.rx_sync2_gold -> \u_uart_rx.rx_sync2
+Changing input D of cell $auto$ff.cc:337:slice$2588_gold ($_DFF_PN1_): \u_uart_rx.rx_sync1_gold -> \u_uart_rx.rx_sync1
+Changing input A of cell $abc$4714$blif$4714$13_gold ($_AND_): \u_uart_rx.state_gold [1] -> \u_uart_rx.state [1]
+Changing input B of cell $abc$4715$blif$4715$0_gold ($_AND_): \u_apb_master.state_gold [0] -> \u_apb_master.state [0]
+Changing input B of cell $abc$4714$blif$4714$11_gold ($_NAND_): \u_uart_rx.bit_cnt_gold [1] -> \u_uart_rx.bit_cnt [1]
+Changing input A of cell $abc$4714$blif$4714$11_gold ($_NAND_): \u_uart_rx.bit_cnt_gold [0] -> \u_uart_rx.bit_cnt [0]
+Changing input B of cell $abc$4696$blif$4696$2_gold ($_ORNOT_): \u_uart_tx.state_gold [3] -> \u_uart_tx.state [3]
+Changing input B of cell $abc$4692$blif$4692$27_gold ($_ANDNOT_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4707$blif$4707$13_gold ($_ANDNOT_): \u_uart_tx.bit_cnt_gold [0] -> \u_uart_tx.bit_cnt [0]
+Changing input A of cell $abc$4707$blif$4707$13_gold ($_ANDNOT_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input A of cell $abc$4694$blif$4694$0_gold ($_NOT_): \u_apb_master.state_gold [1] -> \u_apb_master.state [1]
+Changing input D of cell $auto$ff.cc:337:slice$2042_gold ($_DFFE_PN0P_): \u_apb_master.state_gold [3] -> \u_apb_master.state [3]
+Changing input A of cell $abc$4707$blif$4707$3_gold ($_NAND_): \u_uart_tx.bit_cnt_gold [2] -> \u_uart_tx.bit_cnt [2]
+Changing input B of cell $abc$4708$blif$4708$2_gold ($_ANDNOT_): \u_uart_tx.state_gold [1] -> \u_uart_tx.state [1]
+Changing input S of cell $abc$4691$blif$4691$1_gold ($_MUX_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4692$blif$4692$0_gold ($_NOT_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4692$blif$4692$2_gold ($_AND_): \lock_reg_gold -> \locked
+Changing input B of cell $abc$4692$blif$4692$1_gold ($_AND_): \u_apb_master.state_gold [0] -> \u_apb_master.state [0]
+Changing input A of cell $abc$4692$blif$4692$1_gold ($_AND_): \lock_armed_gold -> \lock_armed
+Changing input A of cell $abc$4692$blif$4692$4_gold ($_OR_): \lock_reg_gold -> \locked
+Changing input A of cell $abc$4716$blif$4716$4_gold ($_NOT_): \u_resp_builder.state_gold [0] -> \u_resp_builder.state [0]
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+4.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gold'.
+Removing unused module `\gate'.
+Removed 2 unused modules.
+
+5. Executing EQUIV_SIMPLE pass.
+ERROR: No SAT model available for async FF cell $flatten\$auto$ff.cc:337:slice$2699.$auto$liberty.cc:242:create_ff$997_gate ($_DFF_PP1_).  Consider running `async2sync` or `clk2fflogic` first.
+Found 330 unproven $equiv cells (43 groups) in equiv:
+  Trying to prove $equiv for \uart_tx:

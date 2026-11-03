@@ -1,0 +1,768 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/B/sequential_equivalence.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/B/sequential_equivalence.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/B/gold.il
+Renaming module \cpu8 to \gold.
+
+2. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/baseline/B/gate.il
+Renaming module \cpu8 to \gate.
+
+3. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: rf.mem[7]_gold (\rf.mem[7]_gold), rf.mem[7]_gate ({ \$auto$ff.cc:337:slice$372.IQ_gate \$auto$ff.cc:337:slice$371.IQ_gate \$auto$ff.cc:337:slice$370.IQ_gate \$auto$ff.cc:337:slice$369.IQ_gate \$auto$ff.cc:337:slice$368.IQ_gate \$auto$ff.cc:337:slice$367.IQ_gate \$auto$ff.cc:337:slice$366.IQ_gate \$auto$ff.cc:337:slice$365.IQ_gate }) -> rf.mem[7]
+Presumably equivalent wires: rf.mem[6]_gold (\rf.mem[6]_gold), rf.mem[6]_gate ({ \$auto$ff.cc:337:slice$380.IQ_gate \$auto$ff.cc:337:slice$379.IQ_gate \$auto$ff.cc:337:slice$378.IQ_gate \$auto$ff.cc:337:slice$377.IQ_gate \$auto$ff.cc:337:slice$376.IQ_gate \$auto$ff.cc:337:slice$375.IQ_gate \$auto$ff.cc:337:slice$374.IQ_gate \$auto$ff.cc:337:slice$373.IQ_gate }) -> rf.mem[6]
+Presumably equivalent wires: rf.mem[5]_gold (\rf.mem[5]_gold), rf.mem[5]_gate ({ \$auto$ff.cc:337:slice$388.IQ_gate \$auto$ff.cc:337:slice$387.IQ_gate \$auto$ff.cc:337:slice$386.IQ_gate \$auto$ff.cc:337:slice$385.IQ_gate \$auto$ff.cc:337:slice$384.IQ_gate \$auto$ff.cc:337:slice$383.IQ_gate \$auto$ff.cc:337:slice$382.IQ_gate \$auto$ff.cc:337:slice$381.IQ_gate }) -> rf.mem[5]
+Presumably equivalent wires: rf.mem[4]_gold (\rf.mem[4]_gold), rf.mem[4]_gate ({ \$auto$ff.cc:337:slice$396.IQ_gate \$auto$ff.cc:337:slice$395.IQ_gate \$auto$ff.cc:337:slice$394.IQ_gate \$auto$ff.cc:337:slice$393.IQ_gate \$auto$ff.cc:337:slice$392.IQ_gate \$auto$ff.cc:337:slice$391.IQ_gate \$auto$ff.cc:337:slice$390.IQ_gate \$auto$ff.cc:337:slice$389.IQ_gate }) -> rf.mem[4]
+Presumably equivalent wires: rf.mem[3]_gold (\rf.mem[3]_gold), rf.mem[3]_gate ({ \$auto$ff.cc:337:slice$404.IQ_gate \$auto$ff.cc:337:slice$403.IQ_gate \$auto$ff.cc:337:slice$402.IQ_gate \$auto$ff.cc:337:slice$401.IQ_gate \$auto$ff.cc:337:slice$400.IQ_gate \$auto$ff.cc:337:slice$399.IQ_gate \$auto$ff.cc:337:slice$398.IQ_gate \$auto$ff.cc:337:slice$397.IQ_gate }) -> rf.mem[3]
+Presumably equivalent wires: rf.mem[2]_gold (\rf.mem[2]_gold), rf.mem[2]_gate ({ \$auto$ff.cc:337:slice$412.IQ_gate \$auto$ff.cc:337:slice$411.IQ_gate \$auto$ff.cc:337:slice$410.IQ_gate \$auto$ff.cc:337:slice$409.IQ_gate \$auto$ff.cc:337:slice$408.IQ_gate \$auto$ff.cc:337:slice$407.IQ_gate \$auto$ff.cc:337:slice$406.IQ_gate \$auto$ff.cc:337:slice$405.IQ_gate }) -> rf.mem[2]
+Presumably equivalent wires: rf.mem[1]_gold (\rf.mem[1]_gold), rf.mem[1]_gate ({ \$auto$ff.cc:337:slice$420.IQ_gate \$auto$ff.cc:337:slice$419.IQ_gate \$auto$ff.cc:337:slice$418.IQ_gate \$auto$ff.cc:337:slice$417.IQ_gate \$auto$ff.cc:337:slice$416.IQ_gate \$auto$ff.cc:337:slice$415.IQ_gate \$auto$ff.cc:337:slice$414.IQ_gate \$auto$ff.cc:337:slice$413.IQ_gate }) -> rf.mem[1]
+Presumably equivalent wires: rf.mem[0]_gold (\rf.mem[0]_gold), rf.mem[0]_gate ({ \$auto$ff.cc:337:slice$428.IQ_gate \$auto$ff.cc:337:slice$427.IQ_gate \$auto$ff.cc:337:slice$426.IQ_gate \$auto$ff.cc:337:slice$425.IQ_gate \$auto$ff.cc:337:slice$424.IQ_gate \$auto$ff.cc:337:slice$423.IQ_gate \$auto$ff.cc:337:slice$422.IQ_gate \$auto$ff.cc:337:slice$421.IQ_gate }) -> rf.mem[0]
+Presumably equivalent wires: alu.op_gold (\insn_gold [14:12]), alu.op_gate ({ \$auto$ff.cc:337:slice$440.IQ_gate \$auto$ff.cc:337:slice$439.IQ_gate \$auto$ff.cc:337:slice$438.IQ_gate }) -> alu.op
+Presumably equivalent wires: insn_gold ({ \insn_gold [15:3] 3'000 }), insn_gate ({ \$auto$ff.cc:337:slice$443.IQ_gate \$auto$ff.cc:337:slice$440.IQ_gate \$auto$ff.cc:337:slice$439.IQ_gate \$auto$ff.cc:337:slice$438.IQ_gate \$auto$ff.cc:337:slice$437.IQ_gate \$auto$ff.cc:337:slice$436.IQ_gate \$auto$ff.cc:337:slice$435.IQ_gate \$auto$ff.cc:337:slice$434.IQ_gate \$auto$ff.cc:337:slice$433.IQ_gate \$auto$ff.cc:337:slice$432.IQ_gate \$auto$ff.cc:337:slice$431.IQ_gate \$auto$ff.cc:337:slice$430.IQ_gate \$auto$ff.cc:337:slice$429.IQ_gate 3'000 }) -> insn
+Presumably equivalent wires: halt_gold (\halt_gold), halt_gate (\$auto$ff.cc:337:slice$494.IQ_gate) -> halt
+Presumably equivalent wires: pc_out_gold (\pc_gold), pc_out_gate ({ \$auto$ff.cc:337:slice$493.IQ_gate \$auto$ff.cc:337:slice$492.IQ_gate \$auto$ff.cc:337:slice$491.IQ_gate \$auto$ff.cc:337:slice$490.IQ_gate }) -> pc_out
+Presumably equivalent wires: dout_gold (\dout_gold), dout_gate ({ \$abc$1522$blif$1522$126.A_gate \$abc$1522$blif$1522$138.A0_gate \$abc$1522$blif$1522$149.Y_gate \$abc$1522$blif$1522$163.Y_gate \$abc$1522$blif$1522$178.Y_gate \$abc$1522$blif$1522$191.Y_gate \$abc$1522$blif$1522$205.Y_gate \$abc$1522$blif$1522$217.A0_gate }) -> dout
+Presumably equivalent wires: din_gold (\din_gold), din_gate (\din_gate) -> din
+Presumably equivalent wires: rst_gold (\rst_gold), rst_gate (\rst_gate) -> rst
+Presumably equivalent wires: clk_gold (\clk_gold), clk_gate (\clk_gate) -> clk
+Changing input A of cell $flatten\$abc$1522$blif$1522$24.$auto$liberty.cc:109:parse_func_reduce$2223_gate ($_AND_): \$auto$ff.cc:337:slice$490.IQ_gate -> \pc_out [0]
+Changing input A of cell $flatten\$abc$1522$blif$1522$21.$auto$liberty.cc:62:parse_func_reduce$175_gate ($_NOT_): \$auto$ff.cc:337:slice$491.IQ_gate -> \pc_out [1]
+Changing input A of cell $flatten\$abc$1522$blif$1522$21.$auto$liberty.cc:62:parse_func_reduce$181_gate ($_NOT_): \$auto$ff.cc:337:slice$491.IQ_gate -> \pc_out [1]
+Changing input A of cell $flatten\$abc$1522$blif$1522$138.$auto$liberty.cc:109:parse_func_reduce$1143_gate ($_AND_): \$abc$1522$blif$1522$138.A0_gate -> \dout [6]
+Changing input A of cell $flatten\$abc$1522$blif$1522$11.$auto$liberty.cc:62:parse_func_reduce$175_gate ($_NOT_): \$auto$ff.cc:337:slice$494.IQ_gate -> \halt
+Changing input A of cell $flatten\$abc$1522$blif$1522$11.$auto$liberty.cc:62:parse_func_reduce$181_gate ($_NOT_): \$auto$ff.cc:337:slice$494.IQ_gate -> \halt
+Changing input A of cell $flatten\$abc$1522$blif$1522$24.$auto$liberty.cc:62:parse_func_reduce$2217_gate ($_NOT_): \$auto$ff.cc:337:slice$490.IQ_gate -> \pc_out [0]
+Changing input A of cell $flatten\$abc$1522$blif$1522$217.$auto$liberty.cc:62:parse_func_reduce$1157_gate ($_NOT_): \$abc$1522$blif$1522$217.A0_gate -> \dout [0]
+Changing input A of cell $flatten\$abc$1522$blif$1522$21.$auto$liberty.cc:62:parse_func_reduce$173_gate ($_NOT_): \$auto$ff.cc:337:slice$490.IQ_gate -> \pc_out [0]
+Changing input A of cell $flatten\$abc$1522$blif$1522$18.$auto$liberty.cc:62:parse_func_reduce$1369_gate ($_NOT_): \$auto$ff.cc:337:slice$492.IQ_gate -> \pc_out [2]
+Changing input A of cell $flatten\$abc$1522$blif$1522$16.$auto$liberty.cc:62:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$493.IQ_gate -> \pc_out [3]
+Changing input A of cell $flatten\$abc$1522$blif$1522$15.$auto$liberty.cc:62:parse_func_reduce$173_gate ($_NOT_): \$auto$ff.cc:337:slice$493.IQ_gate -> \pc_out [3]
+Changing input A of cell $flatten\$abc$1522$blif$1522$14.$auto$liberty.cc:109:parse_func_reduce$863_gate ($_AND_): \$auto$ff.cc:337:slice$492.IQ_gate -> \pc_out [2]
+Changing input B of cell $flatten\$abc$1522$blif$1522$13.$auto$liberty.cc:109:parse_func_reduce$875_gate ($_AND_): \$auto$ff.cc:337:slice$491.IQ_gate -> \pc_out [1]
+Changing input A of cell $flatten\$abc$1522$blif$1522$13.$auto$liberty.cc:109:parse_func_reduce$875_gate ($_AND_): \$auto$ff.cc:337:slice$490.IQ_gate -> \pc_out [0]
+Changing input A of cell $flatten\$abc$1522$blif$1522$126.$auto$liberty.cc:62:parse_func_reduce$1369_gate ($_NOT_): \$abc$1522$blif$1522$126.A_gate -> \dout [7]
+Changing input A of cell $abc$1373$blif$1373$5_gold ($_NAND_): \pc_gold [2] -> \pc_out [2]
+Changing input A of cell $abc$1373$blif$1373$6_gold ($_XNOR_): \pc_gold [3] -> \pc_out [3]
+Changing input A of cell $abc$1373$blif$1373$7_gold ($_MUX_): \pc_gold [3] -> \pc_out [3]
+Changing input B of cell $abc$1373$blif$1373$9_gold ($_XOR_): \pc_gold [1] -> \pc_out [1]
+Changing input A of cell $abc$1373$blif$1373$9_gold ($_XOR_): \pc_gold [0] -> \pc_out [0]
+Changing input A of cell $abc$1373$blif$1373$10_gold ($_MUX_): \pc_gold [1] -> \pc_out [1]
+Changing input A of cell $abc$1373$blif$1373$11_gold ($_XOR_): \pc_gold [2] -> \pc_out [2]
+Changing input A of cell $abc$1373$blif$1373$12_gold ($_MUX_): \pc_gold [2] -> \pc_out [2]
+Changing input B of cell $abc$1372$blif$1372$17_gold ($_OR_): \insn_gold [15] -> \insn [15]
+Changing input A of cell $abc$1372$blif$1372$17_gold ($_OR_): \insn_gold [14] -> \insn [14]
+Changing input B of cell $abc$1372$blif$1372$18_gold ($_OR_): \insn_gold [13] -> \insn [13]
+Changing input A of cell $abc$1372$blif$1372$18_gold ($_OR_): \insn_gold [12] -> \insn [12]
+Changing input A of cell $abc$1372$blif$1372$19_gold ($_OR_): \insn_gold [14] -> \insn [14]
+Changing input B of cell $abc$1372$blif$1372$20_gold ($_ORNOT_): \insn_gold [12] -> \insn [12]
+Changing input A of cell $abc$1372$blif$1372$20_gold ($_ORNOT_): \insn_gold [13] -> \insn [13]
+Changing input A of cell $abc$1372$blif$1372$21_gold ($_OR_): \insn_gold [14] -> \insn [14]
+Changing input B of cell $abc$1372$blif$1372$22_gold ($_ORNOT_): \insn_gold [13] -> \insn [13]
+Changing input A of cell $abc$1372$blif$1372$22_gold ($_ORNOT_): \insn_gold [12] -> \insn [12]
+Changing input A of cell $abc$1372$blif$1372$23_gold ($_OR_): \insn_gold [14] -> \insn [14]
+Changing input B of cell $abc$1372$blif$1372$24_gold ($_NAND_): \insn_gold [13] -> \insn [13]
+Changing input A of cell $abc$1372$blif$1372$24_gold ($_NAND_): \insn_gold [12] -> \insn [12]
+Changing input A of cell $abc$1372$blif$1372$25_gold ($_OR_): \insn_gold [14] -> \insn [14]
+Changing input S of cell $abc$1372$blif$1372$40_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$41_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$42_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$43_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$44_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$45_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$46_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$47_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$48_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$49_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$50_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$51_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$52_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$53_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$54_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$55_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$56_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$57_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$58_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$59_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$60_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$61_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$62_gold ($_MUX_): \insn_gold [4] -> \insn [4]
+Changing input S of cell $abc$1372$blif$1372$63_gold ($_MUX_): \insn_gold [5] -> \insn [5]
+Changing input S of cell $abc$1372$blif$1372$71_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$72_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$73_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$74_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$75_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$76_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$77_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$78_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$79_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$80_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$81_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$82_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$83_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$84_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$85_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$86_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$87_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$88_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$89_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$90_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$91_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input S of cell $abc$1372$blif$1372$92_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$93_gold ($_MUX_): \insn_gold [7] -> \insn [7]
+Changing input S of cell $abc$1372$blif$1372$94_gold ($_MUX_): \insn_gold [8] -> \insn [8]
+Changing input B of cell $abc$1372$blif$1372$98_gold ($_NOR_): \insn_gold [11] -> \insn [11]
+Changing input A of cell $abc$1372$blif$1372$98_gold ($_NOR_): \insn_gold [10] -> \insn [10]
+Changing input A of cell $abc$1372$blif$1372$99_gold ($_AND_): \insn_gold [9] -> \insn [9]
+Changing input B of cell $abc$1372$blif$1372$100_gold ($_AND_): \insn_gold [11] -> \insn [11]
+Changing input A of cell $abc$1372$blif$1372$100_gold ($_AND_): \insn_gold [10] -> \insn [10]
+Changing input A of cell $abc$1372$blif$1372$101_gold ($_AND_): \insn_gold [9] -> \insn [9]
+Changing input B of cell $abc$1372$blif$1372$102_gold ($_ANDNOT_): \insn_gold [11] -> \insn [11]
+Changing input A of cell $abc$1372$blif$1372$102_gold ($_ANDNOT_): \insn_gold [10] -> \insn [10]
+Changing input A of cell $abc$1372$blif$1372$103_gold ($_AND_): \insn_gold [9] -> \insn [9]
+Changing input B of cell $abc$1372$blif$1372$104_gold ($_ANDNOT_): \insn_gold [10] -> \insn [10]
+Changing input A of cell $abc$1372$blif$1372$104_gold ($_ANDNOT_): \insn_gold [11] -> \insn [11]
+Changing input A of cell $abc$1372$blif$1372$105_gold ($_AND_): \insn_gold [9] -> \insn [9]
+Changing input B of cell $abc$1364$blif$1364$127_gold ($_MUX_): \dout_gold [4] -> \dout [4]
+Changing input S of cell $abc$1364$blif$1364$128_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$128_gold ($_MUX_): \rf.mem[7]_gold [4] -> \rf.mem[7] [4]
+Changing input A of cell $abc$1364$blif$1364$128_gold ($_MUX_): \rf.mem[6]_gold [4] -> \rf.mem[6] [4]
+Changing input S of cell $abc$1364$blif$1364$129_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$129_gold ($_MUX_): \rf.mem[7]_gold [4] -> \rf.mem[7] [4]
+Changing input A of cell $abc$1364$blif$1364$129_gold ($_MUX_): \rf.mem[6]_gold [4] -> \rf.mem[6] [4]
+Changing input B of cell $abc$1364$blif$1364$154_gold ($_MUX_): \dout_gold [5] -> \dout [5]
+Changing input S of cell $abc$1364$blif$1364$155_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$155_gold ($_MUX_): \rf.mem[7]_gold [5] -> \rf.mem[7] [5]
+Changing input A of cell $abc$1364$blif$1364$155_gold ($_MUX_): \rf.mem[6]_gold [5] -> \rf.mem[6] [5]
+Changing input S of cell $abc$1364$blif$1364$156_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$156_gold ($_MUX_): \rf.mem[7]_gold [5] -> \rf.mem[7] [5]
+Changing input A of cell $abc$1364$blif$1364$156_gold ($_MUX_): \rf.mem[6]_gold [5] -> \rf.mem[6] [5]
+Changing input B of cell $abc$1364$blif$1364$179_gold ($_MUX_): \dout_gold [6] -> \dout [6]
+Changing input S of cell $abc$1364$blif$1364$180_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$180_gold ($_MUX_): \rf.mem[7]_gold [6] -> \rf.mem[7] [6]
+Changing input A of cell $abc$1364$blif$1364$180_gold ($_MUX_): \rf.mem[6]_gold [6] -> \rf.mem[6] [6]
+Changing input S of cell $abc$1364$blif$1364$181_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$181_gold ($_MUX_): \rf.mem[7]_gold [6] -> \rf.mem[7] [6]
+Changing input A of cell $abc$1364$blif$1364$181_gold ($_MUX_): \rf.mem[6]_gold [6] -> \rf.mem[6] [6]
+Changing input A of cell $abc$1372$blif$1372$1_gold ($_NOT_): \insn_gold [9] -> \insn [9]
+Changing input S of cell $abc$1364$blif$1364$50_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$50_gold ($_MUX_): \rf.mem[7]_gold [1] -> \rf.mem[7] [1]
+Changing input A of cell $abc$1364$blif$1364$50_gold ($_MUX_): \rf.mem[6]_gold [1] -> \rf.mem[6] [1]
+Changing input S of cell $abc$1364$blif$1364$49_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$49_gold ($_MUX_): \rf.mem[7]_gold [1] -> \rf.mem[7] [1]
+Changing input A of cell $abc$1364$blif$1364$49_gold ($_MUX_): \rf.mem[6]_gold [1] -> \rf.mem[6] [1]
+Changing input B of cell $abc$1364$blif$1364$48_gold ($_MUX_): \dout_gold [1] -> \dout [1]
+Changing input S of cell $abc$1368$blif$1368$14_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$14_gold ($_MUX_): \rf.mem[3]_gold [6] -> \rf.mem[3] [6]
+Changing input A of cell $abc$1368$blif$1368$14_gold ($_MUX_): \rf.mem[2]_gold [6] -> \rf.mem[2] [6]
+Changing input S of cell $abc$1368$blif$1368$12_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$12_gold ($_MUX_): \rf.mem[3]_gold [5] -> \rf.mem[3] [5]
+Changing input A of cell $abc$1368$blif$1368$12_gold ($_MUX_): \rf.mem[2]_gold [5] -> \rf.mem[2] [5]
+Changing input S of cell $abc$1368$blif$1368$10_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$10_gold ($_MUX_): \rf.mem[3]_gold [4] -> \rf.mem[3] [4]
+Changing input A of cell $abc$1368$blif$1368$10_gold ($_MUX_): \rf.mem[2]_gold [4] -> \rf.mem[2] [4]
+Changing input S of cell $abc$1368$blif$1368$8_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$8_gold ($_MUX_): \rf.mem[3]_gold [3] -> \rf.mem[3] [3]
+Changing input A of cell $abc$1368$blif$1368$8_gold ($_MUX_): \rf.mem[2]_gold [3] -> \rf.mem[2] [3]
+Changing input S of cell $abc$1368$blif$1368$6_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$6_gold ($_MUX_): \rf.mem[3]_gold [2] -> \rf.mem[3] [2]
+Changing input A of cell $abc$1368$blif$1368$6_gold ($_MUX_): \rf.mem[2]_gold [2] -> \rf.mem[2] [2]
+Changing input S of cell $abc$1368$blif$1368$4_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$4_gold ($_MUX_): \rf.mem[3]_gold [1] -> \rf.mem[3] [1]
+Changing input A of cell $abc$1368$blif$1368$4_gold ($_MUX_): \rf.mem[2]_gold [1] -> \rf.mem[2] [1]
+Changing input S of cell $abc$1369$blif$1369$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1369$blif$1369$2_gold ($_MUX_): \rf.mem[3]_gold [7] -> \rf.mem[3] [7]
+Changing input A of cell $abc$1369$blif$1369$2_gold ($_MUX_): \rf.mem[2]_gold [7] -> \rf.mem[2] [7]
+Changing input S of cell $abc$1366$blif$1366$14_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$14_gold ($_MUX_): \rf.mem[5]_gold [6] -> \rf.mem[5] [6]
+Changing input A of cell $abc$1366$blif$1366$14_gold ($_MUX_): \rf.mem[4]_gold [6] -> \rf.mem[4] [6]
+Changing input S of cell $abc$1366$blif$1366$12_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$12_gold ($_MUX_): \rf.mem[5]_gold [5] -> \rf.mem[5] [5]
+Changing input A of cell $abc$1366$blif$1366$12_gold ($_MUX_): \rf.mem[4]_gold [5] -> \rf.mem[4] [5]
+Changing input S of cell $abc$1366$blif$1366$10_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$10_gold ($_MUX_): \rf.mem[5]_gold [4] -> \rf.mem[5] [4]
+Changing input A of cell $abc$1366$blif$1366$10_gold ($_MUX_): \rf.mem[4]_gold [4] -> \rf.mem[4] [4]
+Changing input S of cell $abc$1366$blif$1366$8_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$8_gold ($_MUX_): \rf.mem[5]_gold [3] -> \rf.mem[5] [3]
+Changing input A of cell $abc$1366$blif$1366$8_gold ($_MUX_): \rf.mem[4]_gold [3] -> \rf.mem[4] [3]
+Changing input S of cell $abc$1366$blif$1366$6_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$6_gold ($_MUX_): \rf.mem[5]_gold [2] -> \rf.mem[5] [2]
+Changing input A of cell $abc$1366$blif$1366$6_gold ($_MUX_): \rf.mem[4]_gold [2] -> \rf.mem[4] [2]
+Changing input S of cell $abc$1366$blif$1366$4_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$4_gold ($_MUX_): \rf.mem[5]_gold [1] -> \rf.mem[5] [1]
+Changing input A of cell $abc$1366$blif$1366$4_gold ($_MUX_): \rf.mem[4]_gold [1] -> \rf.mem[4] [1]
+Changing input S of cell $abc$1367$blif$1367$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1367$blif$1367$2_gold ($_MUX_): \rf.mem[5]_gold [7] -> \rf.mem[5] [7]
+Changing input A of cell $abc$1367$blif$1367$2_gold ($_MUX_): \rf.mem[4]_gold [7] -> \rf.mem[4] [7]
+Changing input S of cell $abc$1365$blif$1365$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1365$blif$1365$2_gold ($_MUX_): \rf.mem[7]_gold [7] -> \rf.mem[7] [7]
+Changing input A of cell $abc$1365$blif$1365$2_gold ($_MUX_): \rf.mem[6]_gold [7] -> \rf.mem[6] [7]
+Changing input S of cell $abc$1364$blif$1364$102_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$102_gold ($_MUX_): \rf.mem[7]_gold [3] -> \rf.mem[7] [3]
+Changing input A of cell $abc$1364$blif$1364$102_gold ($_MUX_): \rf.mem[6]_gold [3] -> \rf.mem[6] [3]
+Changing input S of cell $abc$1370$blif$1370$14_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$14_gold ($_MUX_): \rf.mem[1]_gold [6] -> \rf.mem[1] [6]
+Changing input A of cell $abc$1370$blif$1370$14_gold ($_MUX_): \rf.mem[0]_gold [6] -> \rf.mem[0] [6]
+Changing input B of cell $abc$1363$blif$1363$6_gold ($_OR_): \insn_gold [15] -> \insn [15]
+Changing input S of cell $abc$1368$blif$1368$13_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$13_gold ($_MUX_): \rf.mem[3]_gold [6] -> \rf.mem[3] [6]
+Changing input A of cell $abc$1368$blif$1368$13_gold ($_MUX_): \rf.mem[2]_gold [6] -> \rf.mem[2] [6]
+Changing input S of cell $abc$1368$blif$1368$11_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$11_gold ($_MUX_): \rf.mem[3]_gold [5] -> \rf.mem[3] [5]
+Changing input A of cell $abc$1368$blif$1368$11_gold ($_MUX_): \rf.mem[2]_gold [5] -> \rf.mem[2] [5]
+Changing input S of cell $abc$1368$blif$1368$9_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$9_gold ($_MUX_): \rf.mem[3]_gold [4] -> \rf.mem[3] [4]
+Changing input A of cell $abc$1368$blif$1368$9_gold ($_MUX_): \rf.mem[2]_gold [4] -> \rf.mem[2] [4]
+Changing input S of cell $abc$1368$blif$1368$7_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$7_gold ($_MUX_): \rf.mem[3]_gold [3] -> \rf.mem[3] [3]
+Changing input A of cell $abc$1368$blif$1368$7_gold ($_MUX_): \rf.mem[2]_gold [3] -> \rf.mem[2] [3]
+Changing input S of cell $abc$1368$blif$1368$5_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$5_gold ($_MUX_): \rf.mem[3]_gold [2] -> \rf.mem[3] [2]
+Changing input A of cell $abc$1368$blif$1368$5_gold ($_MUX_): \rf.mem[2]_gold [2] -> \rf.mem[2] [2]
+Changing input S of cell $abc$1369$blif$1369$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1369$blif$1369$3_gold ($_MUX_): \rf.mem[3]_gold [7] -> \rf.mem[3] [7]
+Changing input A of cell $abc$1369$blif$1369$3_gold ($_MUX_): \rf.mem[2]_gold [7] -> \rf.mem[2] [7]
+Changing input S of cell $abc$1366$blif$1366$13_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$13_gold ($_MUX_): \rf.mem[5]_gold [6] -> \rf.mem[5] [6]
+Changing input A of cell $abc$1366$blif$1366$13_gold ($_MUX_): \rf.mem[4]_gold [6] -> \rf.mem[4] [6]
+Changing input S of cell $abc$1366$blif$1366$11_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$11_gold ($_MUX_): \rf.mem[5]_gold [5] -> \rf.mem[5] [5]
+Changing input A of cell $abc$1366$blif$1366$11_gold ($_MUX_): \rf.mem[4]_gold [5] -> \rf.mem[4] [5]
+Changing input S of cell $abc$1366$blif$1366$9_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$9_gold ($_MUX_): \rf.mem[5]_gold [4] -> \rf.mem[5] [4]
+Changing input A of cell $abc$1366$blif$1366$9_gold ($_MUX_): \rf.mem[4]_gold [4] -> \rf.mem[4] [4]
+Changing input S of cell $abc$1366$blif$1366$7_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$7_gold ($_MUX_): \rf.mem[5]_gold [3] -> \rf.mem[5] [3]
+Changing input A of cell $abc$1366$blif$1366$7_gold ($_MUX_): \rf.mem[4]_gold [3] -> \rf.mem[4] [3]
+Changing input S of cell $abc$1366$blif$1366$5_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$5_gold ($_MUX_): \rf.mem[5]_gold [2] -> \rf.mem[5] [2]
+Changing input A of cell $abc$1366$blif$1366$5_gold ($_MUX_): \rf.mem[4]_gold [2] -> \rf.mem[4] [2]
+Changing input S of cell $abc$1367$blif$1367$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1367$blif$1367$3_gold ($_MUX_): \rf.mem[5]_gold [7] -> \rf.mem[5] [7]
+Changing input A of cell $abc$1367$blif$1367$3_gold ($_MUX_): \rf.mem[4]_gold [7] -> \rf.mem[4] [7]
+Changing input S of cell $abc$1365$blif$1365$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1365$blif$1365$3_gold ($_MUX_): \rf.mem[7]_gold [7] -> \rf.mem[7] [7]
+Changing input A of cell $abc$1365$blif$1365$3_gold ($_MUX_): \rf.mem[6]_gold [7] -> \rf.mem[6] [7]
+Changing input S of cell $abc$1370$blif$1370$8_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$8_gold ($_MUX_): \rf.mem[1]_gold [3] -> \rf.mem[1] [3]
+Changing input A of cell $abc$1370$blif$1370$8_gold ($_MUX_): \rf.mem[0]_gold [3] -> \rf.mem[0] [3]
+Changing input S of cell $abc$1370$blif$1370$11_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$11_gold ($_MUX_): \rf.mem[1]_gold [5] -> \rf.mem[1] [5]
+Changing input A of cell $abc$1370$blif$1370$11_gold ($_MUX_): \rf.mem[0]_gold [5] -> \rf.mem[0] [5]
+Changing input S of cell $abc$1370$blif$1370$7_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$7_gold ($_MUX_): \rf.mem[1]_gold [3] -> \rf.mem[1] [3]
+Changing input A of cell $abc$1370$blif$1370$7_gold ($_MUX_): \rf.mem[0]_gold [3] -> \rf.mem[0] [3]
+Changing input B of cell $abc$1364$blif$1364$100_gold ($_MUX_): \dout_gold [3] -> \dout [3]
+Changing input A of cell $abc$1362$blif$1362$1_gold ($_ORNOT_): \halt_gold -> \halt
+Changing input B of cell $abc$1364$blif$1364$17_gold ($_MUX_): \dout_gold [0] -> \dout [0]
+Changing input S of cell $abc$1364$blif$1364$101_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$101_gold ($_MUX_): \rf.mem[7]_gold [3] -> \rf.mem[7] [3]
+Changing input A of cell $abc$1364$blif$1364$101_gold ($_MUX_): \rf.mem[6]_gold [3] -> \rf.mem[6] [3]
+Changing input S of cell $abc$1370$blif$1370$9_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$9_gold ($_MUX_): \rf.mem[1]_gold [4] -> \rf.mem[1] [4]
+Changing input A of cell $abc$1370$blif$1370$9_gold ($_MUX_): \rf.mem[0]_gold [4] -> \rf.mem[0] [4]
+Changing input B of cell $abc$1371$blif$1371$35_gold ($_MUX_): \dout_gold [7] -> \dout [7]
+Changing input A of cell $abc$1363$blif$1363$0_gold ($_NOT_): \insn_gold [15] -> \insn [15]
+Changing input S of cell $abc$1368$blif$1368$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$3_gold ($_MUX_): \rf.mem[3]_gold [1] -> \rf.mem[3] [1]
+Changing input A of cell $abc$1368$blif$1368$3_gold ($_MUX_): \rf.mem[2]_gold [1] -> \rf.mem[2] [1]
+Changing input S of cell $abc$1366$blif$1366$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$3_gold ($_MUX_): \rf.mem[5]_gold [1] -> \rf.mem[5] [1]
+Changing input A of cell $abc$1366$blif$1366$3_gold ($_MUX_): \rf.mem[4]_gold [1] -> \rf.mem[4] [1]
+Changing input A of cell $abc$1362$blif$1362$0_gold ($_NOT_): \halt_gold -> \halt
+Changing input S of cell $abc$1370$blif$1370$5_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$5_gold ($_MUX_): \rf.mem[1]_gold [2] -> \rf.mem[1] [2]
+Changing input A of cell $abc$1370$blif$1370$5_gold ($_MUX_): \rf.mem[0]_gold [2] -> \rf.mem[0] [2]
+Changing input S of cell $abc$1364$blif$1364$75_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$75_gold ($_MUX_): \rf.mem[7]_gold [2] -> \rf.mem[7] [2]
+Changing input A of cell $abc$1364$blif$1364$75_gold ($_MUX_): \rf.mem[6]_gold [2] -> \rf.mem[6] [2]
+Changing input S of cell $abc$1366$blif$1366$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1366$blif$1366$2_gold ($_MUX_): \rf.mem[5]_gold [0] -> \rf.mem[5] [0]
+Changing input A of cell $abc$1366$blif$1366$2_gold ($_MUX_): \rf.mem[4]_gold [0] -> \rf.mem[4] [0]
+Changing input S of cell $abc$1368$blif$1368$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1368$blif$1368$2_gold ($_MUX_): \rf.mem[3]_gold [0] -> \rf.mem[3] [0]
+Changing input A of cell $abc$1368$blif$1368$2_gold ($_MUX_): \rf.mem[2]_gold [0] -> \rf.mem[2] [0]
+Changing input S of cell $abc$1370$blif$1370$3_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$3_gold ($_MUX_): \rf.mem[1]_gold [1] -> \rf.mem[1] [1]
+Changing input A of cell $abc$1370$blif$1370$3_gold ($_MUX_): \rf.mem[0]_gold [1] -> \rf.mem[0] [1]
+Changing input A of cell $abc$1373$blif$1373$0_gold ($_NOT_): \pc_gold [0] -> \pc_out [0]
+Changing input S of cell $abc$1366$blif$1366$1_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1366$blif$1366$1_gold ($_MUX_): \rf.mem[5]_gold [0] -> \rf.mem[5] [0]
+Changing input A of cell $abc$1366$blif$1366$1_gold ($_MUX_): \rf.mem[4]_gold [0] -> \rf.mem[4] [0]
+Changing input S of cell $abc$1368$blif$1368$1_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1368$blif$1368$1_gold ($_MUX_): \rf.mem[3]_gold [0] -> \rf.mem[3] [0]
+Changing input A of cell $abc$1368$blif$1368$1_gold ($_MUX_): \rf.mem[2]_gold [0] -> \rf.mem[2] [0]
+Changing input S of cell $abc$1370$blif$1370$2_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$2_gold ($_MUX_): \rf.mem[1]_gold [0] -> \rf.mem[1] [0]
+Changing input A of cell $abc$1370$blif$1370$2_gold ($_MUX_): \rf.mem[0]_gold [0] -> \rf.mem[0] [0]
+Changing input S of cell $abc$1371$blif$1371$37_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1371$blif$1371$37_gold ($_MUX_): \rf.mem[1]_gold [7] -> \rf.mem[1] [7]
+Changing input A of cell $abc$1371$blif$1371$37_gold ($_MUX_): \rf.mem[0]_gold [7] -> \rf.mem[0] [7]
+Changing input S of cell $abc$1371$blif$1371$36_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1371$blif$1371$36_gold ($_MUX_): \rf.mem[1]_gold [7] -> \rf.mem[1] [7]
+Changing input A of cell $abc$1371$blif$1371$36_gold ($_MUX_): \rf.mem[0]_gold [7] -> \rf.mem[0] [7]
+Changing input S of cell $abc$1370$blif$1370$13_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$13_gold ($_MUX_): \rf.mem[1]_gold [6] -> \rf.mem[1] [6]
+Changing input A of cell $abc$1370$blif$1370$13_gold ($_MUX_): \rf.mem[0]_gold [6] -> \rf.mem[0] [6]
+Changing input B of cell $abc$1364$blif$1364$73_gold ($_MUX_): \dout_gold [2] -> \dout [2]
+Changing input S of cell $abc$1364$blif$1364$74_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$74_gold ($_MUX_): \rf.mem[7]_gold [2] -> \rf.mem[7] [2]
+Changing input A of cell $abc$1364$blif$1364$74_gold ($_MUX_): \rf.mem[6]_gold [2] -> \rf.mem[6] [2]
+Changing input S of cell $abc$1364$blif$1364$18_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1364$blif$1364$18_gold ($_MUX_): \rf.mem[7]_gold [0] -> \rf.mem[7] [0]
+Changing input A of cell $abc$1364$blif$1364$18_gold ($_MUX_): \rf.mem[6]_gold [0] -> \rf.mem[6] [0]
+Changing input S of cell $abc$1364$blif$1364$19_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1364$blif$1364$19_gold ($_MUX_): \rf.mem[7]_gold [0] -> \rf.mem[7] [0]
+Changing input A of cell $abc$1364$blif$1364$19_gold ($_MUX_): \rf.mem[6]_gold [0] -> \rf.mem[6] [0]
+Changing input S of cell $abc$1370$blif$1370$12_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$12_gold ($_MUX_): \rf.mem[1]_gold [5] -> \rf.mem[1] [5]
+Changing input A of cell $abc$1370$blif$1370$12_gold ($_MUX_): \rf.mem[0]_gold [5] -> \rf.mem[0] [5]
+Changing input S of cell $abc$1370$blif$1370$4_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$4_gold ($_MUX_): \rf.mem[1]_gold [1] -> \rf.mem[1] [1]
+Changing input A of cell $abc$1370$blif$1370$4_gold ($_MUX_): \rf.mem[0]_gold [1] -> \rf.mem[0] [1]
+Changing input A of cell $abc$1372$blif$1372$0_gold ($_NOT_): \insn_gold [14] -> \insn [14]
+Changing input S of cell $abc$1370$blif$1370$1_gold ($_MUX_): \insn_gold [3] -> \insn [3]
+Changing input B of cell $abc$1370$blif$1370$1_gold ($_MUX_): \rf.mem[1]_gold [0] -> \rf.mem[1] [0]
+Changing input A of cell $abc$1370$blif$1370$1_gold ($_MUX_): \rf.mem[0]_gold [0] -> \rf.mem[0] [0]
+Changing input S of cell $abc$1370$blif$1370$6_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$6_gold ($_MUX_): \rf.mem[1]_gold [2] -> \rf.mem[1] [2]
+Changing input A of cell $abc$1370$blif$1370$6_gold ($_MUX_): \rf.mem[0]_gold [2] -> \rf.mem[0] [2]
+Changing input S of cell $abc$1370$blif$1370$10_gold ($_MUX_): \insn_gold [6] -> \insn [6]
+Changing input B of cell $abc$1370$blif$1370$10_gold ($_MUX_): \rf.mem[1]_gold [4] -> \rf.mem[1] [4]
+Changing input A of cell $abc$1370$blif$1370$10_gold ($_MUX_): \rf.mem[0]_gold [4] -> \rf.mem[0] [4]
+Changing input B of cell $abc$1373$blif$1373$4_gold ($_AND_): \pc_gold [1] -> \pc_out [1]
+Changing input A of cell $abc$1373$blif$1373$4_gold ($_AND_): \pc_gold [0] -> \pc_out [0]
+Setting undriven nets to undef: $$auto$proc_rom.cc:155:do_switch$28$rdreg[0]$d_gold [12]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.P_gold [5:0]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.P_gold [7]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.BB_gold [5:0]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.BB_gold [7]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.CO_gold [4:0]
+Setting undriven nets to undef: $auto$alumacc.cc:578:replace_alu$83.CO_gold [7:6]
+Setting undriven nets to undef: $techmap$auto$opt_share.cc:199:merge_operators$273.$auto$alumacc.cc:578:replace_alu$454.BB_gold [5:1]
+Setting undriven nets to undef: $techmap$auto$opt_share.cc:199:merge_operators$273.$auto$alumacc.cc:578:replace_alu$454.BB_gold [7]
+Setting undriven nets to undef: $techmap$auto$opt_share.cc:199:merge_operators$273.$auto$alumacc.cc:578:replace_alu$454.CO_gold [4:1]
+Setting undriven nets to undef: $techmap$auto$opt_share.cc:199:merge_operators$273.$auto$alumacc.cc:578:replace_alu$454.CO_gold [7:6]
+Setting undriven nets to undef: \$$auto$proc_rom.cc:155:do_switch$28$rdreg[0]$d_gate [12]
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+4.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gold'.
+Removing unused module `\gate'.
+Removed 2 unused modules.
+
+5. Executing EQUIV_SIMPLE pass.
+Found 96 unproven $equiv cells (13 groups) in equiv:
+ Grouping SAT models for \dout:
+  Trying to prove $equiv for \dout [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \dout [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \pc_out:
+  Trying to prove $equiv for \pc_out [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \pc_out [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \pc_out [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \pc_out [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \halt:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \insn:
+  Trying to prove $equiv for \insn [0]:
+ezsat
+ success!
+  Trying to prove $equiv for \insn [1]:
+ezsat
+ success!
+  Trying to prove $equiv for \insn [2]:
+ezsat
+ success!
+  Trying to prove $equiv for \insn [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [7]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [8]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [9]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [10]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [11]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [12]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [13]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [14]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \insn [15]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \alu.op:
+  Trying to prove $equiv for \alu.op [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \alu.op [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \alu.op [2]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[0]:
+  Trying to prove $equiv for \rf.mem[0] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[0] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[1]:
+  Trying to prove $equiv for \rf.mem[1] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[1] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[2]:
+  Trying to prove $equiv for \rf.mem[2] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[2] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[3]:
+  Trying to prove $equiv for \rf.mem[3] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[3] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[4]:
+  Trying to prove $equiv for \rf.mem[4] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[4] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[5]:
+  Trying to prove $equiv for \rf.mem[5] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[5] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[6]:
+  Trying to prove $equiv for \rf.mem[6] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[6] [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \rf.mem[7]:
+  Trying to prove $equiv for \rf.mem[7] [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \rf.mem[7] [7]:
+ezsat
+ezsat
+ failed.
+Proved 3 previously unproven $equiv cells.
+
+6. Executing EQUIV_INDUCT pass.
+Found 93 unproven $equiv cells in module equiv:
+  Proving existence of base case for step 1. (31202 clauses over 12215 variables)
+  Proving induction step 1. (64697 clauses over 25139 variables)
+  Proof for induction step holds. Entire workset of 93 cells proven!
+Proved 93 previously unproven $equiv cells.
+
+7. Executing EQUIV_STATUS pass.
+Found 96 $equiv cells in equiv:
+  Of those cells 96 are proven and 0 are unproven.
+  Equivalence successfully proven!

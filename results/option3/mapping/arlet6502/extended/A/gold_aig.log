@@ -1,0 +1,35 @@
+$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/arlet6502/extended/A/gold_aig.ys
+
+-- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/arlet6502/extended/A/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /Users/noorelshahidi/DD2Project/results/option3/mapping/arlet6502/extended/A/gold.il
+
+2. Executing ASYNC2SYNC pass.
+Replacing cpu.$auto$ff.cc:337:slice$4775 ($_DFF_PP1_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[3], Q=\state [3]
+Replacing cpu.$auto$ff.cc:337:slice$4774 ($_DFF_PP0_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[2], Q=\state [2]
+Replacing cpu.$auto$ff.cc:337:slice$4773 ($_DFF_PP0_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[1], Q=\state [1]
+Replacing cpu.$auto$ff.cc:337:slice$4776 ($_DFF_PP0_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[4], Q=\state [4]
+Replacing cpu.$auto$ff.cc:337:slice$4777 ($_DFF_PP0_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[5], Q=\state [5]
+Replacing cpu.$auto$ff.cc:337:slice$4772 ($_DFF_PP0_): ARST=\reset, D=$abc$10128$auto$fsm_map.cc:170:map_fsm$851[0], Q=\state [0]
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module cpu: replaced 1382 cells with 5092 new cells, skipped 693 cells.
+  replaced 8 cell types:
+     100 $_ANDNOT_
+     288 $_MUX_
+     493 $_NAND_
+     195 $_NOR_
+      44 $_ORNOT_
+     224 $_OR_
+      11 $_XNOR_
+      27 $_XOR_
+  not replaced 4 cell types:
+     477 $_AND_
+     143 $_DFF_P_
+      72 $_NOT_
+       1 $scopeinfo
+
+5. Executing JSON backend.

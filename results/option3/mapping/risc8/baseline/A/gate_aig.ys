@@ -1,0 +1,13 @@
+read_liberty -ignore_miss_func "/Users/noorelshahidi/DD2Project/given/hd_reduced.lib"
+read_verilog "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/baseline/A/mapped.v"
+hierarchy -top cpu
+flatten
+proc
+techmap
+opt_clean
+write_rtlil "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/baseline/A/gate.il"
+async2sync
+dffunmap
+aigmap
+write_json "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/baseline/A/gate_state.json"
+

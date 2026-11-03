@@ -1,0 +1,26 @@
+{
+  "area_um2": 16.2656,
+  "cell": "dd2_g4__n3_8e_1",
+  "checks": {
+    "abutment": 0,
+    "drc": 0,
+    "layers": "pass",
+    "lvs": "match",
+    "rc_lvs": "match",
+    "truth_table": "pass"
+  },
+  "files": {
+    "gds": "cells/dd2_g4__n3_8e_1/cell.gds",
+    "liberty": "cells/dd2_g4__n3_8e_1/cell.lib",
+    "report": "cells/dd2_g4__n3_8e_1/report.json",
+    "verilog": "cells/dd2_g4__n3_8e_1/cell.v"
+  },
+  "ngspice_sha256": "",
+  "reason": null,
+  "request_id": "M2-007",
+  "stages": 3,
+  "status": "pass",
+  "tool_version": "cellgen",
+  "transistors": 14,
+  "width_sites": 13
+}

@@ -1,0 +1,13 @@
+design,script,baseline_um2,extended_um2,reduction_pct,new_cell_instances,baseline_equivalence,extended_equivalence,baseline_delay_ns,extended_delay_ns,baseline_timing_status,extended_timing_status,effect_note
+cpu8,A,4212.7904,4184.0128,0.6831006831006697,0,pass,pass,4.446136,4.536708,pass,pass,library-induced remapping; no new cell instantiated
+cpu8,B,4241.568,4232.8096,0.20648967551623879,5,pass,pass,4.987431,4.165833,pass,pass,new cell instantiated
+dsp8,A,5809.3216,5759.2736,0.8615119534783506,2,pass,pass,4.996527,5.13677,pass,pass,new cell instantiated
+dsp8,B,6112.112,6152.1504,-0.6550665301944788,23,pass,pass,6.350661,6.384753,pass,pass,new cell instantiated
+arlet6502,A,9328.9472,9210.0832,1.2741416309013025,0,pass,pass,7.023091,6.5931,pass,pass,library-induced remapping; no new cell instantiated
+arlet6502,B,9582.9408,9535.3952,0.49614832223527316,8,pass,pass,6.18326,6.520016,pass,pass,new cell instantiated
+uart_apb,A,12742.2208,12682.1632,0.47132757266298725,0,pass,pass,4.151333,4.918738,pass,pass,library-induced remapping; no new cell instantiated
+uart_apb,B,13048.7648,13047.5136,0.009588647041907048,0,pass,pass,6.075256,6.075256,pass,pass,library-induced remapping; no new cell instantiated
+risc8,A,28175.7728,27716.5824,1.6297348905368783,0,pass,pass,24.260513,24.737925,pass,pass,library-induced remapping; no new cell instantiated
+risc8,B,28111.9616,28139.488,-0.097917037564545,11,pass,pass,24.645555,24.720825,pass,pass,new cell instantiated
+fir10,A,26334.0064,25613.3152,2.7367320758302753,0,pass,pass,7.178856,6.957699,pass,pass,library-induced remapping; no new cell instantiated
+fir10,B,28912.7296,28707.5328,0.7097109226241921,96,pass,pass,6.808114,8.38859,pass,pass,new cell instantiated
