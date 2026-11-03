@@ -37,14 +37,14 @@
   "library": "reduced",
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog  given/designs/cpu8.v; synth -flatten -top cpu8; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/cpu8/reduced/A/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/cpu8/reduced/A/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:06+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:51:58+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050",
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
@@ -54,13 +54,13 @@
       "results/m1/baseline/cpu8/reduced/A/stat.txt",
       "results/m1/baseline/cpu8/reduced/A/stat.json"
     ],
-    "started": "2026-10-26T22:29:06+00:00",
+    "started": "2026-11-03T11:51:57+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "A",
-  "seconds": 0.438,
+  "seconds": 0.666,
   "top": "cpu8"
 }

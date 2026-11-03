@@ -1,0 +1,15 @@
+{
+  "aig_frequency": "synth/restructured counts are separate descriptions of the same designs, not added as physical instances",
+  "estimate": "predicted best-of-both aggregate; final areas are measured by remapping",
+  "objective_designs": [
+    "cpu8",
+    "dsp8",
+    "arlet6502",
+    "uart_apb",
+    "risc8",
+    "fir10"
+  ],
+  "overlap": "greedy non-overlapping occurrences per candidate, design and script; classes can still overlap",
+  "shared_logic": "only cells with no outside consumers except the cut root are reclaimable",
+  "source": "actual cells of the reduced-library A/B mappings; primary-input/FF boundaries"
+}

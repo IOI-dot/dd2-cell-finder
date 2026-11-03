@@ -1,1 +1,1 @@
-$ yosys -q -p read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/uart_apb/synth.aig; write_aiger build/aigs/uart_apb/synth_plain.aig
+$ /usr/bin/yosys -q -p read_verilog given/designs/uart_apb.v; synth -flatten -top uart_apb_master; tee -q -o build/aigs/uart_apb/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/uart_apb/synth.aig; write_aiger build/aigs/uart_apb/synth_plain.aig

@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/arlet6502/synth.aig",
-  "aig_sha256": "6794395313183bce363d94af2d122aa834aab85e21ebd67f95ff7b262f576955",
+  "aig_sha256": "e0e757b672bb40dbfb6292e12806045cebf431eb8bd11a2086c7de6adc340a22",
   "commands": [
     "read_verilog given/designs/arlet6502.v",
     "synth -flatten -top cpu",
@@ -37,21 +37,21 @@
   },
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog given/designs/arlet6502.v; synth -flatten -top cpu; tee -q -o build/aigs/arlet6502/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/arlet6502/synth.aig; write_aiger build/aigs/arlet6502/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:28+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:38+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb"
     },
     "logs": [
       "results/m1/aigs/arlet6502/synth.log"
     ],
-    "started": "2026-10-26T22:29:27+00:00",
+    "started": "2026-11-03T11:52:37+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

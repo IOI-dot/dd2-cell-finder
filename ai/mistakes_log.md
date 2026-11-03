@@ -49,3 +49,31 @@
 | M-045 | L-012 | The time estimates first recorded the unit tests' stub builds as if they were real runs, which would have shown fake durations. | Reading `/api/estimates` by eye after a restart: it held a verdict time and no build stages. Now only a run with a real layout stage is recorded. | Yes. All tests passed, because the estimate maths was right and only its inputs were wrong. |
 | M-046 | L-012 | The agent accepted an always-1 function: two builds crashed, three model calls were spent, and the person saw only that it stopped. | The user asked why it stopped, and the run log showed the crash in `network.synthesize`. Now such a function is explained before any build, and a crash ends the run with its error. | Yes. The flow refused correctly and every test passed. Only using it showed how bad the failure looked. |
 | M-047 | L-012 | Going to Evidence unmounted the Workbench, so every finished reply retyped on return, and the mic error named a site permission that was already granted. | The user saw both. The retyping was measured (153 characters falling to 0), and `getUserMedia` showed `Permission denied by system`. The Workbench now stays mounted, and each failure gives its real cause. | Yes. Tests never switch tabs, and a generic message passes any check. |
+
+
+## 2026-11-03 caught during development
+
+- CUDD build instructions initially omitted autoreconf; user hit aclocal.m4 error. Regenerated with installed Autotools.
+- Quoted tee output path made Yosys 0.33 abort; actual mapping smoke test caught it, output-path syntax fixed.
+- Raw AIGER names differ after mapping due to register reordering/new aliases. Preserve original cell names; label actual post-reset-conversion states by original RTL-derived instance before saved bijective alias alignment. Never compare by assumed register order.
+- Unbounded extra sequential induction was slow on DSP multiplication; required ABC CEC already proved equivalent. Kept induction as an explicitly bounded extra diagnostic, with timeouts never called passes.
+- Earlier version advice overlooked overview Yosys >=0.34 and Icarus >=13. Added strict-version check and documented the separate Yosys 0.33 Table 1 reference.
+
+
+## First full WSL run: corrections
+
+- Timing exporter asked get_property PathEnd arrival, which OpenSTA rejects. The 24 actual logs exposed it. Regression executes the generated Tcl against the documented path/point API; a real-engine test runs on machines with sta.
+- Initial parser detected Error: but missed Error N:. Added a deliberately numbered-error case with a numeric marker; it must still fail.
+- Area calibration applied the candidate three-stack constraint to existing HD NAND4/NOR4, overpricing their native implementations. Added separate four-stack calibration and preserved three-stack candidate limits.
+- Generic fallback retained cancelling inversions/unreachable construction gates and tried only NAND-based realizations. Added cancellation/pruning and the dual NOR realization, checking every truth table.
+
+### Tutorial inputs recovered, 2026-11-03
+Earlier readiness correctly reported missing tutorial inputs in the supplied
+pack, but older tutorial submissions were available separately. Searched and
+recovered those originals before asking for another upload. No toy replacements.
+
+### Status documentation cleanup, 2026-11-03
+index.yml and the plan still listed tool/tutorial validation as pending after
+the successful WSL run. Updated those descriptions from saved evidence.
+Table 4 remains unresolved. Older platform/Option 3 plans were still prominent;
+archived them unchanged so the active repository describes Option 2.

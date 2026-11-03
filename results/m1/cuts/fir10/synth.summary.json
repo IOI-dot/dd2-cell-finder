@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/fir10/synth.jsonl.gz",
-    "sha256": "1c2062b8e06062aefbf7a1f292f7a5bef928d9de5e4e7b07427afa995083114c"
+    "sha256": "f916c12bcb48e1d41f04182351455f812fbece8a81924b4954c518a84cbb5ae8"
   },
   "header": {
     "A": 8795,
@@ -498,13 +498,13 @@
       "results/m1/aigs/fir10/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:47+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:53:15+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/fir10/synth.aig": "77534a543f9fb2247956360d770277a6df898c5303bb32484c4bbba3e66792b5"
+      "results/m1/aigs/fir10/synth.aig": "20efffab9d2005f3fddffd633503aa7c702082c97c31d29c665f53261f858e3a"
     },
     "logs": [],
-    "started": "2026-10-26T22:29:43+00:00",
+    "started": "2026-11-03T11:53:08+00:00",
     "status": "pass",
     "tools": {}
   },

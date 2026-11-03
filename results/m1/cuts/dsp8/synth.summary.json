@@ -20,7 +20,7 @@
   "failures": [],
   "full_list": {
     "path": "build/cuts/dsp8/synth.jsonl.gz",
-    "sha256": "826cd4dd8da36fd8de4837c704b0188e36642cdf52e7986b2e692a6fb98b5468"
+    "sha256": "cf9f95e77cbf75f2b8b5f9ee12c9a11ce6ab9676abc93f47f19d4d4761dbc0db"
   },
   "header": {
     "A": 1973,
@@ -569,13 +569,13 @@
       "results/m1/aigs/dsp8/synth.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:34+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:52+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/dsp8/synth.aig": "af5dd337c3c27ed6e3b606dd1bd5f904d59aeed22638bd721e60bbd92ad6c529"
+      "results/m1/aigs/dsp8/synth.aig": "3ce0dcfce938cebbe31524b13aa220f00cae05c7b97a132cdf79891b225d1525"
     },
     "logs": [],
-    "started": "2026-10-26T22:29:33+00:00",
+    "started": "2026-11-03T11:52:51+00:00",
     "status": "pass",
     "tools": {}
   },

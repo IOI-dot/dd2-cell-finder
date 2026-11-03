@@ -1,0 +1,3 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys-abc -c read /home/hank2b/dd2-cell-finder/results/m2/tutorial_discovery/multiplier/synth.aig; strash; dch -f; strash; write_aiger /home/hank2b/dd2-cell-finder/results/m2/tutorial_discovery/multiplier/restructured.aig
+======== ABC command line "read /home/hank2b/dd2-cell-finder/results/m2/tutorial_discovery/multiplier/synth.aig; strash; dch -f; strash; write_aiger /home/hank2b/dd2-cell-finder/results/m2/tutorial_discovery/multiplier/restructured.aig"
+Warning: The choice nodes in the original AIG are removed by strashing.

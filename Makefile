@@ -1,17 +1,28 @@
-# DD2 Project 1, Option 3. Milestone 1 of both options (cp1); Milestone 2 next.
-# The required targets (overview 5.1): setup check test all demo clean.
+# DD2 Project 1, Option 3: Option 2 finds functions worth adding to SKY130 HD, Option 1 builds them.
+# The required targets (overview 5.1): setup check test all demo clean. Push and tag stay manual.
 
-PDK_ROOT ?= $(HOME)/.ciel
-GIVEN    ?= ../DD2_Project1_student_pack/given
-IN       ?=
-TOP      ?=
-SV       ?=
-# Yosys used by the flow. The handout's Table 1 is reproduced exactly only by Linux Yosys 0.33
-# (Ubuntu 24.04's package), which the dd2-flow image provides: use `make m1-docker` for evidence.
-YOSYS    ?= yosys
+-include config/tools.mk
+PY        ?= .venv/bin/python
+# Inputs live outside the repository. The defaults cover both machines the team uses (macOS and WSL);
+# set PDK_ROOT, GIVEN or TUTORIALS to override.
+PDK_ROOT  ?= $(firstword $(wildcard $(HOME)/.ciel $(HOME)/dd2-inputs) $(HOME)/.ciel)
+GIVEN     ?= $(firstword $(wildcard ../DD2_Project1_student_pack/given $(HOME)/DD2_Project1_student_pack/given) ../DD2_Project1_student_pack/given)
+TUTORIALS ?= $(firstword $(wildcard $(HOME)/dd2-inputs/tutorials ../tutorials) $(HOME)/dd2-inputs/tutorials)
+GROUP     ?= $(shell cat config/group.txt 2>/dev/null)
+# Option 2 M1 reproduces Table 1 only with Yosys 0.33: the reference binaries on WSL, or the dd2-flow image.
+REFERENCE_YOSYS ?= /usr/bin/yosys
+REFERENCE_ABC   ?= /usr/bin/yosys-abc
+DESIGNS   ?= cpu8 dsp8 arlet6502 uart_apb risc8 fir10
+LIMIT     ?= 10
+IN        ?=
+TOP       ?=
+SV        ?=
 
-PY  ?= .venv/bin/python
-DD2 := DD2_YOSYS="$(YOSYS)" PYTHONPATH=src $(PY) -m dd2
+DD2 = PYTHONPATH=src $(PY) -m dd2
+M2  = PYTHONPATH=src $(PY) -m dd2m2
+O1  = PYTHONPATH=src $(PY) -m cellgen
+AG  = PYTHONPATH=src:agent $(PY) -m dd2_agent
+SHA256 := $(shell command -v sha256sum >/dev/null 2>&1 && echo sha256sum || echo shasum -a 256)
 
 # The flow image: repository, given/ and the PDK mounted at their own absolute paths so the
 # links resolve unchanged; given/ and the PDK are read-only.
@@ -20,106 +31,145 @@ DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONT
 	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
 	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
 
-.PHONY: o1-rules o1-m1 o1-m2 o1-sta o1-image agent fixed agent-compare agent-server web setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
+.PHONY: setup group check check-option1 check-option2 check-versions test all demo clean \
+	m1 m1-reference m1-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary \
+	m2 m2-fit m2-aigs-cuts m2-tutorials m2-baseline m2-candidates m2-library m2-map m2-plots readiness ta \
+	o1-image o1-sta o1-rules o1-m1 o1-m2 docker-flow test-docker \
+	agent fixed agent-compare agent-check agent-server web
 
-setup:            ## links to the PDK and the given files (never copies), and the Python env
-	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
-	@test -d "$(GIVEN)" || (echo "student pack given/ not found: $(GIVEN) (set GIVEN)" && exit 2)
+## ---- setup and checks -------------------------------------------------------------------------
+
+setup:            ## links to the PDK, the given files and the tutorials (never copies), and the Python env
+	@test -f "$(GIVEN)/hd_reduced.lib" || (echo "student pack given/ not found: $(GIVEN) (set GIVEN)"; exit 2)
+	@test -f "$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" || (echo "full HD Liberty missing under $(PDK_ROOT)/sky130A (set PDK_ROOT)"; exit 2)
 	ln -sfn "$(PDK_ROOT)/sky130A" pdk
 	ln -sfn "$(GIVEN)" given
-	test -x $(PY) || uv venv --python ">=3.11" .venv
-	uv pip install --python $(PY) -q "pytest>=8" "gdsfactory==9.51.0" "langgraph>=1,<2" "ag-ui-langgraph==0.0.47" "fastapi>=0.115" "uvicorn>=0.30"
+	@if [ -f "$(TUTORIALS)/spm/SPM_tb.v" ]; then ln -sfn "$(TUTORIALS)" tutorials; \
+	  else echo "NOTE tutorials not found at $(TUTORIALS): the Option 2 tutorial steps need them (set TUTORIALS)"; fi
+	@test -x $(PY) || (command -v uv >/dev/null && uv venv --python ">=3.11" .venv || python3 -m venv .venv)
+	@if command -v uv >/dev/null; then uv pip install --python $(PY) -q -r requirements-option2.txt -e ".[cell,agent,web]" "uvicorn>=0.30"; \
+	  else $(PY) -m pip install -q -r requirements-option2.txt -e ".[cell,agent,web]" "uvicorn>=0.30"; fi
 	@$(PY) -c 'import sys; assert sys.version_info >= (3, 11), sys.version'
 	@echo "setup: pdk -> $$(readlink pdk), given -> $$(readlink given)"
 
-check:            ## tool versions, PDK, supplied inputs, course image + ngspice stress test (OpenSTA from M2)
+group:            ## record the DD2 group number Option 2 uses in its cell names
+	@mkdir -p config
+	@read -p 'Your actual DD2 group number: ' number; case "$$number" in ''|*[!0-9]*|0) echo 'A positive group number is required'; exit 1;; esac; printf '%s\n' "$$number" > config/group.txt
+
+check: check-option2 check-option1   ## every tool, input and image both options need
+
+check-option2:    ## Option 2: Yosys, ABC, Icarus, OpenSTA, Liberty imports and the supplied designs
+	$(M2) check
+
+check-option1:    ## Option 1: PDK views, the course image and the ngspice stress test
 	@test -L pdk -a -L given || (echo "pdk/given links missing: run make setup" && exit 1)
 	$(DD2) check
 
-test:             ## every test, including the broken cases in tests/broken/
-	cd tests/broken && shasum -a 256 -c SHA256SUMS --quiet
-	DD2_YOSYS="$(YOSYS)" $(PY) -m pytest -q
+check-versions:   ## Option 2 with the overview's minimum tool versions enforced
+	$(M2) check --strict
 
-# The Option 2 evidence is made in dd2-flow (Linux Yosys 0.33) when that image exists; otherwise the
-# host Yosys runs it and Table 1 is labelled NOT REPRODUCED.
-FLOW_M1 := $(if $(shell docker image inspect dd2-flow >/dev/null 2>&1 && echo yes),m1-docker,m1)
+test:             ## every test, including the frozen broken cases in tests/broken/
+	cd tests/broken && $(SHA256) -c SHA256SUMS --quiet
+	PYTHONPATH=src $(PY) -m pytest -q tests
 
-all:              ## the whole flow implemented so far (Option 2 M1 and Option 1 M1, M2)
-	$(MAKE) $(FLOW_M1) o1-rules o1-m1 o1-m2
+all:              ## both options: Option 2 M1 and M2, then Option 1 M1 and M2
+	$(MAKE) m1
+	$(MAKE) m2
+	$(MAKE) o1-rules o1-m1 o1-m2
 
-m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
+## ---- Option 2 -------------------------------------------------------------------------------
 
-m1-env:           ## the environment record that goes with the evidence
-	$(DD2) check --out results/m1/environment.json
+m1:               ## Option 2 M1 with the reference Yosys 0.33 (Table 1)
+	$(MAKE) m1-reference DD2_YOSYS="$(REFERENCE_YOSYS)" DD2_ABC="$(REFERENCE_ABC)"
+
+m1-reference:
+	$(M2) check --out results/m1/environment.json
+	$(MAKE) m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
+
+m1-docker:        ## the Yosys 0.33 steps of M1 inside dd2-flow, for a machine without the reference binaries
+	$(DOCKER_FLOW) make m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy PY=python3
+	$(MAKE) m1-summary
 
 m1-baseline:      ## Table 1: 6 designs x {usable, reduced} x {A, B}
 	$(DD2) baseline
-
 m1-aigs:          ## synth and restructured AIGs of the 6 required designs
 	$(DD2) aig
-
-m1-cuts: m1-aigs  ## 4-input cuts of the 12 AIGs, each checked by exhaustive simulation
+m1-cuts:          ## 4-input cuts of the 12 AIGs, each checked by exhaustive simulation
 	$(DD2) cuts
-
 m1-hdclasses:     ## class table of HD
 	$(DD2) hdclasses
-
 m1-redundancy:    ## redundancy checker self-test against Table 4
 	$(DD2) selftest
-
 m1-summary:
-	$(DD2) summary
+	$(M2) m1-summary
 
+m2:               ## Option 2 M2: area model, candidates, requests and Liberty, mappings, proofs, timing, plots
+	@test -n "$(GROUP)" || (echo 'Run make group first'; exit 1)
+	$(M2) run --group $(GROUP) --limit $(LIMIT) --designs $(DESIGNS)
+m2-fit:
+	$(M2) fit
+m2-aigs-cuts:
+	$(M2) discovery --designs $(DESIGNS)
+m2-tutorials:
+	$(M2) tutorials --designs $(DESIGNS)
+m2-baseline:
+	$(M2) baseline --designs $(DESIGNS)
+m2-candidates:
+	$(M2) candidates --designs $(DESIGNS)
+m2-library:
+	@test -n "$(GROUP)" || (echo 'Run make group first'; exit 1)
+	$(M2) library --group $(GROUP) --limit $(LIMIT)
+m2-map:
+	$(M2) map --designs $(DESIGNS)
+m2-plots:
+	$(M2) plots
+readiness:        ## the Option 2 M2 readiness record
+	$(M2) readiness
+ta:               ## refresh the TA_M2/ copies from the saved Option 2 evidence (never recomputes)
+	$(M2) showcase
+
+## ---- Option 1 -------------------------------------------------------------------------------
+
+o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
+	docker build -t dd2-layout-tools "$(realpath given)/../container"
+o1-sta:           ## OpenSTA in image dd2-sta, compiled on a tmpfs
+	docker/build_sta.sh
+o1-rules:         ## the design-rule table behind the layout numbers -> results/option1/rules.csv
+	PYTHONPATH=src $(PY) -m cellgen.rules_table
+o1-m1:            ## Option 1 M1: frame check, inv_1 and nand2_1 regenerated and verified, request reader, network check
+	PYTHONPATH=src $(PY) -m cellgen.m1
 o1-m2:            ## Option 1 M2: references (Table 4), test cells (Table 6), characterizer (Table 5), summary
 	PYTHONPATH=src $(PY) -m cellgen.m2 refs
 	PYTHONPATH=src $(PY) -m cellgen.m2 tests
 	PYTHONPATH=src $(PY) -m cellgen.m2 table5
 	PYTHONPATH=src $(PY) -m cellgen.m2 timing
 	PYTHONPATH=src $(PY) -m cellgen.m2 summary
-
-agent:            ## one headless agent run: make agent FUNC='!(A & (B | C))' [AGENT_FLAGS=--scripted]
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.graph --func '$(FUNC)' $(AGENT_FLAGS)
-
-fixed:            ## the fixed-choice version on one function: make fixed FUNC='...'
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.fixed_choice '$(FUNC)'
-
-agent-compare:    ## agent against fixed choices on the test cells -> results/option1/m2/agent_vs_fixed.csv
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.compare
-
-agent-server:     ## the back end for the web app, on 127.0.0.1:8123
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.server
-
-web:              ## the web app on 127.0.0.1:5173 (run agent-server too)
-	cd web && pnpm install --frozen-lockfile && pnpm dev
-
-agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.selfcheck
-
-o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
-	docker build -t dd2-layout-tools "$(realpath given)/../container"
-
-o1-sta:           ## OpenSTA in image dd2-sta, compiled on a tmpfs (about 3 GB of RAM, 170 MB of disk)
-	docker/build_sta.sh
-
-o1-rules:         ## the design-rule table behind the layout numbers -> results/option1/rules.csv
-	PYTHONPATH=src $(PY) -m cellgen.rules_table
-
-o1-m1:            ## Option 1 M1: frame check, inv_1 and nand2_1 regenerated and verified, request reader, network check
-	PYTHONPATH=src $(PY) -m cellgen.m1
-
 docker-flow:      ## build the flow image (Ubuntu 24.04: Yosys 0.33, Icarus, Python 3.12)
 	docker build -f docker/flow.Dockerfile -t dd2-flow docker
-
-m1-docker:        ## the M1 flow inside dd2-flow: the evidence in results/m1 is made this way
-	$(DOCKER_FLOW) make m1 PY=python3
-
 test-docker:      ## the test suite inside dd2-flow
 	$(DOCKER_FLOW) sh -c "cd tests/broken && sha256sum -c SHA256SUMS --quiet && cd ../.. && python3 -m pytest -q -p no:cacheprovider"
 
-demo:             ## what the interview runs: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]
+## ---- the agent and the studio ---------------------------------------------------------------
+
+agent:            ## one headless agent run: make agent FUNC='!(A & (B | C))' [AGENT_FLAGS=--scripted]
+	$(AG).graph --func '$(FUNC)' $(AGENT_FLAGS)
+fixed:            ## the fixed-choice version on one function: make fixed FUNC='...'
+	$(AG).fixed_choice '$(FUNC)'
+agent-compare:    ## agent against fixed choices on the test cells -> results/option1/m2/agent_vs_fixed.csv
+	$(AG).compare
+agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
+	$(AG).selfcheck
+agent-server:     ## the studio's back end, on 127.0.0.1:8123
+	$(AG).server
+web:              ## the studio on 127.0.0.1:5173 (run agent-server too)
+	cd web && pnpm install --frozen-lockfile && pnpm dev
+
+## ---- the interview ----------------------------------------------------------------------------
+
+demo:             ## make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]
 	@test -n "$(IN)" || (echo "usage: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]" && exit 2)
 	@case "$(IN)" in \
-	  *.json) PYTHONPATH=src $(PY) -m cellgen request "$(IN)" --out build/demo/cells --work build/demo/work ;; \
+	  *.json) $(O1) request "$(IN)" --out build/demo/cells --work build/demo/work ;; \
 	  *) $(DD2) demo "$(IN)" $(if $(TOP),--top $(TOP)) $(if $(SV),--sv) ;; \
 	esac
 

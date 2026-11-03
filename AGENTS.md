@@ -1,12 +1,14 @@
 # Instructions for the AI assistant
 
 ## Project
-Option 3: build the connected Option 1 and Option 2 tools. Option 2 finds repeated Boolean
-functions in synthesized circuits, identifies functions missing from SKY130 HD, and measures
-custom-cell savings. Option 1 later turns selected functions into verified HD-compatible cells.
-Milestone 1 of both options is implemented (`src/dd2` for Option 2, `src/cellgen` for Option 1); the
-next scope is Milestone 2. Use Python, Yosys/ABC, OpenSTA, and for Option 1 GDSfactory/KLayout with
-Magic, Netgen and ngspice from the `dd2-layout-tools` image.
+Option 3 (group GB4, five students): build the connected Option 1 and Option 2 tools. Option 2 finds
+repeated Boolean functions in synthesized circuits, identifies functions missing from SKY130 HD, and
+measures custom-cell savings. Option 1 turns selected functions into verified HD-compatible cells.
+Milestone 2 of both options is implemented: Option 2 in `src/dd2` (M1) and `src/dd2m2` (M2), Option 1 in
+`src/cellgen`. Next are the Option 3 loop (Option 2 requests, Option 1 builds, Option 2 remaps with real
+areas), the agent and studio for both options, and the final milestone (`docs/roadmap.md`). Use Python,
+Yosys/ABC, Icarus, OpenSTA, and for Option 1 GDSfactory/KLayout with Magic, Netgen and ngspice from the
+`dd2-layout-tools` image. Nothing is archived: Option 1 and Option 2 are both active, in their usual places.
 
 ## Repository index
 Read `index.yml` before changing project files. It is the machine-readable map of repository
@@ -41,7 +43,11 @@ Update it whenever a tracked path, responsibility, or tool dependency changes.
 - `make agent-check`: the scripted agent run (wrapped tools, policy refusals, Appendix B log).
 - `make o1-m1`: Option 1 M1 (frame check, inv_1 and nand2_1 regenerated and verified) into
   `cells/` and `results/option1/m1/`; needs Docker with the course image (`make o1-image`).
+- `make m2`: Option 2 M2 into `results/m2/`; `make ta` refreshes the `TA_M2/` copies without recomputing.
+- `make o1-m2`: Option 1 M2 into `cells/` and `results/option1/m2/`.
 - Docker (Colima) shares only the home directory: tool work dirs must live under the repo, not /tmp.
+- The team runs on macOS and on WSL. Option 2's M2 evidence was made on WSL with the pinned tool suite;
+  run `make check`, `make test` and the flow there too before claiming Option 2 readiness.
 - Write a failing test first, run it red, then implement (Constitution III).
 
 ## Rules
@@ -57,5 +63,9 @@ Update it whenever a tracked path, responsibility, or tool dependency changes.
 - Never edit files in `tests/broken/` or `tests/broken/SHA256SUMS`; only a human adds a broken case
   and regenerates the checksums.
 - Never type a measured number into README, reports or summaries: they are generated from records.
+- Keep Option 2's Table 4 disagreement (six verified one-stage witnesses against five in the handout)
+  visible until the TA resolves it. Never drop a witness to force agreement.
+- Use the actual DD2 group number (`config/group.txt`), never a guessed prefix.
+- Option 2's flow runs no model. An agent may only choose among its deterministic steps.
 - Keep agent runs bounded and auditable: version prompts, validate tool arguments, log every
   model/tool call, enforce time/token/cost limits, and let deterministic code guard protected paths.

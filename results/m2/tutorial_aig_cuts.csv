@@ -1,0 +1,5 @@
+design,variant,ands,cuts,checked,failures,pn_classes,npn_classes
+spm,synth,893,8804,8804,0,68,28
+spm,restructured,539,3175,3175,0,56,22
+multiplier,synth,585,6033,6033,0,156,37
+multiplier,restructured,503,5200,5200,0,156,39

@@ -1,0 +1,52 @@
+{"root": 17, "leaves": [1, 9], "tt": "0x8", "support": 2, "pn": "0x7"}
+{"root": 41, "leaves": [17, 31, 34, 38], "tt": "0x0301", "support": 4, "pn": "0x000B"}
+{"root": 56, "leaves": [54, 55], "tt": "0x1", "support": 2, "pn": "0x1"}
+{"root": 68, "leaves": [11, 12, 16, 25], "tt": "0x1303", "support": 4, "pn": "0x002F"}
+{"root": 83, "leaves": [72, 82], "tt": "0x8", "support": 2, "pn": "0x7"}
+{"root": 92, "leaves": [31, 46, 53, 91], "tt": "0x2800", "support": 4, "pn": "0x0880"}
+{"root": 100, "leaves": [70, 71, 85], "tt": "0x4D", "support": 3, "pn": "0x2B"}
+{"root": 114, "leaves": [3, 20, 45, 112], "tt": "0x00F9", "support": 4, "pn": "0x00EB"}
+{"root": 126, "leaves": [18, 22, 69, 125], "tt": "0x001F", "support": 4, "pn": "0x001F"}
+{"root": 135, "leaves": [100, 116, 117, 129], "tt": "0xA956", "support": 4, "pn": "0x1EE1"}
+{"root": 143, "leaves": [136, 137, 140], "tt": "0x1E", "support": 3, "pn": "0x1E"}
+{"root": 156, "leaves": [150, 152, 153], "tt": "0x54", "support": 3, "pn": "0x0E"}
+{"root": 170, "leaves": [45, 78, 160, 166], "tt": "0x0440", "support": 4, "pn": "0x0028"}
+{"root": 177, "leaves": [157, 175], "tt": "0x1", "support": 2, "pn": "0x1"}
+{"root": 185, "leaves": [100, 132, 184], "tt": "0x40", "support": 3, "pn": "0x08"}
+{"root": 193, "leaves": [38, 138, 139, 190], "tt": "0x0045", "support": 4, "pn": "0x000B"}
+{"root": 206, "leaves": [1, 15, 197, 199], "tt": "0x2D87", "support": 4, "pn": "0x28D7"}
+{"root": 214, "leaves": [23, 149, 209, 210], "tt": "0x0440", "support": 4, "pn": "0x0028"}
+{"root": 227, "leaves": [24, 28, 224], "tt": "0xE0", "support": 3, "pn": "0x1F"}
+{"root": 236, "leaves": [216, 217, 230, 231], "tt": "0x2228", "support": 4, "pn": "0x02A8"}
+{"root": 243, "leaves": [204, 205, 241], "tt": "0x0E", "support": 3, "pn": "0x0E"}
+{"root": 250, "leaves": [248, 249], "tt": "0x1", "support": 2, "pn": "0x1"}
+{"root": 258, "leaves": [188, 250, 255], "tt": "0x69", "support": 3, "pn": "0x69"}
+{"root": 269, "leaves": [208, 213, 233, 235], "tt": "0x090F", "support": 4, "pn": "0x009F"}
+{"root": 277, "leaves": [49, 149, 273, 274], "tt": "0xBBB0", "support": 4, "pn": "0x03AB"}
+{"root": 288, "leaves": [279, 285, 286], "tt": "0x01", "support": 3, "pn": "0x01"}
+{"root": 296, "leaves": [216, 233, 234, 293], "tt": "0x31CE", "support": 4, "pn": "0x0BF4"}
+{"root": 303, "leaves": [204, 300, 301], "tt": "0x02", "support": 3, "pn": "0x02"}
+{"root": 311, "leaves": [248, 251, 306, 307], "tt": "0x1110", "support": 4, "pn": "0x000E"}
+{"root": 319, "leaves": [204, 300, 302], "tt": "0x13", "support": 3, "pn": "0x07"}
+{"root": 328, "leaves": [228, 230, 287, 291], "tt": "0x001F", "support": 4, "pn": "0x001F"}
+{"root": 337, "leaves": [6, 69, 162, 334], "tt": "0x00B7", "support": 4, "pn": "0x009F"}
+{"root": 345, "leaves": [288, 291, 332, 341], "tt": "0x0EE0", "support": 4, "pn": "0x0EE0"}
+{"root": 353, "leaves": [268, 294, 296, 350], "tt": "0x23DC", "support": 4, "pn": "0x0BF4"}
+{"root": 361, "leaves": [245, 305, 310, 359], "tt": "0x0007", "support": 4, "pn": "0x0007"}
+{"root": 369, "leaves": [260, 261, 351, 353], "tt": "0x0B0F", "support": 4, "pn": "0x00BF"}
+{"root": 377, "leaves": [49, 266, 375], "tt": "0x0B", "support": 3, "pn": "0x0B"}
+{"root": 386, "leaves": [378, 379, 380, 383], "tt": "0x5501", "support": 4, "pn": "0x00AB"}
+{"root": 396, "leaves": [49, 266, 375, 393], "tt": "0x0BF4", "support": 4, "pn": "0x0BF4"}
+{"root": 404, "leaves": [262, 351, 352, 402], "tt": "0x0031", "support": 4, "pn": "0x000B"}
+{"root": 412, "leaves": [36, 37, 408, 409], "tt": "0xF010", "support": 4, "pn": "0x0EFF"}
+{"root": 420, "leaves": [378, 381, 383, 419], "tt": "0xF200", "support": 4, "pn": "0x0BFF"}
+{"root": 430, "leaves": [69, 282, 382, 425], "tt": "0x07F8", "support": 4, "pn": "0x07F8"}
+{"root": 438, "leaves": [373, 417, 424, 430], "tt": "0x1441", "support": 4, "pn": "0x0069"}
+{"root": 446, "leaves": [369, 402, 406, 442], "tt": "0x0BF4", "support": 4, "pn": "0x0BF4"}
+{"root": 454, "leaves": [165, 202, 425, 427], "tt": "0x8808", "support": 4, "pn": "0x2FFF"}
+{"root": 465, "leaves": [424, 425, 427, 464], "tt": "0x4100", "support": 4, "pn": "0x0082"}
+{"root": 473, "leaves": [420, 452, 465, 466], "tt": "0x9996", "support": 4, "pn": "0x1EE1"}
+{"root": 481, "leaves": [434, 437, 470, 474], "tt": "0x1F01", "support": 4, "pn": "0x02AB"}
+{"root": 490, "leaves": [456, 489], "tt": "0x1", "support": 2, "pn": "0x1"}
+{"root": 499, "leaves": [451, 481, 493, 497], "tt": "0xC382", "support": 4, "pn": "0x1FF1"}
+{"root": 509, "leaves": [481, 491, 493, 507], "tt": "0x2300", "support": 4, "pn": "0x008A"}

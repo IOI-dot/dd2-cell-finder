@@ -1,0 +1,62 @@
+name,function,arity,area_um2,transistors,stages,inverters,realization,method,predicted_um2,error_pct,loo_predicted_um2,loo_error_pct
+sky130_fd_sc_hd__a211o_1,(A1&A2) | (B1) | (C1),4,8.7584,10,2,1,!(!((C|(D|(A&B))))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__a211oi_1,(!A1&!B1&!C1) | (!A2&!B1&!C1),4,7.5072,8,1,0,!((C|(D|(A&B)))),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__a21bo_1,(A1&A2) | (!B1_N),3,10.0096,8,2,0,(!C)|(A&B),"minimum-literal SOP, NAND2/3 network",7.5072,-25.000000000000004,7.5072,-25.000000000000004
+sky130_fd_sc_hd__a21boi_1,(!A1&B1_N) | (!A2&B1_N),3,7.5072,8,2,1,!(((!C)|(A&B))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__a21o_1,(A1&A2) | (B1),3,7.5072,8,2,1,!(!((C|(A&B)))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__a21oi_1,(!A1&!B1) | (!A2&!B1),3,5.0048,6,1,0,!((C|(A&B))),factored static CMOS,6.256,24.999999999999996,6.256,24.999999999999996
+sky130_fd_sc_hd__a22o_1,(B1&B2) | (A1&A2),4,8.7584,10,2,1,!(!(((A&B)|(C&D)))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__a22oi_1,(!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2),4,7.5072,8,1,0,!(((A&B)|(C&D))),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__a2bb2o_1,(B1&B2) | (!A1_N&!A2_N),4,10.0096,12,2,2,!(((A|B)&((!C)|(!D)))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__a2bb2oi_1,(A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2),4,8.7584,12,2,2,!((((!A)&(!B))|(C&D))),factored static CMOS,10.0096,14.285714285714294,10.0096,14.285714285714294
+sky130_fd_sc_hd__a31o_1,(A1&A2&A3) | (B1),4,8.7584,10,2,1,!(!((D|(A&(B&C))))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__a31oi_1,(!A1&!B1) | (!A2&!B1) | (!A3&!B1),4,6.256,8,1,0,!((D|(A&(B&C)))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__and2_1,(A&B),2,6.256,6,2,1,!(!((A&B))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__and2b_1,(!A_N&B),2,7.5072,6,2,1,!((A|(!B))),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__and3_1,(A&B&C),3,6.256,8,2,1,!(!((A&(B&C)))),factored static CMOS,8.7584,39.99999999999999,8.7584,39.99999999999999
+sky130_fd_sc_hd__and3b_1,(!A_N&B&C),3,8.7584,10,2,2,!((A|((!B)|(!C)))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__and4_1,(A&B&C&D),4,8.7584,10,2,1,!(!((A&(B&(C&D))))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__and4b_1,(!A_N&B&C&D),4,10.0096,12,3,2,!(!(((!A)&(B&(C&D))))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__and4bb_1,(!A_N&!B_N&C&D),4,12.512,12,2,2,!((A|(B|((!C)|(!D))))),factored static CMOS,10.0096,-19.999999999999996,10.0096,-19.999999999999996
+sky130_fd_sc_hd__buf_1,(A),1,3.7536,0,0,0,(A),"minimum-literal SOP, NAND2/3 network",3.7536,0.0,3.7536,0.0
+sky130_fd_sc_hd__inv_1,(!A),1,3.7536,2,1,1,!(A),factored static CMOS,5.0048,33.33333333333334,5.0048,33.33333333333334
+sky130_fd_sc_hd__maj3_1,(A&B) | (A&C) | (B&C),3,10.0096,12,2,1,!(!(((A&B)|(C&(A|B))))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__mux2_1,(A0&!S) | (A1&S),3,11.2608,14,3,1,(A&!C)|(B&C),"minimum-literal SOP, NAND2/3 network",11.2608,0.0,11.2608,0.0
+sky130_fd_sc_hd__mux2i_1,(!A0&!S) | (!A1&S),3,10.0096,18,3,3,(!A&!C)|(!B&C),"minimum-literal SOP, NAND2/3 network",12.512,24.999999999999996,13.7632,37.499999999999986
+sky130_fd_sc_hd__nand2_1,(!A) | (!B),2,3.7536,4,1,0,!((A&B)),factored static CMOS,6.256,66.66666666666667,6.256,66.66666666666667
+sky130_fd_sc_hd__nand2b_1,(A_N) | (!B),2,6.256,6,2,1,!(((!A)&B)),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__nand3_1,(!A) | (!B) | (!C),3,5.0048,6,1,0,!((A&(B&C))),factored static CMOS,6.256,24.999999999999996,6.256,24.999999999999996
+sky130_fd_sc_hd__nand3b_1,(A_N) | (!B) | (!C),3,7.5072,8,2,1,!(((!A)&(B&C))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__nand4_1,(!A) | (!B) | (!C) | (!D),4,6.256,8,1,0,!((A&(B&(C&D)))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__nand4b_1,(A_N) | (!B) | (!C) | (!D),4,8.7584,10,2,1,!(((!A)&(B&(C&D)))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__nand4bb_1,(A_N) | (B_N) | (!C) | (!D),4,11.2608,12,2,2,!(((!A)&((!B)&(C&D)))),factored static CMOS,10.0096,-11.111111111111102,10.0096,-11.111111111111102
+sky130_fd_sc_hd__nor2_1,(!A&!B),2,3.7536,4,1,0,!((A|B)),factored static CMOS,6.256,66.66666666666667,6.256,66.66666666666667
+sky130_fd_sc_hd__nor2b_1,(!A&B_N),2,6.256,6,2,1,!((A|(!B))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__nor3_1,(!A&!B&!C),3,5.0048,6,1,0,!((A|(B|C))),factored static CMOS,6.256,24.999999999999996,6.256,24.999999999999996
+sky130_fd_sc_hd__nor3b_1,(!A&!B&C_N),3,7.5072,8,2,1,!((A|(B|(!C)))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__nor4_1,(!A&!B&!C&!D),4,6.256,8,1,0,!((A|(B|(C|D)))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__nor4b_1,(!A&!B&!C&D_N),4,8.7584,10,2,1,!((A|(B|(C|(!D))))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__nor4bb_1,(!A&!B&C_N&D_N),4,10.0096,12,2,2,!((A|(B|((!C)|(!D))))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__o211a_1,(A1&B1&C1) | (A2&B1&C1),4,10.0096,10,2,1,!(!((C&(D&(A|B))))),factored static CMOS,8.7584,-12.500000000000007,8.7584,-12.500000000000007
+sky130_fd_sc_hd__o211ai_1,(!A1&!A2) | (!B1) | (!C1),4,7.5072,8,1,0,!((C&(D&(A|B)))),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__o21a_1,(A1&B1) | (A2&B1),3,7.5072,8,2,1,!(!((C&(A|B)))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__o21ai_1,(!A1&!A2) | (!B1),3,5.0048,6,1,0,!((C&(A|B))),factored static CMOS,6.256,24.999999999999996,6.256,24.999999999999996
+sky130_fd_sc_hd__o21ba_1,(A1&!B1_N) | (A2&!B1_N),3,10.0096,8,2,0,(!C)&(A|B),"minimum-literal POS, NOR2/3 network",7.5072,-25.000000000000004,7.5072,-25.000000000000004
+sky130_fd_sc_hd__o21bai_1,(!A1&!A2) | (B1_N),3,7.5072,8,2,1,!(((!C)&(A|B))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__o22a_1,(A1&B1) | (A2&B1) | (A1&B2) | (A2&B2),4,8.7584,10,2,1,!(!(((A|B)&(C|D)))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__o22ai_1,(!B1&!B2) | (!A1&!A2),4,6.256,8,1,0,!(((A|B)&(C|D))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__o2bb2a_1,(!A1_N&B1) | (!A2_N&B1) | (!A1_N&B2) | (!A2_N&B2),4,10.0096,12,2,2,!(((A&B)|((!C)&(!D)))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__o2bb2ai_1,(!B1&!B2) | (A1_N&A2_N),4,8.7584,12,2,2,!((((!A)|(!B))&(C|D))),factored static CMOS,10.0096,14.285714285714294,10.0096,14.285714285714294
+sky130_fd_sc_hd__o31a_1,(A1&B1) | (A2&B1) | (A3&B1),4,8.7584,10,2,1,!(!((D&(A|(B|C))))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__o31ai_1,(!A1&!A2&!A3) | (!B1),4,7.5072,8,1,0,!((D&(A|(B|C)))),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__or2_1,(A) | (B),2,6.256,6,2,1,!(!((A|B))),factored static CMOS,7.5072,19.999999999999996,7.5072,19.999999999999996
+sky130_fd_sc_hd__or2b_1,(A) | (!B_N),2,7.5072,6,2,1,!(((!A)&B)),factored static CMOS,7.5072,0.0,7.5072,0.0
+sky130_fd_sc_hd__or3_1,(A) | (B) | (C),3,6.256,8,2,1,!(!((A|(B|C)))),factored static CMOS,8.7584,39.99999999999999,8.7584,39.99999999999999
+sky130_fd_sc_hd__or3b_1,(A) | (B) | (!C_N),3,8.7584,10,2,2,!(((!A)&((!B)&C))),factored static CMOS,8.7584,0.0,8.7584,0.0
+sky130_fd_sc_hd__or4_1,(A) | (B) | (C) | (D),4,7.5072,10,2,1,!(!((A|(B|(C|D))))),factored static CMOS,8.7584,16.666666666666664,8.7584,16.666666666666664
+sky130_fd_sc_hd__or4b_1,(A) | (B) | (C) | (!D_N),4,10.0096,12,3,2,!(!((A|(B|(C|(!D)))))),factored static CMOS,10.0096,0.0,10.0096,0.0
+sky130_fd_sc_hd__or4bb_1,(A) | (B) | (!C_N) | (!D_N),4,11.2608,12,2,2,!(((!A)&((!B)&(C&D)))),factored static CMOS,10.0096,-11.111111111111102,10.0096,-11.111111111111102
+sky130_fd_sc_hd__xnor2_1,(!A&!B) | (A&B),2,8.7584,16,3,2,(!A&!B)|(A&B),"minimum-literal SOP, NAND2/3 network",12.512,42.85714285714287,12.512,42.85714285714287
+sky130_fd_sc_hd__xnor3_1,(!A&!B&!C) | (A&B&!C) | (A&!B&C) | (!A&B&C),3,22.5216,42,5,4,(!A&!B&!C)|(A&B&!C)|(A&!B&C)|(!A&B&C),"minimum-literal SOP, NAND2/3 network",23.7728,5.555555555555559,25.024,11.111111111111118
+sky130_fd_sc_hd__xor2_1,(A&!B) | (!A&B),2,8.7584,16,3,2,(!A|!B)&(A|B),"minimum-literal POS, NOR2/3 network",12.512,42.85714285714287,12.512,42.85714285714287
+sky130_fd_sc_hd__xor3_1,(A&!B&!C) | (!A&B&!C) | (!A&!B&C) | (A&B&C),3,23.7728,42,5,4,(A&!B&!C)|(!A&B&!C)|(!A&!B&C)|(A&B&C),"minimum-literal SOP, NAND2/3 network",23.7728,0.0,23.7728,0.0

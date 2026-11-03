@@ -1,49 +1,37 @@
 {
-  "checked": "2026-10-26T22:29:05+00:00",
-  "full_hd_lib": {
-    "cells": 428,
-    "path": "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
-    "sha256": "e66aab4e0a3eef8d0b13eb5b75aaadb725ba78b032203342eb1e419a2c111baf"
-  },
-  "given": "given",
-  "hd_views": {
-    "gds": {
-      "path": "pdk/libs.ref/sky130_fd_sc_hd/gds/sky130_fd_sc_hd.gds",
-      "present": true,
-      "sha256": "a09b61a8ebc4945962625e16df7a9ab20168eb55b1a9a5dc5ac295c32dc95a65"
-    },
-    "lef": {
-      "path": "pdk/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef",
-      "present": true,
-      "sha256": null
-    },
-    "mag": {
-      "path": "pdk/libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag",
-      "present": true,
-      "sha256": null
-    },
-    "spice": {
-      "path": "pdk/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice",
-      "present": true,
-      "sha256": "7989b31c90fe3d726959ef55943182ed55fbd9f3a9d35fb733a5ebad4178caf4"
-    }
+  "checked": "2026-11-03T11:51:55+00:00",
+  "inputs": {
+    "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb",
+    "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050",
+    "given/designs/dsp8.v": "fa86dedaaeddfd0df04be9dcd0e72ea8e3fa02885fc6c63376442d2f55cd2c5b",
+    "given/designs/fir10.v": "ff2dbaee1a476d0e3256eeea7d9866f5d2527ddaf4cda60fbfefa92ace87d1fc",
+    "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c",
+    "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14",
+    "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8",
+    "given/hd_usable.lib": "13a79aae465f997af6ea1d1d39bbfa6dc5c90593bf0c9d23d77c8a136e687872",
+    "given/scripts/map.sh": "e1314727b699e57706ee614c5d3d483a4ef82906889066e3ad176ba9fbe99e74",
+    "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
   },
   "liberty_import": {
     "hd_reduced.lib": 189,
     "hd_usable.lib": 307
   },
   "notes": [
-    "OpenSTA (sta) missing: required from M2 (worst delay in Table 5), not for M1",
-    "inside the dd2-flow container: the course image and its ngspice stress test are checked by `make check` on the host"
+    "Yosys 0.33 is the Option 2 Table 1 reference version; overview lists >=0.34. Keep a separate reference executable."
   ],
-  "pdk": "pdk",
-  "pdk_version": "ciel dd7771c384ed36b91a25e9f8b314355fc26561be",
+  "overview_versions": {
+    "iverilog_13_or_newer": true,
+    "opensta_recent": true,
+    "python_3_11_or_newer": true,
+    "yosys_0_34_or_newer": false
+  },
   "problems": [],
+  "scope": "Option 2 native CLI; no Option 1 GDS/SPICE checks are claimed",
   "status": "pass",
   "tools": {
-    "iverilog": "Icarus Verilog version 12.0 (stable) ()",
+    "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-739-gd95f2401b-dirty)",
     "python": "3.12.3",
-    "sta": null,
+    "sta": "3.1.0",
     "yosys": "Yosys 0.33 (git sha1 2584903a060)",
     "yosys-abc": "present (bundled with yosys)"
   }

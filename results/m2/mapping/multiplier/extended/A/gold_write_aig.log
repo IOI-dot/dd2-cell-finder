@@ -1,0 +1,11 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m2/mapping/multiplier/extended/A/gold_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m2/mapping/multiplier/extended/A/gold_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module mul from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit mul.\mp [0] like $anyseq.
+Warning: Treating undriven bit mul.\mc [0] like $anyseq.
+Warning: Treating a total of 2 undriven bits in mul like $anyseq.

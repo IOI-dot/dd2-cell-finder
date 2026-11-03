@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/cpu8/restructured.aig",
-  "aig_sha256": "af67bc39aeb556fd2ad053ef4b8638cc242598721e67275eae64efe32c04fa77",
+  "aig_sha256": "97ac436ce76747c33afc10d69c9ebef74960ca337f0a8b1ca6aa5c77b34239f1",
   "commands": [
     "read results/m1/aigs/cpu8/synth.aig",
     "strash",
@@ -14,33 +14,33 @@
   "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
-    "A": 1112,
+    "A": 1108,
     "B": 0,
     "C": 0,
     "I": 92,
     "L": 83,
-    "M": 1287,
+    "M": 1283,
     "O": 13
   },
   "levels": 31,
   "outputs": 13,
   "run": {
     "argv": [
-      "yosys-abc",
+      "/usr/bin/yosys-abc",
       "-c",
       "read results/m1/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/cpu8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:27+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:36+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/cpu8/synth.aig": "3ce88a2c1d427c788d3707918cecb3f1e41ed94a3fb25fa63436d99f206af4d0"
+      "results/m1/aigs/cpu8/synth.aig": "15a2541cc1e31145cfb1ade0aea5302d9b025bca9097e6ddb4d60f3d2f0661b7"
     },
     "logs": [
       "results/m1/aigs/cpu8/restructured.log",
       "results/m1/aigs/cpu8/cec.log"
     ],
-    "started": "2026-10-26T22:29:26+00:00",
+    "started": "2026-11-03T11:52:35+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"

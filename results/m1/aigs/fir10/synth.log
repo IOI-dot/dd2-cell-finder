@@ -1,1 +1,1 @@
-$ yosys -q -p read_verilog given/designs/fir10.v; synth -flatten -top fir10; tee -q -o build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/fir10/synth.aig; write_aiger build/aigs/fir10/synth_plain.aig
+$ /usr/bin/yosys -q -p read_verilog given/designs/fir10.v; synth -flatten -top fir10; tee -q -o build/aigs/fir10/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/fir10/synth.aig; write_aiger build/aigs/fir10/synth_plain.aig

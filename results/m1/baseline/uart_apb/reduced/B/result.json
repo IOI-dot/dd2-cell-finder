@@ -52,14 +52,14 @@
   "library": "reduced",
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog  given/designs/uart_apb.v; synth -flatten -top uart_apb_master; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -q -o results/m1/baseline/uart_apb/reduced/B/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/uart_apb/reduced/B/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:17+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:16+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/uart_apb.v": "a80bd82d7f85b2741d4653a9917f0369fd77febfb59e05b7fb053792f4f97f14",
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
@@ -69,13 +69,13 @@
       "results/m1/baseline/uart_apb/reduced/B/stat.txt",
       "results/m1/baseline/uart_apb/reduced/B/stat.json"
     ],
-    "started": "2026-10-26T22:29:16+00:00",
+    "started": "2026-11-03T11:52:15+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "B",
-  "seconds": 0.691,
+  "seconds": 1.117,
   "top": "uart_apb_master"
 }

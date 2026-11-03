@@ -1,0 +1,149 @@
+[
+  {
+    "estimated_area_um2": 8.7584,
+    "expression": "!((D&((A&B)|(C&(A|B)))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_17ff_1",
+    "output": "Y",
+    "request_id": "M2-001",
+    "sizing": "hd",
+    "truth_table": "0x17FF"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!((((!A)&B)|(C&((!A)|B))))",
+    "inputs": [
+      "A",
+      "B",
+      "C"
+    ],
+    "name": "dd2_g4__n3_2b_1",
+    "output": "Y",
+    "request_id": "M2-002",
+    "sizing": "hd",
+    "truth_table": "0x2B"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!((D&(((!A)&B)|(C&((!A)|B)))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_2bff_1",
+    "output": "Y",
+    "request_id": "M2-003",
+    "sizing": "hd",
+    "truth_table": "0x2BFF"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!(!(((A|B)&((A&B)|(C&D)))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_e888_1",
+    "output": "Y",
+    "request_id": "M2-004",
+    "sizing": "hd",
+    "truth_table": "0xE888"
+  },
+  {
+    "estimated_area_um2": 12.512,
+    "expression": "!(!(((A|(!D))&((A&(!D))|(B&C)))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_80ea_1",
+    "output": "Y",
+    "request_id": "M2-005",
+    "sizing": "hd",
+    "truth_table": "0x80EA"
+  },
+  {
+    "estimated_area_um2": 11.2608,
+    "expression": "!((D&(((!A)&(!B))|(C&((!A)|(!B))))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_8eff_1",
+    "output": "Y",
+    "request_id": "M2-006",
+    "sizing": "hd",
+    "truth_table": "0x8EFF"
+  },
+  {
+    "estimated_area_um2": 11.2608,
+    "expression": "!((((!A)&(!B))|(C&((!A)|(!B)))))",
+    "inputs": [
+      "A",
+      "B",
+      "C"
+    ],
+    "name": "dd2_g4__n3_8e_1",
+    "output": "Y",
+    "request_id": "M2-007",
+    "sizing": "hd",
+    "truth_table": "0x8E"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!((((!A)&D)|(((!A)|D)&(B|C))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_02ab_1",
+    "output": "Y",
+    "request_id": "M2-008",
+    "sizing": "hd",
+    "truth_table": "0x02AB"
+  },
+  {
+    "estimated_area_um2": 12.512,
+    "expression": "(!C)|(!A&!B)|(A&B)",
+    "inputs": [
+      "A",
+      "B",
+      "C"
+    ],
+    "name": "dd2_g4__n3_9f_1",
+    "output": "Y",
+    "request_id": "M2-009",
+    "sizing": "hd",
+    "truth_table": "0x9F"
+  },
+  {
+    "estimated_area_um2": 11.2608,
+    "expression": "!((D|(((!A)|(!B))&(C|((!A)&(!B))))))",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "name": "dd2_g4__n4_008e_1",
+    "output": "Y",
+    "request_id": "M2-010",
+    "sizing": "hd",
+    "truth_table": "0x008E"
+  }
+]

@@ -1,0 +1,19 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m2/mapping/fir10/baseline/B/gate_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m2/mapping/fir10/baseline/B/gate_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module fir10 from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit fir10.\rst like $anyseq.
+Warning: Treating undriven bit fir10.\load like $anyseq.
+Warning: Treating undriven bit fir10.\din [0] like $anyseq.
+Warning: Treating undriven bit fir10.\din [1] like $anyseq.
+Warning: Treating undriven bit fir10.\din [2] like $anyseq.
+Warning: Treating undriven bit fir10.\din [3] like $anyseq.
+Warning: Treating undriven bit fir10.\din [4] like $anyseq.
+Warning: Treating undriven bit fir10.\din [5] like $anyseq.
+Warning: Treating undriven bit fir10.\din [6] like $anyseq.
+Warning: Treating undriven bit fir10.\din [7] like $anyseq.
+Warning: Treating a total of 10 undriven bits in fir10 like $anyseq.

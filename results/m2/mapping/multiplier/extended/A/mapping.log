@@ -1,0 +1,621 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m2/mapping/multiplier/extended/A/mapping.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m2/mapping/multiplier/extended/A/mapping.ys' --
+
+1. Executing Verilog-2005 frontend: /home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v
+Parsing Verilog input from `/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v' to AST representation.
+Generating RTLIL representation for module `\mul'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \mul
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \mul
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+<suppressed ~2 debug messages>
+
+2.3. Executing CHECK pass (checking for obvious problems).
+Checking module mul...
+Found and reported 0 problems.
+
+2.4. Executing FLATTEN pass (flatten design).
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module mul...
+Found and reported 0 problems.
+
+2.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+Removed 1 unused cells and 6 unused wires.
+<suppressed ~2 debug messages>
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:17$ternary$6: \mc -> { 1'0 \mc [6:0] }
+      Replacing known input bits on port A of cell $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:16$ternary$3: \mp -> { 1'0 \mp [6:0] }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mul.
+Performed a total of 0 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing FSM pass (extract and optimize FSM).
+
+2.9.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.9.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.9.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.9.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.9.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.9.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mul.
+Performed a total of 0 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.10.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.11. Executing WREDUCE pass (reducing word size of cells).
+
+2.12. Executing PEEPOPT pass (run peephole optimizers).
+
+2.13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.14. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module mul:
+  creating $macc model for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:28$add$11 ($add).
+  creating $macc model for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:20$mul$7 ($mul).
+  creating $macc model for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:17$add$5 ($add).
+  creating $macc model for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:16$add$2 ($add).
+  creating $alu model for $macc $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:16$add$2.
+  creating $alu model for $macc $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:17$add$5.
+  creating $alu model for $macc $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:28$add$11.
+  creating $macc cell for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:20$mul$7: $auto$alumacc.cc:427:replace_macc$13
+  creating $alu cell for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:28$add$11: $auto$alumacc.cc:578:replace_alu$14
+  creating $alu cell for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:17$add$5: $auto$alumacc.cc:578:replace_alu$17
+  creating $alu cell for $/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v:16$add$2: $auto$alumacc.cc:578:replace_alu$20
+  created 3 $alu and 1 $macc cells.
+
+2.15. Executing SHARE pass (SAT-based resource sharing).
+
+2.16. Executing OPT pass (performing simple optimizations).
+
+2.16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+2.16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mul.
+Performed a total of 0 changes.
+
+2.16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.16.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.16.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.16.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.16.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.17. Executing MEMORY pass.
+
+2.17.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+2.17.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.17.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+2.17.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.17.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+2.17.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.17.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+2.17.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.17.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.19.5. Finished fast OPT passes.
+
+2.20. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \mul..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \mul.
+Performed a total of 0 changes.
+
+2.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 11 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.21.6. Executing OPT_SHARE pass.
+
+2.21.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+
+2.21.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.21.10. Finished fast OPT passes. (There is nothing left to do.)
+
+2.22. Executing TECHMAP pass (map to technology primitives).
+
+2.22.1. Executing Verilog-2005 frontend: /home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+2.22.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \ump * \umc (8x8 bits, unsigned)
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$2af30114e9bd4ccb04dad757b3f0a8f6bf0615b0\_90_alu for cells of type $alu.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~632 debug messages>
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+<suppressed ~740 debug messages>
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 510 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+Removed 34 unused cells and 324 unused wires.
+<suppressed ~35 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing ABC pass (technology mapping using ABC).
+
+2.24.1. Summary of detected clock domains:
+  476 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+2.24.2. Extracting gate netlist of module `\mul' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+
+2.24.2.1. Executed ABC.
+Extracted 476 gates and 493 wires to a netlist network with 16 inputs and 16 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.2.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       49
+ABC RESULTS:            ANDNOT cells:       32
+ABC RESULTS:              NAND cells:      120
+ABC RESULTS:               NOR cells:       21
+ABC RESULTS:               NOT cells:        3
+ABC RESULTS:                OR cells:       29
+ABC RESULTS:             ORNOT cells:       16
+ABC RESULTS:              XNOR cells:       41
+ABC RESULTS:               XOR cells:       65
+ABC RESULTS:        internal signals:      461
+ABC RESULTS:           input signals:       16
+ABC RESULTS:          output signals:       16
+Removing temp directory.
+Removing global temp directory.
+
+2.25. Executing OPT pass (performing simple optimizations).
+
+2.25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module mul.
+
+2.25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\mul'.
+Computing hashes of 376 cells of `\mul'.
+Finding duplicate cells in `\mul'.
+Removed a total of 0 cells.
+
+2.25.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.25.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+Removed 0 unused cells and 119 unused wires.
+<suppressed ~2 debug messages>
+
+2.25.5. Finished fast OPT passes.
+
+2.26. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `mul'. Setting top module to mul.
+
+2.26.1. Analyzing design hierarchy..
+Top module:  \mul
+
+2.26.2. Analyzing design hierarchy..
+Top module:  \mul
+Removed 0 unused modules.
+
+2.27. Printing statistics.
+
+=== mul ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      366 wires
+      424 wire bits
+        6 public wires
+       64 public wire bits
+        3 ports
+       32 port bits
+      376 cells
+       32   $_ANDNOT_
+       49   $_AND_
+      120   $_NAND_
+       21   $_NOR_
+        3   $_NOT_
+       16   $_ORNOT_
+       29   $_OR_
+       41   $_XNOR_
+       65   $_XOR_
+
+2.28. Executing CHECK pass (checking for obvious problems).
+Checking module mul...
+Found and reported 0 problems.
+
+3. Executing RTLIL backend.
+Output filename: /home/hank2b/dd2-cell-finder/results/m2/mapping/multiplier/extended/A/gold.il
+
+4. Executing JSON backend.
+
+5. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__dlxtp_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    unmapped dff/dlatch cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__dlxtp_1 _DLATCH_P_ (.D( D), .GATE( E), .Q( Q));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+Mapping DFF/DLATCH cells in module `\mul':
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Summary of detected clock domains:
+  376 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+6.2. Extracting gate netlist of module `\mul' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_e24c8673.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+6.2.1. Executed ABC.
+Extracted 376 gates and 392 wires to a netlist network with 16 inputs and 16 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_e24c8673.scl 
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + dch -f 
+ABC: + amap 
+ABC: + topo 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+6.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       39
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       84
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       80
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       62
+ABC RESULTS:   sky130_fd_sc_hd__o22a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        2
+ABC RESULTS:        internal signals:      360
+ABC RESULTS:           input signals:       16
+ABC RESULTS:          output signals:       16
+Removing temp directory.
+Removing global temp directory.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \mul..
+Removed 0 unused cells and 395 unused wires.
+<suppressed ~4 debug messages>
+8. Executing JSON backend.
+
+9. Executing Verilog backend.
+Dumping module `\mul'.

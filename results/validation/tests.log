@@ -1,0 +1,5 @@
+cd tests/broken && sha256sum -c SHA256SUMS --quiet
+PYTHONPATH=src .venv/bin/python -m pytest -q tests
+........................................................................ [ 71%]
+.............................                                            [100%]
+101 passed in 51.30s

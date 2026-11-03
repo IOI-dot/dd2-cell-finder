@@ -1,0 +1,1442 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m2/mapping/cpu8/extended/B/mapping.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m2/mapping/cpu8/extended/B/mapping.ys' --
+
+1. Executing Verilog-2005 frontend: /home/hank2b/dd2-cell-finder/given/designs/cpu8.v
+Parsing Verilog input from `/home/hank2b/dd2-cell-finder/given/designs/cpu8.v' to AST representation.
+Generating RTLIL representation for module `\alu8'.
+Generating RTLIL representation for module `\regfile'.
+Generating RTLIL representation for module `\cpu8'.
+Successfully finished Verilog frontend.
+
+2. Executing SYNTH pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \cpu8
+Used module:     \alu8
+Used module:     \regfile
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \cpu8
+Used module:     \alu8
+Used module:     \regfile
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23 in module cpu8.
+Marked 1 switch rules as full_case in process $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:90$proc$22 in module cpu8.
+Marked 1 switch rules as full_case in process $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8 in module regfile.
+Marked 1 switch rules as full_case in process $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:11$proc$3 in module alu8.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 5 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 1 switch.
+<suppressed ~5 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23'.
+     1/2: $0\pc[3:0]
+     2/2: $0\halt[0:0]
+Creating decoders for process `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:90$proc$22'.
+     1/1: $1\insn[15:0]
+Creating decoders for process `\regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+     1/3: $1$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$14
+     2/3: $1$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_DATA[7:0]$13
+     3/3: $1$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_ADDR[2:0]$12
+Creating decoders for process `\alu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:11$proc$3'.
+     1/1: $1\y[7:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\cpu8.\insn' from process `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:90$proc$22'.
+No latch inferred for signal `\alu8.\y' from process `\alu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:11$proc$3'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\cpu8.\halt' using process `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23'.
+  created $dff cell `$procdff$66' with positive edge clock.
+Creating register for signal `\cpu8.\pc' using process `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23'.
+  created $dff cell `$procdff$67' with positive edge clock.
+Creating register for signal `\regfile.$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_ADDR' using process `\regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+  created $dff cell `$procdff$68' with positive edge clock.
+Creating register for signal `\regfile.$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_DATA' using process `\regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+  created $dff cell `$procdff$69' with positive edge clock.
+Creating register for signal `\regfile.$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN' using process `\regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+  created $dff cell `$procdff$70' with positive edge clock.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23'.
+Removing empty process `cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:111$proc$23'.
+Found and cleaned up 1 empty switch in `\cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:90$proc$22'.
+Removing empty process `cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:90$proc$22'.
+Found and cleaned up 1 empty switch in `\regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+Removing empty process `regfile.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:36$proc$8'.
+Found and cleaned up 1 empty switch in `\alu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:11$proc$3'.
+Removing empty process `alu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:11$proc$3'.
+Cleaned up 6 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~3 debug messages>
+Optimizing module regfile.
+Optimizing module alu8.
+<suppressed ~1 debug messages>
+
+2.3. Executing CHECK pass (checking for obvious problems).
+Checking module cpu8...
+Checking module regfile...
+Checking module alu8...
+Found and reported 0 problems.
+
+2.4. Executing FLATTEN pass (flatten design).
+Deleting now unused module regfile.
+Deleting now unused module alu8.
+<suppressed ~2 debug messages>
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module cpu8...
+Found and reported 0 problems.
+
+2.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 4 unused cells and 34 unused wires.
+<suppressed ~5 debug messages>
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 38 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$42: \halt -> 1'1
+      Replacing known input bits on port A of cell $procmux$40: \halt -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+    Consolidated identical input bits for $mux cell $flatten\rf.$procmux$49:
+      Old ports: A=8'00000000, B=8'11111111, Y=$flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11
+      New ports: A=1'0, B=1'1, Y=$flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0]
+      New connections: $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [7:1] = { $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] $flatten\rf.$0$memwr$\mem$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:37$7_EN[7:0]$11 [0] }
+  Optimizing cells in module \cpu8.
+Performed a total of 1 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 38 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+2.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+Performed a total of 0 changes.
+
+2.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 38 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.9. Executing FSM pass (extract and optimize FSM).
+
+2.9.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+2.9.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+2.9.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.9.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+2.9.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+2.9.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+2.9.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 38 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+2.10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+Performed a total of 0 changes.
+
+2.10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 38 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.10.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$66 ($dff) from module cpu8 (D = $procmux$42_Y, Q = \halt, rval = 1'0).
+Adding SRST signal on $procdff$67 ($dff) from module cpu8 (D = $procmux$34_Y, Q = \pc, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$75 ($sdff) from module cpu8 (D = $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:117$add$26_Y, Q = \pc).
+
+2.10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+2.10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+Performed a total of 0 changes.
+
+2.10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 37 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.10.16. Finished fast OPT passes. (There is nothing left to do.)
+
+2.11. Executing WREDUCE pass (reducing word size of cells).
+Removed top 28 address bits (of 32) from memory init port cpu8.$auto$mem.cc:349:emit$30 ($auto$proc_rom.cc:155:do_switch$28).
+Removed top 1 bits (of 4) from port B of cell cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:69$eq$17 ($eq).
+Removed top 3 bits (of 4) from port B of cell cpu8.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:117$add$26 ($add).
+Removed top 1 bits (of 9) from port A of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2 ($sub).
+Removed top 1 bits (of 9) from port B of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2 ($sub).
+Removed top 1 bits (of 9) from port Y of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2 ($sub).
+Removed top 1 bits (of 9) from port A of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1 ($add).
+Removed top 1 bits (of 9) from port B of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1 ($add).
+Removed top 1 bits (of 9) from port Y of cell cpu8.$flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1 ($add).
+Removed top 2 bits (of 3) from port B of cell cpu8.$flatten\alu.$procmux$64_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell cpu8.$flatten\alu.$procmux$63_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell cpu8.$flatten\alu.$procmux$62_CMP0 ($eq).
+
+2.12. Executing PEEPOPT pass (run peephole optimizers).
+
+2.13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.14. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module cpu8:
+  creating $macc model for $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2 ($sub).
+  creating $macc model for $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:117$add$26 ($add).
+  creating $macc model for $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1 ($add).
+  creating $alu model for $macc $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1.
+  creating $alu model for $macc $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:117$add$26.
+  creating $alu model for $macc $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2.
+  creating $alu cell for $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:10$sub$2: $auto$alumacc.cc:578:replace_alu$83
+  creating $alu cell for $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:117$add$26: $auto$alumacc.cc:578:replace_alu$86
+  creating $alu cell for $flatten\alu.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:9$add$1: $auto$alumacc.cc:578:replace_alu$89
+  created 3 $alu and 0 $macc cells.
+
+2.15. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module cpu8 that may be considered for resource sharing.
+  Analyzing resource sharing options for $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem ($memrd):
+    Found 7 activation_patterns using ctrl signal { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $flatten\alu.$procmux$64_CMP $flatten\alu.$procmux$65_CMP }.
+    Found 1 candidates: $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem
+    Analyzing resource sharing with $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem ($memrd):
+      Found 6 activation_patterns using ctrl signal { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $flatten\alu.$procmux$64_CMP $flatten\alu.$procmux$65_CMP }.
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$59_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$60_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$62_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$63_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$64_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$61_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:39$memrd$15$\mem: $flatten\alu.$procmux$65_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $flatten\alu.$procmux$64_CMP $flatten\alu.$procmux$65_CMP } = 7'0000000
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: $flatten\alu.$procmux$62_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: $flatten\alu.$procmux$63_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: $flatten\alu.$procmux$64_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: $flatten\alu.$procmux$61_CMP = 1'1
+      Activation pattern for cell $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem: $flatten\alu.$procmux$65_CMP = 1'1
+      Size of SAT problem: 7 cells, 107 variables, 330 clauses
+      According to the SAT solver this pair of cells can not be shared.
+      Model from SAT solver: { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $flatten\alu.$procmux$64_CMP $flatten\alu.$procmux$65_CMP } = 7'0010000
+  Analyzing resource sharing options for $flatten\rf.$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:40$memrd$16$\mem ($memrd):
+    Found 6 activation_patterns using ctrl signal { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $flatten\alu.$procmux$64_CMP $flatten\alu.$procmux$65_CMP }.
+    No candidates found.
+
+2.16. Executing OPT pass (performing simple optimizations).
+
+2.16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 37 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+2.16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+Performed a total of 0 changes.
+
+2.16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 37 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.16.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.16.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.16.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.16.9. Finished fast OPT passes. (There is nothing left to do.)
+
+2.17. Executing MEMORY pass.
+
+2.17.1. Executing OPT_MEM pass (optimize memories).
+cpu8.$auto$proc_rom.cc:155:do_switch$28: removing const-0 lane 0
+cpu8.$auto$proc_rom.cc:155:do_switch$28: removing const-0 lane 1
+cpu8.$auto$proc_rom.cc:155:do_switch$28: removing const-0 lane 2
+Performed a total of 1 transformations.
+
+2.17.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+2.17.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing cpu8.rf.mem write port 0.
+
+2.17.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+2.17.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\rf.mem'[0] in module `\cpu8':
+    no output FF found.
+Checking read port `\rf.mem'[1] in module `\cpu8':
+    no output FF found.
+Checking read port `$auto$proc_rom.cc:155:do_switch$28'[0] in module `\cpu8':
+    no output FF found.
+Checking read port address `\rf.mem'[0] in module `\cpu8':
+    no address FF found.
+Checking read port address `\rf.mem'[1] in module `\cpu8':
+    no address FF found.
+Checking read port address `$auto$proc_rom.cc:155:do_switch$28'[0] in module `\cpu8':
+    merged address FF to cell.
+
+2.17.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.17.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+Consolidating read ports of memory cpu8.rf.mem by address:
+
+2.17.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+2.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.17.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.19. Executing OPT pass (performing simple optimizations).
+
+2.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~7 debug messages>
+
+2.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 32 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.19.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:337:slice$74 ($sdff) from module cpu8 (D = 1'1, Q = \halt).
+
+2.19.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 1 unused cells and 5 unused wires.
+<suppressed ~2 debug messages>
+
+2.19.5. Rerunning OPT passes. (Removed registers in this run.)
+
+2.19.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.19.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 31 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.19.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.19.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.19.10. Finished fast OPT passes.
+
+2.20. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $auto$proc_rom.cc:155:do_switch$28 in module \cpu8:
+  created 16 $dff cells and 0 static cells of width 13.
+Extracted data FF from read port 0 of cpu8.$auto$proc_rom.cc:155:do_switch$28: $$auto$proc_rom.cc:155:do_switch$28$rdreg[0]
+  read interface: 1 $dff and 15 $mux cells.
+  write interface: 0 write mux blocks.
+Mapping memory \rf.mem in module \cpu8:
+  created 8 $dff cells and 0 static cells of width 8.
+  read interface: 0 $dff and 14 $mux cells.
+  write interface: 8 write mux blocks.
+
+2.21. Executing OPT pass (performing simple optimizations).
+
+2.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~6 debug messages>
+
+2.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 98 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.21.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~63 debug messages>
+
+2.21.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][6]$142:
+      Old ports: A=13'0100011010000, B=13'0101011100001, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [12:5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [3:1] } = { 3'010 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [0] 3'011 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [0] 3'000 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][5]$139:
+      Old ports: A=13'0010010101110, B=13'0011110111111, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0]
+      New connections: $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [12:1] = { 3'001 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0] 3'101 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0] 3'111 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][4]$136:
+      Old ports: A=13'0110110001100, B=13'0001110011101, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [12:11] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [9:1] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [0] 4'1100 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [0] 3'110 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][3]$133:
+      Old ports: A=13'0101001111010, B=13'0001010001011, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [12:5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [3:1] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] 3'010 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] 3'101 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][2]$130:
+      Old ports: A=13'0011001010101, B=13'0100001101001, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116
+      New ports: A=2'01, B=2'10, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [3:2]
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [12:4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [1:0] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [3:2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [2] 3'001 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [3:2] 2'01 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][1]$127:
+      Old ports: A=13'0001100010011, B=13'0010101000100, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114
+      New ports: A=2'01, B=2'10, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [12:3] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [1] } = { 2'00 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [2] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][0]$124:
+      Old ports: A=13'0110000000000, B=13'0110010010000, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [4]
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [12:5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [3:0] } = { 5'01100 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [4] 6'000000 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][3][7]$145:
+      Old ports: A=13'0001011110001, B=13'1111000000000, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123
+      New ports: A=2'01, B=2'10, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [12:11] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [9:1] } = { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [10] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] 3'000 }
+  Optimizing cells in module \cpu8.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$121:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111
+      New ports: A={ 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [0] 1'1 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$a$122 [0] }, B={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [10] 1'1 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][3]$b$123 [0] }, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [11:9] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [6] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [12] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [8:7] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [3:1] } = { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [10] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [6] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [0] 3'000 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$118:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110
+      New ports: A={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [10] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$a$119 [0] }, B={ 2'01 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0] 1'1 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][2]$b$120 [0] }, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [11:10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [8] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [1:0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [12] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [9] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [7:2] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [0] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [1:0] 2'11 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$115:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108
+      New ports: A={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [2] 2'01 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [3:2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$a$116 [3:2] 2'01 }, B={ 1'1 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [4] 3'101 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][1]$b$117 [0] }, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [9] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [7:0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [12:10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [8] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [2] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$112:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107
+      New ports: A={ 3'110 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$a$113 [4] 2'00 }, B={ 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [2] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][2][0]$b$114 [0] }, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [11:10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [8:7] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] }
+      New connections: { $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [12] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [9] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [6:5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [3] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [1] } = { 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [2] 2'00 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] }
+  Optimizing cells in module \cpu8.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$109:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$b$105
+      New ports: A={ 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [11:10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [8] 2'10 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [1:0] 1'1 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$a$110 [1:0] }, B={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [11:9] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [6] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [6] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [4] 2'00 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [0] }, Y={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$b$105 [12:4] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$b$105 [2:0] }
+      New connections: $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$b$105 [3] = $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$b$105 [2]
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$106:
+      Old ports: A=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107, B=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$a$104
+      New ports: A={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [11:10] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [8:7] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [2] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [4] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$a$107 [0] }, B={ $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [5] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [2] $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [9] 1'0 $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][0]$b$108 [7:0] }, Y=$memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$a$104 [11:0]
+      New connections: $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][0][0]$a$104 [12] = 1'0
+  Optimizing cells in module \cpu8.
+Performed a total of 14 changes.
+
+2.21.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 98 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Computing hashes of 93 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+2.21.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $pmux $flatten\alu.$procmux$58 in front of them:
+        $auto$alumacc.cc:578:replace_alu$83
+        $auto$alumacc.cc:578:replace_alu$89
+
+2.21.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+2.21.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~17 debug messages>
+
+2.21.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.21.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~67 debug messages>
+
+2.21.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+    New ctrl vector for $pmux cell $flatten\alu.$procmux$58: { $flatten\alu.$procmux$59_CMP $flatten\alu.$procmux$60_CMP $flatten\alu.$procmux$61_CMP $flatten\alu.$procmux$62_CMP $flatten\alu.$procmux$63_CMP $auto$opt_reduce.cc:137:opt_pmux$282 }
+  Optimizing cells in module \cpu8.
+Performed a total of 1 changes.
+
+2.21.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 94 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.21.14. Executing OPT_SHARE pass.
+
+2.21.15. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $$auto$proc_rom.cc:155:do_switch$28$rdreg[0] ($dff) from module cpu8 (D = $memory$auto$proc_rom.cc:155:do_switch$28$rdmux[0][1][1]$b$111 [10], Q = \insn [15], rval = 1'0).
+Adding EN signal on $memory\rf.mem[0]$148 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[0]).
+Adding EN signal on $memory\rf.mem[1]$150 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[1]).
+Adding EN signal on $memory\rf.mem[2]$152 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[2]).
+Adding EN signal on $memory\rf.mem[3]$154 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[3]).
+Adding EN signal on $memory\rf.mem[4]$156 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[4]).
+Adding EN signal on $memory\rf.mem[5]$158 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[5]).
+Adding EN signal on $memory\rf.mem[6]$160 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[6]).
+Adding EN signal on $memory\rf.mem[7]$162 ($dff) from module cpu8 (D = \rf.wd, Q = \rf.mem[7]).
+
+2.21.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 8 unused cells and 9 unused wires.
+<suppressed ~9 debug messages>
+
+2.21.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.21.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.21.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \cpu8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+2.21.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \cpu8.
+Performed a total of 0 changes.
+
+2.21.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 88 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Removed a total of 0 cells.
+
+2.21.22. Executing OPT_SHARE pass.
+
+2.21.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.21.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+
+2.21.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+
+2.21.26. Finished fast OPT passes. (There is nothing left to do.)
+
+2.22. Executing TECHMAP pass (map to technology primitives).
+
+2.22.1. Executing Verilog-2005 frontend: /home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+2.22.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using template $paramod$32a7b7b86c07519b7537abc18e96f0331f97914d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $pmux.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=8:A_WIDTH=8:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=8:A_WIDTH=8:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=8:A_WIDTH=8:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $dffe.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod$fd7bfb1a4f3a7c2ac1a35670d0fa64ccc7b91841\_90_alu for cells of type $alu.
+No more expansions possible.
+<suppressed ~531 debug messages>
+
+2.23. Executing OPT pass (performing simple optimizations).
+
+2.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~194 debug messages>
+
+2.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 581 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Computing hashes of 553 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Computing hashes of 542 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Computing hashes of 541 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+<suppressed ~120 debug messages>
+Removed a total of 40 cells.
+
+2.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 20 unused cells and 207 unused wires.
+<suppressed ~22 debug messages>
+
+2.23.5. Finished fast OPT passes.
+
+2.24. Executing ABC pass (technology mapping using ABC).
+
+2.24.1. Summary of detected clock domains:
+  2 cells in clk={ }, en={ }, arst={ }, srst={ }
+  3 cells in clk=\clk, en=$/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:116$eq$25_Y, arst={ }, srst=\rst
+  9 cells in clk=\clk, en={ }, arst={ }, srst=!$auto$simple.cc:240:combine_resets$284
+  17 cells in clk=\clk, en=$auto$simple.cc:216:make_patterns_logic$81, arst={ }, srst=\rst
+  182 cells in clk=\clk, en={ }, arst={ }, srst={ }
+  202 cells in clk=\clk, en=$memory\rf.mem$wren[0][0][0]$y$217, arst={ }, srst={ }
+  9 cells in clk=\clk, en=$memory\rf.mem$wren[1][0][0]$y$225, arst={ }, srst={ }
+  12 cells in clk=\clk, en=$memory\rf.mem$wren[2][0][0]$y$235, arst={ }, srst={ }
+  9 cells in clk=\clk, en=$memory\rf.mem$wren[3][0][0]$y$241, arst={ }, srst={ }
+  12 cells in clk=\clk, en=$memory\rf.mem$wren[4][0][0]$y$251, arst={ }, srst={ }
+  9 cells in clk=\clk, en=$memory\rf.mem$wren[5][0][0]$y$257, arst={ }, srst={ }
+  12 cells in clk=\clk, en=$memory\rf.mem$wren[6][0][0]$y$265, arst={ }, srst={ }
+  43 cells in clk=\clk, en=$memory\rf.mem$wren[7][0][0]$y$271, arst={ }, srst={ }
+
+2.24.2. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+No matching clock domain found. Not extracting any FF cells.
+
+2.24.3. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $/home/hank2b/dd2-cell-finder/given/designs/cpu8.v:116$eq$25_Y, synchronously reset by \rst
+
+2.24.3.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+
+2.24.4. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, synchronously reset by !$auto$simple.cc:240:combine_resets$284
+
+2.24.5. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $auto$simple.cc:216:make_patterns_logic$81, synchronously reset by \rst
+
+2.24.6. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk
+
+2.24.7. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[0][0][0]$y$217
+
+2.24.8. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[1][0][0]$y$225
+
+2.24.9. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[2][0][0]$y$235
+
+2.24.10. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[3][0][0]$y$241
+
+2.24.11. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[4][0][0]$y$251
+
+2.24.12. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[5][0][0]$y$257
+
+2.24.13. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[6][0][0]$y$265
+
+2.24.14. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+Found matching posedge clock domain: \clk, enabled by $memory\rf.mem$wren[7][0][0]$y$271
+
+2.24.14.1. Executed ABC.
+Extracted 2 gates and 4 wires to a netlist network with 2 inputs and 2 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:        2
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        2
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 8 gates and 17 wires to a netlist network with 8 inputs and 8 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:            ANDNOT cells:        3
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:        8
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 13 gates and 21 wires to a netlist network with 8 inputs and 10 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               MUX cells:        3
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:              XNOR cells:        2
+ABC RESULTS:               XOR cells:        2
+ABC RESULTS:        internal signals:        3
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:       10
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 170 gates and 254 wires to a netlist network with 82 inputs and 47 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       13
+ABC RESULTS:            ANDNOT cells:        6
+ABC RESULTS:               MUX cells:      108
+ABC RESULTS:              NAND cells:       21
+ABC RESULTS:               NOR cells:        3
+ABC RESULTS:               NOT cells:        4
+ABC RESULTS:                OR cells:       13
+ABC RESULTS:             ORNOT cells:        7
+ABC RESULTS:        internal signals:      125
+ABC RESULTS:           input signals:       82
+ABC RESULTS:          output signals:       47
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 194 gates and 237 wires to a netlist network with 43 inputs and 33 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       40
+ABC RESULTS:            ANDNOT cells:        5
+ABC RESULTS:               MUX cells:       10
+ABC RESULTS:              NAND cells:       71
+ABC RESULTS:               NOR cells:        4
+ABC RESULTS:               NOT cells:        7
+ABC RESULTS:                OR cells:       19
+ABC RESULTS:             ORNOT cells:        2
+ABC RESULTS:              XNOR cells:        8
+ABC RESULTS:               XOR cells:        8
+ABC RESULTS:        internal signals:      161
+ABC RESULTS:           input signals:       43
+ABC RESULTS:          output signals:       33
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 1 gates and 3 wires to a netlist network with 2 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 4 gates and 11 wires to a netlist network with 7 inputs and 3 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        7
+ABC RESULTS:          output signals:        3
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 1 gates and 3 wires to a netlist network with 2 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 4 gates and 11 wires to a netlist network with 7 inputs and 3 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        7
+ABC RESULTS:          output signals:        3
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 1 gates and 3 wires to a netlist network with 2 inputs and 1 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        1
+ABC RESULTS:        internal signals:        0
+ABC RESULTS:           input signals:        2
+ABC RESULTS:          output signals:        1
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 4 gates and 11 wires to a netlist network with 7 inputs and 3 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        2
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:        internal signals:        1
+ABC RESULTS:           input signals:        7
+ABC RESULTS:          output signals:        3
+Removing temp directory.
+
+2.24.14.1. Executed ABC.
+Extracted 35 gates and 65 wires to a netlist network with 30 inputs and 11 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: empty
+ABC: abc 07> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+2.24.14.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:       11
+ABC RESULTS:            ANDNOT cells:        1
+ABC RESULTS:               MUX cells:        3
+ABC RESULTS:              NAND cells:        9
+ABC RESULTS:               NOT cells:        2
+ABC RESULTS:                OR cells:        6
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:               XOR cells:        2
+ABC RESULTS:        internal signals:       24
+ABC RESULTS:           input signals:       30
+ABC RESULTS:          output signals:       11
+Removing temp directory.
+Removing global temp directory.
+
+2.25. Executing OPT pass (performing simple optimizations).
+
+2.25.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module cpu8.
+<suppressed ~3 debug messages>
+
+2.25.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\cpu8'.
+Computing hashes of 505 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+Computing hashes of 501 cells of `\cpu8'.
+Finding duplicate cells in `\cpu8'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+2.25.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+2.25.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 0 unused cells and 431 unused wires.
+<suppressed ~1 debug messages>
+
+2.25.5. Finished fast OPT passes.
+
+2.26. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `cpu8'. Setting top module to cpu8.
+
+2.26.1. Analyzing design hierarchy..
+Top module:  \cpu8
+
+2.26.2. Analyzing design hierarchy..
+Top module:  \cpu8
+Removed 0 unused modules.
+
+2.27. Printing statistics.
+
+=== cpu8 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      403 wires
+      652 wire bits
+       39 public wires
+      228 public wire bits
+        6 ports
+       23 port bits
+      501 cells
+       15   $_ANDNOT_
+       73   $_AND_
+       64   $_DFFE_PP_
+       12   $_DFF_P_
+      130   $_MUX_
+      102   $_NAND_
+        7   $_NOR_
+       16   $_NOT_
+        9   $_ORNOT_
+       42   $_OR_
+        5   $_SDFFE_PP0P_
+        1   $_SDFF_PN0_
+       11   $_XNOR_
+       12   $_XOR_
+        2   $scopeinfo
+
+2.28. Executing CHECK pass (checking for obvious problems).
+Checking module cpu8...
+Found and reported 0 problems.
+
+3. Executing RTLIL backend.
+Output filename: /home/hank2b/dd2-cell-finder/results/m2/mapping/cpu8/extended/B/gold.il
+
+4. Executing JSON backend.
+
+5. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__dlxtp_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    unmapped dff/dlatch cell: $_DFFE_PP_
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__dlxtp_1 _DLATCH_P_ (.D( D), .GATE( E), .Q( Q));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+Mapping DFF/DLATCH cells in module `\cpu8':
+  mapped 82 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Summary of detected clock domains:
+  576 cells in clk={ }, en={ }, arst={ }, srst={ }
+
+6.2. Extracting gate netlist of module `\cpu8' to `<abc-temp-dir>/input.blif'..
+ABC: using cached merged SCL: /tmp/yosys-liberty-scl-cache-1000/yosys_merged_e24c8673.scl (1 files)
+No matching clock domain found. Not extracting any FF cells.
+
+6.2.1. Executed ABC.
+Extracted 492 gates and 585 wires to a netlist network with 91 inputs and 90 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: UC Berkeley, ABC 1.01 (compiled Oct 27 2026 14:44:30)
+ABC: abc 01> empty
+ABC: abc 01> source <abc-temp-dir>/abc.script
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_scl /tmp/yosys-liberty-scl-cache-1000/yosys_merged_e24c8673.scl 
+ABC: Warning: Detected 2 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf -R 1000 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+ABC: 
+ABC: YOSYS_ABC_DONE 
+
+6.2.2. Re-integrating ABC results.
+ABC RESULTS:   dd2_g4__n3_9f_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       65
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a311o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__and3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__mux4_2 cells:       32
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       36
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       85
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       28
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:        8
+ABC RESULTS:        internal signals:      404
+ABC RESULTS:           input signals:       91
+ABC RESULTS:          output signals:       90
+Removing temp directory.
+Removing global temp directory.
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \cpu8..
+Removed 2 unused cells and 572 unused wires.
+<suppressed ~26 debug messages>
+8. Executing JSON backend.
+
+9. Executing Verilog backend.
+Dumping module `\cpu8'.

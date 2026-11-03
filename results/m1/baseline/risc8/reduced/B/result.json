@@ -61,14 +61,14 @@
   "library": "reduced",
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog  given/designs/risc8.v; synth -flatten -top cpu; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -q -o results/m1/baseline/risc8/reduced/B/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/risc8/reduced/B/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:22+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:26+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/risc8.v": "a65f0639186800cace6b813aea1ed1d649663ca5c184e04c8fe7a78b79176e2c",
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
@@ -78,13 +78,13 @@
       "results/m1/baseline/risc8/reduced/B/stat.txt",
       "results/m1/baseline/risc8/reduced/B/stat.json"
     ],
-    "started": "2026-10-26T22:29:21+00:00",
+    "started": "2026-11-03T11:52:24+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "B",
-  "seconds": 1.218,
+  "seconds": 2.17,
   "top": "cpu"
 }

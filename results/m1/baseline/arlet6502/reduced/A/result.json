@@ -59,14 +59,14 @@
   "library": "reduced",
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog  given/designs/arlet6502.v; synth -flatten -top cpu; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;dch,-f;amap;topo; opt_clean -purge; tee -q -o results/m1/baseline/arlet6502/reduced/A/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/arlet6502/reduced/A/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:13+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:09+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/arlet6502.v": "c986cc227536d4a5d5c263b2915ad204af7a90548a88ccd3802c3d2b179c2cfb",
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
@@ -76,13 +76,13 @@
       "results/m1/baseline/arlet6502/reduced/A/stat.txt",
       "results/m1/baseline/arlet6502/reduced/A/stat.json"
     ],
-    "started": "2026-10-26T22:29:11+00:00",
+    "started": "2026-11-03T11:52:07+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "A",
-  "seconds": 1.214,
+  "seconds": 1.969,
   "top": "cpu"
 }

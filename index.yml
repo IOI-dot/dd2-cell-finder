@@ -1,16 +1,21 @@
-version: 1
+version: 3
 project:
   name: DD2 Cell Finder
   course: CSCE 3304 Digital Design II - Fall 2026
-  option: Option 3
-  active_scope: Milestone 1 of both options done; Milestone 2 next
-  delivery_mode: local-first, agentic CLI
+  group_name: GB4
+  group_number: 4
+  option: Option 3 (Options 1 and 2, connected)
+  active_scope: >
+    Milestone 2 of both options; then the Option 3 loop (Option 2 requests, Option 1 builds, Option 2 remaps
+    with real areas) and the final milestone
+  delivery_mode: local-first; deterministic flows, with a bounded agent and a web studio on top
 
 governance:
   agent_instructions: AGENTS.md
   constitution: .specify/memory/constitution.md
   workflow: Spec Kit
   machine_index: index.yml
+  roadmap: docs/roadmap.md
   required_logs:
     - ai/use_log.md
     - ai/mistakes_log.md
@@ -22,103 +27,105 @@ authoritative_sources:
   backend_guidance: Backend.md
 
 inputs:
-  student_pack: DD2_Project1_student_pack/
+  student_pack: DD2_Project1_student_pack/ (outside the repository, reached through the given/ link)
   pdk:
     environment_variable: PDK_ROOT
     expected_root: "${PDK_ROOT}/sky130A"
-    detected_root: ~/.ciel/sky130A   # PDK_ROOT=~/.ciel; HD has lib/techlef/verilog only (no spice/gds/lef) as of 2026-10-26
     full_hd_liberty: libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-  # The pack belongs outside the repo (../DD2_Project1_student_pack); reach it via the given/ link.
   reduced_hd_library: given/hd_reduced.lib
   usable_hd_library: given/hd_usable.lib
   option_2_designs: given/designs/
+  tutorials: tutorials/ link (TUTORIALS), the original spm and multiplier RTL and testbenches
 
 repository_map:
-  src: implementation source (src/dd2 = Option 2 core; src/cellgen = Option 1 cell generator)
-  tests: unit and integration tests
+  src/dd2: Option 2 Milestone 1 core and the original check implementations
+  src/dd2m2: Option 2 Milestone 2 (cost and area model, mapped cones, requests and Liberty, mapping, proofs, timing, plots)
+  src/cellgen: Option 1 cell generator (network, Euler ordering, layout, DRC, LVS, RC-LVS, SPICE, characterizer, OpenSTA)
+  tests: unit and integration tests; tests/m2 holds the Option 2 Milestone 2 tests
   tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
   tests/fixtures: tiny hand-written AIGs for unit tests
   tests/broken_proposed: broken cases written by AI, waiting for a human to review and promote
-  results: committed evidence used by reports
-  libs: generated Option 2 Liberty libraries
-  cells: one folder per generated Option 1 cell (at cp1 dd2_ref__inv_1 and dd2_ref__nand2_1)
+  results/m1: Option 2 Milestone 1 evidence
+  results/m2: Option 2 Milestone 2 evidence (mappings, proofs, timing, figures, readiness.json)
   results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check; m2 = Tables 4, 5 and 6, sizings, agent against fixed choices)"
-  cells: generated views of every reference and test cell (GDS, netlists, model, report, comparison picture)
+  results/validation: test and tool-version logs from the Option 2 WSL run
+  TA_M2: TA-facing copies of Option 2 M2 figures and tables, refreshed by make ta (never recomputed)
+  libs: generated Option 2 Liberty libraries (hd_extended_estimated.lib)
+  cells: generated views of every Option 1 reference and test cell (GDS, netlists, model, report, comparison picture)
   data/designs: "designs that are not in the student pack: spm.v from OpenLane (Apache-2.0) for Table 5"
-  config: "agent settings: config/agent.toml (model, limits); secrets only in the environment"
+  config: "group.txt and group_name.txt (Option 2); agent.toml (model, limits, voice); tools.mk is local and git-ignored"
+  requirements-option2.txt: Python packages of the Option 2 flow
+  tools/install_course_tools.py: SHA256-pinned installer for the Option 2 tool bundle
   prompts: versioned agent prompts
-  runs: agent run outputs, committed as evidence (bulky cuts_full/ ignored)
+  runs: agent run outputs, committed as evidence (bulky cuts_full/ and work/ ignored)
   report: technical and AI reports with sources
-  docs: architecture.md (layers, layout, open design questions) and interface/ (Appendix A)
-  backend: planned API service (placeholder README; design to be agreed with the user)
+  docs: roadmap.md, architecture.md, option2-m2-plan.md and interface/ (Appendix A)
+  backend: planned API service (placeholder README)
   specs: Spec Kit spec, plan, research, contracts, tasks
-  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), stage time estimates (timings.py), Parakeet speech to text (voice.py), fixed-choice version, comparison; AG-UI server later (US4)
+  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), stage time estimates (timings.py), Parakeet speech to text (voice.py), fixed-choice version, comparison; AG-UI server (server.py)
   ai/runs: committed agent run logs (JSONL) and their check files
+  web: "the studio: AG-UI client, OpenUI Lang renderer, live run and step pages (RunView, stepviews), 3D views, minimal UI primitives (ui.tsx)"
+  docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta)"
   .venv: local Python environment made by make setup; git-ignored
-  web: "generative front end: AG-UI client, OpenUI Lang renderer, component library, 3D views, live run and step pages (RunView, stepviews), minimal UI primitives (ui.tsx)"
-  docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta); compose with read-only protected mounts is planned"
   references: read-only upstream material (ag-ui, langchain-skills, openui); git-ignored
   build: scratch outputs; git-ignored
 
 toolchain:
-  host_available:
-    - python3 (3.9.6, too old; use uv with Python >= 3.11)
-    - yosys (0.70 on host; Table 1 needs 0.33, see research D-2)
-    - yosys-abc
-    - iverilog
-    - docker
-    - specify
-  required_later:
-    - OpenSTA
-  images:
-    - dd2-layout-tools: course recipe unchanged; Magic 8.3.684, Netgen (reports 1.5.132), ngspice 47 fixed
-    - dd2-flow: docker/flow.Dockerfile; Ubuntu 24.04 Yosys 0.33 (reproduces Table 1)
-    - dd2-sta: docker/build_sta.sh; OpenSTA pinned by commit, compiled on a tmpfs (make o1-sta)
+  option_2:
+    reference: separate Yosys 0.33 and ABC for Milestone 1 (Table 1)
+    milestone_2: pinned newer suite (Yosys, ABC, Icarus, OpenSTA), installed by tools/install_course_tools.py
+    python: numpy, matplotlib, pytest
+  option_1:
+    images:
+      - dd2-layout-tools: course recipe unchanged; Magic, Netgen, ngspice
+      - dd2-flow: docker/flow.Dockerfile; Ubuntu 24.04 Yosys 0.33 (reproduces Table 1)
+      - dd2-sta: docker/build_sta.sh; OpenSTA pinned by commit (make o1-sta)
+    python: gdsfactory, klayout
+  studio: Node with pnpm for web/; langgraph, ag-ui-langgraph, fastapi; onnx-asr for the optional mic
   runtime_notes:
-    - Docker uses Colima and must be running before building the course container.
+    - Docker uses Colima on macOS and must be running before Option 1 builds.
     - Tool versions are recorded by make check, never inferred from this index.
 
 protected_paths:
   - DD2_Project1_student_pack/
   - pdk/
   - given/
+  - tutorials/
   - tests/broken/
   - tests/broken/SHA256SUMS
   - .specify/memory/constitution.md
 
 agentic_system:
   command: make agent FUNC='<expression>'   # make fixed for the fixed-choice version, make agent-compare for both on the test cells
+  studio: make agent-server and make web
   rules:
     - Tool schemas and protected-path permissions are enforced in deterministic code.
     - Prompt files and model settings are versioned.
     - Each model/tool call is logged with a run ID and result artifact.
     - Runs have iteration, time, input-size, token, and cost limits.
     - A fixed-choice pipeline is retained for required comparison.
+    - The Option 2 flow itself runs no model; agents only choose among its deterministic steps.
+
+open_items:
+  - Option 2 Table 4, limited one-stage row - six verified witnesses against five in the handout; ask the TA (TA_M2/TABLE4_CLARIFICATION.md)
+  - The Option 3 loop - real Option 1 cells in place of the estimated ones (docs/roadmap.md)
+  - The final milestone of both options
 
 status:
-  updated: 2026-10-26
-  milestone_1: >
-    Option 2 M1 and Option 1 M1 implemented. Table 1 (24/24) and the handout's AIG AND counts reproduce
-    exactly on Linux Yosys 0.33 (dd2-flow image); Table 4 row 6 open with the TA. inv_1 and nand2_1
-    regenerated at 3 sites, passing DRC, LVS (also vs installed), abutment, layers, SPICE and model.
-  open_for_humans: [tag cp1, README names and IDs (later), move tests/broken_proposed into tests/broken,
-                    "history rewrite decision (Q-4, recommendation is not to rewrite)"]
-  evidence_index: results/m1/summary.md
-  verification: specs/001-agentic-cell-finder/verification-2026-10-26.md   # findings table with status
+  updated: 2026-11-03
+  evidence:
+    option_2_m1: results/m1/summary.md
+    option_2_m2: results/m2/readiness.json and TA_M2/README.md
+    option_1_m2: results/option1/m2/
   architecture: docs/architecture.md
-  plan: specs/001-agentic-cell-finder/{plan,research,tasks}.md
-  lectures_used: "Lectures 9-10 SCL and Synthesis (research D-17)"
+  plan: specs/001-agentic-cell-finder/{plan,research,tasks}.md and docs/roadmap.md
 
-# The course tool is one part of a larger system the user is building. Its system design is
-# not decided yet; this records the agreed direction so the layout leaves room for it.
 future_platform:
-  status: planned, design to be agreed with the user (not started)
-  frontend: agentic UI (AG-UI client) with its own minimal primitives in web/src/ui.tsx
-  agent: LangGraph/LangChain over the typed dd2 tools (agent/dd2_agent)
+  frontend: the studio in web/ (AG-UI client) with its own minimal primitives in web/src/ui.tsx
+  agent: LangGraph/LangChain over the typed tools (agent/dd2_agent)
   backend: >
     service with the Backend.md practices (layered modules, DTO validation, authentication,
     authorization/RBAC, rate limiting per user and IP, correlation IDs, audit trail, retries,
     timeouts and circuit breakers, secrets outside the image, health endpoints, structured logs)
-  data: PostgreSQL; a vector database (pgvector or Pinecone) for retrieval; Redis if caching or
-    rate-limit state needs it
-  rule: the deterministic dd2 core stays dependency-free and must keep working offline for the TA
+  data: PostgreSQL; a vector database (pgvector) for retrieval; Redis if caching or rate-limit state needs it
+  rule: the deterministic cores stay usable from the command line and offline for the TA

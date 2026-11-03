@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/cpu8/synth.aig",
-  "aig_sha256": "3ce88a2c1d427c788d3707918cecb3f1e41ed94a3fb25fa63436d99f206af4d0",
+  "aig_sha256": "15a2541cc1e31145cfb1ade0aea5302d9b025bca9097e6ddb4d60f3d2f0661b7",
   "commands": [
     "read_verilog given/designs/cpu8.v",
     "synth -flatten -top cpu8",
@@ -37,21 +37,21 @@
   },
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog given/designs/cpu8.v; synth -flatten -top cpu8; tee -q -o build/aigs/cpu8/ffstat.json stat -json; async2sync; dffunmap; aigmap; write_aiger -zinit results/m1/aigs/cpu8/synth.aig; write_aiger build/aigs/cpu8/synth_plain.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:26+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:35+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/cpu8.v": "d1762e614bd67835a2e08d727ab3ecaa8237739656a65ed2fa93e6a286b2d050"
     },
     "logs": [
       "results/m1/aigs/cpu8/synth.log"
     ],
-    "started": "2026-10-26T22:29:26+00:00",
+    "started": "2026-11-03T11:52:35+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"

@@ -1,0 +1,2 @@
+read_json "/home/hank2b/dd2-cell-finder/results/m2/mapping/fir10/extended/A/gold_state_named.json"
+write_aiger -zinit -symbols "/home/hank2b/dd2-cell-finder/results/m2/mapping/fir10/extended/A/gold.aig"

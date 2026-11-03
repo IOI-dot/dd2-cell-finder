@@ -14,3 +14,44 @@
 | L-010 | 2026-10-27 | Noor Elshahidi | Claude Code / Claude Opus 5.5 (two verification subagent passes) | Verify that Milestone 1 is 100% complete for both options and fix what the verifier finds. | Kept: section 4.1 rows gate the cell status; timing row; PDK views required by make check; agent covers Option 1; DRC parser keeps every reason; pin check over every label, using the cell's npc layer (HD's o21ai_1 puts B1's contact above the nominal band); rails must cover the full width; a standalone DRC with unparsed errors fails; refused requests get a response.json. | The second verification pass ran a clean clone: all targets pass and the regenerated results are byte-identical. Verdict: M1 complete apart from the human items. 186 host tests, 153 in dd2-flow. | see git log |
 | L-011 | 2026-11-02 | Noor Elshahidi | Claude Code / Claude Opus 5.5 | Option 1 Milestone 2 and the agent: verify M1; multi-stage decomposition, sizing, layout engine, router with met1 fallback, SA/SB, characterizer, Liberty writer, OpenSTA, agent and fixed-choice version | Kept after each failing check was fixed; see M-027 to M-036 | make test, make o1-m2, Magic, Netgen, ngspice, OpenSTA; verification subagent | uncommitted at the time of writing |
 | L-012 | 2026-11-02 | Noor Elshahidi | Claude Code / Claude Opus 5.5; GPT-5.6 Sol through the Codex CLI for ideas | Try a game-like 3D front end, then drop it and return to a technical studio: live run stream, a page per step, a trace beside the chat, friendlier time labels, parallel checks. | Kept: `stepdata.py`, per-attempt layout data, `timings.py`, chat updates, questions answered from run facts, steps opened from the chat, Parakeet mic with right Option and an in-place wave, the web app's own minimal UI primitives (`web/src/ui.tsx`) with the private design system ignored by git, `docs/roadmap.md`, `ABOUT_PROJECT` intent and `focus` with interpreter prompt v6, `RunView`, `stepviews`, `Steps`, `Chat`, `time.ts`, parallel DRC and SPICE. Rejected by the user: the Three.js game and all game language, removed. | Checked with `pytest`, `tsc`, `vite build`, real agent runs in Chrome including a three-revision mux, viewports 375 and 1470, and the transient plot against the truth table in all 48 slots. | not committed yet |
+
+
+## 2026-11-03 Option 2 M2 update
+
+ChatGPT/Codex prepared the Option 2-only update at user request. Original Option 1 code/checks archived unchanged; frozen cases preserved. Added explicit costs, HD area-model validation, mapped-cone ranking, requests/Liberty, dual-script mapping and ABC proofs. Development smoke tests are separate from the user WSL checkpoint evidence. Code is pushed before the user flow; no cp2 created. Active mode is AI as a development aid.
+
+
+## 2026-11-03 first WSL result review and repairs
+
+User ran the code locally: all 90 tests and all 24 baseline/extended ABC proofs passed. Every timing report failed on the unsupported PathEnd arrival property. Updated the query to the endpoint PathRef, removed clock-port data input delays, and added numbered-error rejection plus a real OpenSTA smoke test. Corrected native-HD calibration stack limits and simplified explicit implementations; no reported measurement is edited by hand. The user now requires testing/review before any push or tag.
+
+### GB4 tutorials and tool selection, 2026-11-03
+Recovered unmodified RTL/testbenches from prior tutorial submissions. Added
+tutorial discovery, mapping, original-bench functional GLS, strict failure
+parsing and tests. Models derive from the exact Liberty, not real-cell SDF.
+Added SHA256-pinned official tool bundle installer, retained reference Yosys
+for M1, and an explicit TA clarification table. No TA acceptance is inferred.
+
+### M2 release organization, 2026-11-03
+Reviewed the user-uploaded DD2_GB4_M2_Results.zip: tests, mappings, timing,
+tutorial simulations, generated files and all three figures. Archived unused
+docker/platform documentation and superseded plans without changing their
+bytes. Historical log paths above refer to their original locations; current
+platform files are under archive/previous_platform, and spec/planning material
+is under archive/historical_plans. Added make ta and TA_M2/ copies of existing
+figures/tables with source hashes. Updated the README and status documentation.
+No measured number was changed, and no reference agreement or TA acceptance
+was inferred. Git commit/push remain commands for the user's WSL.
+
+### Option 3 restored around the Option 2 M2 push, 2026-11-03
+Noor Elshahidi, with Claude Code (Claude Opus 5.5). The user disagreed with archiving Option 1, so the
+merge of `adb22dd` keeps every Option 2 M2 file as pushed (`src/dd2m2`, `tests/m2`, `TA_M2/`, `results/m2`,
+`results/m1`, `libs/`, `config/`, `tools/`) and moves Option 1, the agent, the studio and the plans back to
+their usual paths. Each archived file was first confirmed to be a byte-identical move or a copy of the old
+configuration. `Makefile`, `README.md`, `AGENTS.md`, `index.yml` and `pyproject.toml` were combined so both
+flows run from one place. `tests/m2/test_retained_broken.py` was removed because it only loaded two tests from
+the archived copy of `tests/integration/test_proposed_broken.py`, which now runs in full from its own path.
+Checked: the frozen broken-case hashes, and the whole suite on macOS (385 passed; 5 Option 2 tests skipped for
+want of the WSL tools and tutorial inputs). The ten Option 2 requests pass the Appendix A validator and the
+Option 1 request reader unchanged.
+
