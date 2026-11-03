@@ -64,3 +64,12 @@ agent's `ABOUT_OPTION2` and `BUILD_CANDIDATE` intents (interpreter prompt v7). K
 unchanged. Checked: tests first for each part, the whole suite (397 passed, 5 skipped for WSL-only inputs), live
 questions and a candidate build in the browser, and the interpreter's chosen section recorded in the run log.
 
+### Modular Option 2, effort by role, and the Option 3 run, 2026-11-03
+Noor Elshahidi, with Claude Code (Claude Opus 5.5). Split `src/dd2m2/flow.py` into one module per step, with a
+module map; every moved function compares equal by syntax tree, black reformatted the package, and the regenerated
+`TA_M2/` and `results/m1/summary.md` are byte-identical to the committed ones. Added thinking effort by role
+(`[model.effort]`), with a refused reply retried one level higher; measured on two questions, it changed latency
+little, because the CLI start and the context dominate. Ran the Option 3 loop: eight of ten requested cells pass with
+real Liberty, and all twelve remappings prove equivalent, on this machine's tools. Reran the agent against fixed
+choices on every test cell with the code frozen. The README now leads with Option 2 M2; no new images are committed.
+
