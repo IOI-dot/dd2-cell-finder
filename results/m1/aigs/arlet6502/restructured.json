@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/arlet6502/restructured.aig",
-  "aig_sha256": "edb333e1c2498805ab54a3da7faefb4064bd03146b95c8ec39759322fa3f5fc1",
+  "aig_sha256": "38f998da46c486cdfbea1a66c7783255773a09a229b542fc2f8d4afc657e2614",
   "commands": [
     "read results/m1/aigs/arlet6502/synth.aig",
     "strash",
@@ -14,33 +14,33 @@
   "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
-    "A": 2738,
+    "A": 2754,
     "B": 0,
     "C": 0,
     "I": 156,
     "L": 144,
-    "M": 3038,
+    "M": 3054,
     "O": 25
   },
   "levels": 51,
   "outputs": 25,
   "run": {
     "argv": [
-      "yosys-abc",
+      "/usr/bin/yosys-abc",
       "-c",
       "read results/m1/aigs/arlet6502/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/arlet6502/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:28+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:39+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/arlet6502/synth.aig": "6794395313183bce363d94af2d122aa834aab85e21ebd67f95ff7b262f576955"
+      "results/m1/aigs/arlet6502/synth.aig": "e0e757b672bb40dbfb6292e12806045cebf431eb8bd11a2086c7de6adc340a22"
     },
     "logs": [
       "results/m1/aigs/arlet6502/restructured.log",
       "results/m1/aigs/arlet6502/cec.log"
     ],
-    "started": "2026-10-26T22:29:28+00:00",
+    "started": "2026-11-03T11:52:38+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"

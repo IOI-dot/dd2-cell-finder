@@ -1,0 +1,72 @@
+[
+  {
+    "copy": "figures/01_area_model_validation.png",
+    "sha256": "7da87d9e5151e4b657869a34bac9dc233ce785f5151d13ed61522bf9a1efe769",
+    "source": "results/m2/area_model_validation.png"
+  },
+  {
+    "copy": "figures/02_candidate_ranking.png",
+    "sha256": "66b1271eef9f85ddf847286e2b75deea078edbbb44a773eec8495e080ca588aa",
+    "source": "results/m2/candidate_ranking.png"
+  },
+  {
+    "copy": "figures/03_measured_area_reduction.png",
+    "sha256": "203e859f27f5a6d04d4f76ce1235c989b39fcc6346c42cfd567279b31e8d8fdc",
+    "source": "results/m2/area_reduction_estimated.png"
+  },
+  {
+    "copy": "tables/01_m1_reference_table.csv",
+    "sha256": "e104d1fdcaf9cc71c1762c2f9c83732d2ec54e8a6702d03c2ba22b69053e09b1",
+    "source": "results/m1/table1.csv"
+  },
+  {
+    "copy": "tables/02_ranked_candidates.csv",
+    "sha256": "7c2e8dfce0c6d7acc97a37f0af5c7a78a113af7c8a2618ea466e53a23fd9c2e4",
+    "source": "results/m2/ranked_candidates.csv"
+  },
+  {
+    "copy": "tables/03_area_model_fit.csv",
+    "sha256": "3c46c35c5d715d31628a44844d348b0f1b34e8b2d438ad5f998901a9ccddc832",
+    "source": "results/m2/area_model_fit.csv"
+  },
+  {
+    "copy": "tables/04_table5_estimated.csv",
+    "sha256": "43d5ad61817b47763ddd3945884419c192240faa9bdd0ec4ba135e20f760c8e1",
+    "source": "results/m2/table5_estimated.csv"
+  },
+  {
+    "copy": "tables/05_best_of_both.csv",
+    "sha256": "f9106fa06c262b7de28dd645d2193e42c90b49e2e075e1fc7456feec0ae2de3f",
+    "source": "results/m2/best_of_both_estimated.csv"
+  },
+  {
+    "copy": "tables/06_tutorial_aigs_and_cuts.csv",
+    "sha256": "a652320182d017b81ed0c46ab7846dedd6e5bb0c4d062ac2b60dfcfa0f7d788a",
+    "source": "results/m2/tutorial_aig_cuts.csv"
+  },
+  {
+    "copy": "TABLE4_CLARIFICATION.md",
+    "sha256": "fa5a99201dd2537a848afe5c992f961c0a4933e48793e6aafa5ffc2c3ce6279b",
+    "source": "results/m2/reference_count_question.md"
+  },
+  {
+    "copy": "table4_witnesses.csv",
+    "sha256": "74ac0016f6aa32678978e37e216c5533e23774334a58b574aa6cde7a818c25c4",
+    "source": "results/m2/reference_count_witnesses.csv"
+  },
+  {
+    "copy": "readiness.json",
+    "sha256": "1d555fb9a1a7b756fb851be88d6fa6b27dbe285b69df7fd5984894b9a3e389e1",
+    "source": "results/m2/readiness.json"
+  },
+  {
+    "copy": "validation/tests.log",
+    "sha256": "26da9f3d5855797fd37ef1065cffcbfe59ea2de3d7ea89509164c2e44062f01c",
+    "source": "results/validation/tests.log"
+  },
+  {
+    "copy": "validation/tool_versions.log",
+    "sha256": "a44c2d6c55a9024eaa203008137fdee225fc8f57abeefde86d1794dde9174b09",
+    "source": "results/validation/tool_versions.log"
+  }
+]

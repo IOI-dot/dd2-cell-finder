@@ -1,0 +1,23 @@
+name,reason
+sky130_fd_sc_hd__a2111o_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a2111oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a221o_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a221oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a222oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a311o_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a311oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a32o_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a32oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a41o_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__a41oi_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__mux4_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o2111a_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o2111ai_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o221a_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o221ai_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o311a_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o311ai_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o32a_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o32ai_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o41a_1,more than four inputs: outside candidate implementation domain
+sky130_fd_sc_hd__o41ai_1,more than four inputs: outside candidate implementation domain

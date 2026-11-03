@@ -1,0 +1,29 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m2/mapping/risc8/baseline/B/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m2/mapping/risc8/baseline/B/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m2/mapping/risc8/baseline/B/gold.il
+
+2. Executing ASYNC2SYNC pass.
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module cpu: replaced 2144 cells with 11962 new cells, skipped 1248 cells.
+  replaced 8 cell types:
+     104 $_ANDNOT_
+    1384 $_MUX_
+     252 $_NAND_
+     172 $_NOR_
+      57 $_ORNOT_
+     123 $_OR_
+      19 $_XNOR_
+      33 $_XOR_
+  not replaced 4 cell types:
+     470 $_AND_
+     696 $_DFF_P_
+      78 $_NOT_
+       4 $scopeinfo
+
+5. Executing JSON backend.

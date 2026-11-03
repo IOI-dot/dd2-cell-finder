@@ -1,6 +1,10 @@
 # Links created by `make setup`; the real inputs remain outside the repository.
 pdk
 given
+tutorials
+config/tools.mk
+config/tools-install.json
+*.vcd
 
 # Build trees and local environments.
 build/

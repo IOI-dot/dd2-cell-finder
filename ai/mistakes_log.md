@@ -28,3 +28,31 @@
 | M-024 | L-008 | The assistant restored missing views (gds, spice, cdl, lef, mag, maglef) into the PDK install, although AGENTS.md says never change the PDK. The files came from the identical ciel release, but only Liberty, Verilog and techlef were hash-checked at the time, and `make check` did not require the views. | Independent verification (finding 3). All 894 restored files were then compared with the release: byte-identical. | Yes: Option 1 would have run on whatever views were present. `make check` now requires them and records their hashes; a group member should confirm the install with ciel. |
 | M-025 | L-009 | The DRC parser dropped rule names containing "/" (e.g. diff/tap.3), and the standalone verdict only asked whether the parsed rules were tap rules, so such an error could pass a lone-cell check. | The new abutment broken case returned 1 error with no rule. | Yes: all rules seen until then had no "/". Every reason Magic prints is now kept. |
 | M-026 | L-009 | The section 4.1 "must match" rows (frame, pins, wiring) were computed but did not decide the cell's status, and had no broken cases. | Independent verification (findings 1-2). | Yes: the real cells conform, so nothing failed. They now gate the status and each has a broken case. |
+
+
+## 2026-11-03 caught during development
+
+- CUDD build instructions initially omitted autoreconf; user hit aclocal.m4 error. Regenerated with installed Autotools.
+- Quoted tee output path made Yosys 0.33 abort; actual mapping smoke test caught it, output-path syntax fixed.
+- Raw AIGER names differ after mapping due to register reordering/new aliases. Preserve original cell names; label actual post-reset-conversion states by original RTL-derived instance before saved bijective alias alignment. Never compare by assumed register order.
+- Unbounded extra sequential induction was slow on DSP multiplication; required ABC CEC already proved equivalent. Kept induction as an explicitly bounded extra diagnostic, with timeouts never called passes.
+- Earlier version advice overlooked overview Yosys >=0.34 and Icarus >=13. Added strict-version check and documented the separate Yosys 0.33 Table 1 reference.
+
+
+## First full WSL run: corrections
+
+- Timing exporter asked get_property PathEnd arrival, which OpenSTA rejects. The 24 actual logs exposed it. Regression executes the generated Tcl against the documented path/point API; a real-engine test runs on machines with sta.
+- Initial parser detected Error: but missed Error N:. Added a deliberately numbered-error case with a numeric marker; it must still fail.
+- Area calibration applied the candidate three-stack constraint to existing HD NAND4/NOR4, overpricing their native implementations. Added separate four-stack calibration and preserved three-stack candidate limits.
+- Generic fallback retained cancelling inversions/unreachable construction gates and tried only NAND-based realizations. Added cancellation/pruning and the dual NOR realization, checking every truth table.
+
+### Tutorial inputs recovered, 2026-11-03
+Earlier readiness correctly reported missing tutorial inputs in the supplied
+pack, but older tutorial submissions were available separately. Searched and
+recovered those originals before asking for another upload. No toy replacements.
+
+### Status documentation cleanup, 2026-11-03
+index.yml and the plan still listed tool/tutorial validation as pending after
+the successful WSL run. Updated those descriptions from saved evidence.
+Table 4 remains unresolved. Older platform/Option 3 plans were still prominent;
+archived them unchanged so the active repository describes Option 2.

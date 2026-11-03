@@ -1,0 +1,122 @@
+{
+  "coefficients_sites": [
+    2.9336053911332267,
+    0.31807429443119134,
+    0.49567792650900033,
+    0.08331534165315824
+  ],
+  "cost_basis": "explicit realizations; not transistor counts extracted from HD layouts",
+  "excluded": [
+    {
+      "name": "sky130_fd_sc_hd__a2111o_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a2111oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a221o_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a221oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a222oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a311o_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a311oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a32o_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a32oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a41o_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__a41oi_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__mux4_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o2111a_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o2111ai_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o221a_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o221ai_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o311a_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o311ai_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o32a_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o32ai_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o41a_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    },
+    {
+      "name": "sky130_fd_sc_hd__o41ai_1",
+      "reason": "more than four inputs: outside candidate implementation domain"
+    }
+  ],
+  "feature_order": [
+    "intercept",
+    "transistors",
+    "extra_stages",
+    "inverters"
+  ],
+  "height_um": 2.72,
+  "loo_max_absolute_percent_error": 66.66666666666667,
+  "loo_mean_absolute_percent_error": 14.605776736924279,
+  "loo_median_absolute_percent_error": 14.285714285714294,
+  "method": "nonnegative least squares; predicted widths rounded up to whole sites",
+  "multi_stage_cells": 45,
+  "single_stage_cells": 15,
+  "site_area_um2": 1.2512,
+  "site_width_um": 0.46,
+  "source_liberty": {
+    "pdk/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib": "ec0e1067a35c8bf20b11e58d1e8ac53326067e4dac84a125cc1b917a3518d0d9"
+  },
+  "stack_limits": {
+    "hd_calibration": 4,
+    "new_candidates": 3
+  },
+  "training_cells": 61
+}

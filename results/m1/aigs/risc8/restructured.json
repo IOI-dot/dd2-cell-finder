@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/risc8/restructured.aig",
-  "aig_sha256": "00d609e7445faab7bbe5ca338b568e9a5a5f8fe01e8dcd036d220e93ba89c994",
+  "aig_sha256": "7cf852f5923439936dd85c8cd99d69f97fbadf6305cbbf96c01d6a5e6ae283e8",
   "commands": [
     "read results/m1/aigs/risc8/synth.aig",
     "strash",
@@ -14,33 +14,33 @@
   "equivalent_to_synth": true,
   "has_choices": false,
   "header": {
-    "A": 6598,
+    "A": 6589,
     "B": 0,
     "C": 0,
     "I": 726,
     "L": 697,
-    "M": 8021,
+    "M": 8012,
     "O": 83
   },
-  "levels": 46,
+  "levels": 45,
   "outputs": 83,
   "run": {
     "argv": [
-      "yosys-abc",
+      "/usr/bin/yosys-abc",
       "-c",
       "read results/m1/aigs/risc8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/risc8/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:31+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:45+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/risc8/synth.aig": "5043149626bea592c0c428d0ae1c5731b8cad4013904dc0a2f263f1cbc8d948d"
+      "results/m1/aigs/risc8/synth.aig": "4e231929e53adc80c219299933a1a132782861d66c076a7b136e3320f2f92a09"
     },
     "logs": [
       "results/m1/aigs/risc8/restructured.log",
       "results/m1/aigs/risc8/cec.log"
     ],
-    "started": "2026-10-26T22:29:30+00:00",
+    "started": "2026-11-03T11:52:42+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"

@@ -1,0 +1,119 @@
+{
+  "note": "Original checks and reference numbers preserved. No TA acceptance is inferred.",
+  "rows": [
+    {
+      "definition_used": "New, negative unate, and some series-parallel form with <= 6 literals (12 transistors) and <= 3 in series in both networks",
+      "handout": 5,
+      "measured": 6,
+      "row": "new_one_stage_small",
+      "status": "definition-open",
+      "witnesses": [
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x0017"
+        },
+        {
+          "best_stage": [
+            6,
+            2,
+            3
+          ],
+          "tt": "0x011F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x013F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x037F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            2
+          ],
+          "tt": "0x077F"
+        },
+        {
+          "best_stage": [
+            6,
+            3,
+            3
+          ],
+          "tt": "0x17FF"
+        }
+      ]
+    }
+  ],
+  "status": "unresolved reference disagreement",
+  "witnesses": [
+    {
+      "expression": "!((D|((A|B)&(C|(A&B)))))",
+      "literals": 6,
+      "n_series": 3,
+      "p_series": 3,
+      "transistors": 12,
+      "truth_table": "0x0017",
+      "truth_table_verified": true
+    },
+    {
+      "expression": "!(((C&D)|((A|B)&(C|D))))",
+      "literals": 6,
+      "n_series": 2,
+      "p_series": 3,
+      "transistors": 12,
+      "truth_table": "0x011F",
+      "truth_table_verified": true
+    },
+    {
+      "expression": "!(((B|D)&(C|(D&(A|B)))))",
+      "literals": 6,
+      "n_series": 3,
+      "p_series": 3,
+      "transistors": 12,
+      "truth_table": "0x013F",
+      "truth_table_verified": true
+    },
+    {
+      "expression": "!(((B&D)|(C&(D|(A&B)))))",
+      "literals": 6,
+      "n_series": 3,
+      "p_series": 3,
+      "transistors": 12,
+      "truth_table": "0x037F",
+      "truth_table_verified": true
+    },
+    {
+      "expression": "!(((C|D)&((A&B)|(C&D))))",
+      "literals": 6,
+      "n_series": 3,
+      "p_series": 2,
+      "transistors": 12,
+      "truth_table": "0x077F",
+      "truth_table_verified": true
+    },
+    {
+      "expression": "!((D&((A&B)|(C&(A|B)))))",
+      "literals": 6,
+      "n_series": 3,
+      "p_series": 3,
+      "transistors": 12,
+      "truth_table": "0x17FF",
+      "truth_table_verified": true
+    }
+  ]
+}

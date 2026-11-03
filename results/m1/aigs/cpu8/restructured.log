@@ -1,6 +1,6 @@
-$ yosys-abc -c read results/m1/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/cpu8/restructured.aig
+$ /usr/bin/yosys-abc -c read results/m1/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/cpu8/restructured.aig
 ABC command line: "read results/m1/aigs/cpu8/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/cpu8/restructured.aig".
 
 [1;37mresults/m1/aigs/cpu8/synth    :[0m i/o =   92/   13  lat =   83  and =   1209  lev = 34
 Warning: The choice nodes in the original AIG are removed by strashing.
-[1;37mresults/m1/aigs/cpu8/synth    :[0m i/o =   92/   13  lat =   83  and =   1112  lev = 31
+[1;37mresults/m1/aigs/cpu8/synth    :[0m i/o =   92/   13  lat =   83  and =   1108  lev = 31

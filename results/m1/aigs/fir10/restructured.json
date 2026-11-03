@@ -1,6 +1,6 @@
 {
   "aig_path": "results/m1/aigs/fir10/restructured.aig",
-  "aig_sha256": "afa7db6ed91413b6fd642a81129608d37070e89fff09f1035291c694fec23713",
+  "aig_sha256": "9b0414e2d07a69ca13bab1f0f03f1f0d90ead2447b43f52973fab6facaa2a96d",
   "commands": [
     "read results/m1/aigs/fir10/synth.aig",
     "strash",
@@ -26,21 +26,21 @@
   "outputs": 16,
   "run": {
     "argv": [
-      "yosys-abc",
+      "/usr/bin/yosys-abc",
       "-c",
       "read results/m1/aigs/fir10/synth.aig; strash; print_stats; dch -f; strash; print_stats; write_aiger results/m1/aigs/fir10/restructured.aig"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:32+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:48+00:00",
+    "host": "Linux x86_64",
     "inputs": {
-      "results/m1/aigs/fir10/synth.aig": "77534a543f9fb2247956360d770277a6df898c5303bb32484c4bbba3e66792b5"
+      "results/m1/aigs/fir10/synth.aig": "20efffab9d2005f3fddffd633503aa7c702082c97c31d29c665f53261f858e3a"
     },
     "logs": [
       "results/m1/aigs/fir10/restructured.log",
       "results/m1/aigs/fir10/cec.log"
     ],
-    "started": "2026-10-26T22:29:31+00:00",
+    "started": "2026-11-03T11:52:46+00:00",
     "status": "pass",
     "tools": {
       "abc": "yosys-abc bundled with Yosys 0.33 (git sha1 2584903a060)"

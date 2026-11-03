@@ -1,102 +1,85 @@
-# DD2 Project 1, Option 3. Milestone 1 of both options (cp1); Milestone 2 next.
-# The required targets (overview 5.1): setup check test all demo clean.
+# Option 2 only. Push/tag operations remain manual.
+-include config/tools.mk
+PY ?= .venv/bin/python
+PDK_ROOT ?= $(HOME)/dd2-inputs
+GIVEN ?= $(HOME)/DD2_Project1_student_pack/given
+TUTORIALS ?= $(HOME)/dd2-inputs/tutorials
+GROUP ?= $(shell cat config/group.txt 2>/dev/null)
+REFERENCE_YOSYS ?= /usr/bin/yosys
+REFERENCE_ABC ?= /usr/bin/yosys-abc
+DESIGNS ?= cpu8 dsp8 arlet6502 uart_apb risc8 fir10
+LIMIT ?= 10
+IN ?=
+TOP ?=
+SV ?=
+DD2 = PYTHONPATH=src $(PY) -m dd2
+M2 = PYTHONPATH=src $(PY) -m dd2m2
 
-PDK_ROOT ?= $(HOME)/.ciel
-GIVEN    ?= ../DD2_Project1_student_pack/given
-IN       ?=
-TOP      ?=
-SV       ?=
-# Yosys used by the flow. The handout's Table 1 is reproduced exactly only by Linux Yosys 0.33
-# (Ubuntu 24.04's package), which the dd2-flow image provides: use `make m1-docker` for evidence.
-YOSYS    ?= yosys
-
-PY  ?= .venv/bin/python
-DD2 := DD2_YOSYS="$(YOSYS)" PYTHONPATH=src $(PY) -m dd2
-
-# The flow image: repository, given/ and the PDK mounted at their own absolute paths so the
-# links resolve unchanged; given/ and the PDK are read-only.
-DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONTAINER=1 -e DD2_PDK_REALPATH="$(realpath pdk)" \
-	-v "$(CURDIR)":"$(CURDIR)" -w "$(CURDIR)" \
-	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
-	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
-
-.PHONY: o1-rules o1-m1 o1-image setup check test all demo clean m1 m1-env docker-flow m1-docker test-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary agent-check
-
-setup:            ## links to the PDK and the given files (never copies), and the Python env
-	@test -d "$(PDK_ROOT)/sky130A" || (echo "PDK not found: $(PDK_ROOT)/sky130A (set PDK_ROOT)" && exit 2)
-	@test -d "$(GIVEN)" || (echo "student pack given/ not found: $(GIVEN) (set GIVEN)" && exit 2)
-	ln -sfn "$(PDK_ROOT)/sky130A" pdk
+.PHONY: setup group check check-versions test all m1 m1-reference m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary m2 m2-fit m2-aigs-cuts m2-tutorials m2-baseline m2-candidates m2-library m2-map m2-plots readiness ta demo clean
+setup:
+	@test -f "$(GIVEN)/hd_reduced.lib" || (echo 'Set GIVEN to the extracted pack given/ directory'; exit 1)
+	@test -f "$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" || (echo 'Full HD Liberty missing: set PDK_ROOT'; exit 1)
 	ln -sfn "$(GIVEN)" given
-	test -x $(PY) || uv venv --python ">=3.11" .venv
-	uv pip install --python $(PY) -q "pytest>=8" "gdsfactory==9.51.0"
-	@$(PY) -c 'import sys; assert sys.version_info >= (3, 11), sys.version'
-	@echo "setup: pdk -> $$(readlink pdk), given -> $$(readlink given)"
-
-check:            ## tool versions, PDK, supplied inputs, course image + ngspice stress test (OpenSTA from M2)
-	@test -L pdk -a -L given || (echo "pdk/given links missing: run make setup" && exit 1)
-	$(DD2) check
-
-test:             ## every test, including the broken cases in tests/broken/
-	cd tests/broken && shasum -a 256 -c SHA256SUMS --quiet
-	DD2_YOSYS="$(YOSYS)" $(PY) -m pytest -q
-
-# The Option 2 evidence is made in dd2-flow (Linux Yosys 0.33) when that image exists; otherwise the
-# host Yosys runs it and Table 1 is labelled NOT REPRODUCED.
-FLOW_M1 := $(if $(shell docker image inspect dd2-flow >/dev/null 2>&1 && echo yes),m1-docker,m1)
-
-all:              ## the whole flow implemented so far (Option 2 M1 and Option 1 M1)
-	$(MAKE) $(FLOW_M1) o1-rules o1-m1
-
-m1: m1-env m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
-
-m1-env:           ## the environment record that goes with the evidence
-	$(DD2) check --out results/m1/environment.json
-
-m1-baseline:      ## Table 1: 6 designs x {usable, reduced} x {A, B}
+	ln -sfn "$(PDK_ROOT)/sky130A" pdk
+	@test -f "$(TUTORIALS)/spm/SPM_tb.v" -a -f "$(TUTORIALS)/multiplier/mul_exhaustive_tb.v" || (echo 'Set TUTORIALS to the external spm/ and multiplier/ input directory'; exit 1)
+	ln -sfn "$(TUTORIALS)" tutorials
+	@test -x $(PY) || /usr/bin/python3 -m venv .venv
+	$(PY) -m pip install -r requirements-option2.txt
+group:
+	@mkdir -p config
+	@read -p 'Your actual DD2 group number: ' number; case "$$number" in ''|*[!0-9]*|0) echo 'A positive group number is required'; exit 1;; esac; printf '%s\n' "$$number" > config/group.txt
+check:
+	$(M2) check
+check-versions:
+	$(M2) check --strict
+test:
+	cd tests/broken && sha256sum -c SHA256SUMS --quiet
+	PYTHONPATH=src $(PY) -m pytest -q tests
+all: m1
+	$(MAKE) m2
+m1:
+	$(MAKE) m1-reference DD2_YOSYS="$(REFERENCE_YOSYS)" DD2_ABC="$(REFERENCE_ABC)"
+m1-reference:
+	$(M2) check --out results/m1/environment.json
+	$(MAKE) m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary
+m1-baseline:
 	$(DD2) baseline
-
-m1-aigs:          ## synth and restructured AIGs of the 6 required designs
+m1-aigs:
 	$(DD2) aig
-
-m1-cuts: m1-aigs  ## 4-input cuts of the 12 AIGs, each checked by exhaustive simulation
+m1-cuts:
 	$(DD2) cuts
-
-m1-hdclasses:     ## class table of HD
+m1-hdclasses:
 	$(DD2) hdclasses
-
-m1-redundancy:    ## redundancy checker self-test against Table 4
+m1-redundancy:
 	$(DD2) selftest
-
 m1-summary:
-	$(DD2) summary
-
-agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs
-	PYTHONPATH=src:agent $(PY) -m dd2_agent.selfcheck
-
-o1-image:         ## build the course image dd2-layout-tools from the student pack (unchanged)
-	docker build -t dd2-layout-tools "$(realpath given)/../container"
-
-o1-rules:         ## the design-rule table behind the layout numbers -> results/option1/rules.csv
-	PYTHONPATH=src $(PY) -m cellgen.rules_table
-
-o1-m1:            ## Option 1 M1: frame check, inv_1 and nand2_1 regenerated and verified, request reader, network check
-	PYTHONPATH=src $(PY) -m cellgen.m1
-
-docker-flow:      ## build the flow image (Ubuntu 24.04: Yosys 0.33, Icarus, Python 3.12)
-	docker build -f docker/flow.Dockerfile -t dd2-flow docker
-
-m1-docker:        ## the M1 flow inside dd2-flow: the evidence in results/m1 is made this way
-	$(DOCKER_FLOW) make m1 PY=python3
-
-test-docker:      ## the test suite inside dd2-flow
-	$(DOCKER_FLOW) sh -c "cd tests/broken && sha256sum -c SHA256SUMS --quiet && cd ../.. && python3 -m pytest -q -p no:cacheprovider"
-
-demo:             ## what the interview runs: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]
-	@test -n "$(IN)" || (echo "usage: make demo IN=<request.json | design.v> [TOP=<top>] [SV=1]" && exit 2)
-	@case "$(IN)" in \
-	  *.json) PYTHONPATH=src $(PY) -m cellgen request "$(IN)" --out build/demo/cells --work build/demo/work ;; \
-	  *) $(DD2) demo "$(IN)" $(if $(TOP),--top $(TOP)) $(if $(SV),--sv) ;; \
-	esac
-
+	$(M2) m1-summary
+m2:
+	@test -n "$(GROUP)" || (echo 'Run make group first'; exit 1)
+	$(M2) run --group $(GROUP) --limit $(LIMIT) --designs $(DESIGNS)
+m2-fit:
+	$(M2) fit
+m2-aigs-cuts:
+	$(M2) discovery --designs $(DESIGNS)
+m2-tutorials:
+	$(M2) tutorials --designs $(DESIGNS)
+m2-baseline:
+	$(M2) baseline --designs $(DESIGNS)
+m2-candidates:
+	$(M2) candidates --designs $(DESIGNS)
+m2-library:
+	@test -n "$(GROUP)" || (echo 'Run make group first'; exit 1)
+	$(M2) library --group $(GROUP) --limit $(LIMIT)
+m2-map:
+	$(M2) map --designs $(DESIGNS)
+m2-plots:
+	$(M2) plots
+readiness:
+	$(M2) readiness
+ta:
+	$(M2) showcase
+demo:
+	@test -n "$(IN)" || (echo 'Set IN to a Verilog file'; exit 1)
+	$(DD2) demo "$(IN)" $(if $(TOP),--top $(TOP)) $(if $(SV),--sv)
 clean:
 	rm -rf build

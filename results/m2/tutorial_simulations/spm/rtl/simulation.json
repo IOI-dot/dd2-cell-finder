@@ -1,0 +1,12 @@
+{
+  "compile_exit_code": 0,
+  "inputs": {
+    "build/tutorials/spm/combined.v": "61539f09be37495d42bcf7f2f32b9a74bba5fa5574f156719c40e38bee02ff38",
+    "tutorials/spm/SPM_tb.v": "b4d2496bd7e422565070933a89adce84bdef6b38c2e62fbcb435aa43989f7c97"
+  },
+  "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-739-gd95f2401b-dirty)",
+  "pass_marker": "PASS: SPM behaves as a signed 32x32 multiplier",
+  "scope": "original tutorial RTL testbench",
+  "simulation_exit_code": 0,
+  "status": "pass"
+}

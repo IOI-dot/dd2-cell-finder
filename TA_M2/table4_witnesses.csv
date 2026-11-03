@@ -1,0 +1,7 @@
+truth_table,expression,literals,transistors,n_series,p_series,truth_table_verified
+0x0017,!((D|((A|B)&(C|(A&B))))),6,12,3,3,True
+0x011F,!(((C&D)|((A|B)&(C|D)))),6,12,2,3,True
+0x013F,!(((B|D)&(C|(D&(A|B))))),6,12,3,3,True
+0x037F,!(((B&D)|(C&(D|(A&B))))),6,12,3,3,True
+0x077F,!(((C|D)&((A&B)|(C&D)))),6,12,3,2,True
+0x17FF,!((D&((A&B)|(C&(A|B))))),6,12,3,3,True

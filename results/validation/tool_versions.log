@@ -1,0 +1,2 @@
+PYTHONPATH=src .venv/bin/python -m dd2m2 check --strict
+Option 2 environment: pass

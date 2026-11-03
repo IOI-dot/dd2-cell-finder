@@ -12,3 +12,31 @@
 | L-008 | 2026-10-26 | Noor Elshahidi | Claude Code / Claude Opus 5.5 | Set up the whole environment ("download what we need") and reproduce Table 1; ignore all course and plan documents in git. | Kept: restored the missing HD views (gds, spice, cdl, lef, mag, maglef) from the identical ciel release; built the course image dd2-layout-tools (stress test passes) and a dd2-flow image with Ubuntu's Yosys 0.33; `make m1-docker`, `make test-docker`; the synth AIG now uses `-zinit`. Dropped the YoWASP route. | The release's Liberty, Verilog and techlef hashes equal the installed files. Table 1 matches 24/24 and the AIG AND counts 6/6 on Linux Yosys 0.33; 115 tests pass on the host and in the container. | see git log |
 | L-009 | 2026-10-26/27 | Noor Elshahidi | Claude Code / Claude Opus 5.5 | Do Option 1 checkpoint 1 as a student would; fix the failing broken-case test; verify all of M1. | Kept: `src/cellgen` (request reader, single-stage networks and switch check, paired Euler ordering, rule table, li1 router, layout in the plan_hd.json frame, Magic/Netgen/ngspice wrappers, layer check, abutment fixtures, comparison with installed cells), `make o1-m1`, `make o1-image`, the stress test in `make check`. Changed: the LVS verdict now also fails on Netgen pin "**Mismatch**" lines. | Every check failed first on a broken case (gate pitch, wrong W, swapped pins, swapped series order, missing tap, deleted pull-up, wrong model row, missing hvtp/npc). Magic full DRC was first calibrated on the installed cells (lone cell fails nwell.4, row passes). 155 host tests, 141 in dd2-flow. | see git log |
 | L-010 | 2026-10-27 | Noor Elshahidi | Claude Code / Claude Opus 5.5 (two verification subagent passes) | Verify that Milestone 1 is 100% complete for both options and fix what the verifier finds. | Kept: section 4.1 rows gate the cell status; timing row; PDK views required by make check; agent covers Option 1; DRC parser keeps every reason; pin check over every label, using the cell's npc layer (HD's o21ai_1 puts B1's contact above the nominal band); rails must cover the full width; a standalone DRC with unparsed errors fails; refused requests get a response.json. | The second verification pass ran a clean clone: all targets pass and the regenerated results are byte-identical. Verdict: M1 complete apart from the human items. 186 host tests, 153 in dd2-flow. | see git log |
+
+
+## 2026-11-03 Option 2 M2 update
+
+ChatGPT/Codex prepared the Option 2-only update at user request. Original Option 1 code/checks archived unchanged; frozen cases preserved. Added explicit costs, HD area-model validation, mapped-cone ranking, requests/Liberty, dual-script mapping and ABC proofs. Development smoke tests are separate from the user WSL checkpoint evidence. Code is pushed before the user flow; no cp2 created. Active mode is AI as a development aid.
+
+
+## 2026-11-03 first WSL result review and repairs
+
+User ran the code locally: all 90 tests and all 24 baseline/extended ABC proofs passed. Every timing report failed on the unsupported PathEnd arrival property. Updated the query to the endpoint PathRef, removed clock-port data input delays, and added numbered-error rejection plus a real OpenSTA smoke test. Corrected native-HD calibration stack limits and simplified explicit implementations; no reported measurement is edited by hand. The user now requires testing/review before any push or tag.
+
+### GB4 tutorials and tool selection, 2026-11-03
+Recovered unmodified RTL/testbenches from prior tutorial submissions. Added
+tutorial discovery, mapping, original-bench functional GLS, strict failure
+parsing and tests. Models derive from the exact Liberty, not real-cell SDF.
+Added SHA256-pinned official tool bundle installer, retained reference Yosys
+for M1, and an explicit TA clarification table. No TA acceptance is inferred.
+
+### M2 release organization, 2026-11-03
+Reviewed the user-uploaded DD2_GB4_M2_Results.zip: tests, mappings, timing,
+tutorial simulations, generated files and all three figures. Archived unused
+docker/platform documentation and superseded plans without changing their
+bytes. Historical log paths above refer to their original locations; current
+platform files are under archive/previous_platform, and spec/planning material
+is under archive/historical_plans. Added make ta and TA_M2/ copies of existing
+figures/tables with source hashes. Updated the README and status documentation.
+No measured number was changed, and no reference agreement or TA acceptance
+was inferred. Git commit/push remain commands for the user's WSL.

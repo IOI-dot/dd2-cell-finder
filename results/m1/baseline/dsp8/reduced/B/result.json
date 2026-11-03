@@ -48,14 +48,14 @@
   "library": "reduced",
   "run": {
     "argv": [
-      "yosys",
+      "/usr/bin/yosys",
       "-q",
       "-p",
       "read_verilog  given/designs/dsp8.v; synth -flatten -top dsp8; dfflibmap -liberty given/hd_reduced.lib; abc -liberty given/hd_reduced.lib -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put; opt_clean -purge; tee -q -o results/m1/baseline/dsp8/reduced/B/stat.txt stat -liberty given/hd_reduced.lib; tee -q -o results/m1/baseline/dsp8/reduced/B/stat.json stat -json -liberty given/hd_reduced.lib"
     ],
     "exit_code": 0,
-    "finished": "2026-10-26T22:29:09+00:00",
-    "host": "Linux aarch64",
+    "finished": "2026-11-03T11:52:03+00:00",
+    "host": "Linux x86_64",
     "inputs": {
       "given/designs/dsp8.v": "fa86dedaaeddfd0df04be9dcd0e72ea8e3fa02885fc6c63376442d2f55cd2c5b",
       "given/hd_reduced.lib": "7f0563d0343340facb3f340f5b9fa028687c6130eb742408e097dc50cee513d8"
@@ -65,13 +65,13 @@
       "results/m1/baseline/dsp8/reduced/B/stat.txt",
       "results/m1/baseline/dsp8/reduced/B/stat.json"
     ],
-    "started": "2026-10-26T22:29:08+00:00",
+    "started": "2026-11-03T11:52:02+00:00",
     "status": "pass",
     "tools": {
       "yosys": "Yosys 0.33 (git sha1 2584903a060)"
     }
   },
   "script": "B",
-  "seconds": 0.505,
+  "seconds": 0.816,
   "top": "dsp8"
 }

@@ -1,0 +1,124 @@
+version: 1
+project:
+  name: DD2 Cell Finder
+  course: CSCE 3304 Digital Design II - Fall 2026
+  option: Option 3
+  active_scope: Milestone 1 of both options done; Milestone 2 next
+  delivery_mode: local-first, agentic CLI
+
+governance:
+  agent_instructions: AGENTS.md
+  constitution: .specify/memory/constitution.md
+  workflow: Spec Kit
+  machine_index: index.yml
+  required_logs:
+    - ai/use_log.md
+    - ai/mistakes_log.md
+
+authoritative_sources:
+  course_rules: DD2 Project 1 - Overview and Rules.pdf
+  option_1: DD2 Project 1 - Option 1 - From a Boolean Function to an HD Cell.pdf
+  option_2: DD2 Project 1 - Option 2 - Finding Cells Worth Adding.pdf
+  backend_guidance: Backend.md
+  visual_system:
+    path: DesignSystemStudio/
+    index: DesignSystemStudio/INDEX.md
+    use: approved future UI only
+
+inputs:
+  student_pack: DD2_Project1_student_pack/
+  pdk:
+    environment_variable: PDK_ROOT
+    expected_root: "${PDK_ROOT}/sky130A"
+    detected_root: ~/.ciel/sky130A   # PDK_ROOT=~/.ciel; HD has lib/techlef/verilog only (no spice/gds/lef) as of 2026-10-26
+    full_hd_liberty: libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+  # The pack belongs outside the repo (../DD2_Project1_student_pack); reach it via the given/ link.
+  reduced_hd_library: given/hd_reduced.lib
+  usable_hd_library: given/hd_usable.lib
+  option_2_designs: given/designs/
+
+repository_map:
+  src: implementation source (src/dd2 = Option 2 core; src/cellgen = Option 1 cell generator)
+  tests: unit and integration tests
+  tests/broken: immutable negative cases, frozen by tests/broken/SHA256SUMS
+  tests/fixtures: tiny hand-written AIGs for unit tests
+  tests/broken_proposed: broken cases written by AI, waiting for a human to review and promote
+  results: committed evidence used by reports
+  libs: generated Option 2 Liberty libraries
+  cells: one folder per generated Option 1 cell (at cp1 dd2_ref__inv_1 and dd2_ref__nand2_1)
+  results/option1: "Option 1 evidence (m1 = frame check, reference cells, request reader, network check)"
+  prompts: versioned agent prompts
+  runs: agent run outputs, committed as evidence (bulky cuts_full/ ignored)
+  report: technical and AI reports with sources
+  docs: architecture.md (layers, layout, open design questions) and interface/ (Appendix A)
+  backend: planned API service (placeholder README; design to be agreed with the user)
+  specs: Spec Kit spec, plan, research, contracts, tasks
+  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs (cp1); LangGraph + AG-UI server later (US4)
+  ai/runs: committed agent run logs (JSONL) and their check files
+  .venv: local Python environment made by make setup; git-ignored
+  web: planned AG-UI front end on DesignSystemStudio + Graphite Cyan (placeholder README)
+  docker: planned images and compose with read-only protected mounts (placeholder README)
+  references: read-only upstream clones (ag-ui, langchain-skills); git-ignored
+  build: scratch outputs; git-ignored
+
+toolchain:
+  host_available:
+    - python3 (3.9.6, too old; use uv with Python >= 3.11)
+    - yosys (0.70 on host; Table 1 needs 0.33, see research D-2)
+    - yosys-abc
+    - iverilog
+    - docker
+    - specify
+  required_later:
+    - OpenSTA
+  images:
+    - dd2-layout-tools: course recipe unchanged; Magic 8.3.684, Netgen (reports 1.5.132), ngspice 47 fixed
+    - dd2-flow: docker/flow.Dockerfile; Ubuntu 24.04 Yosys 0.33 (reproduces Table 1)
+  runtime_notes:
+    - Docker uses Colima and must be running before building the course container.
+    - Tool versions are recorded by make check, never inferred from this index.
+
+protected_paths:
+  - DD2_Project1_student_pack/
+  - pdk/
+  - given/
+  - tests/broken/
+  - tests/broken/SHA256SUMS
+  - .specify/memory/constitution.md
+
+agentic_system:
+  command: make agent IN=<design>   # cp1: make agent-check (scripted run, no model yet)
+  rules:
+    - Tool schemas and protected-path permissions are enforced in deterministic code.
+    - Prompt files and model settings are versioned.
+    - Each model/tool call is logged with a run ID and result artifact.
+    - Runs have iteration, time, input-size, token, and cost limits.
+    - A fixed-choice pipeline is retained for required comparison.
+
+status:
+  updated: 2026-10-26
+  milestone_1: >
+    Option 2 M1 and Option 1 M1 implemented. Table 1 (24/24) and the handout's AIG AND counts reproduce
+    exactly on Linux Yosys 0.33 (dd2-flow image); Table 4 row 6 open with the TA. inv_1 and nand2_1
+    regenerated at 3 sites, passing DRC, LVS (also vs installed), abutment, layers, SPICE and model.
+  open_for_humans: [tag cp1, README names and IDs (later), move tests/broken_proposed into tests/broken,
+                    "history rewrite decision (Q-4, recommendation is not to rewrite)"]
+  evidence_index: results/m1/summary.md
+  verification: specs/001-agentic-cell-finder/verification-2026-10-26.md   # findings table with status
+  architecture: docs/architecture.md
+  plan: specs/001-agentic-cell-finder/{plan,research,tasks}.md
+  lectures_used: "Lectures 9-10 SCL and Synthesis (research D-17)"
+
+# The course tool is one part of a larger system the user is building. Its system design is
+# not decided yet; this records the agreed direction so the layout leaves room for it.
+future_platform:
+  status: planned, design to be agreed with the user (not started)
+  frontend: agentic UI (AG-UI client) on DesignSystemStudio components with the Graphite Cyan theme
+  agent: LangGraph/LangChain over the typed dd2 tools (agent/dd2_agent)
+  backend: >
+    service with the Backend.md practices (layered modules, DTO validation, authentication,
+    authorization/RBAC, rate limiting per user and IP, correlation IDs, audit trail, retries,
+    timeouts and circuit breakers, secrets outside the image, health endpoints, structured logs)
+  data: PostgreSQL; a vector database (pgvector or Pinecone) for retrieval; Redis if caching or
+    rate-limit state needs it
+  rule: the deterministic dd2 core stays dependency-free and must keep working offline for the TA
