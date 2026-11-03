@@ -22,6 +22,15 @@ __pycache__/
 .env.*
 !.env.example
 
+# No new images are committed (screenshots, generated pictures). Files already tracked, such as the three
+# figures of TA_M2/, are unaffected.
+*.png
+*.svg
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
 # Private local material: never committed.
 /DesignSystemStudio/
 /Backend.md

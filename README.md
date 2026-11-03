@@ -3,10 +3,27 @@
 Group **GB4**, cell prefix `dd2_g4__` · Option 3 (Options 1 and 2, connected).
 Omar Abdel Motalb, 900232118; Noor Elshahidi; Mohamed Azouz; the other members' names and IDs still need to be listed.
 
-**For the TA:**
-- Option 2, Milestone 2: open [TA_M2/README.md](TA_M2/README.md), with its figures, tables and the Table 4 question.
-- Option 1, Milestone 2: section 6 below, and [results/option1/m2/](results/option1/m2/).
-- The studio and the agent: [web/README.md](web/README.md) and [docs/roadmap.md](docs/roadmap.md).
+## Milestone 2 meeting: Option 2, Milestone 2
+
+**Start at [TA_M2/README.md](TA_M2/README.md).** It holds the three figures, the key tables, the measured savings
+and the Table 4 question, all copied from the saved run in [results/m2/](results/m2/) without recomputing anything.
+
+| What | Where |
+|---|---|
+| Readiness and what is still open | [results/m2/readiness.json](results/m2/readiness.json) |
+| Measured savings, best of scripts A and B | [results/m2/best_of_both_estimated.csv](results/m2/best_of_both_estimated.csv) |
+| Every mapping, with ABC cec and OpenSTA | [results/m2/table5_estimated.csv](results/m2/table5_estimated.csv) |
+| Ranked candidates and the ten cell requests | [results/m2/ranked_candidates.csv](results/m2/ranked_candidates.csv), [results/m2/requests/](results/m2/requests/) |
+| Area model and its held-out error | [results/m2/area_model.json](results/m2/area_model.json), [results/m2/area_model_fit.csv](results/m2/area_model_fit.csv) |
+| The Table 4 question for the TA | [TA_M2/TABLE4_CLARIFICATION.md](TA_M2/TABLE4_CLARIFICATION.md) |
+| The code, one module per step | [src/dd2m2/README.md](src/dd2m2/README.md) |
+
+To reproduce it: `make setup`, `make group`, `make check-versions`, `make test`, then `make m2` (the whole run) or
+one step at a time with `make m2-fit`, `m2-baseline`, `m2-candidates`, `m2-library`, `m2-map` and `m2-plots`.
+`make ta` refreshes `TA_M2/` from the saved results.
+
+Beyond the milestone, and not part of this review: Option 1 builds the requested cells as verified layouts, and
+Option 3 remaps the designs onto those real cells (sections 6 and 11, [docs/roadmap.md](docs/roadmap.md)).
 
 AI is used as a development aid, and in Option 1 as a bounded agent that picks generator settings.
 Option 2's flow runs no model and needs no API key.
