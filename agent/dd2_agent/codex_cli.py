@@ -153,7 +153,7 @@ class ChatCodexCLI(BaseChatModel):
         return {"model_name": self.model_name, "effort": self.effort}
 
     def _generate(self, messages, stop=None, run_manager=None, **kwargs: Any) -> ChatResult:
-        r = CodexCLI(self.model_name, self.effort, self.timeout_s).complete(to_openai(messages), kwargs.get("response_format"),
+        r = CodexCLI(self.model_name, kwargs.get("effort") or self.effort, self.timeout_s).complete(to_openai(messages), kwargs.get("response_format"),
                                                                             kwargs.get("on_thought"), kwargs.get("cancel"))
         u = r["usage"]
         msg = AIMessage(r["choices"][0]["message"]["content"], response_metadata={"model_name": r["model"], "id": r["id"]},

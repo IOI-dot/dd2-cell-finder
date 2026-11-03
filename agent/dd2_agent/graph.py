@@ -187,6 +187,7 @@ class Run:
         self.log = audit.RunLog(self.run_id, log_dir)
         self.llm = model.chat_model(cfg["model"])
         self.model_label = model.label(cfg["model"])
+        self.call_label = self.model_label             # the model and effort of the latest call, for the log
         self.limits = cfg["limits"]
         self.system, self.prompt = model.prompt_ref(AGENT)
         self.calls = {"model": 0, "tool": 0, "in": 0, "out": 0}
@@ -258,13 +259,17 @@ class Run:
                 return why
         return None
 
-    def ask(self, system: str, user: str, fmt: dict, prompt_ref: str, role: str = AGENT) -> tuple:
-        """One model call, counted, shown and retried. Returns (text, None), or (None, the failure)."""
+    def ask(self, system: str, user: str, fmt: dict, prompt_ref: str, role: str = AGENT, escalate: int = 0) -> tuple:
+        """One model call, counted, shown and retried. Returns (text, None), or (None, the failure). The effort
+        follows the role (config [model.effort]); `escalate` raises it after the guardrails refused a reply."""
         self.calls["model"] += 1
         self.steps += 1
-        step, title = f"model{self.steps}", f"{role.title()} is thinking ({self.model_label.split(':')[-1]})"
+        m = self.cfg["model"]
+        eff = model.effort(m, role, escalate)
+        self.call_label = f"{m['provider']}:{m['name']} effort={eff}" if m["provider"] != "scripted" else self.model_label
+        step, title = f"model{self.steps}", f"{role.title()} is thinking ({eff} effort{', retry after a refused reply' if escalate else ''})"
         self.say(step, title, "running", f"{len(user)} characters of facts, prompt {prompt_ref.split('/')[-1]}", "model", role)
-        kw = {"response_format": fmt} if fmt else {}
+        kw = ({"response_format": fmt} if fmt else {}) | {"effort": eff}
         llm = self.llm.bind(**kw, on_thought=lambda text: self.say(f"{step}t{time.time()}", text.replace("*", "").strip()[:300], "ok", "", "thought", role), cancel=self.stopped)
         msgs = [SystemMessage(system), HumanMessage(user)]
         last, t0 = None, time.time()
@@ -276,7 +281,7 @@ class Run:
                 self.calls["in"] += self.used[0]
                 self.calls["out"] += self.used[1]
                 self.say(step, f"{role.title()} replied", "ok", f"{time.time() - t0:.1f} s, {self.used[0]} tokens in, {self.used[1]} out", "model", role,
-                         {"prompt": prompt_ref, "reply": str(r.content)[:6000], "tokens_in": self.used[0], "tokens_out": self.used[1]})
+                         {"prompt": prompt_ref, "reply": str(r.content)[:6000], "tokens_in": self.used[0], "tokens_out": self.used[1], "effort": eff})
                 return r.content, None
             except codex_cli.CodexError as e:
                 last = str(e)
@@ -288,7 +293,7 @@ class Run:
                 last = f"bad reply: {e}"
                 break
         self.say(step, f"{role.title()} failed", "bad", last, "model", role)
-        self.log.model(role, self.model_label, prompt_ref, 0, 0, f"model call failed: {last}")
+        self.log.model(role, self.call_label, prompt_ref, 0, 0, f"model call failed: {last}")
         return None, last
 
     def context(self, st: State) -> dict:
@@ -336,15 +341,24 @@ class Run:
                  "option2": option2.facts(),
                  "untried": [i for i in range(ORDERS) if i not in {r["settings"].get("order_index") for r in revs}]}
         user = f"<context>\n{json.dumps(known)}\n</context>\n<request>\n{said}\n</request>"
-        text, err = self.ask(system, user, model.json_format(model.Intent), ref, "interpreter")
-        if err:
-            return base | {"intent": {"kind": "UNCLEAR", "reason": "The model is not available, so only expressions work right now."}, "stop": "model unavailable"}
-        try:
-            it = model.Intent.model_validate_json(text)
-        except (ValidationError, ValueError):
-            self.log.model("interpreter", self.model_label, ref, *self.used, "refused reply: not the required JSON")
-            return base | {"intent": {"kind": "UNCLEAR", "reason": "The request could not be read."}, "stop": "request not understood"}
-        self.log.model("interpreter", self.model_label, ref, *self.used,
+        # Reading a request is quick work, so it starts at low effort. A reply the guardrails refuse, unreadable or
+        # quoting a number it was not given, is asked once more one level higher.
+        for escalate in (0, 1):
+            text, err = self.ask(system, user, model.json_format(model.Intent), ref, "interpreter", escalate)
+            if err:
+                return base | {"intent": {"kind": "UNCLEAR", "reason": "The model is not available, so only expressions work right now."}, "stop": "model unavailable"}
+            try:
+                it = model.Intent.model_validate_json(text)
+            except (ValidationError, ValueError):
+                self.log.model("interpreter", self.call_label, ref, *self.used, "refused reply: not the required JSON")
+                if escalate == 0:
+                    continue
+                return base | {"intent": {"kind": "UNCLEAR", "reason": "The request could not be read."}, "stop": "request not understood"}
+            if escalate == 0 and it.kind in generative_ui.CHAT_ONLY and checked_reply(it.reason, system + user, None) is None:
+                self.log.model("interpreter", self.call_label, ref, *self.used, "refused reply: quotes a number it was not given")
+                continue
+            break
+        self.log.model("interpreter", self.call_label, ref, *self.used,
                        f"{it.kind}: {it.expression} {it.reason[:120]}" + (f" [focus {it.focus}]" if it.focus else "") + (f" [candidate {it.candidate}]" if it.candidate else ""))
         self.say("intent", f"Understood as {it.kind.replace('_', ' ').lower()}", "ok", f"{it.expression} {it.reason}".strip()[:200], "guard", "request")
         if it.kind in generative_ui.CHAT_ONLY:
@@ -450,7 +464,7 @@ class Run:
         if st.get("rejected"):
             info["rejected"] = st["rejected"]
         user = f"<facts>\n{json.dumps(info, indent=1)}\n</facts>"
-        text, err = self.ask(self.system, user, model.json_format(model.Decision), self.prompt)
+        text, err = self.ask(self.system, user, model.json_format(model.Decision), self.prompt, escalate=1 if st.get("rejected") else 0)
         if err:
             return {"stop": "model unavailable"}
         d, problem = parse_decision(text, st["facts"])
@@ -463,7 +477,7 @@ class Run:
                  {"problem": problem} if problem else {k: d.get(k) for k in ("action", "order_index", "sizing", "net", "reason", "evidence_refs", "expected_effect")})
         if d:
             self.say(f"r{self.steps}", ("Stopping here: " if d["action"] == "STOP_AND_REPORT" else "Trying another build: ") + d["reason"], kind="reply")
-        self.log.model(AGENT, self.model_label, self.prompt, *self.used,
+        self.log.model(AGENT, self.call_label, self.prompt, *self.used,
                        f"refused reply: {problem}" if problem else f"{d['action']}: {d['reason']}")
         said = [{"action": d["action"], "reason": d["reason"]}] if d else []
         return {"decision": d or {}, "rejected": problem or "", "settings": settings or st["settings"], "history": st.get("history", []) + said}
@@ -556,7 +570,7 @@ class Run:
                 problems = generative_ui.check_page(text, data)
                 self.say("page", "Guardrails refused the page, so the fixed page is shown" if problems else "Guardrails accepted the report page",
                          "bad" if problems else "ok", "; ".join(problems[:3]), "guard", "explainer")
-                self.log.model("explainer", self.model_label, ref, *self.used, f"refused page: {problems[:3]}" if problems else "wrote the report page")
+                self.log.model("explainer", self.call_label, ref, *self.used, f"refused page: {problems[:3]}" if problems else "wrote the report page")
                 if not problems:
                     page, source = text.strip(), "explainer"
         if self.closing:

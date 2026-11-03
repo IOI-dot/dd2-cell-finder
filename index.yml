@@ -106,6 +106,7 @@ agentic_system:
     - Prompt files and model settings are versioned.
     - Each model/tool call is logged with a run ID and result artifact.
     - Runs have iteration, time, input-size, token, and cost limits.
+    - Thinking effort follows the role ([model.effort] in config/agent.toml); a refused reply is retried one level higher.
     - A fixed-choice pipeline is retained for required comparison.
     - The Option 2 flow itself runs no model; agents only choose among its deterministic steps.
 

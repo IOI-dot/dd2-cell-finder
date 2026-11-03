@@ -79,7 +79,7 @@ export function App() {
             <TabsList className="h-auto"><TabsTrigger className="min-h-11 lg:min-h-8" value="o1">Option 1 · Cells</TabsTrigger><TabsTrigger className="min-h-11 lg:min-h-8" value="o2">Option 2 · Designs</TabsTrigger><TabsTrigger className="min-h-11 lg:min-h-8" value="evidence">Evidence</TabsTrigger></TabsList>
           </Tabs>
           {running && <span data-testid="clock" className="ml-auto font-mono text-sm text-info">{fmt(now - started)}{left >= 1000 && <span className="text-muted-foreground">, about {fmt(left)} left</span>}</span>}
-          <Badge variant="outline" className={`hidden font-mono text-xs lg:inline-flex ${running ? "" : "ml-auto"}`}>{model}</Badge>
+          <Badge variant="outline" className={`hidden font-mono text-xs lg:inline-flex ${running ? "" : "ml-auto"}`} title={model}>{model.replace(/ effort by role:.*/, " · effort by role")}</Badge>
         </header>
         {tab === "evidence" && <main className="min-h-0 flex-1 overflow-auto p-4 lg:p-6"><Evidence /></main>}
         {/* Both options stay mounted behind Evidence and behind each other, so the chat, scroll positions and open step survive a tab switch. */}
