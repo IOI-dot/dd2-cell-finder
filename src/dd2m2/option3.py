@@ -5,6 +5,7 @@ characterized tables, takes the place of the estimated group of src/dd2m2/librar
 mapped with and without the new cells by the same steps as M2, on this machine's tools, into
 results/option3/. The M2 evidence in results/m2/ is never touched.
 """
+
 import json
 import re
 from pathlib import Path
@@ -24,7 +25,7 @@ def _group(text: str, kind: str, name: str) -> str:
         depth += {"{": 1, "}": -1}.get(text[i], 0)
         if depth == 0:
             break
-    return text[m.start():i + 1]
+    return text[m.start() : i + 1]
 
 
 def real_library(base: Path, out: Path, pairs) -> list:
@@ -38,7 +39,9 @@ def real_library(base: Path, out: Path, pairs) -> list:
         lib = lib if lib.is_absolute() else paths.ROOT / lib
         cell = {c.name: c for c in liberty.read_cells(lib)}.get(req["name"])
         if cell is None or cell.tt != int(req["truth_table"], 16):
-            raise ValueError(f"{req['name']}: the delivered Liberty function does not match the requested truth table")
+            raise ValueError(
+                f"{req['name']}: the delivered Liberty function does not match the requested truth table"
+            )
         lt = lib.read_text()
         for t in re.findall(r'lu_table_template\s*\(\s*"?([\w]+)"?\s*\)', lt):
             templates[t] = _group(lt, "lu_table_template", t)
@@ -48,16 +51,24 @@ def real_library(base: Path, out: Path, pairs) -> list:
         raise ValueError("a delivered cell has the name of a baseline cell")
     pos = text.rfind("}")
     Path(out).parent.mkdir(parents=True, exist_ok=True)
-    Path(out).write_text(text[:pos] + "\n".join(templates.values()) + "\n" + "\n".join(groups) + "\n" + text[pos:])
+    Path(out).write_text(
+        text[:pos] + "\n".join(templates.values()) + "\n" + "\n".join(groups) + "\n" + text[pos:]
+    )
     return used
 
 
 def compare_row(req: dict, resp: dict) -> dict:
     est, real = req["estimated_area_um2"], resp.get("area_um2") or 0
     ok = resp.get("status") == "pass"
-    return {"request_id": req["request_id"], "cell": req["name"], "status": resp.get("status", "missing"), "estimated_area_um2": est,
-            "real_area_um2": real if ok else None, "area_error_pct": round(100 * (real - est) / est, 2) if ok else None,
-            "reason": resp.get("reason") or ""}
+    return {
+        "request_id": req["request_id"],
+        "cell": req["name"],
+        "status": resp.get("status", "missing"),
+        "estimated_area_um2": est,
+        "real_area_um2": real if ok else None,
+        "area_error_pct": round(100 * (real - est) / est, 2) if ok else None,
+        "reason": resp.get("reason") or "",
+    }
 
 
 def run(out: Path | None = None, m2: Path | None = None) -> int:
@@ -67,7 +78,16 @@ def run(out: Path | None = None, m2: Path | None = None) -> int:
     pairs = []
     for req in json.loads((m2 / "requests.json").read_text()):
         p = paths.ROOT / "cells" / req["name"] / "response.json"
-        pairs.append((req, json.loads(p.read_text()) if p.is_file() else {"status": "missing", "reason": "Option 1 has not answered"}))
+        pairs.append(
+            (
+                req,
+                (
+                    json.loads(p.read_text())
+                    if p.is_file()
+                    else {"status": "missing", "reason": "Option 1 has not answered"}
+                ),
+            )
+        )
     flow.write_csv(out / "cells.csv", [compare_row(q, r) for q, r in pairs])
     lib = out / "hd_extended_real.lib"
     used = real_library(paths.given() / "hd_reduced.lib", lib, pairs)
@@ -78,9 +98,17 @@ def run(out: Path | None = None, m2: Path | None = None) -> int:
     names = [d.name for d in designs.required()]
     flow.baseline(names, out)
     rows, best = flow.measure(names, out, lib, used)
-    provenance.write_json(out / "summary.json", {"cells_requested": len(pairs), "cells_used": len(used),
-                                                 "mappings": len(rows), "equivalence_all_pass": all(r["extended_equivalence"] == "pass" for r in rows),
-                                                 "best_of_both": best, "toolchain": "this machine's Yosys, ABC and OpenSTA, same on both sides"})
+    provenance.write_json(
+        out / "summary.json",
+        {
+            "cells_requested": len(pairs),
+            "cells_used": len(used),
+            "mappings": len(rows),
+            "equivalence_all_pass": all(r["extended_equivalence"] == "pass" for r in rows),
+            "best_of_both": best,
+            "toolchain": "this machine's Yosys, ABC and OpenSTA, same on both sides",
+        },
+    )
     return 0
 
 
