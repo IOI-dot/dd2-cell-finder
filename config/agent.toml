@@ -16,3 +16,7 @@ max_seconds = 3600
 max_tokens_in = 400000           # the CLI's own tool definitions make each call large
 max_tokens_out = 40000
 max_usd = 0.0
+
+[voice]
+# Parakeet TDT 0.6 v3, the copy the Handy app keeps; read in place, never copied into the repository
+model_dir = "~/Library/Application Support/com.pais.handy/models/parakeet-tdt-0.6b-v3-int8"

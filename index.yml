@@ -20,10 +20,6 @@ authoritative_sources:
   option_1: DD2 Project 1 - Option 1 - From a Boolean Function to an HD Cell.pdf
   option_2: DD2 Project 1 - Option 2 - Finding Cells Worth Adding.pdf
   backend_guidance: Backend.md
-  visual_system:
-    path: DesignSystemStudio/
-    index: DesignSystemStudio/INDEX.md
-    use: approved future UI only
 
 inputs:
   student_pack: DD2_Project1_student_pack/
@@ -56,10 +52,10 @@ repository_map:
   docs: architecture.md (layers, layout, open design questions) and interface/ (Appendix A)
   backend: planned API service (placeholder README; design to be agreed with the user)
   specs: Spec Kit spec, plan, research, contracts, tasks
-  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), fixed-choice version, comparison; AG-UI server later (US4)
+  agent: dd2_agent package; typed tools, policy guard, Appendix B run logs, LangGraph run (graph.py), stage time estimates (timings.py), Parakeet speech to text (voice.py), fixed-choice version, comparison; AG-UI server later (US4)
   ai/runs: committed agent run logs (JSONL) and their check files
   .venv: local Python environment made by make setup; git-ignored
-  web: "generative front end: AG-UI client, OpenUI Lang renderer, component library, 3D views; built on DesignSystemStudio + Graphite Cyan"
+  web: "generative front end: AG-UI client, OpenUI Lang renderer, component library, 3D views, live run and step pages (RunView, stepviews), minimal UI primitives (ui.tsx)"
   docker: "dd2-flow image, OpenSTA build (build_sta.sh, image dd2-sta); compose with read-only protected mounts is planned"
   references: read-only upstream material (ag-ui, langchain-skills, openui); git-ignored
   build: scratch outputs; git-ignored
@@ -117,7 +113,7 @@ status:
 # not decided yet; this records the agreed direction so the layout leaves room for it.
 future_platform:
   status: planned, design to be agreed with the user (not started)
-  frontend: agentic UI (AG-UI client) on DesignSystemStudio components with the Graphite Cyan theme
+  frontend: agentic UI (AG-UI client) with its own minimal primitives in web/src/ui.tsx
   agent: LangGraph/LangChain over the typed dd2 tools (agent/dd2_agent)
   backend: >
     service with the Backend.md practices (layered modules, DTO validation, authentication,

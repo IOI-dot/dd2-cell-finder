@@ -18,12 +18,9 @@ __pycache__/
 .env.*
 !.env.example
 
-# Design System Studio generated/local artifacts.
-DesignSystemStudio/node_modules/
-DesignSystemStudio/.next/
-DesignSystemStudio/dist/
-DesignSystemStudio/showcase-dist/
-DesignSystemStudio/*.tsbuildinfo
+# Private local material: never committed.
+/DesignSystemStudio/
+/Backend.md
 
 # OS/editor noise.
 .DS_Store

@@ -237,7 +237,6 @@ AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report
   a wider li1-only layout may exist beyond it. `results/option1/m2/test_cells.csv` names those nets.
 - The layout search is exhaustive only within its budget, so a function given at the demo can fail to
   route. The cell then fails its check and the report names the nets.
-- The Option 1 Web UI (AG-UI on DesignSystemStudio) is not built.
 - The PDK's HD library had lost its gds, spice, cdl, lef, mag and maglef views. They were restored
   from the identical ciel release (all 894 files byte-identical to it); `make check` now requires
   them. A group member should confirm this with ciel.

@@ -6,19 +6,21 @@ status is pass only if every required check passes.
 """
 import re
 import shutil
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from dd2 import boolfn as bf
 from dd2 import liberty, paths, provenance
 
-from . import abut, compare, eda, euler, layers, layout, network, simulate, stress
+from . import abut, compare, eda, euler, layers, layout, network, simulate, stepdata, stress
 
 TAP_ONLY = {"nwell.4", "LU.2", "LU.3"}   # a lone cell has no taps (handout section 2)
 HD = "sky130_fd_sc_hd__"
 SIX = ("inv_1", "nand2_1", "nor2_1", "nand3_1", "a21oi_1", "o21ai_1")
 MULTI_STAGE = ("a21o_1", "mux2_1")
 SUPPLIES = ["VGND", "VNB", "VPB", "VPWR"]
+LIVE_ATTEMPTS = 200                      # layout attempts a step view can list
 
 
 def standalone_ok(d: dict) -> bool:
@@ -94,6 +96,10 @@ def _parasitics(rc_spice: str) -> dict:
             "r_ohm_total": round(sum(res.values()), 3)}
 
 
+def _text(path: Path) -> str:
+    return path.read_text() if path.exists() else ""
+
+
 def _rects(cell) -> dict:
     """The cell's drawn shapes by layer, for the live view."""
     out = {}
@@ -146,8 +152,9 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     errs = network.switch_check(net, tt)
     eda.trace("network", "CMOS network and switch-level check", "bad" if errs else "ok",
               f"{len(net.transistors)} transistors in {len(net.stages)} stage(s), at most {network.max_series(net)} in series, every input row checked",
-              "network", {"inputs": list(inputs), "tt": tt, "stages": len(net.stages),
-                          "transistors": [{"kind": t.kind, "gate": t.gate, "w": t.w, "stage": t.stage} for t in net.transistors]})
+              "network", {"inputs": list(inputs), "tt": tt, "stages": len(net.stages), "max_series": network.max_series(net),
+                          "transistors": [{"kind": t.kind, "gate": t.gate, "drain": t.drain, "source": t.source, "w": t.w, "stage": t.stage} for t in net.transistors],
+                          "switch": stepdata.switch_rows(net, tt), "errors": errs})
     ck["network"] = {"status": "pass" if not errs and network.max_series(net) <= 3 else "fail",
                      "transistors": len(net.transistors), "stages": len(net.stages),
                      "stage_outputs": [s.out for s in net.stages], "max_series": network.max_series(net),
@@ -158,16 +165,25 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     # step 4: ordering; step 5: layout
     orders = euler.candidates(net)
     eda.trace("ordering", "Paired Euler ordering", "ok", f"{len(orders)} gate orders kept, best has {orders[0].breaks} diffusion break(s): {' '.join(orders[0].gates)}",
-              "euler", {"gates": orders[0].gates, "rows": orders[0].rows, "breaks": orders[0].breaks, "candidates": len(orders)})
+              "euler", {"orders": stepdata.orders(orders)})
     eda.trace("layout", "Placing and routing on li1", "running", "narrowest layouts first", "layout")
-    cell = layout.generate(net, orders[0], name, orders=orders, wn=wn, wp=wp,
-                           progress=lambda n, w, m: eda.trace("layout", "Placing and routing on li1", "running",
-                                                              f"attempt {n}, trying {w} sites{' with met1' if m else ''}", "layout"), **(layout_opts or {}))
+    attempts, shown = [], [0.0]
+
+    def tried(row, c):
+        attempts.append(row)
+        if time.time() - shown[0] >= 0.25:         # a few live frames a second, whatever the attempt rate
+            shown[0] = time.time()
+            eda.trace("layout", "Placing and routing on li1", "running",
+                      f"attempt {row['n']}: {row['sites']} sites, order {row['order']}{', met1' if row['met1'] else ''}", "layout",
+                      {"attempts": attempts[-LIVE_ATTEMPTS:], "tried": row["n"], "width_um": c.width, "height_um": 2.72, "rects": _rects(c), "labels": c.labels})
+
+    cell = layout.generate(net, orders[0], name, orders=orders, wn=wn, wp=wp, progress=tried, **(layout_opts or {}))
     eda.trace("layout", "Layout", "bad" if cell.report.get("route_failures") else "ok",
               f"{cell.report['width_sites']} sites after {cell.report['layout_attempts']} attempt(s), order {' '.join(cell.report['gate_order'])}"
               + (f", met1 on {' '.join(cell.report['met1_nets'])}" if cell.report.get("met1_nets") else "")
               + (f", could not route {cell.report['route_failures']}" if cell.report.get("route_failures") else ""),
-              "layout", {"width_um": cell.width, "height_um": 2.72, "rects": _rects(cell), "labels": cell.labels})
+              "layout", {"attempts": attempts[-LIVE_ATTEMPTS:], "tried": len(attempts), "gate_order": cell.report["gate_order"], "met1_nets": cell.report.get("met1_nets") or [],
+                         "width_um": cell.width, "height_um": 2.72, "rects": _rects(cell), "labels": cell.labels})
     rep["layout_options"] = layout_opts or {}
     ck["ordering"] = {"status": "pass" if not any(euler.validate(net, o) for o in orders) else "fail",
                       "gates": cell.report["gate_order"], "rows": cell.report["rows"],
@@ -190,7 +206,8 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     # step 6: physical checks
     ck["layers"] = {"status": "pass" if not (e := layers.check(gds, name)) else "fail", "errors": e}
     eda.trace("geometry", "Frame, pins, wiring layers and implants", "ok" if all(ck[k]["status"] == "pass" for k in ("frame", "pins", "wiring_layers", "layers")) else "bad",
-              "checked against plan_hd.json with KLayout", "frame")
+              "checked against plan_hd.json with KLayout", "frame",
+              {"frame": ck["frame"]["rows"], "pins": ck["pins"]["errors"], "wiring": ck["wiring_layers"], "layers": ck["layers"]["errors"]})
     # five independent Magic runs side by side: together they take about as long as one
     fixtures = abut.build(hd_gds(), gds, name, cell.width, work / "abut")
     with ThreadPoolExecutor(5) as pool:
@@ -204,15 +221,20 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
     abut_res = {fx: eda.parse_drc(f.result()[1]) for fx, f in rows.items()}
     total = sum(r["errors"] if r["errors"] is not None else 999 for r in abut_res.values())
     ck["abutment"] = {"status": "pass" if total == 0 else "fail", "errors": total, "fixtures": abut_res}
-    eda.trace("abutment", "Abutment with HD cells", "ok" if total == 0 else "bad", f"{total} errors in side, mirror, self and flip rows", "abutment")
+    eda.trace("abutment", "Abutment with HD cells", "ok" if total == 0 else "bad", f"{total} errors in side, mirror, self and flip rows", "abutment", {"fixtures": abut_res})
     side = abut_res["side"]["errors"]
     ck["drc"] = {"status": "pass" if side == 0 else "fail", "errors": side, "where": "row tap|cell|inv_1|fill_1"}
     eda.trace("drc", "Design rules", "ok" if ck["drc"]["status"] == ck["drc_standalone"]["status"] == "pass" else "bad",
-              f"{side} errors in a tap row; alone only the tap rules fire" if side == 0 else f"{side} errors: {' '.join(abut_res['side']['rules'])}", "drc")
+              f"{side} errors in a tap row; alone only the tap rules fire" if side == 0 else f"{side} errors: {' '.join(abut_res['side']['rules'])}", "drc",
+              {"standalone": d, "side": abut_res["side"], "note": ck["drc_standalone"]["note"]})
     eda.magic(work, eda.extract_script("/w/cell.gds", name), "extract")
+    extracted = stepdata.devices(_text(work / f"{name}.spice"))
+    eda.trace("devices", "Devices read back from the layout", "ok" if extracted else "bad", f"{len(extracted)} transistors", "extract", {"devices": extracted})
     ck["lvs"] = eda.netgen_lvs(work, f"{name}.spice", name, "schematic.spice", name, "lvs_schematic")
     ck["lvs"]["status"] = "pass" if ck["lvs"]["result"] == "match" else "fail"
-    eda.trace("lvs", "LVS against the schematic", "ok" if ck["lvs"]["result"] == "match" else "bad", ck["lvs"]["result"], "lvs")
+    eda.trace("lvs", "LVS against the schematic", "ok" if ck["lvs"]["result"] == "match" else "bad", ck["lvs"]["result"], "lvs",
+              {"result": ck["lvs"]["result"], "counts": stepdata.lvs_counts(_text(work / "lvs_schematic.out")),
+               "layout": extracted, "schematic": stepdata.devices(_text(work / "schematic.spice"))})
     if hd_cell:
         r = eda.netgen_lvs(work, f"{name}.spice", name, eda.HD_SPICE, HD + hd_cell, "lvs_installed")
         ck["lvs_vs_installed"] = r | {"status": "pass" if r["result"] == "match" else "fail"}
@@ -224,7 +246,8 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
         r = eda.netgen_lvs(work, "rc_lvs.spice", name, "schematic.spice", name, "lvs_rc")
         ck["rc_lvs"] = r | {"status": "pass" if r["result"] == "match" else "fail"}
         eda.trace("rc", "RC extraction and RC-LVS", "ok" if r["result"] == "match" else "bad",
-                  f"{len(re.findall(r'^R', rc, re.M))} resistors, {len(re.findall(r'^C', rc, re.M))} capacitors, {r['result']}", "rc_lvs")
+                  f"{len(re.findall(r'^R', rc, re.M))} resistors, {len(re.findall(r'^C', rc, re.M))} capacitors, {r['result']}", "rc_lvs",
+                  {"result": r["result"], "counts": stepdata.lvs_counts(_text(work / "lvs_rc.out"))} | stepdata.rc_stats(rc))
     else:
         ck["rc_lvs"] = {"status": "fail", "result": "no RC netlist"}
 
@@ -235,12 +258,14 @@ def build(name: str, inputs, tt: int, hd_cell: str | None = None, wn=0.65, wp=1.
         ck["spice"] = simulate.spice(work, name, sized_rc, inputs, tt, out=y)
         eda.trace("spice", "Simulation of the extracted netlist", "ok" if ck["spice"]["status"] == "pass" else "bad",
                   f"{1 << len(inputs)} DC rows and {ck['spice']['slots']} transient steps, {len(ck['spice']['errors'])} errors", "spice",
-                  {"dc": ck["spice"]["dc_volts"], "wave": _wave(work), "states": simulate.sequence(len(inputs)), "slot_ns": simulate.SLOT_NS})
+                  {"dc": ck["spice"]["dc_volts"], "wave": _wave(work), "states": simulate.sequence(len(inputs)), "slot_ns": simulate.SLOT_NS,
+                   "inputs": list(inputs), "tt": tt, "errors": ck["spice"]["errors"]})
     else:
         ck["spice"] = {"status": "fail", "errors": ["no RC netlist"]}
     (work / "cell.v").write_text(simulate.verilog_model(name, inputs, tt, y))
     ck["model"] = simulate.verilog_check(work / "cell.v", name, inputs, tt, work, y)
-    eda.trace("verilog", "Icarus on the Verilog model", "ok" if ck["model"]["status"] == "pass" else "bad", f"every one of {1 << len(inputs)} input rows", "verilog")
+    eda.trace("verilog", "Icarus on the Verilog model", "ok" if ck["model"]["status"] == "pass" else "bad", f"every one of {1 << len(inputs)} input rows", "verilog",
+              {"inputs": list(inputs), "tt": tt, "rows": stepdata.icarus_rows(work), "errors": ck["model"]["errors"]})
 
     # section 4.1: comparison with the installed cell (same Magic RC flow, same testbench)
     if hd_cell:

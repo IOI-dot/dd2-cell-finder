@@ -36,6 +36,10 @@ def cell_handle(rev: dict) -> str:
     return f"cell:{parts[1]}/{parts[3]}"
 
 
+NO_BUILD = ("FORBIDDEN", "UNCLEAR", "ABOUT_PROJECT")
+CHAT_ONLY = NO_BUILD + ("EXPLAIN_CHECK", "DISPLAY_PREVIEW")      # answered in the chat, with no report page
+
+
 def page_facts(run_id: str, v: dict) -> dict:
     """All a page may refer to."""
     revs = v.get("revisions") or []
@@ -49,7 +53,7 @@ def page_facts(run_id: str, v: dict) -> dict:
 def fixed_page(d: dict) -> str:
     """The page with no model: the verdict, the evidence, and what can be asked next."""
     run, cell = d["run"], d["best_cell"]
-    if d["intent"] in ("FORBIDDEN", "UNCLEAR") or not cell:
+    if d["intent"] in NO_BUILD or not cell:
         note = (d.get("reason") or "No cell came out of this request.").replace('"', "'")
         options = d.get("options") or []
         if not options:

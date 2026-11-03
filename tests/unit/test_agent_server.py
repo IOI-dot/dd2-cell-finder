@@ -53,3 +53,21 @@ def test_every_component_the_checker_allows_is_in_the_web_library():
     for name in generative_ui.COMPONENTS:
         assert f'name: "{name}"' in text, name
     assert json.dumps(sorted(generative_ui.COMPONENTS))
+
+
+def test_log_view_reads_a_named_log_and_nothing_else(tmp_path):
+    cell = tmp_path / "runs" / "A-1" / "cells" / "c"
+    work = tmp_path / "runs" / "A-1" / "work" / "c"
+    (cell / "logs").mkdir(parents=True)
+    work.mkdir(parents=True)
+    (cell / "logs" / "drc_side.log").write_text("a\nb\n")
+    (work / "extract.log").write_text("x\n" * (server.LOG_LINES + 5))
+    (tmp_path / "secret.log").write_text("no")
+    report = cell / "report.json"
+    assert server.log_view(report, "drc_side.log") == {"name": "drc_side.log", "lines": 2, "text": "a\nb"}
+    long = server.log_view(report, "extract.log")
+    assert long["lines"] == server.LOG_LINES + 5 and long["text"].count("x") == server.LOG_LINES
+    for bad in ("../../../secret.log", "report.json", "a/b.log", ""):
+        with pytest.raises(server.HTTPException):
+            server.log_view(report, bad)
+

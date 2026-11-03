@@ -617,9 +617,10 @@ def generate(net, order, name: str, orders=None, order_index=None, priority=None
             for seeds in ("near", "cross") if met1 else ("far", "cross", "near"):
                 tried += 1
                 used[w] = used.get(w, 0) + 1
-                if progress and tried % 50 == 1:
-                    progress(tried, w, met1)
                 c = build(net, o, name, dirs=dirs, style=style, cross=cross, pad_gap=gap, seeds=seeds, met1=met1, **kw)
+                if progress:
+                    progress({"n": tried, "sites": w, "order": " ".join(o.gates), "pads": "".join(dirs), "style": style, "gap": gap, "seeds": seeds,
+                              "met1": met1, "failed": list(c.report.get("route_failures") or [])}, c)
                 if not c.report.get("route_failures"):
                     c.report["layout_attempts"] = tried
                     return c

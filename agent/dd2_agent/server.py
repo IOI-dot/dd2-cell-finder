@@ -3,6 +3,8 @@
   POST /agent                 the agent over AG-UI (ag-ui-langgraph streams its events)
   GET  /api/evidence/{handle} read-only evidence for the panels, by the handles of generative_ui.py
   GET  /api/overview          the milestone tables
+  GET  /api/estimates         how long each stage took in past runs
+  POST /api/transcribe        a short WAV recording to text, on this machine
   POST /v1/chat/completions   the model as a normal chat API (agent/dd2_agent/codex_cli.py)
 
 A handle is checked against one pattern and then resolved inside `runs/`, `cells/` or `ai/runs/`, so
@@ -26,12 +28,14 @@ from pydantic import BaseModel
 
 from dd2 import paths
 
-from . import audit, codex_cli, generative_ui, graph, model
+from . import audit, codex_cli, generative_ui, graph, model, timings, voice
 
 ROOT = paths.ROOT
 M2 = paths.results("option1", "m2")
 LAYERS = ("nwell", "diff", "poly", "li1", "met1", "licon", "mcon")
 CONTACTS = {"licon": (66, 44), "mcon": (67, 44)}
+LOG_NAME = re.compile(r"[a-z0-9_]{1,40}\.(log|out)")
+LOG_LINES = 400
 
 
 def resolve(handle: str) -> tuple:
@@ -67,6 +71,18 @@ def cell_view(report: dict) -> dict:
             "transistors": lay.get("transistors"), "rows": ck.get("ordering", {}).get("rows"),
             "network": {k: ck.get("network", {}).get(k) for k in ("transistors", "stages", "stage_outputs", "max_series")},
             "sizing": report.get("sizing"), "layout_options": report.get("layout_options")}
+
+
+def log_view(report_path: Path, name: str) -> dict:
+    """The end of one tool's raw log, by its file name. The name is checked, so it cannot leave the cell."""
+    if not LOG_NAME.fullmatch(name):
+        raise HTTPException(404, "unknown log")
+    cell = report_path.parent
+    for folder in (cell / "logs", cell.parent.parent / "work" / cell.name):
+        if (folder / name).is_file():
+            lines = (folder / name).read_text(errors="replace").splitlines()
+            return {"name": name, "lines": len(lines), "text": "\n".join(lines[-LOG_LINES:])}
+    raise HTTPException(404, "no such log")
 
 
 def layout_view(report_path: Path) -> dict:
@@ -225,7 +241,7 @@ def create_app(cfg: dict | None = None) -> FastAPI:
         return StreamingResponse(events(), media_type=encoder.get_content_type())
 
     @app.get("/api/evidence/{handle:path}")
-    def evidence(handle: str, view: str = "summary"):
+    def evidence(handle: str, view: str = "summary", name: str = ""):
         kind, p = resolve(handle)
         data = json.loads(p.read_text())
         if kind == "run":
@@ -238,6 +254,8 @@ def create_app(cfg: dict | None = None) -> FastAPI:
             return waveform_view(p, data)
         if view == "timing":
             return timing_view(p)
+        if view == "log":
+            return log_view(p, name)
         return cell_view(data)
 
     @app.get("/api/overview")
@@ -248,6 +266,22 @@ def create_app(cfg: dict | None = None) -> FastAPI:
                 "table5": {k: t5.get(k) for k in ("requirements", "builds", "broken_full_ramp", "design_level", "simulators")}
                 | {"cells": {c: {"median_abs_pct": v["fixed"]["median_abs_pct"], "stock_median_abs_pct": v.get("stock", {}).get("median_abs_pct")}
                              for c, v in t5.get("cells", {}).items()}}}
+
+    @app.get("/api/estimates")
+    def estimates():
+        return timings.estimates(graph.TIMES)
+
+    @app.post("/api/transcribe")
+    async def transcribe(request: Request):
+        body = await request.body()
+        if len(body) > voice.MAX_BYTES:
+            raise HTTPException(413, "that recording is too long")
+        try:
+            return {"text": await asyncio.to_thread(voice.transcribe, body)}
+        except ValueError as e:
+            raise HTTPException(400, str(e)) from e
+        except voice.Unavailable as e:
+            raise HTTPException(503, str(e)) from e
 
     @app.post("/v1/chat/completions")
     def completions(body: ChatRequest):

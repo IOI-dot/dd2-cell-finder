@@ -89,7 +89,7 @@ agent-compare:    ## agent against fixed choices on the test cells -> results/op
 agent-server:     ## the back end for the web app, on 127.0.0.1:8123
 	PYTHONPATH=src:agent $(PY) -m dd2_agent.server
 
-web:              ## the web app on 127.0.0.1:5173 (run agent-server too; needs DesignSystemStudio/ on this machine)
+web:              ## the web app on 127.0.0.1:5173 (run agent-server too)
 	cd web && pnpm install --frozen-lockfile && pnpm dev
 
 agent-check:      ## cp1 agentic rows: wrapped tools, read-only checks, logged runs

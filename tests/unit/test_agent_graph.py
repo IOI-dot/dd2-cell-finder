@@ -226,3 +226,82 @@ def test_a_refused_request_gets_a_page_with_no_evidence():
 ])
 def test_a_bad_page_is_refused(page, why):
     assert any(why in e for e in generative_ui.check_page(page, FACTS))
+
+
+@pytest.mark.parametrize("event, want", [
+    ({"id": "network", "state": "ok", "detail": "6 transistors"}, ("Design", "✓ Network: 6 transistors")),
+    ({"id": "lvs", "state": "bad", "detail": "mismatch"}, ("Physical checks", "✕ LVS: mismatch")),
+    ({"id": "spice", "state": "ok", "detail": "0 errors"}, ("Simulation", "✓ SPICE: 0 errors")),
+])
+def test_a_finished_stage_becomes_one_short_update(event, want):
+    assert graph.progress_note(event) == want
+
+
+@pytest.mark.parametrize("event", [{"id": "layout", "state": "running", "detail": "attempt 9"}, {"id": "tool3", "state": "ok", "detail": "exit 0"}])
+def test_running_stages_and_single_tool_calls_send_no_update(event):
+    assert graph.progress_note(event) is None
+
+
+def test_a_project_answer_may_only_quote_numbers_from_the_notes():
+    notes = "SKY130 HD. Option 1 and Option 2. Up to 4 inputs."
+    assert graph.checked_reply("Option 1 makes cells for SKY130.", notes, graph.PROJECT_FALLBACK) == "Option 1 makes cells for SKY130."
+    refused = graph.checked_reply("It saves 37 percent of area.", notes, graph.PROJECT_FALLBACK)
+    assert "37" not in refused and refused == graph.PROJECT_FALLBACK
+
+
+def test_a_project_question_builds_nothing():
+    st = {"revisions": []}
+    r = graph.Run.route(graph.Run.__new__(graph.Run), model.Intent(kind="ABOUT_PROJECT", expression="", sizing="hd", order_index=0, revision="",
+                                                                   reason="We build standard cells.", options=[], focus=""), st)
+    assert r["stop"] == "about project" and "expr" not in r and r["intent"]["kind"] == "ABOUT_PROJECT"
+
+
+@pytest.mark.parametrize("expr, word", [("(A & B) | !A | !B", "always 1"), ("A & !A", "always 0"), ("(A & B) | (A & !B)", "same as A"),
+                                        ("(A & B) | (!A & B) | (A & C & !C)", "same as B")])
+def test_a_function_with_nothing_to_build_is_explained(expr, word):
+    assert word in graph.nothing_to_build(expr)
+
+
+@pytest.mark.parametrize("expr", ["!A", "A & B", "A ^ B", "(A & !S) | (B & S)"])
+def test_a_real_function_goes_ahead(expr):
+    assert graph.nothing_to_build(expr) is None
+
+
+def test_an_unused_input_is_named():
+    assert "C" in graph.nothing_to_build("(A & B) | (A & B & C)")
+
+
+def test_the_last_error_line_of_a_crash_is_kept():
+    log = 'Traceback (most recent call last):\n  File "x"\nValueError: a constant is a wire\n\n'
+    assert graph.last_error(log) == "ValueError: a constant is a wire"
+    assert graph.last_error("") == ""
+
+
+def test_an_answer_may_quote_numbers_from_the_run_facts():
+    facts = '{"sites": 10, "breaks": 2}'
+    assert graph.checked_reply("r1 has 10 sites and 2 breaks.", facts, "no") == "r1 has 10 sites and 2 breaks."
+    assert graph.checked_reply("r1 has 12 sites.", facts, "no") == "no"
+
+
+def test_a_question_about_a_step_can_only_open_a_real_step():
+    good = {"kind": "EXPLAIN_CHECK", "expression": "", "sizing": "hd", "order_index": 0, "revision": "", "reason": "x", "options": [], "focus": "euler"}
+    assert model.Intent(**good).focus == "euler"
+    with pytest.raises(ValueError):
+        model.Intent(**(good | {"focus": "../../etc"}))
+
+
+@pytest.mark.parametrize("stop, word", [("tool calls", "limit of builds"), ("model calls", "limit of model calls"), ("nothing to improve", "nothing left"),
+                                        ("model chose to stop", "another build"), ("build crashed", "crashed"), ("something new", "something new")])
+def test_a_stop_reason_reads_in_plain_words(stop, word):
+    assert word in graph.why_stopped(stop)
+
+
+def test_a_failed_build_says_why_in_words():
+    rev = {"failed": ["lvs", "route", "spice"], "route_failures": ["Y"], "error": ""}
+    lines = graph.failure_lines(rev)
+    assert any("could not route Y" in x for x in lines)
+    assert any("lvs" in x for x in lines)
+
+
+def test_a_crash_shows_its_error():
+    assert any("ValueError: bad" in x for x in graph.failure_lines({"failed": ["build"], "route_failures": [], "error": "ValueError: bad"}))

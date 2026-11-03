@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "./ui";
+import { Card } from "./ui";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui";
 import { useEffect, useState } from "react";
 import { Cell3D } from "./Layout3D";
 import { Panel, Status } from "./panels";
@@ -21,7 +21,7 @@ function Data({ rows, columns, caption }: { rows: Row[]; columns: [string, strin
   };
   return (
     <Panel title={caption} wide>
-      <div className="flex justify-end"><Button size="sm" variant="ghost" className="h-6 px-2 text-[11px]" onClick={download}>Download CSV</Button></div>
+      <div className="flex justify-end"><Button size="sm" variant="ghost" className="h-6 px-2 text-xs" onClick={download}>Download CSV</Button></div>
       <Table>
         <TableHeader><TableRow>{columns.map((c) => <TableHead key={c[0]}>{c[1]}</TableHead>)}</TableRow></TableHeader>
         <TableBody>{rows.map((r, i) => <TableRow key={i}>{columns.map((c) => <TableCell key={c[0]} className="text-xs">{c[0] === "status" ? <Status value={r[c[0]]} /> : r[c[0]]}</TableCell>)}</TableRow>)}</TableBody>
@@ -34,14 +34,18 @@ function Data({ rows, columns, caption }: { rows: Row[]; columns: [string, strin
 export function Evidence() {
   const [o, setO] = useState<Overview>();
   const [ref, setRef] = useState("a21oi_1");
-  useEffect(() => { fetch("/api/overview").then((r) => r.json()).then(setO); }, []);
+  const [failed, setFailed] = useState("");
+  useEffect(() => {
+    fetch("/api/overview").then((r) => (r.ok ? r.json() : Promise.reject(new Error(`it answered ${r.status}`)))).then(setO).catch((e) => setFailed(e.message));
+  }, []);
+  if (failed) return <p className="text-sm text-destructive">The records could not be loaded from the back end: {failed}. Check that make agent-server is running.</p>;
   if (!o) return <p className="text-sm text-muted-foreground">Loading the records…</p>;
   const t5 = o.table5;
   const cells: Row[] = Object.entries(t5.cells ?? {}).map(([c, v]) => ({ cell: c, fixed: String(v.median_abs_pct), stock: String(v.stock_median_abs_pct) }));
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-4">
       <header className="flex flex-col gap-1">
-        <h1 className="text-lg font-semibold">Milestone records</h1>
+        <h1 className="text-lg font-semibold">Option 1, Milestone 2: saved records</h1>
         <p className="text-sm text-muted-foreground">Saved results of <code className="font-mono">make o1-m2</code>, read from <code className="font-mono">results/option1/m2/</code>. They exist before anything runs here, and nothing you do in the Workbench changes them.</p>
       </header>
       <section className="grid gap-4 md:grid-cols-2">
@@ -60,7 +64,7 @@ export function Evidence() {
       </Panel>
       <div className="flex flex-wrap items-center gap-1">
         <span className="mr-2 text-xs text-muted-foreground">Reference cell</span>
-        {["inv_1", "nand2_1", "nor2_1", "nand3_1", "a21oi_1", "o21ai_1"].map((c) => <Button key={c} size="sm" variant={c === ref ? "default" : "outline"} className="h-6 px-2 font-mono text-[11px]" onClick={() => setRef(c)}>{c}</Button>)}
+        {["inv_1", "nand2_1", "nor2_1", "nand3_1", "a21oi_1", "o21ai_1"].map((c) => <Button key={c} size="sm" variant={c === ref ? "default" : "outline"} className="h-6 px-2 font-mono text-xs" onClick={() => setRef(c)}>{c}</Button>)}
       </div>
       <TimingView key={`t${ref}`} cell={`cell:dd2_ref__${ref}`} />
       <Cell3D key={`c${ref}`} cell={`cell:dd2_ref__${ref}`} />

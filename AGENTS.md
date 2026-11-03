@@ -16,10 +16,8 @@ Update it whenever a tracked path, responsibility, or tool dependency changes.
 ## Reference material
 - `Backend.md` supplies local-agent platform guidance: typed tool schemas, bounded loops, prompt
   versioning, JSONL audit logs, limits, retries, and deterministic authorization.
-- `DesignSystemStudio/` is the approved visual source for a future UI only. Read
-  `DesignSystemStudio/INDEX.md` before using its components. The UI uses the Graphite Cyan theme in
-  `DesignSystemStudio/GraphiteCyan/` and is specified as US4 in the active spec. Do not start it
-  before US1 (Milestone 1) is complete.
+- The UI's look comes from a private design system kept outside the repository. Never commit or copy it; the
+  web app uses only the minimal primitives in `web/src/ui.tsx`.
 - `references/ag-ui` and `references/langchain-skills` are read-only upstream clones for the agent
   (LangGraph/LangChain) and the AG-UI front end. They are not committed.
 - `.specify/memory/constitution.md` is the governing Spec Kit constitution. Follow Spec Kit for

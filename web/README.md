@@ -1,16 +1,20 @@
 # web/: Atlas Cell Studio front end
 
-A generative UI for the Option 1 agent, on the Design System Studio components and the Graphite Cyan
-theme. It needs `DesignSystemStudio/` beside it on the machine, which is deliberately not in git.
+A generative UI for the Option 1 agent. Its few UI primitives are in `src/ui.tsx`, and its colours in `src/app.css`.
 
     make agent-server   # back end on 127.0.0.1:8123
     make web            # front end on 127.0.0.1:5173
+
+The mic (`src/useMic.ts`), or right Option on its own, records 16 kHz audio in the browser, ends when you stop talking, and posts it to
+`/api/transcribe`. `agent/dd2_agent/voice.py` runs Parakeet TDT 0.6 v3 on this machine, from the path in
+`config/agent.toml`, and the text lands in the box for you to edit and send. Audio is never stored. Install it with
+`uv pip install -e ".[voice]"`. Without the model, the mic says so and the rest of the app is unaffected.
 
 ## How a page reaches the screen
 
 1. The browser posts to `/agent` with `@ag-ui/client`. One thread is one session, so follow-ups see the cell.
 2. `agent/dd2_agent/server.py` streams AG-UI events: `STEP_*` for the graph nodes, `STATE_SNAPSHOT` for the
-   revisions, `CUSTOM` (`atlas`) for each line of the activity feed.
+   revisions, `CUSTOM` (`atlas`) for each step, tool call and chat reply.
 3. The agent's last message is a page in OpenUI Lang, written by the Research Explainer or by
    `generative_ui.fixed_page`. `check_page` reads a model's page before it leaves the server.
 4. `<Renderer>` draws that page from the closed library in `src/library.tsx`. `npm run prompt` writes the
@@ -26,3 +30,23 @@ Closing the tab, refreshing or pressing Stop drops the connection. The server th
 process group, its labelled Docker containers and any model call.
 
 The Evidence tab reads the saved milestone records, so it is full before anything runs here.
+
+## The Workbench
+
+Three columns from `lg`, and one pane with a bottom nav below that.
+
+- **Pipeline** (`Steps.tsx`): every stage of `stages.ts` with its state and time. Pressing one opens it.
+- **Run** (`RunView.tsx`): the overview lists what ran, in order, with each stage's real output. Earlier
+  revisions fold. A stage's own page adds the full tables, each call's command and its raw log.
+- **Agent** (`Chat.tsx`): the conversation, with model calls, tool calls and guardrail decisions between the
+  messages. They stay one line each until opened. Each build sends a short update per phase, written by code
+  from what the flow reported, and the run ends with a closing summary.
+
+The overview scrolls to the step that is working, until you scroll yourself. Time estimates are the median of
+past runs of the same kind (`agent/dd2_agent/timings.py`, stored in `build/stage_times.jsonl`), so there are none
+until a real build has finished. A question about the project gets an answer from the notes in
+`prompts/interpreter.md`, and code refuses any number that is not in those notes.
+
+Nothing inside the page scrolls on its own, and text is never cut off. Every table and graph in `stepviews.tsx` draws data from a flow event. `src/cellgen/stepdata.py` turns tool
+output into that data, and decides nothing: pass and fail still come only from the check scripts. The 3D
+layer stack is a small option on the layout page.

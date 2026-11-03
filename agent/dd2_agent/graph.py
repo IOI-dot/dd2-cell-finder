@@ -27,7 +27,7 @@ from pydantic import ValidationError
 from dd2 import boolfn as bf
 from dd2 import paths, provenance
 
-from . import audit, codex_cli, generative_ui, model, policy, tools
+from . import audit, codex_cli, generative_ui, model, policy, timings, tools
 
 AGENT = "diagnostician"
 ORDERS = 6
@@ -49,6 +49,8 @@ class State(TypedDict, total=False):
     stop: str
     verdict: dict
     ui: dict
+    history: list                       # what the agent chose and why, for questions afterwards
+    ended: str                          # why the last build run stopped, in plain words
 
 
 FORBIDDEN_TEXT = re.compile(
@@ -80,6 +82,72 @@ def facts(report: dict, settings: dict, rev_id: str = "r0") -> dict:
 def score(rev: dict) -> tuple:
     """Lower is better: passing, then width, then nets on met1, then diffusion breaks."""
     return (rev["status"] != "pass", rev["sites"] or 10 ** 6, len(rev["met1_nets"]), rev["breaks"] if rev["breaks"] is not None else 10 ** 6)
+
+
+PHASES = {"network": ("Design", "Network"), "ordering": ("Design", "Euler order"), "layout": ("Design", "Layout"),
+          "geometry": ("Physical checks", "Frame and pins"), "drc": ("Physical checks", "DRC"), "abutment": ("Physical checks", "Abutment"),
+          "lvs": ("Physical checks", "LVS"), "rc": ("Physical checks", "RC-LVS"), "spice": ("Simulation", "SPICE"), "verilog": ("Simulation", "Verilog")}
+PROJECT_FALLBACK = "I can tell you about the project, but a measured number has to come from the check records, so try the Evidence tab."
+TIMES = paths.build("stage_times.jsonl")
+
+
+def progress_note(e: dict) -> tuple | None:
+    """(phase, one short line) when a stage of the flow has finished, from what the flow reported."""
+    where = PHASES.get(e["id"])
+    if not where or e["state"] == "running":
+        return None
+    return where[0], f"{'✓' if e['state'] == 'ok' else '✕'} {where[1]}: {e['detail']}"
+
+
+def checked_reply(text: str, facts: str, fallback: str) -> str:
+    """A model's answer may only quote numbers that are in what it was given: results come from records."""
+    numbers = re.compile(r"(?<![\w.])\d+(?:\.\d+)?")
+    return text if set(numbers.findall(text)) <= set(numbers.findall(facts)) else fallback
+
+
+def nothing_to_build(expr: str) -> str | None:
+    """Why an expression has no cell to build, in plain words; None when it has one."""
+    names = sorted({t for t in bf.tokenize(expr) if t[0].isalpha()})
+    n, tt = len(names), bf.eval_expr(expr, names)
+    mask = (1 << (1 << n)) - 1
+    if tt in (0, mask):
+        return f"{expr} is always {1 if tt else 0}, whatever the inputs are, so there is no logic to build. It is just a connection to {'VPWR' if tt else 'VGND'}."
+    for k, name in enumerate(names):
+        if tt == bf.var_tt(k, n):
+            return f"{expr} is the same as {name}, so it is a wire, not a cell."
+    unused = [x for k, x in enumerate(names) if k not in bf.depends_on(tt, n)]
+    if unused:
+        return f"{expr} does not depend on {', '.join(unused)}. Remove it from the function and I can build the rest."
+    return None
+
+
+def why_stopped(stop: str) -> str:
+    """A run's stop reason as a person would say it."""
+    return {"tool calls": "it reached its limit of builds for one request", "model calls": "it reached its limit of model calls",
+            "time": "it reached its time limit", "input tokens": "it reached its token limit", "output tokens": "it reached its token limit",
+            "cost": "it reached its cost limit", "nothing to improve": "there was nothing left to improve",
+            "model chose to stop": "the agent judged that another build would not help", "build crashed": "a tool crashed, so another setting would not help",
+            "canceled": "you stopped it", "invalid model reply": "the guardrails refused the model's reply twice",
+            "model unavailable": "the model could not be reached", "requested build done": "the build you asked for was done"}.get(stop, stop)
+
+
+def failure_lines(rev: dict) -> list:
+    """Why a build failed, as far as its records can say."""
+    lines = []
+    if rev.get("error"):
+        lines.append(f"• The build crashed: {rev['error']}")
+    if rev.get("route_failures"):
+        lines.append(f"• The router could not route {' '.join(rev['route_failures'])}, so the layout is unfinished")
+    checks = [x for x in rev["failed"] if x not in ("build", "route")]
+    if checks:
+        lines.append(f"• Failed checks: {', '.join(checks)}")
+    return lines
+
+
+def last_error(log: str) -> str:
+    """The line of a crashed tool's log that says what went wrong."""
+    lines = [x.strip() for x in log.splitlines() if x.strip()]
+    return lines[-1] if lines else ""
 
 
 def parse_decision(text: str, info: dict) -> tuple:
@@ -128,6 +196,8 @@ class Run:
         self.stopped = threading.Event()
         self.lock = threading.Lock()
         self.closed = False                     # the log has its result line
+        self.notes, self.closing = {}, []       # the chat's updates, and its closing message
+        self.spans, self.group = timings.Spans(), "single"
         self.busy = False                       # a tool is running
         self.steps = 0
 
@@ -151,14 +221,26 @@ class Run:
                                         "seconds": round(time.time() - self.t0, 1), "model": self.model_label})
             self.log.result("fail", chk)
 
-    def say(self, step: str, title: str, state: str = "ok", detail: str = "", kind: str = "step", station: str = "", data=None) -> None:
-        """One live event: a step of the foundry, or a reply in the chat (kind "reply"). A CUSTOM
-        event over AG-UI; a no-op outside a graph."""
+    def say(self, step: str, title: str, state: str = "ok", detail: str = "", kind: str = "step", stage: str = "", data=None, revision: str = "") -> None:
+        """One live event: a pipeline step, or a reply in the chat (kind "reply"). A CUSTOM event over
+        AG-UI; a no-op outside a graph."""
+        self.spans.seen(stage, revision, step, time.time())
+        if stage == "network" and (data or {}).get("stages"):
+            self.group = "multi" if data["stages"] > 1 else "single"
         try:
             dispatch_custom_event("atlas", {"id": f"{self.run_id}:{step}", "kind": kind, "title": title, "state": state, "detail": detail,
-                                            "station": station, "data": data, "run": self.run_id, "t": round(time.time() - self.t0, 1)})
+                                            "stage": stage, "revision": revision, "data": data, "run": self.run_id, "t": round(time.time() - self.t0, 1)})
         except (RuntimeError, ValueError):
             pass
+
+    def note(self, e: dict, revision: str) -> None:
+        """One bullet for each finished stage, gathered into one chat message per phase of a build."""
+        line = progress_note(e)
+        if line:
+            phase, text = line
+            lines = self.notes.setdefault((revision, phase), [])
+            lines.append(text)
+            self.say(f"note-{revision}-{phase}", "\n".join([f"Build {revision}, {phase.lower()}:", *lines]), kind="reply")
 
     def spent(self) -> float:
         m = self.cfg["model"]
@@ -193,7 +275,8 @@ class Run:
                 self.used = (u.get("input_tokens", 0), u.get("output_tokens", 0))
                 self.calls["in"] += self.used[0]
                 self.calls["out"] += self.used[1]
-                self.say(step, f"{role.title()} replied", "ok", f"{time.time() - t0:.1f} s, {self.used[0]} tokens in, {self.used[1]} out", "model", role)
+                self.say(step, f"{role.title()} replied", "ok", f"{time.time() - t0:.1f} s, {self.used[0]} tokens in, {self.used[1]} out", "model", role,
+                         {"prompt": prompt_ref, "reply": str(r.content)[:6000], "tokens_in": self.used[0], "tokens_out": self.used[1]})
                 return r.content, None
             except codex_cli.CodexError as e:
                 last = str(e)
@@ -232,19 +315,24 @@ class Run:
         if st.get("expr") and not st.get("messages"):
             return base | {"settings": settings, "revisions": st.get("revisions", []), "intent": {"kind": "BUILD_CELL"}}
         said = str(next((m.content for m in reversed(st.get("messages", [])) if isinstance(m, HumanMessage)), "")).strip()[:600]
-        self.say("read", "Reading your request", "ok", said[:160], "step", "order")
+        self.say("read", "Reading your request", "ok", said[:160], "step", "request")
         if FORBIDDEN_TEXT.search(said):
-            self.say("guard", "Guardrail refused this request, with no model call", "bad", "It asks to change a check, a result or a fixed input", "guard", "order")
+            self.say("guard", "Guardrail refused this request, with no model call", "bad", "It asks to change a check, a result or a fixed input", "guard", "request")
             self.say("reply", "I can't do that. Checks, truth tables, the PDK and measurements can't be changed from here.", kind="reply")
             self.log.policy("interpreter", "intent", {"text": said[:120]}, "refused: asks to change a check, a result or a fixed input")
             return base | {"intent": {"kind": "FORBIDDEN", "reason": "Checks, truth tables, the PDK and measurements cannot be changed from here."}, "stop": "refused"}
         if expression_ok(said):
-            self.say("parse", "That is a Boolean expression, so no model is needed", "ok", said, "step", "order")
+            self.say("parse", "That is a Boolean expression, so no model is needed", "ok", said, "step", "request")
+            if (why := nothing_to_build(said)):
+                self.say("empty", "Nothing to build, so no tool or model is used", "ok", why, "guard", "request")
+                self.say("reply", why, kind="reply")
+                return base | {"intent": {"kind": "UNCLEAR", "reason": why}, "stop": "nothing to build"}
             self.say("reply", f"On it: building {said} with hd sizing.", kind="reply")
-            return base | {"intent": {"kind": "BUILD_CELL"}, "expr": said, "revisions": [], "settings": {"sizing": "hd", "order_index": 0}}
+            return base | {"intent": {"kind": "BUILD_CELL"}, "expr": said, "revisions": [], "history": [], "settings": {"sizing": "hd", "order_index": 0}}
         system, ref = model.prompt_ref("interpreter")
         revs = st.get("revisions", [])
-        known = {"current_function": st.get("expr", ""), "revisions": [{k: r[k] for k in ("id", "status", "sites")} for r in revs],
+        known = {"current_function": st.get("expr", ""), "last_stop": st.get("ended", ""), "decisions": st.get("history", []),
+                 "revisions": [{k: r.get(k) for k in ("id", "status", "sites", "settings", "failed", "met1_nets", "breaks", "route_failures", "error")} for r in revs],
                  "untried": [i for i in range(ORDERS) if i not in {r["settings"].get("order_index") for r in revs}]}
         user = f"<context>\n{json.dumps(known)}\n</context>\n<request>\n{said}\n</request>"
         text, err = self.ask(system, user, model.json_format(model.Intent), ref, "interpreter")
@@ -256,20 +344,26 @@ class Run:
             self.log.model("interpreter", self.model_label, ref, *self.used, "refused reply: not the required JSON")
             return base | {"intent": {"kind": "UNCLEAR", "reason": "The request could not be read."}, "stop": "request not understood"}
         self.log.model("interpreter", self.model_label, ref, *self.used, f"{it.kind}: {it.expression} {it.reason[:120]}")
-        self.say("intent", f"Understood as {it.kind.replace('_', ' ').lower()}", "ok", f"{it.expression} {it.reason}".strip()[:200], "guard", "order")
+        self.say("intent", f"Understood as {it.kind.replace('_', ' ').lower()}", "ok", f"{it.expression} {it.reason}".strip()[:200], "guard", "request")
+        if it.kind in generative_ui.CHAT_ONLY:
+            it.reason = checked_reply(it.reason, system + user, PROJECT_FALLBACK)
+        if it.kind == "BUILD_CELL" and expression_ok(it.expression) and (why := nothing_to_build(it.expression)):
+            self.say("reply", why, kind="reply")
+            return base | {"intent": {"kind": "UNCLEAR", "reason": why}, "stop": "nothing to build"}
         routed = self.route(it, st)
         kind = routed["intent"]["kind"]
         words = {"BUILD_CELL": f"On it: building {routed.get('expr')}.", "TRY_CANDIDATE": "Trying that now, as a new revision.",
-                 "COMPARE_CANDIDATES": "Building both sizings to compare them.", "EXPLAIN_CHECK": "Here is what the check reports say.",
-                 "DISPLAY_PREVIEW": "Bringing that up.", "RESTORE_REVISION": "Going back to that revision."}
-        self.say("reply", words.get(kind) or routed["intent"].get("reason", "I can't do that."), kind="reply")
+                 "COMPARE_CANDIDATES": "Building both sizings to compare them.", "RESTORE_REVISION": "Going back to that revision."}
+        self.say("reply", words.get(kind) or routed["intent"].get("reason") or "Bringing that up.", kind="reply", data={"options": routed["intent"].get("options", [])})
+        if it.focus and revs and kind in generative_ui.CHAT_ONLY:
+            self.say("focus", f"Opened the {it.focus} step", "ok", "", "focus", "", {"stage": it.focus})
         return base | routed
 
     def route(self, it, st: State) -> dict:
         have = bool(st.get("revisions"))
         intent = it.model_dump()
         if it.kind == "BUILD_CELL" and expression_ok(it.expression):
-            return {"intent": intent, "expr": it.expression, "revisions": [], "settings": {"sizing": it.sizing, "order_index": 0}}
+            return {"intent": intent, "expr": it.expression, "revisions": [], "history": [], "settings": {"sizing": it.sizing, "order_index": 0}}
         if it.kind == "TRY_CANDIDATE" and have:
             return {"intent": intent, "settings": {"sizing": it.sizing, "order_index": it.order_index}}
         if it.kind == "COMPARE_CANDIDATES" and (have or expression_ok(it.expression)):
@@ -279,6 +373,8 @@ class Run:
             return {"intent": intent, "stop": it.kind.lower()}
         if it.kind == "FORBIDDEN":
             return {"intent": intent, "stop": "refused"}
+        if it.kind == "ABOUT_PROJECT":
+            return {"intent": intent, "stop": "about project"}
         readings = [o.model_dump() for o in it.options if expression_ok(o.expression)][:4]    # a button must be buildable
         return {"intent": {"kind": "UNCLEAR", "reason": it.reason or "Nothing has been built yet, so there is nothing to act on.", "options": readings},
                 "stop": "needs your choice" if readings else "request not understood"}
@@ -291,19 +387,23 @@ class Run:
         left = max(60, self.limits["max_seconds"] - (time.time() - self.t0))    # a build cannot outlast the run
         self.steps += 1
         tag = f"b{self.steps}"
-        self.say(tag, f"Tool call: build_cell, revision r{k}", "running", json.dumps(args), "tool", "table", {"revision": f"r{k}"})
+        self.say(tag, f"Tool call: build_cell, revision r{k}", "running", json.dumps(args), "tool", "", {"revision": f"r{k}", "args": args}, f"r{k}")
         t0 = time.time()
         self.busy = True
         try:
             code, out = tools.call("build_cell", args, self.run_id, self.log, AGENT, timeout=left, cancel=self.stopped,
-                                   on_trace=lambda e: self.say(f"{tag}{e['id']}", e["title"], e["state"], e["detail"], "check", e.get("station", ""), e.get("data")))
+                                   on_trace=lambda e: self.note(e, f"r{k}") or self.say(f"{tag}{e['id']}", e["title"], e["state"], e["detail"], "check", e.get("stage", ""), e.get("data"), f"r{k}"))
         finally:
             self.busy = False
         report = json.loads(Path(out).read_text()) if out and Path(out).exists() else {}
         rev = facts(report, st["settings"], f"r{k}") | {"report": paths.rel(Path(out)) if out else None, "exit_code": code}
+        if rev["failed"] == ["build"] and code not in (0, 130):
+            log = Path(str(out) + ".log") if out else None
+            rev["error"] = last_error(log.read_text(errors="replace")) if log and log.is_file() else ""
+            self.say(f"crash{k}", f"Build r{k} could not run" + (f": {rev['error']}" if rev["error"] else ""), kind="reply")
         self.say(tag, f"build_cell finished: r{k} {rev['status']}", "ok" if rev["status"] == "pass" else "bad",
                  f"{time.time() - t0:.1f} s, {rev['sites']} sites, {len(rev['met1_nets'])} met1 nets, {rev['breaks']} breaks"
-                 + (f", failed: {' '.join(rev['failed'])}" if rev["failed"] else ""), "tool", "table", {"revision": f"r{k}", "status": rev["status"]})
+                 + (f", failed: {' '.join(rev['failed'])}" if rev["failed"] else ""), "tool", "", None, f"r{k}")
         if self.stopped.is_set():
             return {"revisions": revisions + [rev], "stage": "verify", "stop": "canceled"}
         return {"revisions": revisions + [rev], "stage": "verify"}
@@ -313,6 +413,9 @@ class Run:
             return {"stop": "canceled"}
         if st.get("stop"):
             return {}
+        if st["revisions"][-1].get("error") is not None:      # the tool itself crashed: another setting will not help
+            self.log.policy(AGENT, "decide", {}, "stop: the build crashed")
+            return {"stop": "build crashed"}
         kind = (st.get("intent") or {}).get("kind")
         if kind == "COMPARE_CANDIDATES" and st.get("pending"):
             return {"settings": st["pending"][0], "pending": st["pending"][1:], "stage": "build"}
@@ -346,12 +449,14 @@ class Run:
             d, problem = None, "these settings were already built"
         self.steps += 1
         self.say(f"g{self.steps}", "Guardrails refused the reply" if problem else f"Guardrails accepted: {d['action'].replace('_', ' ').lower()}",
-                 "bad" if problem else "ok", problem or d["reason"], "guard", AGENT)
-        if d and d["action"] != "STOP_AND_REPORT":
-            self.say(f"r{self.steps}", d["reason"], kind="reply")
+                 "bad" if problem else "ok", problem or d["reason"], "guard", AGENT,
+                 {"problem": problem} if problem else {k: d.get(k) for k in ("action", "order_index", "sizing", "net", "reason", "evidence_refs", "expected_effect")})
+        if d:
+            self.say(f"r{self.steps}", ("Stopping here: " if d["action"] == "STOP_AND_REPORT" else "Trying another build: ") + d["reason"], kind="reply")
         self.log.model(AGENT, self.model_label, self.prompt, *self.used,
                        f"refused reply: {problem}" if problem else f"{d['action']}: {d['reason']}")
-        return {"decision": d or {}, "rejected": problem or "", "settings": settings or st["settings"]}
+        said = [{"action": d["action"], "reason": d["reason"]}] if d else []
+        return {"decision": d or {}, "rejected": problem or "", "settings": settings or st["settings"], "history": st.get("history", []) + said}
 
     def validate_action(self, st: State) -> dict:
         d = st.get("decision") or {}
@@ -402,30 +507,39 @@ class Run:
                    "seconds": round(time.time() - self.t0, 1), "stop": st.get("stop"), "revisions": revs, "best": best,
                    "status": "pass" if best and best["status"] == "pass" else "fail"}
         provenance.write_json(self.log.path.with_suffix(".checks.json"), summary)
-        if (st.get("intent") or {}).get("kind") in ("FORBIDDEN", "UNCLEAR"):
-            self.say("verdict", "Nothing was built", "ok", st.get("stop") or "", "step")
+        if (st.get("intent") or {}).get("kind") in generative_ui.CHAT_ONLY:
+            pass                                                # the reply has already said it
         elif revs:
             self.say("verdict", f"Verdict from the check report: {summary['status']}", "ok" if summary["status"] == "pass" else "bad",
                      f"best revision {best['id']}, stopped: {st.get('stop') or 'finished'}", "verdict", "verdict", {"status": summary["status"]})
             if summary["status"] == "pass":
-                self.say("said", f"Done. {best['id']} passes every check at {best['sites']} sites, "
-                                 f"with {len(best['met1_nets'])} met1 nets and {best['breaks']} diffusion breaks.", kind="reply")
+                self.closing = [f"Finished {summary['function']}:", f"• Best build: {best['id']}, of {len(revs)} built",
+                                f"• Every check passed, from the check report", f"• {best['sites']} sites, {len(best['met1_nets'])} met1 nets, {best['breaks']} diffusion breaks"]
             else:
-                self.say("said", f"This one did not pass. Failed checks: {', '.join(best['failed']) or st.get('stop')}.", kind="reply")
+                self.closing = [f"Finished {summary['function']}, and it did not pass:", *failure_lines(best), f"• {len(revs)} built"]
+            self.closing.append(f"• Stopped because {why_stopped(st.get('stop') or '')}")
+            self.say("said", "\n".join(self.closing), kind="reply")
         else:
             self.say("verdict", "Nothing was built", "ok", st.get("stop") or "", "step")
-        return {"verdict": summary, "stage": "explain"}
+        kind = (st.get("intent") or {}).get("kind")
+        return {"verdict": summary, "stage": "explain"} | ({} if kind in generative_ui.CHAT_ONLY else {"ended": why_stopped(st.get("stop") or "")})
 
     def explain_evidence(self, st: State) -> dict:
         """The Research Explainer writes the report page in OpenUI Lang. It arranges panels; the
         panels fetch their numbers from the evidence API. If its page fails the checks, a fixed page
         takes its place, because a run must never depend on the model to show its result."""
         v = st["verdict"]
+        if (v.get("intent") or {}).get("kind") in generative_ui.CHAT_ONLY and self.model_label.startswith("codex-cli"):
+            with self.lock:
+                if not self.closed:
+                    self.closed = True
+                    self.log.result(v["status"], self.log.path.with_suffix(".checks.json"))
+            return {"stage": "done", "verdict": v | {"calls": self.calls, "log_problems": audit.verify(self.log.path)}}
         data = generative_ui.page_facts(self.run_id, v)
         page = generative_ui.fixed_page(data)
         source = "fixed page"
         kind = data["intent"]
-        if self.model_label.startswith("codex-cli") and v["best"] and kind not in ("FORBIDDEN", "UNCLEAR") and not self.stopped.is_set():
+        if self.model_label.startswith("codex-cli") and v["best"] and kind not in generative_ui.NO_BUILD and not self.stopped.is_set():
             system, ref = model.prompt_ref("explainer")
             text, err = self.ask(system + "\n\n" + generative_ui.library_prompt(), f"<facts>\n{json.dumps(data, indent=1)}\n</facts>", None, ref, "explainer")
             if not err:
@@ -435,6 +549,11 @@ class Run:
                 self.log.model("explainer", self.model_label, ref, *self.used, f"refused page: {problems[:3]}" if problems else "wrote the report page")
                 if not problems:
                     page, source = text.strip(), "explainer"
+        if self.closing:
+            self.say("said", "\n".join([*self.closing, "• The report page is ready in the Report tab"]), kind="reply")
+        seconds = self.spans.seconds()
+        if "layout" in seconds and not self.stopped.is_set():         # a real build, carried through to the end
+            timings.record(TIMES, self.group, seconds)
         with self.lock:
             if not self.closed:
                 self.closed = True

@@ -26,11 +26,11 @@ _steps = count(1)
 LABEL = "dd2.run"                      # containers of one agent run, so that cancelling can find them
 
 
-def trace(step: str, title: str, state: str = "ok", detail: str = "", station: str = "", data=None) -> None:
+def trace(step: str, title: str, state: str = "ok", detail: str = "", stage: str = "", data=None) -> None:
     """One line of live progress on stdout, read by the agent's tool wrapper. Off unless DD2_TRACE is set.
-    station names the place in the web app's foundry; data is real output for it to draw."""
+    stage names the pipeline step in the web app; data is real output for its tables and graphs."""
     if os.environ.get("DD2_TRACE"):
-        print("@@ " + json.dumps({"id": step, "title": title, "state": state, "detail": detail, "station": station, "data": data}), flush=True)
+        print("@@ " + json.dumps({"id": step, "title": title, "state": state, "detail": detail, "stage": stage, "data": data}), flush=True)
 
 
 def _title(argv, log: Path) -> str:
@@ -51,9 +51,10 @@ def run(workdir: Path, argv, log: Path, timeout=1800) -> int:
     pdk = Path(paths.ROOT / "pdk").resolve()
     cmd = ["docker", "run", "--rm", "--network", "none", "--label", f"{LABEL}={os.environ.get('DD2_RUN', 'none')}", "-e", f"PDK_ROOT=/pdk",
            "-v", f"{pdk}:{PDK}:ro", "-v", f"{Path(workdir).resolve()}:/w", "-w", "/w", IMAGE, *argv]
-    station, title = STEPS.get(Path(log).stem, ("", _title(argv, log)))
+    stage, title = STEPS.get(Path(log).stem, ("", _title(argv, log)))
     step, t0 = f"tool{next(_steps)}", time.time()
-    trace(step, title, "running", " ".join(str(a) for a in argv)[:140], station)
+    call = {"command": " ".join(str(a) for a in argv)[:400], "log": Path(log).name}
+    trace(step, title, "running", call["command"][:140], stage, call)
     with open(log, "w") as f:
         f.write("$ " + " ".join(cmd) + "\n")
         f.flush()
@@ -62,7 +63,7 @@ def run(workdir: Path, argv, log: Path, timeout=1800) -> int:
         except subprocess.TimeoutExpired:
             f.write("\n[cellgen] timeout\n")
             code = 124
-    trace(step, title, "ok" if code == 0 else "bad", f"exit {code} in {time.time() - t0:.1f} s", station)
+    trace(step, title, "ok" if code == 0 else "bad", f"exit {code} in {time.time() - t0:.1f} s", stage, call)
     return code
 
 

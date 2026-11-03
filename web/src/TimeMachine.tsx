@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui";
 import { useEffect, useMemo, useState } from "react";
 import { LAYER_COLOURS, Panel, Waiting } from "./panels";
 import { useEvidence } from "./useEvidence";
@@ -66,7 +66,7 @@ export function TimeMachineView({ cell }: { cell: string }) {
           </svg>
           <input type="range" aria-label="Time" min={0} max={end} step={end / 2000} value={t} onChange={(e) => { setPlay(false); setT(Number(e.target.value)); }} className="w-full accent-primary" />
           <div className="flex items-center gap-3">
-            <Button size="sm" variant="outline" onClick={() => setPlay((p) => !p)}>{play ? "Pause" : "Play"}</Button>
+            <Button size="sm" variant="outline" className="min-h-11 lg:min-h-8" onClick={() => setPlay((p) => !p)}>{play ? "Pause" : "Play"}</Button>
             <span className="text-xs text-muted-foreground">Green devices conduct in this state, red ones are off. A path of green from Y to a rail is what drives it.</span>
           </div>
         </div>

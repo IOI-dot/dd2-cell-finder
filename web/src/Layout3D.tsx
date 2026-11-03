@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Slider } from "@/components/ui/slider";
+import { Badge } from "./ui";
+import { Slider } from "./ui";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -82,12 +82,12 @@ export function Cell3D({ cell }: { cell: string }) {
   return (
     <Panel title="Cell in 3D" note={`${data.width_um} × ${data.height_um} µm · drag to orbit`} wide>
       <div ref={box} data-testid="cell-3d" className="relative h-[420px] w-full overflow-hidden rounded-md bg-background">
-        <Badge variant="outline" className="absolute left-2 top-2 z-10 bg-background/80 text-[11px]">Illustrative layer extrusion, not a fabrication cross-section</Badge>
+        <Badge variant="outline" className="absolute left-2 top-2 z-10 bg-background/80 text-xs">Illustrative layer extrusion, not a fabrication cross-section</Badge>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         {Object.keys(STACK).map((l) => (
           <button key={l} aria-pressed={!off.has(l)} onClick={() => setOff((s) => { const n = new Set(s); if (n.has(l)) n.delete(l); else n.add(l); return n; })}
-            className={`inline-flex items-center gap-1.5 rounded-md border px-2 py-0.5 font-mono text-[11px] ${off.has(l) ? "opacity-40" : ""}`}>
+            className={`inline-flex items-center gap-1.5 min-h-11 rounded-md border px-2 py-0.5 font-mono text-xs lg:min-h-7 ${off.has(l) ? "opacity-40" : ""}`}>
             <i className="size-2.5 rounded-sm" style={{ background: LAYER_COLOURS[l] }} />{l}
           </button>
         ))}

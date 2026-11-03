@@ -1,3 +1,3 @@
 {"compilerOptions": {"target": "ES2022", "lib": ["ES2023", "DOM", "DOM.Iterable"], "module": "ESNext", "moduleResolution": "bundler", "types": ["vite/client", "node"],
  "jsx": "react-jsx", "strict": true, "noEmit": true, "skipLibCheck": true, "esModuleInterop": true, "isolatedModules": true, "baseUrl": ".",
- "paths": {"@/*": ["../DesignSystemStudio/*"], "react": ["./node_modules/@types/react"], "react/*": ["./node_modules/@types/react/*"]}}, "include": ["src", "scripts"]}
+ "paths": {"react": ["./node_modules/@types/react"], "react/*": ["./node_modules/@types/react/*"]}}, "include": ["src", "scripts"]}

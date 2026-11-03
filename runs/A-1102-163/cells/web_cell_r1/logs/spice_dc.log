@@ -1,0 +1,56 @@
+$ docker run --rm --network none --label dd2.run=A-1102-163 -e PDK_ROOT=/pdk -v /Users/noorelshahidi/.ciel/ciel/sky130/versions/dd7771c384ed36b91a25e9f8b314355fc26561be/sky130A:/pdk/sky130A:ro -v /Users/noorelshahidi/DD2Project/runs/A-1102-163/work/web_cell_r1:/w -w /w dd2-layout-tools ngspice -b tb_dc.spice
+
+Note: No compatibility mode selected!
+
+
+Circuit: * web_cell_r1: dc operating point of every input row (generated)
+
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+ Reference value :  0.00000e+00
+No. of Data Rows : 1
+DC 0 4.68063E-09
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 1 1.8
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 2 4.68065E-09
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 3 1.8
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 4 4.6653E-09
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 5 4.68981E-09
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 6 1.8
+Doing analysis at TEMP = 25.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+No. of Data Rows : 1
+DC 7 1.8
+Note: Simulation executed from .control section 

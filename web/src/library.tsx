@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Button } from "./ui";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./ui";
 import { createLibrary, defineComponent } from "@openuidev/react-lang";
 import { useMemo, useState } from "react";
 import { z } from "zod/v4";
@@ -39,7 +39,7 @@ const Section = defineComponent({
   props: z.object({ title: z.string().describe("a short title"), children: z.array(z.any()).describe("the panels") }),
   component: ({ props, renderNode }) => (
     <section className="flex flex-col gap-2">
-      <h2 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{props.title}</h2>
+      <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{props.title}</h2>
       <div className="grid gap-4 md:grid-cols-2">{renderNode(props.children)}</div>
     </section>
   ),
@@ -50,7 +50,7 @@ const Note = defineComponent({
   props: z.object({ text: z.string().describe("the sentences; every number must be in the facts") }),
   component: ({ props }) => (
     <aside className="rounded-r-md border-l-2 border-info bg-accent/40 px-4 py-2.5 text-sm">
-      <span className="mb-0.5 block text-[10px] uppercase tracking-wider text-muted-foreground">Agent's note, not a check result</span>
+      <span className="mb-0.5 block text-xs uppercase tracking-wider text-muted-foreground">Agent's note, not a check result</span>
       {props.text}
     </aside>
   ),
@@ -79,7 +79,7 @@ const Choices = defineComponent({
   props: z.object({ options: z.array(Choice.ref).describe("the choices") }),
   component: ({ props, renderNode }) => (
     <section className="flex flex-col gap-2" aria-label="What next">
-      <h2 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">What next</h2>
+      <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">What next</h2>
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">{renderNode(props.options)}</div>
     </section>
   ),
@@ -98,7 +98,7 @@ const Verdict = defineComponent({
           <Status value={data.status} />
           <code className="font-mono text-base">{data.function}</code>
           <dl className="ml-auto flex gap-6">
-            {stats.map(([k, v]) => <div key={k}><dt className="text-[11px] text-muted-foreground">{k}</dt><dd className="font-mono text-lg font-semibold">{v}</dd></div>)}
+            {stats.map(([k, v]) => <div key={k}><dt className="text-xs text-muted-foreground">{k}</dt><dd className="font-mono text-lg font-semibold">{v}</dd></div>)}
           </dl>
         </div>
       </Panel>
@@ -187,7 +187,7 @@ const LayoutView = defineComponent({
       <Panel title="Layout" note={`${data.width_um} × ${data.height_um} µm`}>
         <div className="flex flex-wrap gap-1" role="group" aria-label="Layers">
           {layers.map((l) => (
-            <button key={l} aria-pressed={!off.has(l)} className={`inline-flex items-center gap-1.5 rounded-md border px-2 py-0.5 font-mono text-[11px] ${off.has(l) ? "opacity-40" : ""}`}
+            <button key={l} aria-pressed={!off.has(l)} className={`inline-flex items-center gap-1.5 min-h-11 rounded-md border px-2 py-0.5 font-mono text-xs lg:min-h-7 ${off.has(l) ? "opacity-40" : ""}`}
               onClick={() => setOff((s) => { const n = new Set(s); if (n.has(l)) n.delete(l); else n.add(l); return n; })}>
               <i className="size-2.5 rounded-sm" style={{ background: LAYER_COLOURS[l] }} />{l}
             </button>
@@ -235,7 +235,7 @@ const NetworkView = defineComponent({
     const n = data.network;
     const rows: [string, string | number][] = [["Stages", n.stages], ["Transistors", n.transistors], ["Most in series", n.max_series], ["Sizing", data.sizing?.policy],
       ["Width", `${data.sites} sites`], ["Gate pitch", data.gate_pitch_um?.join(" ") || "none"], ["met1 nets", data.met1_nets.join(" ") || "none"]];
-    return <Panel title="Network"><dl className="grid grid-cols-2 gap-2">{rows.map(([k, v]) => <div key={k}><dt className="text-[11px] text-muted-foreground">{k}</dt><dd className="font-mono text-sm">{v}</dd></div>)}</dl></Panel>;
+    return <Panel title="Network"><dl className="grid grid-cols-2 gap-2">{rows.map(([k, v]) => <div key={k}><dt className="text-xs text-muted-foreground">{k}</dt><dd className="font-mono text-sm">{v}</dd></div>)}</dl></Panel>;
   },
 });
 

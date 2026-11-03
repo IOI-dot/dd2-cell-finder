@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -68,8 +68,8 @@ export function TimingView({ cell }: { cell: string }) {
   return (
     <Panel title="Timing surface" note={`${data.cell}: ${t.table} of pin ${t.pin}, slew × load, ${t.index_1.length * t.index_2.length} measured points`} wide>
       <div className="flex flex-wrap gap-1">
-        {data.tables.map((x, i) => <Button key={i} size="sm" variant={i === k ? "default" : "outline"} className="h-6 px-2 font-mono text-[11px]" onClick={() => setK(i)}>{x.pin} {x.table}</Button>)}
-        <Button size="sm" variant="ghost" className="ml-auto h-6 px-2 text-[11px]" aria-pressed={hd} onClick={() => setHd((v) => !v)}>{hd ? "Hide" : "Show"} shipped Liberty</Button>
+        {data.tables.map((x, i) => <Button key={i} size="sm" variant={i === k ? "default" : "outline"} className="h-6 px-2 font-mono text-xs" onClick={() => setK(i)}>{x.pin} {x.table}</Button>)}
+        <Button size="sm" variant="ghost" className="ml-auto h-6 px-2 text-xs" aria-pressed={hd} onClick={() => setHd((v) => !v)}>{hd ? "Hide" : "Show"} shipped Liberty</Button>
       </div>
       <div ref={box} data-testid="timing-surface" className="h-[340px] w-full overflow-hidden rounded-md bg-background" />
       <p className="text-xs text-muted-foreground">Colour: our characterizer on the installed layout. White mesh: the shipped Liberty. Height is logarithmic, so the two can be told apart across the table.</p>

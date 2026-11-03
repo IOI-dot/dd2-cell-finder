@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Badge } from "./ui";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./ui";
 import { createContext, useContext, type ReactNode } from "react";
 
 /** What a Choice does when pressed: it puts its prompt in the box and sends it, like typing. */
@@ -23,7 +23,7 @@ export function Status({ value }: { value: string }) {
   const ok = value === "pass" || value === "match";
   const bad = value === "fail" || value === "mismatch";
   return (
-    <Badge variant="outline" className={`font-mono text-[11px] ${ok ? "border-success text-success" : bad ? "border-destructive text-destructive" : "text-muted-foreground"}`}>
+    <Badge variant="outline" className={`font-mono text-xs ${ok ? "border-success text-success" : bad ? "border-destructive text-destructive" : "text-muted-foreground"}`}>
       {ok ? "✓ " : bad ? "✕ " : ""}{value}
     </Badge>
   );

@@ -9,10 +9,9 @@ export default defineConfig({
   plugins: [react(), tailwind()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "../DesignSystemStudio"),
       "@openuidev/devtools": path.resolve(__dirname, "src/no-devtools.ts"), // it would load a script from a CDN in development
     },
     dedupe: ["react", "react-dom"],
   },
-  server: { fs: { allow: [".."] }, proxy: { "/api": backend, "/agent": backend } },
+  server: { proxy: { "/api": backend, "/agent": backend } },
 });
