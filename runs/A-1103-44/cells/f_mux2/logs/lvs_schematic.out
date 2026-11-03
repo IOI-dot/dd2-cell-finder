@@ -1,0 +1,27 @@
+
+Subcircuit summary:
+Circuit 1: f_mux2                          |Circuit 2: f_mux2                          
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (6)            |sky130_fd_pr__pfet_01v8_hvt (6)            
+sky130_fd_pr__nfet_01v8 (6)                |sky130_fd_pr__nfet_01v8 (6)                
+Number of devices: 12                      |Number of devices: 12                      
+Number of nets: 13                         |Number of nets: 13                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: f_mux2                          |Circuit 2: f_mux2                          
+-------------------------------------------|-------------------------------------------
+VNB                                        |VNB                                        
+VPB                                        |VPB                                        
+A                                          |A                                          
+B                                          |B                                          
+Y                                          |Y                                          
+C                                          |C                                          
+VGND                                       |VGND                                       
+VPWR                                       |VPWR                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes f_mux2 and f_mux2 are equivalent.
+Circuits match uniquely.

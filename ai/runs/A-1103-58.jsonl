@@ -1,0 +1,2 @@
+{"run": "A-1103-58", "step": 1, "agent": "fixed", "kind": "tool", "tool": "build_cell", "args": {"expr": "A ^ B ^ C", "name": "f_xor3", "sizing": "hd", "order_index": 0}, "result": "runs/A-1103-58/cells/f_xor3/report.json", "exit_code": 1}
+{"run": "A-1103-58", "step": 2, "kind": "result", "status": "fail", "checks": "ai/runs/A-1103-58.checks.json"}

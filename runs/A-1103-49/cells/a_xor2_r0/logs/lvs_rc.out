@@ -1,0 +1,26 @@
+
+Subcircuit summary:
+Circuit 1: a_xor2_r0                       |Circuit 2: a_xor2_r0                       
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (5)            |sky130_fd_pr__pfet_01v8_hvt (5)            
+sky130_fd_pr__nfet_01v8 (5)                |sky130_fd_pr__nfet_01v8 (5)                
+Number of devices: 10                      |Number of devices: 10                      
+Number of nets: 11                         |Number of nets: 11                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: a_xor2_r0                       |Circuit 2: a_xor2_r0                       
+-------------------------------------------|-------------------------------------------
+VNB                                        |VNB                                        
+VPB                                        |VPB                                        
+Y                                          |Y                                          
+VPWR                                       |VPWR                                       
+A                                          |A                                          
+VGND                                       |VGND                                       
+B                                          |B                                          
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes a_xor2_r0 and a_xor2_r0 are equivalent.
+Circuits match uniquely.

@@ -9,4 +9,4 @@
 | Input capacitance within 10%, Liberty loads in Yosys and OpenSTA, full-ramp broken case flagged | `results/option1/m2/table5.json` | pass |
 | SPM with the six cells swapped in, worst delay change: script A 0.0129 ns (1.649%), script B 0.0043 ns (0.562%) | `results/option1/m2/table5.json` | pass |
 | Test cells generated, verified and simulated (19 of 19, the extra one being the stack nor3) | `results/option1/m2/test_cells.csv`, `cells/` | pass |
-| Agent (codex-cli:gpt-5.6-sol effort=high) and its fixed-choice version on the test cells: agent runs passing 2 of 2, fixed 3 of 3 | `results/option1/m2/agent_vs_fixed.csv`, `ai/runs/` | pass |
+| Agent (codex-cli:gpt-5.6-sol effort=high) and its fixed-choice version on the test cells: agent runs passing 18 of 18, fixed 17 of 18 | `results/option1/m2/agent_vs_fixed.csv`, `ai/runs/` | pass |

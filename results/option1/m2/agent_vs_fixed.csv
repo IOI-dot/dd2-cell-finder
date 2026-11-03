@@ -1,6 +1,37 @@
 function,mode,run,run_id,status,stop,sites,met1_nets,breaks,builds,model_calls,tokens_in,tokens_out,seconds,model,failure,log_ok
-nand2,fixed,1,A-1102-123,pass,,3,0,0,1,0,0,0,37.9,no model call,,True
-nand2,agent,1,A-1102-124,pass,nothing to improve,3,0,0,1,1,13463,654,38.0,codex-cli:gpt-5.6-sol effort=high,,True
-nor2,fixed,1,A-1102-125,pass,,3,0,0,1,0,0,0,29.5,no model call,,True
-nor2,agent,1,A-1102-126,pass,nothing to improve,3,0,0,1,1,13462,577,38.7,codex-cli:gpt-5.6-sol effort=high,,True
-nand3,fixed,1,A-1102-127,pass,,4,0,0,1,0,0,0,42.2,no model call,,True
+nand2,fixed,1,A-1103-24,pass,,3,0,0,1,0,0,0,19.8,no model call,,True
+nand2,agent,1,A-1103-25,pass,nothing to improve,3,0,0,1,1,13461,621,20.1,codex-cli:gpt-5.6-sol effort=high,,True
+nor2,fixed,1,A-1103-26,pass,,3,0,0,1,0,0,0,14.1,no model call,,True
+nor2,agent,1,A-1103-27,pass,nothing to improve,3,0,0,1,1,13463,469,22.5,codex-cli:gpt-5.6-sol effort=high,,True
+nand3,fixed,1,A-1103-28,pass,,4,0,0,1,0,0,0,27.3,no model call,,True
+nand3,agent,1,A-1103-29,pass,nothing to improve,4,0,0,1,1,13465,496,18.0,codex-cli:gpt-5.6-sol effort=high,,True
+nor3,fixed,1,A-1103-30,pass,,5,0,0,1,0,0,0,21.7,no model call,,True
+nor3,agent,1,A-1103-31,pass,nothing to improve,5,0,0,1,1,13465,526,32.0,codex-cli:gpt-5.6-sol effort=high,,True
+a21oi,fixed,1,A-1103-32,pass,,4,0,0,1,0,0,0,31.3,no model call,,True
+a21oi,agent,1,A-1103-33,pass,nothing to improve,4,0,0,1,1,13470,898,20.2,codex-cli:gpt-5.6-sol effort=high,,True
+o21ai,fixed,1,A-1103-34,pass,,5,0,0,1,0,0,0,22.2,no model call,,True
+o21ai,agent,1,A-1103-35,pass,nothing to improve,5,0,0,1,1,13466,669,18.4,codex-cli:gpt-5.6-sol effort=high,,True
+a22oi,fixed,1,A-1103-36,pass,,6,0,0,1,0,0,0,30.5,no model call,,True
+a22oi,agent,1,A-1103-37,pass,nothing to improve,6,0,0,1,1,13463,432,43.2,codex-cli:gpt-5.6-sol effort=high,,True
+o22ai,fixed,1,A-1103-38,pass,,6,0,0,1,0,0,0,40.2,no model call,,True
+o22ai,agent,1,A-1103-39,pass,nothing to improve,6,0,0,1,1,13461,542,33.6,codex-cli:gpt-5.6-sol effort=high,,True
+and2,fixed,1,A-1103-40,pass,,5,0,0,1,0,0,0,13.3,no model call,,True
+and2,agent,1,A-1103-41,pass,nothing to improve,5,0,0,1,1,13453,452,15.2,codex-cli:gpt-5.6-sol effort=high,,True
+a21o,fixed,1,A-1103-42,pass,,7,0,1,1,0,0,0,19.5,no model call,,True
+a21o,agent,1,A-1103-43,pass,model chose to stop,7,0,1,3,4,55348,992,419.2,codex-cli:gpt-5.6-sol effort=high,,True
+mux2,fixed,1,A-1103-44,pass,,10,2,2,1,0,0,0,260.7,no model call,,True
+mux2,agent,1,A-1103-45,pass,model chose to stop,10,0,2,3,4,55418,991,387.7,codex-cli:gpt-5.6-sol effort=high,,True
+maj3,fixed,1,A-1103-46,pass,,10,3,0,1,0,0,0,330.1,no model call,,True
+maj3,agent,1,A-1103-47,pass,tool calls,9,1,1,4,4,55592,1128,1755.8,codex-cli:gpt-5.6-sol effort=high,,True
+xor2,fixed,1,A-1103-48,pass,,8,2,1,1,0,0,0,116.0,no model call,,True
+xor2,agent,1,A-1103-49,pass,model chose to stop,8,2,1,3,4,55502,1623,754.7,codex-cli:gpt-5.6-sol effort=high,,True
+nest1,fixed,1,A-1103-50,pass,,6,0,0,1,0,0,0,37.1,no model call,,True
+nest1,agent,1,A-1103-51,pass,nothing to improve,6,0,0,1,1,13468,444,36.5,codex-cli:gpt-5.6-sol effort=high,,True
+nest2,fixed,1,A-1103-52,pass,,6,0,0,1,0,0,0,48.9,no model call,,True
+nest2,agent,1,A-1103-53,pass,nothing to improve,6,0,0,1,1,13468,434,48.8,codex-cli:gpt-5.6-sol effort=high,,True
+maj4n,fixed,1,A-1103-54,pass,,8,0,0,1,0,0,0,85.2,no model call,,True
+maj4n,agent,1,A-1103-55,pass,nothing to improve,8,0,0,1,1,13474,607,76.8,codex-cli:gpt-5.6-sol effort=high,,True
+maj4,fixed,1,A-1103-56,pass,,9,2,0,1,0,0,0,97.3,no model call,,True
+maj4,agent,1,A-1103-57,pass,model unavailable,9,2,0,1,2,13474,464,299.2,codex-cli:gpt-5.6-sol effort=high,,True
+xor3,fixed,1,A-1103-58,fail,,16,0,3,1,0,0,0,237.7,no model call,"lvs, rc_lvs, spice, route",True
+xor3,agent,1,A-1103-59,pass,tool calls,18,3,3,4,4,55666,1409,2429.5,codex-cli:gpt-5.6-sol effort=high,,True

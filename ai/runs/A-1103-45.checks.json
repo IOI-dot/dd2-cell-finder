@@ -1,0 +1,109 @@
+{
+  "best": {
+    "breaks": 2,
+    "exit_code": 0,
+    "failed": [],
+    "id": "r1",
+    "met1_nets": [],
+    "report": "runs/A-1103-45/cells/a_mux2_r1/report.json",
+    "route_failures": [],
+    "settings": {
+      "order_index": 1,
+      "sizing": "hd"
+    },
+    "sites": 10,
+    "stages": 3,
+    "status": "pass",
+    "transistors": 12
+  },
+  "calls": {
+    "in": 41795,
+    "model": 3,
+    "out": 290,
+    "tool": 3
+  },
+  "function": "(A & !C) | (B & C)",
+  "intent": {
+    "kind": "BUILD_CELL"
+  },
+  "limits": {
+    "max_model_calls": 8,
+    "max_seconds": 3600,
+    "max_tokens_in": 400000,
+    "max_tokens_out": 40000,
+    "max_tool_calls": 4,
+    "max_usd": 0.0
+  },
+  "model": "codex-cli:gpt-5.6-sol effort=high",
+  "model_settings": {
+    "name": "gpt-5.6-sol",
+    "provider": "codex-cli",
+    "reasoning_effort": "high",
+    "retries": 2,
+    "timeout_s": 180,
+    "usd_per_mtok_in": 0.0,
+    "usd_per_mtok_out": 0.0
+  },
+  "prompt": "prompts/diagnostician.md@05b1d63a",
+  "revisions": [
+    {
+      "breaks": 2,
+      "exit_code": 0,
+      "failed": [],
+      "id": "r0",
+      "met1_nets": [
+        "_s1",
+        "C"
+      ],
+      "report": "runs/A-1103-45/cells/a_mux2_r0/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 0,
+        "sizing": "hd"
+      },
+      "sites": 10,
+      "stages": 3,
+      "status": "pass",
+      "transistors": 12
+    },
+    {
+      "breaks": 2,
+      "exit_code": 0,
+      "failed": [],
+      "id": "r1",
+      "met1_nets": [],
+      "report": "runs/A-1103-45/cells/a_mux2_r1/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 1,
+        "sizing": "hd"
+      },
+      "sites": 10,
+      "stages": 3,
+      "status": "pass",
+      "transistors": 12
+    },
+    {
+      "breaks": 2,
+      "exit_code": 0,
+      "failed": [],
+      "id": "r2",
+      "met1_nets": [],
+      "report": "runs/A-1103-45/cells/a_mux2_r2/report.json",
+      "route_failures": [],
+      "settings": {
+        "order_index": 2,
+        "sizing": "hd"
+      },
+      "sites": 10,
+      "stages": 3,
+      "status": "pass",
+      "transistors": 12
+    }
+  ],
+  "run": "A-1103-45",
+  "seconds": 387.7,
+  "status": "pass",
+  "stop": "model chose to stop",
+  "usd": 0.0
+}

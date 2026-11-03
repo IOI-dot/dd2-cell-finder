@@ -1,0 +1,28 @@
+
+Subcircuit summary:
+Circuit 1: f_o22ai                         |Circuit 2: f_o22ai                         
+-------------------------------------------|-------------------------------------------
+sky130_fd_pr__pfet_01v8_hvt (4)            |sky130_fd_pr__pfet_01v8_hvt (4)            
+sky130_fd_pr__nfet_01v8 (4)                |sky130_fd_pr__nfet_01v8 (4)                
+Number of devices: 8                       |Number of devices: 8                       
+Number of nets: 12                         |Number of nets: 12                         
+---------------------------------------------------------------------------------------
+Circuits match uniquely.
+Netlists match uniquely.
+
+Subcircuit pins:
+Circuit 1: f_o22ai                         |Circuit 2: f_o22ai                         
+-------------------------------------------|-------------------------------------------
+Y                                          |Y                                          
+VNB                                        |VNB                                        
+VPB                                        |VPB                                        
+A                                          |A                                          
+B                                          |B                                          
+C                                          |C                                          
+VGND                                       |VGND                                       
+D                                          |D                                          
+VPWR                                       |VPWR                                       
+---------------------------------------------------------------------------------------
+Cell pin lists are equivalent.
+Device classes f_o22ai and f_o22ai are equivalent.
+Circuits match uniquely.
