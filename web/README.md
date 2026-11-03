@@ -62,3 +62,13 @@ until a real build has finished. A question about the project gets an answer fro
 Nothing inside the page scrolls on its own, and text is never cut off. Every table and graph in `stepviews.tsx` draws data from a flow event. `src/cellgen/stepdata.py` turns tool
 output into that data, and decides nothing: pass and fail still come only from the check scripts. The 3D
 layer stack is a small option on the layout page.
+
+## How hard the model thinks
+
+Each model call takes the effort of its role, from `[model.effort]` in `config/agent.toml`: reading a request,
+answering a question or opening a page is quick work and starts low; choosing the next layout setting decides what
+gets built and stays high; the report page is in between. Requests code can settle, such as a bare function, a
+forbidden request or a function with nothing to build, use no model at all. If the guardrails refuse a reply, because
+it is unreadable or quotes a number it was not given, it is asked once more one level higher. The level of every call
+is in the run log. The request itself is not classified first: that would cost a second model call to save time on one.
+

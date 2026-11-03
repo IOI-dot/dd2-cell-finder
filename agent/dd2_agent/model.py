@@ -92,6 +92,18 @@ class ChatScripted(BaseChatModel):
         return ChatResult(generations=[ChatGeneration(message=msg)])
 
 
+LEVELS = ("low", "medium", "high")
+
+
+def effort(cfg: dict, role: str, escalate: int = 0) -> str:
+    """How hard the model thinks for one role: [model.effort] in config/agent.toml, else reasoning_effort.
+    A reply the guardrails refused is retried `escalate` levels higher, never above high."""
+    level = (cfg.get("effort") or {}).get(role, cfg.get("reasoning_effort", "high"))
+    if level not in LEVELS:
+        raise ValueError(f"unknown effort {level!r} for {role}")
+    return LEVELS[min(LEVELS.index(level) + escalate, len(LEVELS) - 1)]
+
+
 def chat_model(cfg: dict) -> BaseChatModel:
     if cfg["provider"] == "codex-cli":
         return codex_cli.ChatCodexCLI(model_name=cfg["name"], effort=cfg.get("reasoning_effort", "high"), timeout_s=cfg.get("timeout_s", 180))
@@ -103,6 +115,8 @@ def chat_model(cfg: dict) -> BaseChatModel:
 def label(cfg: dict) -> str:
     if cfg["provider"] == "scripted":
         return "scripted (rule set, no model)"
+    if cfg.get("effort"):
+        return f"{cfg['provider']}:{cfg['name']} effort by role: " + ", ".join(f"{r} {e}" for r, e in cfg["effort"].items())
     return f"{cfg['provider']}:{cfg['name']} effort={cfg.get('reasoning_effort', 'high')}"
 
 
