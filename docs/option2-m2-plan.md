@@ -1,8 +1,9 @@
 # Option 2: current milestone status
 
-Option 2's flow is a deterministic command-line workflow; it runs no model. It is one half of the group's
-Option 3 project: Option 1 (`src/cellgen`) builds the cells Option 2 asks for, and `docs/roadmap.md` plans
-the connection. The Table 4 disagreement stays documented as unresolved.
+The group has selected Option 2. Its flow is deterministic and runs no model.
+The existing modular implementation, measured evidence and TA folder are retained.
+Generator/agent/studio work stays available as optional supporting experiments;
+it is not the submitted project option. The Table 4 disagreement remains unresolved.
 
 ## Completed and verified on WSL
 
@@ -38,3 +39,9 @@ The original group README still needs the other members' names/IDs.
 
 Real generator responses; real-area reruns; greedy final selection; cell-by-cell
 curve; 30% sensitivity; final technical/AI reports; complete unseen-design demo.
+
+## Default commands
+
+make setup/check/test/all run Option 2 only. Extended targets preserve the extra
+generator/platform dependencies and tests. All original Option 2 test cases and
+assertions remain active, including the two original Liberty/CEC broken cases.

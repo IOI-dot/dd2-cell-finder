@@ -1,3 +1,7 @@
+> Historical/optional platform document. The team has selected **Option 2**.
+> The current scope is the root README and docs/option2-m2-plan.md.
+> Older Option 3 plans below describe retained extra work, not the submitted option.
+
 # Architecture and repository layout
 
 Status: 2026-10-26. The course core (Option 2 M1) is implemented. The platform around it (backend,

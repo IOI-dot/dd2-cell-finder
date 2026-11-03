@@ -61,7 +61,7 @@
   },
   {
     "copy": "validation/tests.log",
-    "sha256": "26da9f3d5855797fd37ef1065cffcbfe59ea2de3d7ea89509164c2e44062f01c",
+    "sha256": "df94fb74d4821c0868a33480067b37b7c7937fa723889e8d4d87d682d15995b8",
     "source": "results/validation/tests.log"
   },
   {

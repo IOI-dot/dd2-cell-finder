@@ -16,6 +16,6 @@
 
 Helpers: `cost.py` (explicit CMOS realizations and the model fit), `cones.py` (mapped cones), `evaluate.py` (Yosys,
 ABC cec and OpenSTA runs), `tables.py` (CSV writing). `flow.py` keeps the names the command line and the tests use.
-`option3.py` is the Option 3 extension: it remaps the designs onto the real cells Option 1 built.
+`option3.py` is a retained optional real-cell remapping experiment (historical filename). It does not change the submitted Option 2 scope.
 
 Each step can also run alone: `make m2-fit`, `m2-baseline`, `m2-candidates`, `m2-library`, `m2-map`, `m2-plots`.

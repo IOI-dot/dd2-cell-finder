@@ -73,3 +73,13 @@ little, because the CLI start and the context dominate. Ran the Option 3 loop: e
 real Liberty, and all twelve remappings prove equivalent, on this machine's tools. Reran the agent against fixed
 choices on every test cell with the code frozen. The README now leads with Option 2 M2; no new images are committed.
 
+
+### Confirmed Option 2 scope, 2026-11-03
+The team explicitly selected Option 2 after the combined repository review.
+Reused the earlier Option 2 README, updated for the preserved modular M2 code.
+Aligned metadata, current instructions and default Makefile targets with that
+scope; retained the complete original Option 2 suite and frozen broken cases.
+Kept all other members' generator/agent/studio code, optional targets, tests
+and saved experiments. Added extended setup/check/test/all commands rather
+than deleting that work. No M1/M2 algorithms or measured outputs were changed.
+Table 4 remains unresolved and no TA acceptance or tag movement is inferred.

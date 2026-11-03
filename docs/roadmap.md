@@ -1,3 +1,7 @@
+> Historical/optional platform document. The team has selected **Option 2**.
+> The current scope is the root README and docs/option2-m2-plan.md.
+> Older Option 3 plans below describe retained extra work, not the submitted option.
+
 # Roadmap: from Atlas Cell Studio to Option 3
 
 For the five-person team. It records what the studio does today, how Options 1 and 2 will be connected, what

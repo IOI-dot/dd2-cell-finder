@@ -1,257 +1,126 @@
-# Project 1, Option 3: DD2 Cell Finder
+# GB4 · Option 2: Finding Cells Worth Adding
 
-Group **GB4**, cell prefix `dd2_g4__` · Option 3 (Options 1 and 2, connected).
-Omar Abdel Motalb, 900232118; Noor Elshahidi; Mohamed Azouz; the other members' names and IDs still need to be listed.
+**For the TA: open [TA_M2/README.md](TA_M2/README.md).**
+It contains the three figures, key CSV tables, measured results and the Table 4 clarification.
+Figures can also be opened directly from [TA_M2/figures](TA_M2/figures/).
 
-## Milestone 2 meeting: Option 2, Milestone 2
+Group: **GB4**, numeric cell prefix `dd2_g4__`. Omar Abdel Motalb, 900232118.
+Also listed by the team: Noor Elshahidi and Mohamed Azouz. Complete the remaining member details before submission.
+AI is used as a development aid; the runtime needs no AI model or API key.
 
-**Start at [TA_M2/README.md](TA_M2/README.md).** It holds the three figures, the key tables, the measured savings
-and the Table 4 question, all copied from the saved run in [results/m2/](results/m2/) without recomputing anything.
+## Status
 
-| What | Where |
+The latest saved WSL M2 experiment passes the mapping, equivalence, timing and
+tutorial-simulation checks. See [readiness.json](results/m2/readiness.json).
+Full checkpoint readiness remains **false** because Table 4 gives six verified
+qualifying classes against the handout's five. No instructor correction or TA
+acceptance is assumed. See [the six examples and question](TA_M2/TABLE4_CLARIFICATION.md).
+
+Measured savings can be zero or negative. The displayed results preserve those
+outcomes. The ranking graph is a heuristic; measured remapping establishes savings.
+
+## Repository map
+
+| Folder | Purpose |
 |---|---|
-| Readiness and what is still open | [results/m2/readiness.json](results/m2/readiness.json) |
-| Measured savings, best of scripts A and B | [results/m2/best_of_both_estimated.csv](results/m2/best_of_both_estimated.csv) |
-| Every mapping, with ABC cec and OpenSTA | [results/m2/table5_estimated.csv](results/m2/table5_estimated.csv) |
-| Ranked candidates and the ten cell requests | [results/m2/ranked_candidates.csv](results/m2/ranked_candidates.csv), [results/m2/requests/](results/m2/requests/) |
-| Area model and its held-out error | [results/m2/area_model.json](results/m2/area_model.json), [results/m2/area_model_fit.csv](results/m2/area_model_fit.csv) |
-| The Table 4 question for the TA | [TA_M2/TABLE4_CLARIFICATION.md](TA_M2/TABLE4_CLARIFICATION.md) |
-| The code, one module per step | [src/dd2m2/README.md](src/dd2m2/README.md) |
+| [TA_M2/](TA_M2/) | Small, obvious meeting folder: figures, key tables and Table 4 evidence |
+| [src/dd2/](src/dd2/) | M1 functions and checks |
+| [src/dd2m2/](src/dd2m2/) | Costing/model, ranking, requests/Liberty, mapping, checks, timing and tutorials |
+| [tests/](tests/) | Active tests and deliberately broken cases |
+| [results/m1/](results/m1/), [results/m2/](results/m2/) | Full generated measurements, netlists, scripts and logs |
+| [libs/](libs/) | Generated estimated-cell library |
+| [config/](config/) | GB4 identification; host-specific tool selection is ignored by Git |
+| [docs/interface/](docs/interface/) | Cell request/response schemas and examples |
+| [docs/option2-m2-plan.md](docs/option2-m2-plan.md) | Current Option 2 scope, validation and remaining work |
+| [tools/](tools/) | Pinned tool installer for reproducible setup |
+| [ai/](ai/) | AI-use and caught-error evidence |
+| src/cellgen/, agent/, web/, cells/, results/option1/, results/option3/ | Retained optional generator/platform experiments; outside the submitted Option 2 M2 scope |
+| report/ | Final reports and their sources, due at the final milestone |
 
-To reproduce it: `make setup`, `make group`, `make check-versions`, `make test`, then `make m2` (the whole run) or
-one step at a time with `make m2-fit`, `m2-baseline`, `m2-candidates`, `m2-library`, `m2-map` and `m2-plots`.
-`make ta` refreshes `TA_M2/` from the saved results.
+## Setup and commands
 
-Beyond the milestone, and not part of this review: Option 1 builds the requested cells as verified layouts, and
-Option 3 remaps the designs onto those real cells (sections 6 and 11, [docs/roadmap.md](docs/roadmap.md)).
+Use Ubuntu/WSL, Python >=3.11, recent OpenSTA, Yosys >=0.34 and Icarus >=13.
+The tool installer selects the SHA256-pinned official OSS CAD Suite release
+2026-10-27. Keep Ubuntu Yosys 0.33 and its ABC separately for the M1 reference table.
 
-AI is used as a development aid, and in Option 1 as a bounded agent that picks generator settings.
-Option 2's flow runs no model and needs no API key.
+External course inputs stay outside Git:
 
-## 1. Status
-
-- **Option 2, Milestone 2:** the saved WSL experiment passes mapping, equivalence, timing and
-  tutorial-simulation checks ([readiness.json](results/m2/readiness.json)). Readiness stays false while
-  Table 4 gives six verified one-stage classes against the handout's five. No TA acceptance is assumed.
-  Measured savings can be zero or negative, and are shown as they are.
-- **Option 1, Milestone 2:** reference cells, multi-stage cells, characterizer and test cells, in
-  section 6.
-- **Option 3:** connected through the Appendix A format in `docs/interface/`. `make o3` has Option 1 build,
-  check and characterize every cell Option 2 requests (`src/cellgen/deliver.py`), and only cells that pass,
-  with their Liberty, replace the estimated ones when Option 2 remaps (`src/dd2m2/option3.py`,
-  `results/option3/`). The M2 evidence in `results/m2/` is left as it is.
-
-## 2. Setup
-
-The team works on macOS and on Ubuntu/WSL. Use Python >= 3.11.
-
-- **Option 2:** recent OpenSTA, Yosys >= 0.34 and Icarus >= 13. `tools/install_course_tools.py` installs the
-  SHA256-pinned OSS CAD Suite. Keep Ubuntu's Yosys 0.33 and its ABC separately for the Milestone 1 reference
-  table, or use the `dd2-flow` image (`make docker-flow`, then `make m1-docker`).
-- **Option 1:** Docker (Colima on macOS) with the course image `dd2-layout-tools` (`make o1-image`) and
-  OpenSTA in `dd2-sta` (`make o1-sta`).
-
-Course inputs stay outside Git, and `make setup` links them:
-
-- `GIVEN`: the student pack's `given/`.
-- `PDK_ROOT`: the directory holding `sky130A`.
-- `TUTORIALS`: `spm/` and `multiplier/`, the original Tutorial 4 and Tutorial 2 sources and testbenches.
-  Keep their licence notices.
+- `GIVEN`: defaults to `~/DD2_Project1_student_pack/given`.
+- `PDK_ROOT`: defaults to `~/dd2-inputs`, containing `sky130A` and the full HD Liberty.
+- `TUTORIALS`: defaults to `~/dd2-inputs/tutorials`, with `spm/` and `multiplier/`.
+  These contain the original Tutorial 4 SPM/CSADD/TCMP sources and SPM testbench,
+  and Tutorial 2 multiplier source and exhaustive testbench. Keep their licence notices.
 
 ```sh
+export PATH="$HOME/.local/bin:$PATH"
 make setup
-.venv/bin/python tools/install_course_tools.py   # Option 2 tools
-make group                                        # once: the DD2 group number
-make check
+.venv/bin/python tools/install_course_tools.py
+make check-versions
 make test
 make all
 ```
 
-## 3. What the tool does
-Option 2 finds the small Boolean functions a synthesized design computes again and again and
-checks which of them SKY130 HD lacks; Option 1 builds Boolean functions as HD-compatible cells.
-Option 1 (`src/cellgen`, at Milestone 2): read an Appendix A request and check expression against
-truth table; build one static CMOS stage when Y allows it, or the fewest-transistor chain of stages
-found otherwise (pull-down from a series-parallel formula, pull-up as its dual, at most 3 in series)
-and check it at switch level; size it (hd, or stack with folded fingers); order the gates by a paired
-Euler path; draw the cell with GDSfactory inside the frame of `plan_hd.json` (li1 wiring, met1 for
-the rails, and in a multi-stage cell only where li1 fails); then check it with Magic DRC (alone and
-in rows of HD cells: side by side, mirrored, next to itself, flipped onto a shared rail), Netgen LVS
-and RC-LVS (against its schematic and, for reference cells, the installed HD cell), the layer check,
-ngspice on the RC-extracted netlist with SA and SB and Icarus on the Verilog model; and compare it
-with the installed cell. The characterizer writes Liberty tables from ngspice; on the installed cells it
-is checked against the shipped Liberty (Table 5). Option 2 at Milestone 1 (`src/dd2`) runs in this order: (1) map every required design onto the usable and the
-reduced HD library with ABC scripts A and B (Table 1); (2) write each design as an AIG, once as
-synthesized and once restructured by ABC; (3) enumerate every cut of up to 4 inputs with its
-truth table, and check each one by simulating its cone for every input combination; (4) build the
-class table of HD; (5) classify functions as Exists / Exists with an inverter / Contained / New
-against the full HD library, and self-test that checker against Table 4 of the handout. Option 2 at Milestone 2 (`src/dd2m2`) costs each
-candidate, fits an area model on the HD x1 cells and reports its held-out error, ranks candidates by
-mapped-cone savings, writes cell requests and an extended Liberty, maps every benchmark with and without
-the new cells using the same A/B scripts, proves each mapping with ABC cec, compares timing with OpenSTA,
-and runs the original tutorial testbenches on the mapped netlists.
-
-## 4. Commands
+`make setup` links `given/`, `pdk/` and `tutorials/`; it does not supply these inputs.
+This project consumes the full HD Liberty; a Liberty-only input directory is not a
+complete physical PDK. Install/build OpenSTA separately as in the course setup.
+Tool binaries, environments, supplied inputs and download/update ZIPs stay outside Git.
 
 | Command | Purpose |
 |---|---|
-| `make setup`, `make group` | Links `pdk/`, `given/`, `tutorials/`; the Python env; the group number |
-| `make check`, `make check-versions` | Both options' tools and inputs; strict minimum versions for Option 2 |
-| `make test` | Every test, and the frozen broken-case hashes |
-| `make all` | Option 2 M1 and M2, then Option 1 M1 and M2 |
-| `make m1` / `make m1-docker` | Option 2 M1 with the reference Yosys 0.33 (Table 1, AIGs, cuts, HD classes, redundancy) |
-| `make m2` | Option 2 M2: six benchmarks plus tutorials, estimated cells, CEC, timing, GLS and plots |
-| `make ta` | Refresh `TA_M2/` from saved results, without rerunning anything |
-| `make readiness` | Print Option 2's recorded blockers; nonzero while any remain |
-| `make o1-m1`, `make o1-m2` | Option 1 M1 and M2 into `cells/` and `results/option1/` |
-| `make o3`, `make o3-cells`, `make o3-map` | Option 3: Option 1 builds Option 2's requests, then Option 2 remaps with the cells that passed, into `results/option3/` |
-| `make agent FUNC='<expression>'`, `make fixed FUNC=...`, `make agent-compare` | The Option 1 agent, its fixed-choice version, and the comparison |
-| `make agent-server`, `make web` | The studio's back end and front end |
-| `make demo IN=<design.v> [TOP=<top>]` | Option 2 on any design, into `build/demo/` |
-| `make demo IN=<request.json>` | Option 1 on an Appendix A request, with its `response.json` |
+| `make check`, `make check-versions` | Input/tool checks; strict minimum-version check |
+| `make test` | Complete Option 2 tests and frozen broken-case hashes |
+| `make m1` | Reference Table 1, AIGs, cuts, HD classes and redundancy self-test using reference Yosys |
+| `make m2` | Six benchmarks plus tutorials: estimated-cell experiment, CEC, timing, GLS and plots |
+| `make ta` | Refresh the TA folder from existing results; no experiment rerun |
+| `make all` | M1 followed by M2 and TA-folder generation |
+| `make readiness` | Print recorded blockers; returns nonzero while any remain |
+| `make demo IN=given/designs/cpu8.v TOP=cpu8` | Existing M1 single-design demo; full final demo remains pending |
 
-Every Option 2 step also has its own target (`m2-fit`, `m2-candidates`, `m2-map` and so on). On another
-installation, set `REFERENCE_YOSYS` and `REFERENCE_ABC` when the reference binaries are elsewhere.
+The Makefile also exposes each M1/M2 step separately. On another installation,
+override `REFERENCE_YOSYS` and `REFERENCE_ABC` when the reference binaries are elsewhere.
+All M2 baseline/extended comparisons use the same selected toolchain and A/B recipes.
+M1 reference numbers and M2 newer-tool numbers are distinct experiments.
 
-## 5. Layout
+## Checks and limits
 
-| Folder | Purpose |
-|---|---|
-| [TA_M2/](TA_M2/) | Option 2 M2 for the TA meeting: figures, key tables, Table 4 evidence |
-| [src/dd2/](src/dd2/), [src/dd2m2/](src/dd2m2/) | Option 2: M1 functions and checks; M2 costing, ranking, requests, Liberty, mapping, proofs, timing |
-| [src/cellgen/](src/cellgen/) | Option 1: the cell generator and its checks |
-| [agent/dd2_agent/](agent/dd2_agent/), [web/](web/), [prompts/](prompts/) | The agent, the studio, and the versioned prompts |
-| [tests/](tests/) | Unit, contract and integration tests, `tests/m2/` for Option 2 M2, frozen broken cases |
-| [results/](results/) | `m1/`, `m2/` for Option 2; `option1/` for Option 1 |
-| [cells/](cells/), [libs/](libs/) | Generated cells; generated Liberty files |
-| [docs/](docs/) | `interface/` (Appendix A), `roadmap.md`, `option2-m2-plan.md`, `architecture.md` |
-| [specs/](specs/) | Spec Kit specification, plan, research and tasks |
-| [config/](config/) | Group number, agent settings; host-specific tool selection is ignored by Git |
-| [tools/](tools/) | Pinned Option 2 tool installer |
-| [ai/](ai/) | AI use and mistakes logs, `ai/runs/` agent run logs; `runs/` their outputs |
+Every cut is checked against exhaustive cut simulation. Redundancy compares
+against the full HD combinational library. New candidate stages have at most
+three transistors in series; native HD calibration permits four-stack cells.
+Cost features describe explicit realizations, not extracted HD transistor counts.
+The fitted model covers HD x1 cells with up to four inputs and reports held-out error.
 
-## 6. Results
+ABC CEC checks RTL-derived gold against the mapped circuits with named state
+cutpoints; a separate bounded Yosys induction attempt is diagnostic. Tutorial GLS
+runs the original testbenches with functional models from the exact mapping Liberty.
+It is zero-delay functional simulation, without SDF or real timing-check validation.
+New-cell timing and capacitance are placeholders. OpenSTA reports declared
+pre-layout comparisons, not characterized-cell or signoff timing.
 
-Option 2: Milestone 1 in [results/m1/summary.md](results/m1/summary.md), Milestone 2 in
-[TA_M2/README.md](TA_M2/README.md) and [results/m2/](results/m2/). Both are generated from the saved records.
+## Final milestone
 
-Option 1 Milestone 1 (generated by `make o1-m1` from `results/option1/m1/`):
+Still required later: real generator cells, greedy final selection, real-area
+reruns, the cell-by-cell curve, the 30% sensitivity experiment, final technical
+and AI reports, and the full unseen-design workflow/demo.
 
-<!-- o1-summary:start -->
-| cp1 requirement | Evidence | Status |
-|---|---|---|
-| HD frame checked against installed inv_1 and nand2_1 | `results/option1/m1/frame_check.json` | pass |
-| inv_1 regenerated at 2.72 um (3 sites): DRC 0 in a tap row, LVS match (vs installed: match), abutment 0 errors in 4 fixtures, layers pass, SPICE pass, model pass | `results/option1/m1/inv_1.json`, `cells/dd2_ref__inv_1/` | pass |
-| nand2_1 regenerated at 2.72 um (3 sites): DRC 0 in a tap row, LVS match (vs installed: match), abutment 0 errors in 4 fixtures, layers pass, SPICE pass, model pass | `results/option1/m1/nand2_1.json`, `cells/dd2_ref__nand2_1/` | pass |
-| Request reader (accept example; refuse mismatch, 5 inputs, bad operator) | `results/option1/m1/request_reader.json` | pass |
-| Network check on the 11 single-stage test functions | `results/option1/m1/network_check.csv` | pass |
-<!-- o1-summary:end -->
+The team has selected **Option 2**. Additional generator, agent and studio work is
+retained in its existing directories and is optional. Historical filenames/commands
+such as `option3.py`, `make o3` and `results/option3/` refer to an extra real-cell
+experiment; they do not declare our submitted project option.
 
-Option 1 Milestone 2 (generated by `make o1-m2` from `results/option1/m2/`):
+Default `make setup`, `make check`, `make test` and `make all` cover Option 2.
+The full retained work remains available through `make setup-extended`,
+`make check-extended`, `make test-extended`, `make all-extended` and the existing
+explicit generator/studio targets. Do not claim the whole extended suite passed
+from an Option 2-only test log.
 
-<!-- o1-m2:start -->
-| cp2 requirement | Evidence | Status |
-|---|---|---|
-| Six reference cells pass every Table 4 must-match row (6 of 6) | `results/option1/m2/table4.csv`, `results/option1/m2/references/` | pass |
-| a21o_1 and mux2_1 built and compared: a21o_1 8 T vs 8 T, 7 vs 6 sites, LVS vs installed match (reported); mux2_1 12 T vs 12 T, 10 vs 9 sites, LVS vs installed mismatch (reported) | `results/option1/m2/references/` | pass |
-| Characterizer against the shipped Liberty: 2744 entries of the six cells, median 2.368%, max 152.724% with the fixed ngspice; median 3.727%, max 71.68% with stock | `results/option1/m2/table5.json` | pass |
-| Median per cell, fixed ngspice: a21oi_1 1.899%, inv_1 1.471%, nand2_1 2.55%, nand3_1 3.082%, nor2_1 2.347%, o21ai_1 2.642% | `results/option1/m2/table5.json` | pass |
-| Input capacitance within 10%, Liberty loads in Yosys and OpenSTA, full-ramp broken case flagged | `results/option1/m2/table5.json` | pass |
-| SPM with the six cells swapped in, worst delay change: script A 0.0129 ns (1.649%), script B 0.0043 ns (0.562%) | `results/option1/m2/table5.json` | pass |
-| Test cells generated, verified and simulated (19 of 19, the extra one being the stack nor3) | `results/option1/m2/test_cells.csv`, `cells/` | pass |
-| Agent (codex-cli:gpt-5.6-sol effort=high) and its fixed-choice version on the test cells: agent runs passing 18 of 18, fixed 17 of 18 | `results/option1/m2/agent_vs_fixed.csv`, `ai/runs/` | pass |
-<!-- o1-m2:end -->
+## M2 source files
 
-## 7. Tests
-`make test` runs every test. Each check has a broken case it must reject:
-
-| Check | Broken case |
-|---|---|
-| Cut truth-table check | `tests/broken/wrong_truth_table.json`: a real cpu8 cut with one flipped bit |
-| Redundancy check | `tests/broken/hd_cell_as_candidate.json`: HD's a21oi, renamed and reordered, must be Exists |
-| Liberty reader | `tests/broken/invalid_function.lib`: an unknown operator must be rejected |
-| Environment check | `tests/broken/missing_given/`: `dd2 check` must fail and name the missing files |
-| Appendix A validator | requests with a wrong truth table, 5 inputs, a bad name or sizing (`tests/contract/test_interface.py`) |
-| Agent policy | writes into `tests/broken/`, `given/`, `src/`, `results/`, malformed run IDs, invalid arguments, unknown tools (`tests/unit/test_agent.py`) |
-| Restructured AIG equivalence | proposed: `tests/broken_proposed/nonequivalent_restructured.aig` must fail ABC `cec` |
-| Liberty rejected by Yosys | proposed: `tests/broken_proposed/yosys_rejects.lib` (handout 9.1) |
-| Expression semantics | three mixed-operator functions are compared with Yosys `eval` (`tests/integration/test_precedence.py`) |
-| Option 1 network check | a deleted pull-up (floating Y) and a VPWR-VGND short (`tests/unit/test_cellgen_network.py`) |
-| Option 1 layer check | hvtp removed, npc removed (`tests/unit/test_cellgen_layers.py`) |
-| Option 1 DRC | gate A moved 0.08 um towards B: poly.2 must fire (`tests/integration/test_cellgen_broken.py`) |
-| Option 1 LVS | wrong NMOS width; inputs swapped on every gate; series order swapped (all must mismatch) |
-| Option 1 RC-LVS | one wrong connection in the RC netlist, and a net opened by removing its resistors, must mismatch (`tests/integration/test_cellgen_broken.py`) |
-| Option 1 abutment | the row without its tap must fail nwell.4 |
-| Option 1 comparison with HD | a moved frame, a met1 wire, a wrong pin layer (`tests/unit/test_cellgen_compare.py`) |
-| Option 1 generator self-check | a contact that is not square stops the layout (`tests/unit/test_cellgen_stages.py`) |
-| Option 1 SA and SB | a device with no geometry is an error (`tests/unit/test_cellgen_stress.py`) |
-| Option 1 characterizer | tables indexed by the full ramp must be flagged (Table 5, `results/option1/m2/table5.json`) |
-| Option 1 agent decisions | every forbidden action, malformed replies and repeated settings are refused; a failed cell cannot become a pass; the cost limit stops a run (`tests/unit/test_agent_graph.py`) |
-| Option 1 transistor-level simulation | one pull-up deleted from the extracted netlist (handout 4.2) |
-| Option 1 model-level simulation | a Verilog model with one wrong truth-table row (handout 4.2) |
-| Request reader | a truth table that disagrees with the expression; 5 inputs; an unknown operator |
-
-`tests/broken/SHA256SUMS` makes any edit to a broken case fail the suite.
-
-## 8. Checks and limits of Option 2
-
-Every cut is checked against exhaustive cut simulation. Redundancy compares against the full HD combinational
-library. New candidate stages have at most three transistors in series; native HD calibration permits
-four-stack cells. Cost features describe explicit realizations, not extracted HD transistor counts. The fitted
-model covers HD x1 cells with up to four inputs and reports held-out error.
-
-ABC CEC checks RTL-derived gold against the mapped circuits with named state cutpoints; a separate bounded Yosys
-induction attempt is diagnostic. Tutorial GLS runs the original testbenches with functional models from the exact
-mapping Liberty: zero-delay functional simulation, without SDF or timing checks. M1 reference numbers and M2
-newer-tool numbers are distinct experiments.
-
-## 9. AI use
-AGENTS.md · ai/use_log.md · ai/mistakes_log.md · ai/runs/ · report/ai_report.pdf (at submission)
-
-## 10. Limitations
-- Table 1 and the handout's AIG AND counts reproduce exactly only with Linux Yosys 0.33
-  (`make m1-docker`). Host Yosys 0.70 differs by up to 4.5%, and the macOS/WebAssembly builds of 0.33
-  also differ on script A, because ABC's results depend on the platform (research D-2).
-- Table 4, row "New, one stage, at most 3 in series and 12 transistors": we measure 6, the
-  handout says 5. The six functions, with their networks, are in `TA_M2/TABLE4_CLARIFICATION.md`; the
-  question is open with the TA.
-- Option 2's M2 areas use estimated cells, and the new cells' timing and capacitance are placeholders:
-  OpenSTA gives pre-layout comparisons. Real Option 1 cells replace them in the Option 3 loop.
-- The Option 1 agent reaches GPT-5.6 Sol through Codex CLI (`agent/dd2_agent/codex_cli.py`), with every
-  tool off and any tool use refused, because the instructor has not named a provider (research Q-2). The
-  overview allows an API key or a local model and forbids running inside an interactive coding
-  assistant, so a group member should confirm this headless use with the TA.
-- Option 1 has no Liberty for the generated cells yet, no response writer and no round trip (cp3); the
-  characterizer exists and has passed Table 5, and `make o1-m2` uses it for Table 4's timing row.
-- Several generated cells are wider than HD's. HD jogs its poly stripes and widens npc locally; the
-  generator keeps straight stripes and the frame's npc band. `results/option1/m2/table4_notes.md` and
-  `test_vs_hd.csv` list them.
-- The RC netlists come from `extresist simplify off`, because Magic otherwise drops the resistors of every
-  net that is small next to a transistor. `eda.count_caps_once` removes the substrate capacitance that
-  extresist then writes twice. Input capacitance is measured between the Liberty's slew thresholds at
-  the middle of the table; the shipped Liberty does not say how its values were measured.
-- The characterizer picks an arc's slowest side input once, by delay at the middle of its table.
-- met1 appears inside a multi-stage cell only after every li1 attempt failed, within a bounded search:
-  a wider li1-only layout may exist beyond it. `results/option1/m2/test_cells.csv` names those nets.
-- The layout search is exhaustive only within its budget, so a function given at the demo can fail to
-  route. The cell then fails its check and the report names the nets.
-- The PDK's HD library had lost its gds, spice, cdl, lef, mag and maglef views. They were restored
-  from the identical ciel release (all 894 files byte-identical to it); `make check` now requires
-  them. A group member should confirm this with ciel.
-- The course image reports Netgen 1.5.132 although the student-pack recipe checks out tag 1.5.133.
-- Two broken cases in `tests/broken_proposed/` are exercised by the tests but not yet moved into
-  `tests/broken/` (that move and the checksum update are left to a group member).
-
-## 11. Final milestone
-
-Option 2: real generator cells from Option 1, greedy final selection, real-area reruns, the cell-by-cell curve, the
-30% sensitivity experiment. Option 1: every test cell characterized with its Liberty cell, Verilog model and
-response, the round trip, and a small design mapped, simulated and timed. Both: final technical and AI reports, and
-the full unseen-input demo.
-
-## 12. Third-party files
-- `given/` (linked, not copied): the course student pack, including the designs, each under
-  its own licence notice (BSD, GPL-2, LGPL-2.1 or the author's own).
-- `docs/interface/*_example.json`: from the course `repo_template`.
-- `tests/broken/wrong_truth_table.aig`: generated by Yosys from the course design `cpu8.v`.
-- SKY130 PDK (Apache-2.0), used through the `pdk` link, never copied.
+- `src/dd2m2/pipeline.py`: orchestrates the run.
+- `cost.py`: costs proposed implementations, fits the regression and predicts area.
+- `areamodel.py`: collects HD calibration data.
+- `candidates.py`, `cones.py`: redundancy/ranking/requests and reclaimable mapped logic.
+- `library.py`: writes the extended Liberty.
+- `measure.py`, `evaluate.py`: baseline/extended runs, Yosys/ABC checks and OpenSTA.
+- `tutorials.py`: tutorial discovery and original-bench RTL/GLS.
+- `report.py`: plots, readiness, summaries and the TA meeting copies.
+- `flow.py`: preserves the old public function names after the module split.

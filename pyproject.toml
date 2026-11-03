@@ -1,7 +1,7 @@
 [project]
 name = "dd2"
 version = "0.1.0"
-description = "DD2 Project 1, Option 3: find functions worth adding to SKY130 HD (Option 2) and build them as verified cells (Option 1)"
+description = "DD2 Project 1, Option 2: find functions worth adding to SKY130 HD and measure custom-cell savings"
 requires-python = ">=3.11"
 dependencies = ["numpy>=1.26,<3", "matplotlib>=3.8,<4"]
 

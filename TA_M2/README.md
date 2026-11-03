@@ -14,7 +14,7 @@ See [the clarification and six examples](TABLE4_CLARIFICATION.md).
 - CEC: 32/32 pass.
 - OpenSTA: 32/32 pass.
 - Tutorial simulations: 10/10 pass.
-- Tests: 101 passed in 51.30s. See [saved test log](validation/tests.log).
+- Tests: 101 passed in 47.51s. See [saved test log](validation/tests.log).
 
 ## Measured best-of-both area
 
