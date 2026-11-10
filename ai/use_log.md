@@ -156,3 +156,9 @@ before-and-after chart of full-AIG node and cut counts.
 Codex packaged the team's supplied technical report PDF with the saved-library
 demo, checked the README against the course startup requirements and prepared
 the integration of the review branch with the existing main history.
+
+### Technical report cover revision, 2026-11-10
+
+At Omar’s request, Codex added the tested commit and a link to the final
+submission tag on the technical report cover. The experimental evidence
+and report body were preserved.
