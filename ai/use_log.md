@@ -122,3 +122,10 @@ baseline records, mapped netlists, CEC logs, OpenSTA logs and tutorial
 simulation logs are the evidence for the results. The original input
 toolchain remains external. Model-call counts and per-task charges were not
 recorded for the interactive work.
+
+### AI report update, 2026-11-10
+
+Omar supplied the ChatGPT Plus transaction record. Codex added the
+documented monthly fee and checked the M3 comparison against the saved
+requests, generator records and mapping tables. The reported estimated
+results use the larger best-of-all sweep. No measured result was changed.

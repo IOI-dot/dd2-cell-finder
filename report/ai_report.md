@@ -26,7 +26,7 @@ The original AI records are `ai/use_log.md` and `ai/mistakes_log.md`. Technical 
 
 ## Models, settings and cost
 
-The early use log identifies Codex / GPT-5 and Claude Code / Claude Opus 5.5. These names reproduce the session labels written in the log. The later Option 2 work used interactive ChatGPT/Codex sessions. Exact later model identifiers, model settings, token counts and per-task charges were not captured in the project records. No reliable monetary total can be derived from the available evidence. Any subscription or reimbursed charge belongs in the team's accounting only if a billing record supports the allocation. The submitted workflow incurs no model-call cost when executed.
+The early use log identifies Codex / GPT-5 and Claude Code / Claude Opus 5.5. These names reproduce the session labels written in the log. The later Option 2 work used interactive ChatGPT/Codex sessions. ChatGPT Plus cost **EGP 999.99 per month**, as shown by the October 16, 2026 payment in the account's billing history. The subscription covered general use. The portion attributable to DD2, any separate per-task charges, exact later model identifiers, model settings and token counts were not recorded. The submitted workflow incurs no model-call cost when executed.
 
 Yosys and ABC synthesized, mapped and checked equivalence. OpenSTA measured delay, Icarus Verilog ran the tutorial simulations, and CellWeaver used the physical and SPICE toolchain to produce characterized Liberty. These tools supplied measurements and verdicts independently of the assistant.
 
@@ -82,9 +82,11 @@ After the WSL restart, the assistant's command resolved system Yosys 0.33. That 
 
 ## A decision the team keeps
 
-We keep the decision about whether the characterized cells are worth adding. A small area change alone is insufficient evidence of adoption. The check is to compare matched baselines, verify the mapped designs, and count the requested cell names in the resulting netlists. The estimated experiment shows 214 new-cell instances across its mapping rows. The real experiment shows zero. The real library still reduced the required-set area by 0.174% through changes in how ABC combined existing gates. That distinction determines how the result is reported.
+The team decides whether the characterized cells are worth adding. We compared the ten requests from the larger best-of-all greedy sweep (`estimated-best`) with the same ten cells in characterized CellWeaver Liberty, using matched baselines. The earlier first-improvement sweep was exploratory.
 
-**Evidence:** the estimated and real `table5_*.csv` and `best_of_both_*.csv` under `results/m3/`.
+Best-of-A/B area savings over the six required benchmarks fell from **0.457% estimated** to **0.174% with characterized Liberty**. All ten measured cell areas exceeded their estimates. Across all 20 mapping rows, new-cell instances fell from **214 to zero**. The real saving came from ABC remapping existing HD gates. The team checked the netlists before attributing any saving to the new cells.
+
+**Evidence.** `results/m3/estimated-best/` and `results/m3/real/` contain the Table 5 and best-of-A/B CSVs. The real run records cell areas in `generator_cells.json`.
 
 \newpage
 
