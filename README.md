@@ -1,4 +1,4 @@
-# GB4 · Finding Cells Worth Adding
+# GB4 - Finding Cells Worth Adding
 
 ## 1. Group
 
