@@ -129,3 +129,12 @@ Omar supplied the ChatGPT Plus transaction record. Codex added the
 documented monthly fee and checked the M3 comparison against the saved
 requests, generator records and mapping tables. The reported estimated
 results use the larger best-of-all sweep. No measured result was changed.
+
+### Report PDF repository test, 2026-11-10
+
+The clean WSL rehearsal passed the environment check and 105 tests. The
+repository hygiene test failed because it rejected the required AI report
+PDF. At Omar's request, Codex narrowed the PDF restriction to allow the
+two report paths. The EDA checks, frozen fixtures and other tracked-file
+restrictions were preserved. The targeted rehearsal checked that the two
+report paths pass and an unrelated tracked PDF still fails.

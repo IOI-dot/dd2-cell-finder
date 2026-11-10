@@ -26,7 +26,8 @@ def test_broken_cases_match_their_checksums():
 
 def test_inputs_not_tracked():
     tracked = subprocess.run(["git", "ls-files"], capture_output=True, text=True, cwd=paths.ROOT).stdout
+    report_pdfs = {"report/ai_report.pdf", "report/report.pdf"}
     bad = [f for f in tracked.splitlines()
            if f.startswith(("DD2_Project1_student_pack/", "given/", "pdk/", "references/", "build/"))
-           or f.endswith(".pdf")]
+           or (f.endswith(".pdf") and f not in report_pdfs)]
     assert not bad, bad[:5]

@@ -117,9 +117,8 @@ and timing. The negative cases include a wrong truth table, an HD function
 that must classify as Exists, invalid Liberty, and a nonequivalent AIG.
 The two proposed mapping fixtures are exercised by the default suite.
 The original frozen fixture files and their checksums are preserved.
-The existing Git hygiene test also rejects the course-required PDFs.
-A group member must narrow that legacy rule to allow exactly
-`report/report.pdf` and `report/ai_report.pdf` before the final clean-checkout test.
+The Git hygiene test allows the two required report PDFs,
+`report/report.pdf` and `report/ai_report.pdf`, and rejects other tracked PDFs.
 The published curves are PNG files.
 
 ## 8. AI use
