@@ -1,1 +1,0 @@
-{"cell": "web_cell_r2", "status": "fail", "failed": ["lvs", "ports", "rc_lvs", "route", "spice"]}

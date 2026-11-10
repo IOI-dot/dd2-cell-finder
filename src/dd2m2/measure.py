@@ -9,10 +9,10 @@ from . import evaluate, tutorials
 from .tables import write_csv
 
 
-def baseline(names, out):
+def baseline(names, out, *, resolve=tutorials.resolve):
     rows = []
     for name in names:
-        d, src = tutorials.resolve(name)
+        d, src = resolve(name)
         for script in mapping.SCRIPTS:
             dest = out / "mapping" / name / "baseline" / script
             r = evaluate.map_design(d, src, paths.given() / "hd_reduced.lib", script, dest)
@@ -23,13 +23,13 @@ def baseline(names, out):
     return rows
 
 
-def measure(names, out, lib, reqs):
+def measure(names, out, lib, reqs, *, resolve=tutorials.resolve, label="estimated"):
     rows = []
     base = json.loads((out / "baseline_mappings.json").read_text())
     lookup = {(r["design"], r["script"]): r for r in base}
     new_names = {r["name"] for r in reqs}
     for name in names:
-        d, src = tutorials.resolve(name)
+        d, src = resolve(name)
         for script in mapping.SCRIPTS:
             dest = out / "mapping" / name / "extended" / script
             r = evaluate.map_design(d, src, lib, script, dest)
@@ -45,7 +45,7 @@ def measure(names, out, lib, reqs):
                     script=script,
                     baseline_um2=b["area_um2"],
                     extended_um2=r["area_um2"],
-                    reduction_pct=100 * (b["area_um2"] - r["area_um2"]) / b["area_um2"],
+                    reduction_pct=100 * (b["area_um2"] - r["area_um2"]) / b["area_um2"] if b["area_um2"] else None,
                     new_cell_instances=instances,
                     baseline_equivalence=b["equivalence"],
                     extended_equivalence=eq["status"],
@@ -72,7 +72,7 @@ def measure(names, out, lib, reqs):
                 eq["status"],
                 flush=True,
             )
-    write_csv(out / "table5_estimated.csv", rows)
+    write_csv(out / f"table5_{label}.csv", rows)
     best = []
     for name in names:
         ds = [r for r in rows if r["design"] == name]
@@ -84,10 +84,10 @@ def measure(names, out, lib, reqs):
                 baseline_best_um2=b,
                 extended_best_um2=e,
                 saving_um2=b - e,
-                reduction_pct=100 * (b - e) / b,
+                reduction_pct=100 * (b - e) / b if b else None,
             )
         )
-    required_names = {d.name for d in designs.required()}
+    required_names = set(names) & {d.name for d in designs.required()} or set(names)
     b = sum(r["baseline_best_um2"] for r in best if r["design"] in required_names)
     e = sum(r["extended_best_um2"] for r in best if r["design"] in required_names)
     best.append(
@@ -96,8 +96,8 @@ def measure(names, out, lib, reqs):
             baseline_best_um2=b,
             extended_best_um2=e,
             saving_um2=b - e,
-            reduction_pct=100 * (b - e) / b,
+            reduction_pct=100 * (b - e) / b if b else None,
         )
     )
-    write_csv(out / "best_of_both_estimated.csv", best)
+    write_csv(out / f"best_of_both_{label}.csv", best)
     return rows, best

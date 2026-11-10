@@ -7,7 +7,7 @@
 | Cuts checked | pass |
 | HD class table | pass |
 | HD cells recognized | pass |
-| All Table 4 counts match | OPEN / FAIL |
+| Table 4 resolved | pass |
 
 Checked cuts: 423730.
-The original six-versus-five discrepancy remains visible; no checkpoint acceptance is inferred.
+Table 4: TA accepted recorded difference. The original counts are preserved.

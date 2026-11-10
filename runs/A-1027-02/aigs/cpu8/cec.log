@@ -1,3 +1,0 @@
-$ yosys-abc -c cec runs/A-1027-02/aigs/cpu8/synth.aig runs/A-1027-02/aigs/cpu8/restructured.aig
-======== ABC command line "cec runs/A-1027-02/aigs/cpu8/synth.aig runs/A-1027-02/aigs/cpu8/restructured.aig"
-Networks are equivalent.  Time =     0.07 sec

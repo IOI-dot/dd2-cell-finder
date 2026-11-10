@@ -1,0 +1,11 @@
+$ vvp /home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/tutorial_simulations/spm/extended/B/simulation.vvp
+VCD info: dumpfile spm.vcd opened for output.
+SPM_tb: TCLK=1.2500 ns (800.0 MHz)  TIN=0.40 ns  TOUT=0.40 ns
+  ok: 3 x 5 = 15
+  ok: -7 x 9 = -63
+  ok: 12345 x -6789 = -83810205
+  ok: -2 x -3 = 6
+  ok: 0 x 1234 = 0
+  ok: 2147483647 x 2 = 4294967294
+PASS: SPM behaves as a signed 32x32 multiplier
+/home/hank2b/dd2-inputs/tutorials/spm/SPM_tb.v:98: $finish called at 495225 (1ps)

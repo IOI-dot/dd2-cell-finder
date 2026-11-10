@@ -1,0 +1,13 @@
+{
+  "compile_exit_code": 0,
+  "inputs": {
+    "results/m3/estimated-best/sensitivity/hd_extended_70pct.lib": "770d4a2489f77d602a6a4e521415911645a6fdf8f0dc56544e5891480571c2f6",
+    "results/m3/estimated-best/sensitivity/mapping/spm/extended/A/mapped.v": "ab74548cb731cbfb299597185fe5bd5d3168d30e2baa80ba82cfe2026989bbe2",
+    "tutorials/spm/SPM_tb.v": "b4d2496bd7e422565070933a89adce84bdef6b38c2e62fbcb435aa43989f7c97"
+  },
+  "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-739-gd95f2401b-dirty)",
+  "pass_marker": "PASS: SPM behaves as a signed 32x32 multiplier",
+  "scope": "zero-delay functional GLS from exact Liberty",
+  "simulation_exit_code": 0,
+  "status": "pass"
+}

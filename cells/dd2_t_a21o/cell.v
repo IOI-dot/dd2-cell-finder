@@ -1,7 +1,0 @@
-// dd2_t_a21o: functional model generated from the truth table (A = bit 0)
-module dd2_t_a21o (A, B, C, Y);
-  input A, B, C;
-  output Y;
-  wire [7:0] T = 8'hF8;
-  assign Y = T[{C, B, A}];
-endmodule

@@ -1,0 +1,984 @@
+{
+  "cell": "dd2_g4__n4_1bff_1",
+  "width_um": 27.6,
+  "height_um": 2.72,
+  "height_rows": 1,
+  "site_count": 60,
+  "function": "((~(D) | (~(A) & ~(B))) | (A & ~(C)))",
+  "ports": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "VGND",
+    "VNB",
+    "VPB",
+    "VPWR",
+    "Y"
+  ],
+  "transistor_count": 12,
+  "devices": [
+    {
+      "name": "M0",
+      "kind": "n",
+      "gate": "A",
+      "left": "_net1",
+      "right": "VGND",
+      "width": 420
+    },
+    {
+      "name": "M1",
+      "kind": "p",
+      "gate": "A",
+      "left": "_net1",
+      "right": "VPWR",
+      "width": 1000
+    },
+    {
+      "name": "M2",
+      "kind": "n",
+      "gate": "D",
+      "left": "Y",
+      "right": "_net3",
+      "width": 420
+    },
+    {
+      "name": "M3",
+      "kind": "n",
+      "gate": "A",
+      "left": "_net3",
+      "right": "_net2",
+      "width": 420
+    },
+    {
+      "name": "M4",
+      "kind": "n",
+      "gate": "B",
+      "left": "_net3",
+      "right": "_net2",
+      "width": 420
+    },
+    {
+      "name": "M5",
+      "kind": "n",
+      "gate": "_net1",
+      "left": "_net2",
+      "right": "VGND",
+      "width": 420
+    },
+    {
+      "name": "M6",
+      "kind": "n",
+      "gate": "C",
+      "left": "_net2",
+      "right": "VGND",
+      "width": 420
+    },
+    {
+      "name": "M7",
+      "kind": "p",
+      "gate": "D",
+      "left": "Y",
+      "right": "VPWR",
+      "width": 1000
+    },
+    {
+      "name": "M8",
+      "kind": "p",
+      "gate": "A",
+      "left": "Y",
+      "right": "_net4",
+      "width": 1000
+    },
+    {
+      "name": "M9",
+      "kind": "p",
+      "gate": "B",
+      "left": "_net4",
+      "right": "VPWR",
+      "width": 1000
+    },
+    {
+      "name": "M10",
+      "kind": "p",
+      "gate": "_net1",
+      "left": "Y",
+      "right": "_net5",
+      "width": 1000
+    },
+    {
+      "name": "M11",
+      "kind": "p",
+      "gate": "C",
+      "left": "_net5",
+      "right": "VPWR",
+      "width": 1000
+    }
+  ],
+  "sizing": "Base Wn=0.42, Wp=1 um; exact parallel folding; no stack compensation",
+  "reference_spice": null,
+  "reference_cell": null,
+  "routing": {
+    "A": [
+      "met3",
+      340
+    ],
+    "_net1": [
+      "met1",
+      920
+    ],
+    "D": [
+      "met3",
+      1020
+    ],
+    "Y": [
+      "met1",
+      1360
+    ],
+    "_net3": [
+      "met1",
+      1800
+    ],
+    "_net2": [
+      "met3",
+      1700
+    ],
+    "B": [
+      "met3",
+      2380
+    ],
+    "C": [
+      "met1",
+      1800
+    ],
+    "_net4": [
+      "met3",
+      340
+    ],
+    "_net5": [
+      "met1",
+      920
+    ]
+  },
+  "routing_spans_nm": {
+    "A": [
+      185,
+      18915
+    ],
+    "B": [
+      9385,
+      21215
+    ],
+    "C": [
+      13985,
+      25815
+    ],
+    "D": [
+      4785,
+      16615
+    ],
+    "Y": [
+      5360,
+      24090
+    ],
+    "_net1": [
+      760,
+      23515
+    ],
+    "_net2": [
+      8350,
+      14890
+    ],
+    "_net3": [
+      6050,
+      10290
+    ],
+    "_net4": [
+      19850,
+      21790
+    ],
+    "_net5": [
+      24450,
+      26390
+    ]
+  },
+  "accesses": [
+    {
+      "net": "A",
+      "x_nm": 350,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "_net1",
+      "x_nm": 925,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    },
+    {
+      "net": "A",
+      "x_nm": 2650,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "_net1",
+      "x_nm": 3225,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    },
+    {
+      "net": "D",
+      "x_nm": 4950,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1020,
+      "row": 0
+    },
+    {
+      "net": "Y",
+      "x_nm": 5525,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1360,
+      "row": 0
+    },
+    {
+      "net": "_net3",
+      "x_nm": 6215,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1800,
+      "row": 0
+    },
+    {
+      "net": "A",
+      "x_nm": 7250,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "_net3",
+      "x_nm": 7825,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1800,
+      "row": 0
+    },
+    {
+      "net": "_net2",
+      "x_nm": 8515,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1700,
+      "row": 0
+    },
+    {
+      "net": "B",
+      "x_nm": 9550,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 2380,
+      "row": 0
+    },
+    {
+      "net": "_net3",
+      "x_nm": 10125,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1800,
+      "row": 0
+    },
+    {
+      "net": "_net2",
+      "x_nm": 10815,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1700,
+      "row": 0
+    },
+    {
+      "net": "_net1",
+      "x_nm": 11850,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    },
+    {
+      "net": "_net2",
+      "x_nm": 12425,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1700,
+      "row": 0
+    },
+    {
+      "net": "C",
+      "x_nm": 14150,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1800,
+      "row": 0
+    },
+    {
+      "net": "_net2",
+      "x_nm": 14725,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1700,
+      "row": 0
+    },
+    {
+      "net": "D",
+      "x_nm": 16450,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 1020,
+      "row": 0
+    },
+    {
+      "net": "Y",
+      "x_nm": 17025,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 1360,
+      "row": 0
+    },
+    {
+      "net": "A",
+      "x_nm": 18750,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "Y",
+      "x_nm": 19325,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 1360,
+      "row": 0
+    },
+    {
+      "net": "_net4",
+      "x_nm": 20015,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "B",
+      "x_nm": 21050,
+      "anchor_y_nm": 545,
+      "bus_layer": "met3",
+      "bus_y_nm": 2380,
+      "row": 0
+    },
+    {
+      "net": "_net4",
+      "x_nm": 21625,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met3",
+      "bus_y_nm": 340,
+      "row": 0
+    },
+    {
+      "net": "_net1",
+      "x_nm": 23350,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    },
+    {
+      "net": "Y",
+      "x_nm": 23925,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 1360,
+      "row": 0
+    },
+    {
+      "net": "_net5",
+      "x_nm": 24615,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    },
+    {
+      "net": "C",
+      "x_nm": 25650,
+      "anchor_y_nm": 545,
+      "bus_layer": "met1",
+      "bus_y_nm": 1800,
+      "row": 0
+    },
+    {
+      "net": "_net5",
+      "x_nm": 26225,
+      "anchor_y_nm": 2175,
+      "bus_layer": "met1",
+      "bus_y_nm": 920,
+      "row": 0
+    }
+  ],
+  "truth_table": [
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    }
+  ],
+  "pdk": {
+    "root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "resolved_root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "sha256": {
+      "libs.tech/magic/sky130A.tech": "fdda5b509d742730513f41ed8cf7394cc6df60b0a584a4559fc10cf42cf676c5",
+      "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "5de46c6f7c2cf82599b93d30a6459465f770f63c85b36182c672782219938519",
+      "libs.tech/netgen/sky130A_setup.tcl": "7a33f3f54fab57a9d9b0887ac7b7b64ce6c454110e8b7f01f3cfb90a1282dc94",
+      "libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag": "a035f7780292d69577c9e53b4c7234334eb4cb81f56f75227a071abad5a009dd",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__tt.pm3.spice": "459eca963a134574cf7c842ad6d3814e7e0752bfb5de8e581c2f483534b5ad06",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8_hvt__tt.pm3.spice": "3a1be2e1c50d710bdb951d414ecca711113a8c3fe8bcc1be65fb16c6fe004e83"
+    }
+  },
+  "architecture": "Separate diffusion islands; 7 reusable horizontal tracks on M1/M3 with unique M2 access columns.",
+  "lef_signal_port_policy": "Complete connected GDS conductors on each existing pin layer, including via pads; no bounding-box fill",
+  "body_connection": "External HD tap cells required; no internal taps",
+  "checks": {
+    "drc": {
+      "status": "pass",
+      "standalone_error_count": 13,
+      "style": "drc(full)",
+      "deck": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.tech",
+      "command": [
+        "/usr/local/bin/magic",
+        "-dnull",
+        "-noconsole",
+        "-rcfile",
+        "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/verify.tcl"
+      ],
+      "log": "magic.log",
+      "errors": "drc-errors.txt",
+      "standalone_local_error_count": 0,
+      "scope": "Local geometry plus full DRC in four tap-equipped HD row contexts; standalone tap-distance findings retained"
+    },
+    "lvs": {
+      "status": "pass",
+      "command": [
+        "/usr/local/bin/netgen",
+        "-batch",
+        "lvs",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/dd2_g4__n4_1bff_1.extracted.spice dd2_g4__n4_1bff_1",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/dd2_g4__n4_1bff_1.spice dd2_g4__n4_1bff_1",
+        "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/netgen/sky130A_setup.tcl",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/lvs.log",
+        "-json"
+      ],
+      "log": "lvs.log"
+    },
+    "abutment": {
+      "status": "pass",
+      "cases": [
+        {
+          "orientation": "R0",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/abut_R0.tcl"
+          ],
+          "log": "abut_R0.log",
+          "errors": "abut_R0.errors"
+        },
+        {
+          "orientation": "MX",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/abut_MX.tcl"
+          ],
+          "log": "abut_MX.log",
+          "errors": "abut_MX.errors"
+        },
+        {
+          "orientation": "MY",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/abut_MY.tcl"
+          ],
+          "log": "abut_MY.log",
+          "errors": "abut_MY.errors"
+        },
+        {
+          "orientation": "R180",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/abut_R180.tcl"
+          ],
+          "log": "abut_R180.log",
+          "errors": "abut_R180.errors"
+        }
+      ],
+      "tap_pitch_um_in_neighbor_rows": 4.6,
+      "reference_cells": [
+        "nand2_1",
+        "inv_1",
+        "fill_1",
+        "tapvpwrvgnd_1"
+      ]
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "router_pin_access": {
+      "status": "not_run"
+    },
+    "characterization": {
+      "status": "not_run"
+    },
+    "switch_level": {
+      "status": "pass",
+      "vectors": 16
+    },
+    "geometry": {
+      "status": "pass",
+      "errors": [],
+      "channel_counts": {
+        "n": 6,
+        "p": 6
+      },
+      "grid_nm": 5,
+      "scope": "GDS placement boundary, polygon grid, and physical channel counts/W/L; DRC/LVS remain required"
+    },
+    "stress_extraction": {
+      "status": "pass",
+      "summary": "stress/summary.json"
+    },
+    "rc_extraction": {
+      "status": "pass",
+      "summary": "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/rc_extraction/summary.json",
+      "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance"
+    },
+    "simulation_rc": {
+      "source_sha256": "c167c0d1e99138825df097681632727b90354adea64ffe56081c15ff494b12fe",
+      "status": "pass",
+      "command": [
+        "/usr/local/bin/ngspice",
+        "-b",
+        "logic-smoke.spice"
+      ],
+      "vectors": [
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79983
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.80001
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79997
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 8.556782e-08,
+          "transient_volts": 0.00031538
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.80003
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 6.943897e-08,
+          "transient_volts": 0.000288232
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79954
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 8.556167e-08,
+          "transient_volts": 0.000227202
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79955
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.80002
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 6.944708e-08,
+          "transient_volts": 0.00019889
+        }
+      ],
+      "conditions": "TT, 25 C, 1.8 V, 10 fF; exhaustive DC and 10 ns/vector transient with 50 ps ramps, sampled after 5 ns",
+      "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance"
+    },
+    "characterization_rc": {
+      "status": "pass",
+      "summary": "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/characterization_rc/summary.json",
+      "scope": "Conditional NLDM, effective input capacitance and state leakage; Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance; no internal-power tables",
+      "corners": {
+        "tt": {
+          "status": "pass",
+          "liberty": "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/characterization_rc/tt/dd2_g4__n4_1bff_1.lib",
+          "sha256": "1249aa67ecb112d689565847a2094bc69f6a57903afdfce7444c12d447d0bc39",
+          "conditional_arcs": 10,
+          "power_groups": 0,
+          "dc_vectors": 16,
+          "reader": {
+            "status": "pass",
+            "log": "/home/hank2b/tools/cellweaver-main/build/gb4-isolated-check/dd2_g4__n4_1bff_1/characterization_rc/tt/sta.log"
+          }
+        }
+      }
+    }
+  },
+  "layout_backend": "isolated",
+  "cross_row_bridges_nm": {},
+  "routing_rows": {
+    "A": [
+      0
+    ],
+    "B": [
+      0
+    ],
+    "C": [
+      0
+    ],
+    "D": [
+      0
+    ],
+    "Y": [
+      0
+    ],
+    "_net1": [
+      0
+    ],
+    "_net2": [
+      0
+    ],
+    "_net3": [
+      0
+    ],
+    "_net4": [
+      0
+    ],
+    "_net5": [
+      0
+    ]
+  },
+  "device_columns_per_row": 12,
+  "well_contact_columns_nm": [],
+  "verified_gds_sha256": "611883a28bf192924e652299f11cd2ed8774f79c86c89bc54254dfad36941cd8",
+  "verified_reference_sha256": "79bd03c2fa3fde0919ee9dcfee6b8fe450ab56da325e33dd9c138133a7b516f6",
+  "verified_spec_sha256": "cf0360f0306838e47076f95fac12ba88f50f0d97a8999cdc2b84c13a91560638",
+  "verified_extracted_sha256": "e02c0147d8b38563d530069d68d8fe70000c00ed04b4e1d866a483db5c07192b",
+  "verified_pex_sha256": "cd70eb54dd3253ab9328ee532176b46f03dcff6fb9014fd15fbfa4363af90bb6",
+  "verified_rc_sha256": "c167c0d1e99138825df097681632727b90354adea64ffe56081c15ff494b12fe"
+}

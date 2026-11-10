@@ -1,0 +1,258 @@
+[
+  {
+    "gold_index": 0,
+    "mapped_index": 0,
+    "role": "i",
+    "shared_aliases": [
+      "mp[0]"
+    ]
+  },
+  {
+    "gold_index": 1,
+    "mapped_index": 1,
+    "role": "i",
+    "shared_aliases": [
+      "mp[1]"
+    ]
+  },
+  {
+    "gold_index": 2,
+    "mapped_index": 2,
+    "role": "i",
+    "shared_aliases": [
+      "mp[2]"
+    ]
+  },
+  {
+    "gold_index": 3,
+    "mapped_index": 3,
+    "role": "i",
+    "shared_aliases": [
+      "mp[3]"
+    ]
+  },
+  {
+    "gold_index": 4,
+    "mapped_index": 4,
+    "role": "i",
+    "shared_aliases": [
+      "mp[4]"
+    ]
+  },
+  {
+    "gold_index": 5,
+    "mapped_index": 5,
+    "role": "i",
+    "shared_aliases": [
+      "mp[5]"
+    ]
+  },
+  {
+    "gold_index": 6,
+    "mapped_index": 6,
+    "role": "i",
+    "shared_aliases": [
+      "mp[6]"
+    ]
+  },
+  {
+    "gold_index": 7,
+    "mapped_index": 7,
+    "role": "i",
+    "shared_aliases": [
+      "mp[7]"
+    ]
+  },
+  {
+    "gold_index": 8,
+    "mapped_index": 8,
+    "role": "i",
+    "shared_aliases": [
+      "mc[0]"
+    ]
+  },
+  {
+    "gold_index": 9,
+    "mapped_index": 9,
+    "role": "i",
+    "shared_aliases": [
+      "mc[1]"
+    ]
+  },
+  {
+    "gold_index": 10,
+    "mapped_index": 10,
+    "role": "i",
+    "shared_aliases": [
+      "mc[2]"
+    ]
+  },
+  {
+    "gold_index": 11,
+    "mapped_index": 11,
+    "role": "i",
+    "shared_aliases": [
+      "mc[3]"
+    ]
+  },
+  {
+    "gold_index": 12,
+    "mapped_index": 12,
+    "role": "i",
+    "shared_aliases": [
+      "mc[4]"
+    ]
+  },
+  {
+    "gold_index": 13,
+    "mapped_index": 13,
+    "role": "i",
+    "shared_aliases": [
+      "mc[5]"
+    ]
+  },
+  {
+    "gold_index": 14,
+    "mapped_index": 14,
+    "role": "i",
+    "shared_aliases": [
+      "mc[6]"
+    ]
+  },
+  {
+    "gold_index": 15,
+    "mapped_index": 15,
+    "role": "i",
+    "shared_aliases": [
+      "mc[7]"
+    ]
+  },
+  {
+    "gold_index": 0,
+    "mapped_index": 0,
+    "role": "o",
+    "shared_aliases": [
+      "p[0]"
+    ]
+  },
+  {
+    "gold_index": 1,
+    "mapped_index": 1,
+    "role": "o",
+    "shared_aliases": [
+      "p[1]"
+    ]
+  },
+  {
+    "gold_index": 2,
+    "mapped_index": 2,
+    "role": "o",
+    "shared_aliases": [
+      "p[2]"
+    ]
+  },
+  {
+    "gold_index": 3,
+    "mapped_index": 3,
+    "role": "o",
+    "shared_aliases": [
+      "p[3]"
+    ]
+  },
+  {
+    "gold_index": 4,
+    "mapped_index": 4,
+    "role": "o",
+    "shared_aliases": [
+      "p[4]"
+    ]
+  },
+  {
+    "gold_index": 5,
+    "mapped_index": 5,
+    "role": "o",
+    "shared_aliases": [
+      "p[5]"
+    ]
+  },
+  {
+    "gold_index": 6,
+    "mapped_index": 6,
+    "role": "o",
+    "shared_aliases": [
+      "p[6]"
+    ]
+  },
+  {
+    "gold_index": 7,
+    "mapped_index": 7,
+    "role": "o",
+    "shared_aliases": [
+      "p[7]"
+    ]
+  },
+  {
+    "gold_index": 8,
+    "mapped_index": 8,
+    "role": "o",
+    "shared_aliases": [
+      "p[8]"
+    ]
+  },
+  {
+    "gold_index": 9,
+    "mapped_index": 9,
+    "role": "o",
+    "shared_aliases": [
+      "p[9]"
+    ]
+  },
+  {
+    "gold_index": 10,
+    "mapped_index": 10,
+    "role": "o",
+    "shared_aliases": [
+      "p[10]"
+    ]
+  },
+  {
+    "gold_index": 11,
+    "mapped_index": 11,
+    "role": "o",
+    "shared_aliases": [
+      "p[11]"
+    ]
+  },
+  {
+    "gold_index": 12,
+    "mapped_index": 12,
+    "role": "o",
+    "shared_aliases": [
+      "p[12]"
+    ]
+  },
+  {
+    "gold_index": 13,
+    "mapped_index": 13,
+    "role": "o",
+    "shared_aliases": [
+      "p[13]"
+    ]
+  },
+  {
+    "gold_index": 14,
+    "mapped_index": 14,
+    "role": "o",
+    "shared_aliases": [
+      "p[14]"
+    ]
+  },
+  {
+    "gold_index": 15,
+    "mapped_index": 15,
+    "role": "o",
+    "shared_aliases": [
+      "p[15]"
+    ]
+  }
+]

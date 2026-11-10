@@ -1,2 +1,0 @@
-read_json "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/baseline/A/gate_state_named.json"
-write_aiger -zinit -symbols "/Users/noorelshahidi/DD2Project/results/option3/mapping/risc8/baseline/A/gate.aig"

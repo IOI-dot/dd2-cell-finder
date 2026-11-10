@@ -1,1 +1,0 @@
-{"run": "A-1102-112", "step": 1, "agent": "interpreter", "kind": "model", "model": "codex-cli:gpt-5.6-sol effort=high", "prompt": "prompts/interpreter.md@6732cebc", "tokens_in": 12723, "tokens_out": 43, "decision": "DISPLAY_PREVIEW:  Show the current cell in 3D."}

@@ -1,0 +1,13 @@
+{
+  "compile_exit_code": 0,
+  "inputs": {
+    "results/m3/real/hd_extended_real.lib": "c1381ca5fd3350d4279b2c18048f2b4cded7a8b501c5e7f46192fd74e51d4463",
+    "results/m3/real/mapping/multiplier/extended/A/mapped.v": "23f1629ff521f986d0dad12e607955d7c24fb38bc8db9355e3eb60a811bb7c88",
+    "tutorials/multiplier/mul_exhaustive_tb.v": "d76127b1da53b5e9a1b826912ef7c124b9a69214698abf0f87d2bb008fceebfa"
+  },
+  "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-739-gd95f2401b-dirty)",
+  "pass_marker": "PASS: all 65536 signed input pairs correct",
+  "scope": "zero-delay functional GLS from exact Liberty",
+  "simulation_exit_code": 0,
+  "status": "pass"
+}

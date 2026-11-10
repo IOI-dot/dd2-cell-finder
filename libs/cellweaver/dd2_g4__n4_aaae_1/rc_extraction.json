@@ -1,0 +1,414 @@
+{
+  "status": "pass",
+  "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance",
+  "gds_sha256": "75f8af20a7ee63e0a7ca863a15dfad6b6b5c627ff20850b3c434dbf86815e96e",
+  "pex_sha256": "9bff24713a998395b9d13d59f60033533176cdf461f89041d4f47e8cea0c5f09",
+  "pdk": {
+    "root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "resolved_root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "sha256": {
+      "libs.tech/magic/sky130A.tech": "fdda5b509d742730513f41ed8cf7394cc6df60b0a584a4559fc10cf42cf676c5",
+      "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "5de46c6f7c2cf82599b93d30a6459465f770f63c85b36182c672782219938519",
+      "libs.tech/netgen/sky130A_setup.tcl": "7a33f3f54fab57a9d9b0887ac7b7b64ce6c454110e8b7f01f3cfb90a1282dc94",
+      "libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag": "a035f7780292d69577c9e53b4c7234334eb4cb81f56f75227a071abad5a009dd",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__tt.pm3.spice": "459eca963a134574cf7c842ad6d3814e7e0752bfb5de8e581c2f483534b5ad06",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8_hvt__tt.pm3.spice": "3a1be2e1c50d710bdb951d414ecca711113a8c3fe8bcc1be65fb16c6fe004e83"
+    }
+  },
+  "magic_version": "8.3.684",
+  "audit": {
+    "resistor_count": 60,
+    "capacitor_count": 77,
+    "resistance_range_ohm": [
+      0.0996426,
+      480.12
+    ],
+    "capacitance_matrix": "exactly conserved after R contraction",
+    "device_properties": "exactly conserved after R contraction",
+    "native_capacitance_matrix_absolute_difference_ff": 16.33376,
+    "anchors": {
+      "C": "C",
+      "a_245_47#": "a_245_47.t3",
+      "A": "A",
+      "Y": "Y",
+      "a_1293_199#": "a_1293_199.t2",
+      "a_889_297#": "a_889_297.t1",
+      "B": "B",
+      "VPWR": "VPWR",
+      "a_613_297#": "a_613_297.t1",
+      "VGND": "VGND",
+      "VNB": "VNB",
+      "VPB": "VPB",
+      "a_109_297#": "a_109_297.t1",
+      "D": "D"
+    },
+    "node_origins": {
+      "VGND.n11": "VGND",
+      "Y": "Y",
+      "VGND.n1": "VGND",
+      "a_245_47.n0": "a_245_47#",
+      "a_1293_199.n0": "a_1293_199#",
+      "A.t1": "A",
+      "B": "B",
+      "a_245_47.t1": "a_245_47#",
+      "VGND.n8": "VGND",
+      "a_1293_199.n1": "a_1293_199#",
+      "Y.t2": "Y",
+      "a_109_297.n0": "a_109_297#",
+      "VGND.t1": "VGND",
+      "VNB": "VNB",
+      "VPB": "VPB",
+      "VGND.t3": "VGND",
+      "VGND.n13": "VGND",
+      "VGND.n9": "VGND",
+      "Y.n0": "Y",
+      "VGND.n10": "VGND",
+      "B.t0": "B",
+      "a_613_297.t0": "a_613_297#",
+      "VPWR.n2": "VPWR",
+      "a_245_47.t3": "a_245_47#",
+      "a_245_47.n1": "a_245_47#",
+      "a_1293_199.t1": "a_1293_199#",
+      "Y.t0": "Y",
+      "VGND.n2": "VGND",
+      "a_889_297.t0": "a_889_297#",
+      "VPWR.n0": "VPWR",
+      "VGND.n12": "VGND",
+      "VGND.n4": "VGND",
+      "A.t0": "A",
+      "VGND.t0": "VGND",
+      "VPWR.t3": "VPWR",
+      "C": "C",
+      "VGND.t2": "VGND",
+      "VGND.n5": "VGND",
+      "a_1293_199.t0": "a_1293_199#",
+      "a_889_297.t1": "a_889_297#",
+      "VPWR": "VPWR",
+      "D.t1": "D",
+      "a_1293_199.t2": "a_1293_199#",
+      "a_109_297.t0": "a_109_297#",
+      "VGND.n7": "VGND",
+      "a_109_297.t3": "a_109_297#",
+      "a_109_297.n1": "a_109_297#",
+      "VPWR.t2": "VPWR",
+      "VGND.n3": "VGND",
+      "C.t1": "C",
+      "B.t1": "B",
+      "A": "A",
+      "C.t0": "C",
+      "Y.t1": "Y",
+      "VPWR.t0": "VPWR",
+      "a_109_297.t1": "a_109_297#",
+      "VGND.t4": "VGND",
+      "VGND.n6": "VGND",
+      "a_245_47.t2": "a_245_47#",
+      "a_1293_199.t3": "a_1293_199#",
+      "VPWR.t1": "VPWR",
+      "VGND.n0": "VGND",
+      "a_109_297.t2": "a_109_297#",
+      "a_613_297.t1": "a_613_297#",
+      "VPWR.n1": "VPWR",
+      "VGND": "VGND",
+      "D.t0": "D",
+      "a_245_47.t0": "a_245_47#",
+      "D": "D"
+    },
+    "stress_extraction": {
+      "status": "pass",
+      "scope": "Per-physical-finger GDS LOD; vertical rectangular channels, Manhattan active; BSIM4 effective SA/SB for stepped active; nf=1 sd=0; no device merging",
+      "gds_sha256": "75f8af20a7ee63e0a7ca863a15dfad6b6b5c627ff20850b3c434dbf86815e96e",
+      "ext_sha256": "5563f882170b52aa28fd5ed0736defbcf2d2c4ac36a20d305c7984876399723f",
+      "devices": {
+        "lod_1871_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            9.355,
+            0.23500000000000001,
+            9.505,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 3.75,
+          "sb_um": 0.53,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 3.75,
+              "sb_um": 0.53
+            }
+          ]
+        },
+        "lod_1595_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            7.9750000000000005,
+            0.23500000000000001,
+            8.125,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 2.37,
+          "sb_um": 1.9100000000000001,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 2.37,
+              "sb_um": 1.9100000000000001
+            }
+          ]
+        },
+        "lod_1319_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            6.595,
+            0.23500000000000001,
+            6.745,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.99,
+          "sb_um": 3.29,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.99,
+              "sb_um": 3.29
+            }
+          ]
+        },
+        "lod_767_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            3.835,
+            0.23500000000000001,
+            3.985,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 3.29,
+          "sb_um": 0.99,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 3.29,
+              "sb_um": 0.99
+            }
+          ]
+        },
+        "lod_491_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            2.455,
+            0.23500000000000001,
+            2.605,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 1.9100000000000001,
+          "sb_um": 2.37,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 1.9100000000000001,
+              "sb_um": 2.37
+            }
+          ]
+        },
+        "lod_215_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            1.075,
+            0.23500000000000001,
+            1.225,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.53,
+          "sb_um": 3.75,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.53,
+              "sb_um": 3.75
+            }
+          ]
+        },
+        "lod_1687_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            8.435,
+            1.485,
+            8.585,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 7.8900000000000015,
+          "sb_um": 0.53,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 7.890000000000001,
+              "sb_um": 0.53
+            }
+          ]
+        },
+        "lod_1411_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            7.055,
+            1.485,
+            7.205,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 6.51,
+          "sb_um": 1.91,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 6.51,
+              "sb_um": 1.9100000000000001
+            }
+          ]
+        },
+        "lod_1043_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            5.215,
+            1.485,
+            5.365,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 4.67,
+          "sb_um": 3.7499999999999996,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 4.67,
+              "sb_um": 3.75
+            }
+          ]
+        },
+        "lod_859_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            4.295,
+            1.485,
+            4.445,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 3.7499999999999996,
+          "sb_um": 4.67,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 3.75,
+              "sb_um": 4.67
+            }
+          ]
+        },
+        "lod_583_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            2.915,
+            1.485,
+            3.065,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 2.37,
+          "sb_um": 6.050000000000001,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 2.37,
+              "sb_um": 6.05
+            }
+          ]
+        },
+        "lod_307_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            1.5350000000000001,
+            1.485,
+            1.685,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.99,
+          "sb_um": 7.43,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.99,
+              "sb_um": 7.43
+            }
+          ]
+        }
+      },
+      "view_sha256": {
+        "canonical-native.spice": "86dea6c58ed00e7faeb260d053222b681abd97bc6f6ea89761ccaefeef8f50b0"
+      },
+      "res_ext_sha256": "80610803b5c55372f6a15e29d68f65571d35ae18f72ffee158897435e1da22ee"
+    }
+  },
+  "lvs": "pass",
+  "rc_sha256": "e996edb6a71d0b941921a075c5328b12df5a6197c047616ca0d6c9971a0ab922",
+  "shorted_sha256": "69cea4bcaa6c33a4e4f3664c8ddbb7fe8f9b3a1dad65e8665bd14c0bb04b1829",
+  "command": [
+    "/usr/local/bin/magic",
+    "-dnull",
+    "-noconsole",
+    "-rcfile",
+    "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+    "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_aaae_1/auto/rc_extraction/extract.tcl"
+  ],
+  "settings": {
+    "threshold_milliohm": 0,
+    "minres_milliohm": 0,
+    "mindelay_ps": 0,
+    "simplify": false,
+    "ideal_body_ports": [
+      "VNB",
+      "VPB"
+    ]
+  }
+}

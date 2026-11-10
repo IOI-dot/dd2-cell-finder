@@ -1,4 +1,0 @@
-{"run": "A-1103-55", "step": 1, "agent": "diagnostician", "kind": "tool", "tool": "build_cell", "args": {"expr": "!((C&D) | (A&B&(C|D)))", "name": "a_maj4n_r0", "sizing": "hd", "order_index": 0}, "result": "runs/A-1103-55/cells/a_maj4n_r0/report.json", "exit_code": 0}
-{"run": "A-1103-55", "step": 2, "agent": "diagnostician", "kind": "policy", "tool": "decide", "args": {}, "decision": "stop: passes with no met1 net and no diffusion break"}
-{"run": "A-1103-55", "step": 3, "agent": "explainer", "kind": "model", "model": "codex-cli:gpt-5.6-sol effort=high", "prompt": "prompts/explainer.md@7844e150", "tokens_in": 13474, "tokens_out": 607, "decision": "wrote the report page"}
-{"run": "A-1103-55", "step": 4, "kind": "result", "status": "pass", "checks": "ai/runs/A-1103-55.checks.json"}

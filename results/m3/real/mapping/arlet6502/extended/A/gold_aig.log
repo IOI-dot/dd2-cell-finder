@@ -1,0 +1,35 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/arlet6502/extended/A/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/arlet6502/extended/A/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/real/mapping/arlet6502/extended/A/gold.il
+
+2. Executing ASYNC2SYNC pass.
+Replacing cpu.$auto$ff.cc:337:slice$1778 ($_DFF_PP0_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[4], Q=\state [4]
+Replacing cpu.$auto$ff.cc:337:slice$1777 ($_DFF_PP1_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[3], Q=\state [3]
+Replacing cpu.$auto$ff.cc:337:slice$1776 ($_DFF_PP0_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[2], Q=\state [2]
+Replacing cpu.$auto$ff.cc:337:slice$1775 ($_DFF_PP0_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[1], Q=\state [1]
+Replacing cpu.$auto$ff.cc:337:slice$1774 ($_DFF_PP0_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[0], Q=\state [0]
+Replacing cpu.$auto$ff.cc:337:slice$1779 ($_DFF_PP0_): ARST=\reset, D=$abc$10050$auto$fsm_map.cc:170:map_fsm$851[5], Q=\state [5]
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module cpu: replaced 1359 cells with 5000 new cells, skipped 673 cells.
+  replaced 8 cell types:
+     103 $_ANDNOT_
+     280 $_MUX_
+     487 $_NAND_
+     177 $_NOR_
+      48 $_ORNOT_
+     225 $_OR_
+      12 $_XNOR_
+      27 $_XOR_
+  not replaced 4 cell types:
+     457 $_AND_
+     143 $_DFF_P_
+      72 $_NOT_
+       1 $scopeinfo
+
+5. Executing JSON backend.

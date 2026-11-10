@@ -1,0 +1,17 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -p read_liberty -lib /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70+240 (git sha1 5cdfd1241, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Running command `read_liberty -lib /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib' --
+
+1. Executing Liberty frontend: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib
+Imported 199 cell types from liberty file.
+
+End of script. Logfile hash: d795288867, time: 0.02s, user: 0.02s, system: 0.01s, MEM: 252.28 MB peak
+Yosys 0.70+240 (git sha1 5cdfd1241, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 100% 2x read_liberty (0 sec)

@@ -1,59 +1,30 @@
-version: 4
+version: 5
 project:
   name: DD2 Cell Finder
-  group_name: GB4
-  group_number: 4
+  group: GB4
   option: 2
-  active_scope: Option 2 M1 and M2; final real-cell validation and reports later
-  ai_mode: development aid; deterministic runtime
-entry_point: Makefile
-default_targets:
-  setup: Option 2 Python packages and external input links
-  check: Option 2 tools and Liberty/input checks
-  test: complete Option 2 test list and original frozen broken cases
-  all: Option 2 M1 followed by M2
-optional_targets:
-  setup-extended: generator/agent/studio Python dependencies
-  check-extended: Option 2 plus physical generator checks
-  test-extended: every retained test
-  all-extended: Option 2 plus the retained generator workflow
-  historical_real_cell_experiment: make o3; results/option3
-implementation:
-  src/dd2: M1 core, function/redundancy/cut checks and shared utilities
-  src/dd2m2: modular M2 implementation
-  pipeline.py: orchestration
-  cost.py: implementation costs and fitted area prediction
-  areamodel.py: HD calibration data
-  candidates.py: redundancy, ranking and requests
-  measure.py: baseline and extended measurements
-  evaluate.py: Yosys/ABC/OpenSTA execution and verification
-  report.py: figures, readiness, summaries and TA copies
+  ai_mode: development aid
+source:
+  src/dd2: M1 and shared Option 2 checks
+  src/dd2m2: M2 ranking and M3 mapping workflow
+  tests: active tests and frozen negative cases
+commands:
+  setup: link external inputs and install Python dependencies
+  check: verify the toolchain and input libraries
+  test: exercise the Option 2 checks
+  all: rebuild M1, M2 and the complete M3 experiment
+  reproduce: rerun the real experiment from the recorded selection
+  demo: run the Option 2 workflow for an unseen design
 evidence:
   m1: results/m1
   m2: results/m2
-  meeting: TA_M2/README.md
-  validation: results/validation
-retained_optional_work:
-  src/cellgen: generator and physical verification
-  agent: bounded agent
-  web: studio interface
-  cells: generated cell views
-  results/option1: generator evidence
-  results/option3: separate real-cell remapping experiment
-  specs: historical planning material; active scope is defined here
-inputs:
-  given: external student pack
-  pdk: external SKY130 Liberty/input directory
-  tutorials: external original SPM and multiplier sources/testbenches
-toolchain:
-  python: 3.11 or newer; NumPy, Matplotlib and pytest
-  m1_reference: separate Yosys 0.33 and ABC
-  m2: pinned newer Yosys/ABC/Icarus suite; recent OpenSTA
-protected_paths:
-  - given/
-  - pdk/
-  - tutorials/
-  - tests/broken/
-open_items:
-  - Table 4 reference disagreement; no TA acceptance inferred
-  - Final real cells, greedy selection, sensitivity, reports and full demo
+  m2_review: TA_M2
+  m3: results/m3
+  generator_responses: libs/cellweaver
+  ai_report: report/ai_report.pdf
+  ai_records: ai
+external_inputs:
+  - given
+  - pdk
+  - tutorials
+archive: others

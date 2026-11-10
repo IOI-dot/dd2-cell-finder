@@ -1,2 +1,0 @@
-read_json "/Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/A/gate_state_named.json"
-write_aiger -zinit -symbols "/Users/noorelshahidi/DD2Project/results/option3/mapping/cpu8/extended/A/gate.aig"

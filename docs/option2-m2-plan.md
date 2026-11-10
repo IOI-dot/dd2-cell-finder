@@ -3,7 +3,7 @@
 The group has selected Option 2. Its flow is deterministic and runs no model.
 The existing modular implementation, measured evidence and TA folder are retained.
 Generator/agent/studio work stays available as optional supporting experiments;
-it is not the submitted project option. The Table 4 disagreement remains unresolved.
+it is not the submitted project option. The TA accepted the Table 4 result as submitted, per the team.
 
 ## Completed and verified on WSL
 
@@ -18,13 +18,11 @@ it is not the submitted project option. The Table 4 disagreement remains unresol
 See results/m1/summary.md and results/m2/readiness.json for measured status.
 The TA-facing copies in TA_M2/ are refreshed by make ta or make m2.
 
-## Unresolved reference item
+## Table 4 disposition
 
-The limited single-stage row of Table 4 gives six verified witnesses; the
-handout lists five. Preserve both numbers. Do not exclude a function merely
-to force agreement, change the original checks, or infer TA acceptance.
-The checker has not fully matched the reference. Ask which restriction excludes
-one witness, or whether the reference needs a correction.
+The limited single-stage row gives six verified witnesses and the handout lists
+five. The TA accepted the recorded result for GB4, per the team. The recorded
+counts, expressions and original self-test remain the same.
 
 ## Reproducibility and presentation
 
@@ -37,8 +35,8 @@ The original group README still needs the other members' names/IDs.
 
 ## Final milestone
 
-Real generator responses; real-area reruns; greedy final selection; cell-by-cell
-curve; 30% sensitivity; final technical/AI reports; complete unseen-design demo.
+Run the estimated and real M3 targets, write the final reports and rehearse the
+unseen-design demo. See the README for the run order and generator requirements.
 
 ## Default commands
 

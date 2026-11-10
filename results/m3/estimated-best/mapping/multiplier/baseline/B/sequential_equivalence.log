@@ -1,0 +1,96 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/multiplier/baseline/B/sequential_equivalence.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/multiplier/baseline/B/sequential_equivalence.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/multiplier/baseline/B/gold.il
+Renaming module \mul to \gold.
+
+2. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/multiplier/baseline/B/gate.il
+Renaming module \mul to \gate.
+
+3. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: mp_gold (\mp_gold), mp_gate (\mp_gate) -> mp
+Presumably equivalent wires: mc_gold (\mc_gold), mc_gate (\mc_gate) -> mc
+Presumably equivalent wires: p_gold (\p_gold), p_gate ({ \$abc$1451$blif$1451$291.Y_gate \$abc$1451$blif$1451$292.Y_gate \$abc$1451$blif$1451$293.X_gate \$abc$1451$blif$1451$294.Y_gate \$abc$1451$blif$1451$295.Y_gate \$abc$1451$blif$1451$296.X_gate \$abc$1451$blif$1451$297.X_gate \$abc$1451$blif$1451$298.X_gate \$abc$1451$blif$1451$299.Y_gate \$abc$1451$blif$1451$300.Y_gate \$abc$1451$blif$1451$301.X_gate \$abc$1451$blif$1451$302.X_gate \$abc$1451$blif$1451$303.Y_gate \$abc$1451$blif$1451$304.Y_gate \$abc$1451$blif$1451$306.X_gate \$abc$1451$blif$1451$220.Y_gate }) -> p
+Changing input A of cell $abc$1450$blif$1450$375_gold ($_ORNOT_): \p_gold [15] -> \p [15]
+Changing input B of cell $abc$1450$blif$1450$276_gold ($_AND_): \p_gold [0] -> \p [0]
+Changing input B of cell $abc$1450$blif$1450$326_gold ($_ANDNOT_): \p_gold [0] -> \p [0]
+Changing input B of cell $abc$1450$blif$1450$353_gold ($_NAND_): \p_gold [0] -> \p [0]
+Setting undriven nets to undef: \up_gold [15:1]
+Setting undriven nets to undef: \umc_gold [7:1]
+Setting undriven nets to undef: \ump_gold [7:1]
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+4.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gold'.
+Removing unused module `\gate'.
+Removed 2 unused modules.
+
+5. Executing EQUIV_SIMPLE pass.
+Found 16 unproven $equiv cells (1 groups) in equiv:
+ Grouping SAT models for \p:
+  Trying to prove $equiv for \p [0]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [1]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [2]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [3]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [4]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [5]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [6]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [7]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [8]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [9]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [10]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [11]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [12]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [13]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [14]:
+ezsat
+ success!
+  Trying to prove $equiv for \p [15]:
+ezsat
+ success!
+Proved 16 previously unproven $equiv cells.
+
+6. Executing EQUIV_INDUCT pass.
+No selected unproven $equiv cells found in equiv.
+Proved 0 previously unproven $equiv cells.
+
+7. Executing EQUIV_STATUS pass.
+Found 16 $equiv cells in equiv:
+  Of those cells 16 are proven and 0 are unproven.
+  Equivalence successfully proven!

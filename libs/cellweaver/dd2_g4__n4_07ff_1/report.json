@@ -1,0 +1,818 @@
+{
+  "cell": "dd2_g4__n4_07ff_1",
+  "width_um": 5.98,
+  "height_um": 2.72,
+  "height_rows": 1,
+  "site_count": 13,
+  "function": "~((D & (C | (A & B))))",
+  "ports": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "VGND",
+    "VNB",
+    "VPB",
+    "VPWR",
+    "Y"
+  ],
+  "transistor_count": 8,
+  "devices": [
+    {
+      "name": "M0",
+      "kind": "n",
+      "gate": "D",
+      "left": "Y",
+      "right": "_net1",
+      "width": 420
+    },
+    {
+      "name": "M1",
+      "kind": "n",
+      "gate": "C",
+      "left": "_net1",
+      "right": "VGND",
+      "width": 420
+    },
+    {
+      "name": "M2",
+      "kind": "n",
+      "gate": "A",
+      "left": "_net1",
+      "right": "_net2",
+      "width": 420
+    },
+    {
+      "name": "M3",
+      "kind": "n",
+      "gate": "B",
+      "left": "_net2",
+      "right": "VGND",
+      "width": 420
+    },
+    {
+      "name": "M4",
+      "kind": "p",
+      "gate": "D",
+      "left": "Y",
+      "right": "VPWR",
+      "width": 1000
+    },
+    {
+      "name": "M5",
+      "kind": "p",
+      "gate": "C",
+      "left": "Y",
+      "right": "_net3",
+      "width": 1000
+    },
+    {
+      "name": "M6",
+      "kind": "p",
+      "gate": "A",
+      "left": "_net3",
+      "right": "VPWR",
+      "width": 1000
+    },
+    {
+      "name": "M7",
+      "kind": "p",
+      "gate": "B",
+      "left": "_net3",
+      "right": "VPWR",
+      "width": 1000
+    }
+  ],
+  "sizing": "Base Wn=0.42, Wp=1 um; exact parallel folding; no stack compensation",
+  "reference_spice": null,
+  "reference_cell": null,
+  "routing": {
+    "A": [
+      "met3",
+      340
+    ],
+    "B": [
+      "met3",
+      1020
+    ],
+    "C": [
+      "met3",
+      340
+    ],
+    "D": [
+      "met3",
+      340
+    ],
+    "Y": [
+      "met1",
+      920
+    ],
+    "_net1": [
+      "met1",
+      1360
+    ],
+    "_net3": [
+      "met1",
+      920
+    ]
+  },
+  "routing_spans_nm": {
+    "_net1": {
+      "0": [
+        525,
+        4075
+      ]
+    },
+    "Y": {
+      "0": [
+        4205,
+        5455
+      ]
+    },
+    "A": {
+      "0": [
+        1445,
+        2175
+      ]
+    },
+    "B": {
+      "0": [
+        2365,
+        3095
+      ]
+    },
+    "C": {
+      "0": [
+        3285,
+        4015
+      ]
+    },
+    "D": {
+      "0": [
+        4665,
+        5395
+      ]
+    },
+    "_net3": {
+      "0": [
+        985,
+        3155
+      ]
+    }
+  },
+  "accesses": [
+    {
+      "net": "A",
+      "row": 0,
+      "x_nm": 1610,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "B",
+      "row": 0,
+      "x_nm": 2530,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "C",
+      "row": 0,
+      "x_nm": 3450,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "D",
+      "row": 0,
+      "x_nm": 4830,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "_net1",
+      "row": 0,
+      "x_nm": 690,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "_net1",
+      "row": 0,
+      "x_nm": 3910,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "Y",
+      "row": 0,
+      "x_nm": 5290,
+      "anchor_y_nm": 545
+    },
+    {
+      "net": "_net3",
+      "row": 0,
+      "x_nm": 1150,
+      "anchor_y_nm": 2175
+    },
+    {
+      "net": "_net3",
+      "row": 0,
+      "x_nm": 2990,
+      "anchor_y_nm": 2175
+    },
+    {
+      "net": "Y",
+      "row": 0,
+      "x_nm": 4370,
+      "anchor_y_nm": 2175
+    }
+  ],
+  "truth_table": [
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 0,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 0,
+        "B": 1,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 0,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 0,
+        "D": 1
+      },
+      "Y": 0
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 0
+      },
+      "Y": 1
+    },
+    {
+      "inputs": {
+        "A": 1,
+        "B": 1,
+        "C": 1,
+        "D": 1
+      },
+      "Y": 0
+    }
+  ],
+  "pdk": {
+    "root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "resolved_root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "sha256": {
+      "libs.tech/magic/sky130A.tech": "fdda5b509d742730513f41ed8cf7394cc6df60b0a584a4559fc10cf42cf676c5",
+      "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "5de46c6f7c2cf82599b93d30a6459465f770f63c85b36182c672782219938519",
+      "libs.tech/netgen/sky130A_setup.tcl": "7a33f3f54fab57a9d9b0887ac7b7b64ce6c454110e8b7f01f3cfb90a1282dc94",
+      "libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag": "a035f7780292d69577c9e53b4c7234334eb4cb81f56f75227a071abad5a009dd",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__tt.pm3.spice": "459eca963a134574cf7c842ad6d3814e7e0752bfb5de8e581c2f483534b5ad06",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8_hvt__tt.pm3.spice": "3a1be2e1c50d710bdb951d414ecca711113a8c3fe8bcc1be65fb16c6fe004e83"
+    }
+  },
+  "architecture": "Independent minimum-trail N/P diffusion chains; M2 accesses and M1/M3 interval routing.",
+  "lef_signal_port_policy": "Complete connected GDS conductors on each existing pin layer, including via pads; no bounding-box fill",
+  "body_connection": "External HD tap cells required; no internal taps",
+  "checks": {
+    "drc": {
+      "status": "pass",
+      "standalone_error_count": 6,
+      "style": "drc(full)",
+      "deck": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.tech",
+      "command": [
+        "/usr/local/bin/magic",
+        "-dnull",
+        "-noconsole",
+        "-rcfile",
+        "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/verify.tcl"
+      ],
+      "log": "magic.log",
+      "errors": "drc-errors.txt",
+      "standalone_local_error_count": 0,
+      "scope": "Local geometry plus full DRC in four tap-equipped HD row contexts; standalone tap-distance findings retained"
+    },
+    "lvs": {
+      "status": "pass",
+      "command": [
+        "/usr/local/bin/netgen",
+        "-batch",
+        "lvs",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/dd2_g4__n4_07ff_1.extracted.spice dd2_g4__n4_07ff_1",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/dd2_g4__n4_07ff_1.spice dd2_g4__n4_07ff_1",
+        "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/netgen/sky130A_setup.tcl",
+        "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/lvs.log",
+        "-json"
+      ],
+      "log": "lvs.log"
+    },
+    "abutment": {
+      "status": "pass",
+      "cases": [
+        {
+          "orientation": "R0",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/abut_R0.tcl"
+          ],
+          "log": "abut_R0.log",
+          "errors": "abut_R0.errors"
+        },
+        {
+          "orientation": "MX",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/abut_MX.tcl"
+          ],
+          "log": "abut_MX.log",
+          "errors": "abut_MX.errors"
+        },
+        {
+          "orientation": "MY",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/abut_MY.tcl"
+          ],
+          "log": "abut_MY.log",
+          "errors": "abut_MY.errors"
+        },
+        {
+          "orientation": "R180",
+          "error_count": 0,
+          "command": [
+            "/usr/local/bin/magic",
+            "-dnull",
+            "-noconsole",
+            "-rcfile",
+            "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+            "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/abut_R180.tcl"
+          ],
+          "log": "abut_R180.log",
+          "errors": "abut_R180.errors"
+        }
+      ],
+      "tap_pitch_um_in_neighbor_rows": 4.6,
+      "reference_cells": [
+        "nand2_1",
+        "inv_1",
+        "fill_1",
+        "tapvpwrvgnd_1"
+      ]
+    },
+    "simulation": {
+      "status": "not_run"
+    },
+    "router_pin_access": {
+      "status": "not_run"
+    },
+    "characterization": {
+      "status": "not_run"
+    },
+    "switch_level": {
+      "status": "pass",
+      "vectors": 16
+    },
+    "geometry": {
+      "status": "pass",
+      "errors": [],
+      "channel_counts": {
+        "n": 4,
+        "p": 4
+      },
+      "grid_nm": 5,
+      "scope": "GDS placement boundary, polygon grid, and physical channel counts/W/L; DRC/LVS remain required"
+    },
+    "stress_extraction": {
+      "status": "pass",
+      "summary": "stress/summary.json"
+    },
+    "rc_extraction": {
+      "status": "pass",
+      "summary": "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/rc_extraction/summary.json",
+      "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance"
+    },
+    "simulation_rc": {
+      "source_sha256": "e434c8f922e3d94f794337d7ae619560d8af49a5e22100c21798a4f78eab80e7",
+      "status": "pass",
+      "command": [
+        "/usr/local/bin/ngspice",
+        "-b",
+        "logic-smoke.spice"
+      ],
+      "vectors": [
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79988
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 0,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 2.440731e-08,
+          "transient_volts": 2.79448e-08
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79984
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 0,
+            "B": 1,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 2.440731e-08,
+          "transient_volts": 2.79501e-08
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.79978
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 0,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 2.440731e-08,
+          "transient_volts": 2.86009e-08
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 0,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 0,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 6.140889e-08,
+          "transient_volts": 0.00025498
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 0
+          },
+          "Y": 1,
+          "dc_volts": 1.8,
+          "transient_volts": 1.8
+        },
+        {
+          "inputs": {
+            "A": 1,
+            "B": 1,
+            "C": 1,
+            "D": 1
+          },
+          "Y": 0,
+          "dc_volts": 2.116393e-08,
+          "transient_volts": 2.45644e-08
+        }
+      ],
+      "conditions": "TT, 25 C, 1.8 V, 10 fF; exhaustive DC and 10 ns/vector transient with 50 ps ramps, sampled after 5 ns",
+      "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance"
+    },
+    "characterization_rc": {
+      "status": "pass",
+      "summary": "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/characterization_rc/summary.json",
+      "scope": "Conditional NLDM, effective input capacitance and state leakage; Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance; no internal-power tables",
+      "corners": {
+        "tt": {
+          "status": "pass",
+          "liberty": "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/characterization_rc/tt/dd2_g4__n4_07ff_1.lib",
+          "sha256": "80c853e8f05621a620cac8a67ce6a2d6b903f519c860d2e9b941dc8af0cf432e",
+          "conditional_arcs": 10,
+          "power_groups": 0,
+          "dc_vectors": 16,
+          "reader": {
+            "status": "pass",
+            "log": "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_07ff_1/auto/characterization_rc/tt/sta.log"
+          }
+        }
+      }
+    }
+  },
+  "layout_backend": "shared",
+  "output_access_layer": "met2",
+  "diffusion_breaks": 0,
+  "minimum_graph_trails": {
+    "n": 1,
+    "p": 1
+  },
+  "diffusion_segments": 2,
+  "topology_required_breaks_single_height": 0,
+  "diffusion_chains": [
+    {
+      "row": 0,
+      "kind": "n",
+      "nodes_x": [
+        690,
+        1840,
+        2990,
+        3910,
+        5290
+      ],
+      "gates_x": [
+        1610,
+        2530,
+        3450,
+        4830
+      ],
+      "paired": true,
+      "compacted": true,
+      "devices": [
+        "M2",
+        "M3",
+        "M1",
+        "M0"
+      ],
+      "nodes": [
+        "_net1",
+        "_net2",
+        "VGND",
+        "_net1",
+        "Y"
+      ]
+    },
+    {
+      "row": 0,
+      "kind": "p",
+      "nodes_x": [
+        1150,
+        2070,
+        2990,
+        4370,
+        5290
+      ],
+      "gates_x": [
+        1610,
+        2530,
+        3450,
+        4830
+      ],
+      "paired": true,
+      "compacted": true,
+      "devices": [
+        "M6",
+        "M7",
+        "M5",
+        "M4"
+      ],
+      "nodes": [
+        "_net3",
+        "VPWR",
+        "_net3",
+        "Y",
+        "VPWR"
+      ]
+    }
+  ],
+  "placement_priority": [
+    "minimum diffusion breaks",
+    "minimum width",
+    "minimum cross-row nets"
+  ],
+  "contact_policy": "Pack vertical contact rows on contacted signal and supply terminals using the smaller adjacent diffusion width",
+  "cross_row_bridges_nm": {},
+  "routing_states": 8,
+  "paired_euler_unavailable": "Compact row router needs one wired lower-row signal and at most three upper-row signals",
+  "verified_gds_sha256": "9727d596a28241b85414c04b835a5d706bf6c465ddc94efbae220c343159e765",
+  "verified_reference_sha256": "6d4c1c54372e170714465a5457e0d2fa7ba6b18688e8374b0a45f00e2c4fb7c8",
+  "verified_spec_sha256": "635ee7f742a30a667905490ad2013474f7021bad89af652395ca54bc09f790a6",
+  "verified_extracted_sha256": "63b7859cc3ab2b367b826eb5a6ad4b076292c6893568e8a714885f18aee66feb",
+  "verified_pex_sha256": "2d392371bc716728483d212694aa11ff83c969db9055b6a15a5db426e377ee66",
+  "verified_rc_sha256": "e434c8f922e3d94f794337d7ae619560d8af49a5e22100c21798a4f78eab80e7"
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "request_id": "M3-0189",
+    "cell": "dd2_g4__n4_1bff_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 60,
+    "area_um2": 75.072,
+    "files": {
+      "gds": "dd2_g4__n4_1bff_1/dd2_g4__n4_1bff_1.gds",
+      "liberty": "dd2_g4__n4_1bff_1/mapping.lib",
+      "verilog": "dd2_g4__n4_1bff_1/dd2_g4__n4_1bff_1.v",
+      "report": "dd2_g4__n4_1bff_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0072",
+    "cell": "dd2_g4__n4_00ae_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 32,
+    "area_um2": 40.0384,
+    "files": {
+      "gds": "dd2_g4__n4_00ae_1/dd2_g4__n4_00ae_1.gds",
+      "liberty": "dd2_g4__n4_00ae_1/mapping.lib",
+      "verilog": "dd2_g4__n4_00ae_1/dd2_g4__n4_00ae_1.v",
+      "report": "dd2_g4__n4_00ae_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0028",
+    "cell": "dd2_g4__n4_07ff_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 1,
+    "transistors": 8,
+    "width_sites": 13,
+    "area_um2": 16.2656,
+    "files": {
+      "gds": "dd2_g4__n4_07ff_1/dd2_g4__n4_07ff_1.gds",
+      "liberty": "dd2_g4__n4_07ff_1/mapping.lib",
+      "verilog": "dd2_g4__n4_07ff_1/dd2_g4__n4_07ff_1.v",
+      "report": "dd2_g4__n4_07ff_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0033",
+    "cell": "dd2_g4__n4_ead5_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 20,
+    "width_sites": 100,
+    "area_um2": 125.12,
+    "files": {
+      "gds": "dd2_g4__n4_ead5_1/dd2_g4__n4_ead5_1.gds",
+      "liberty": "dd2_g4__n4_ead5_1/mapping.lib",
+      "verilog": "dd2_g4__n4_ead5_1/dd2_g4__n4_ead5_1.v",
+      "report": "dd2_g4__n4_ead5_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0056",
+    "cell": "dd2_g4__n4_008a_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 26,
+    "area_um2": 32.5312,
+    "files": {
+      "gds": "dd2_g4__n4_008a_1/dd2_g4__n4_008a_1.gds",
+      "liberty": "dd2_g4__n4_008a_1/mapping.lib",
+      "verilog": "dd2_g4__n4_008a_1/dd2_g4__n4_008a_1.v",
+      "report": "dd2_g4__n4_008a_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0525",
+    "cell": "dd2_g4__n4_8aa0_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 20,
+    "width_sites": 100,
+    "area_um2": 125.12,
+    "files": {
+      "gds": "dd2_g4__n4_8aa0_1/dd2_g4__n4_8aa0_1.gds",
+      "liberty": "dd2_g4__n4_8aa0_1/mapping.lib",
+      "verilog": "dd2_g4__n4_8aa0_1/dd2_g4__n4_8aa0_1.v",
+      "report": "dd2_g4__n4_8aa0_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0036",
+    "cell": "dd2_g4__n4_88f8_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 14,
+    "width_sites": 70,
+    "area_um2": 87.584,
+    "files": {
+      "gds": "dd2_g4__n4_88f8_1/dd2_g4__n4_88f8_1.gds",
+      "liberty": "dd2_g4__n4_88f8_1/mapping.lib",
+      "verilog": "dd2_g4__n4_88f8_1/dd2_g4__n4_88f8_1.v",
+      "report": "dd2_g4__n4_88f8_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0077",
+    "cell": "dd2_g4__n4_aaae_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 23,
+    "area_um2": 28.7776,
+    "files": {
+      "gds": "dd2_g4__n4_aaae_1/dd2_g4__n4_aaae_1.gds",
+      "liberty": "dd2_g4__n4_aaae_1/mapping.lib",
+      "verilog": "dd2_g4__n4_aaae_1/dd2_g4__n4_aaae_1.v",
+      "report": "dd2_g4__n4_aaae_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0088",
+    "cell": "dd2_g4__n4_000e_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 26,
+    "area_um2": 32.5312,
+    "files": {
+      "gds": "dd2_g4__n4_000e_1/dd2_g4__n4_000e_1.gds",
+      "liberty": "dd2_g4__n4_000e_1/mapping.lib",
+      "verilog": "dd2_g4__n4_000e_1/dd2_g4__n4_000e_1.v",
+      "report": "dd2_g4__n4_000e_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  },
+  {
+    "request_id": "M3-0131",
+    "cell": "dd2_g4__n3_2e_1",
+    "status": "pass",
+    "reason": null,
+    "stages": 2,
+    "transistors": 12,
+    "width_sites": 24,
+    "area_um2": 30.0288,
+    "files": {
+      "gds": "dd2_g4__n3_2e_1/dd2_g4__n3_2e_1.gds",
+      "liberty": "dd2_g4__n3_2e_1/mapping.lib",
+      "verilog": "dd2_g4__n3_2e_1/dd2_g4__n3_2e_1.v",
+      "report": "dd2_g4__n3_2e_1/report.json"
+    },
+    "checks": {
+      "drc": 0,
+      "lvs": "match",
+      "rc_lvs": "match",
+      "truth_table": "pass",
+      "abutment": 0,
+      "layers": "pass"
+    },
+    "ngspice_sha256": "15fd9db8b26def0aef8c5a6f400519adf81d92abd3967fab84090b48402e74a8",
+    "tool_version": "CellWeaver scl-gen 0.1.0"
+  }
+]

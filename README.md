@@ -1,126 +1,146 @@
-# GB4 · Option 2: Finding Cells Worth Adding
+# GB4 · Finding Cells Worth Adding
 
-**For the TA: open [TA_M2/README.md](TA_M2/README.md).**
-It contains the three figures, key CSV tables, measured results and the Table 4 clarification.
-Figures can also be opened directly from [TA_M2/figures](TA_M2/figures/).
+## 1. Group
 
-Group: **GB4**, numeric cell prefix `dd2_g4__`. Omar Abdel Motalb, 900232118.
-Also listed by the team: Noor Elshahidi and Mohamed Azouz. Complete the remaining member details before submission.
-AI is used as a development aid; the runtime needs no AI model or API key.
+CSCE 3304 Digital Design II, Project 1, **Option 2**. Team GB4 includes
+Omar Abdel Motalb (900232118), Noor Elshahidi, and Mohamed Azouz.
+Add the remaining student IDs to the final submission. AI was a development
+aid under overview §4.1. The submitted flow runs without a model or API key.
 
-## Status
+## 2. Quick start
 
-The latest saved WSL M2 experiment passes the mapping, equivalence, timing and
-tutorial-simulation checks. See [readiness.json](results/m2/readiness.json).
-Full checkpoint readiness remains **false** because Table 4 gives six verified
-qualifying classes against the handout's five. No instructor correction or TA
-acceptance is assumed. See [the six examples and question](TA_M2/TABLE4_CLARIFICATION.md).
+Use Ubuntu or WSL, Python 3.11+, OpenSTA 3.1.0 on PATH, and the external
+course and tutorial inputs. Use Linux Yosys 0.33 with its ABC to reproduce
+Table 1. Use the pinned OSS CAD Suite for M2/M3, which recorded Yosys
+0.70+240 and Icarus Verilog 14.0 in the WSL run.
 
-Measured savings can be zero or negative. The displayed results preserve those
-outcomes. The ranking graph is a heuristic; measured remapping establishes savings.
-
-## Repository map
-
-| Folder | Purpose |
-|---|---|
-| [TA_M2/](TA_M2/) | Small, obvious meeting folder: figures, key tables and Table 4 evidence |
-| [src/dd2/](src/dd2/) | M1 functions and checks |
-| [src/dd2m2/](src/dd2m2/) | Costing/model, ranking, requests/Liberty, mapping, checks, timing and tutorials |
-| [tests/](tests/) | Active tests and deliberately broken cases |
-| [results/m1/](results/m1/), [results/m2/](results/m2/) | Full generated measurements, netlists, scripts and logs |
-| [libs/](libs/) | Generated estimated-cell library |
-| [config/](config/) | GB4 identification; host-specific tool selection is ignored by Git |
-| [docs/interface/](docs/interface/) | Cell request/response schemas and examples |
-| [docs/option2-m2-plan.md](docs/option2-m2-plan.md) | Current Option 2 scope, validation and remaining work |
-| [tools/](tools/) | Pinned tool installer for reproducible setup |
-| [ai/](ai/) | AI-use and caught-error evidence |
-| src/cellgen/, agent/, web/, cells/, results/option1/, results/option3/ | Retained optional generator/platform experiments; outside the submitted Option 2 M2 scope |
-| report/ | Final reports and their sources, due at the final milestone |
-
-## Setup and commands
-
-Use Ubuntu/WSL, Python >=3.11, recent OpenSTA, Yosys >=0.34 and Icarus >=13.
-The tool installer selects the SHA256-pinned official OSS CAD Suite release
-2026-10-27. Keep Ubuntu Yosys 0.33 and its ABC separately for the M1 reference table.
-
-External course inputs stay outside Git:
-
-- `GIVEN`: defaults to `~/DD2_Project1_student_pack/given`.
-- `PDK_ROOT`: defaults to `~/dd2-inputs`, containing `sky130A` and the full HD Liberty.
-- `TUTORIALS`: defaults to `~/dd2-inputs/tutorials`, with `spm/` and `multiplier/`.
-  These contain the original Tutorial 4 SPM/CSADD/TCMP sources and SPM testbench,
-  and Tutorial 2 multiplier source and exhaustive testbench. Keep their licence notices.
-
-```sh
+```bash
 export PATH="$HOME/.local/bin:$PATH"
-make setup
-.venv/bin/python tools/install_course_tools.py
-make check-versions
+make setup GIVEN=/absolute/path/to/student_pack/given \
+  PDK_ROOT=/absolute/path/to/pdk_parent TUTORIALS=/absolute/path/to/tutorials
+make check
 make test
-make all
+make reproduce
 ```
 
-`make setup` links `given/`, `pdk/` and `tutorials/`; it does not supply these inputs.
-This project consumes the full HD Liberty; a Liberty-only input directory is not a
-complete physical PDK. Install/build OpenSTA separately as in the course setup.
-Tool binaries, environments, supplied inputs and download/update ZIPs stay outside Git.
+`PDK_ROOT` contains `sky130A/`. `TUTORIALS` contains the original
+`spm/{SPM.v,CSADD.v,TCMP.v,SPM_tb.v}` and
+`multiplier/{mul.v,mul_exhaustive_tb.v}`. Setup creates symlinks to those inputs.
+If the pinned suite is absent, run
+`.venv/bin/python tools/install_course_tools.py` after setup. The installer
+verifies the release checksum and writes an ignored local tools configuration.
+The Makefile also recognizes the existing suite at
+`~/dd2-tools/oss-2026-10-27/bin`. Set `REFERENCE_YOSYS` and `REFERENCE_ABC`
+for M1 if its reference executables are outside `/usr/bin`.
 
-| Command | Purpose |
+`make reproduce` validates the published selection and the supplied
+characterized cells, and reruns the real remaps, equivalence, timing,
+tutorial simulations, area curve and sensitivity test in
+`build/m3/reproduced-real/`. Published evidence stays under `results/`.
+`make all` runs M1, M2, and a fresh best-of-all M3 search before the
+real run. The full search is substantially longer. The real step requires
+generator responses that match the reselected requests.
+
+## 3. What the tool does
+
+The tool extracts synthesized and ABC-restructured AIGs, checks small cut
+truth tables, and classifies functions against the full SKY130 HD library.
+It fits an area model to HD cells, ranks candidate functions, writes Appendix A
+requests and estimated Liberty, and measures the effects of extending the
+reduced library. The best-of-all sweep selects up to ten cells by the sum of
+best-of-A/B areas over the six required benchmarks. M3 replaces estimated cells
+with characterized Liberty for the same requests and verifies the baseline,
+mapped designs, and timing. SPM, multiplier, pic16, and p16c5x are shown
+separately from that aggregate.
+
+## 4. Commands
+
+| Command | Purpose and output |
 |---|---|
-| `make check`, `make check-versions` | Input/tool checks; strict minimum-version check |
-| `make test` | Complete Option 2 tests and frozen broken-case hashes |
-| `make m1` | Reference Table 1, AIGs, cuts, HD classes and redundancy self-test using reference Yosys |
-| `make m2` | Six benchmarks plus tutorials: estimated-cell experiment, CEC, timing, GLS and plots |
-| `make ta` | Refresh the TA folder from existing results; no experiment rerun |
-| `make all` | M1 followed by M2 and TA-folder generation |
-| `make readiness` | Print recorded blockers; returns nonzero while any remain |
-| `make demo IN=given/designs/cpu8.v TOP=cpu8` | Existing M1 single-design demo; full final demo remains pending |
+| `make setup`, `make check`, `make test` | Link inputs, check the environment, and run Option 2 tests with the frozen fixture hashes. |
+| `make m1` | Reproduce the reference mapping, AIG/cut, class, and redundancy evidence under `results/m1/`. |
+| `make m2` | Fit, rank and evaluate the first estimated library in `results/m2/`. |
+| `make ta`, `make readiness` | Regenerate the M2 review folder or print its checkpoint record. |
+| `make m3-estimated` | Run the first-improvement greedy search. |
+| `make m3-estimated-best` | Run or resume the best-of-all greedy search under `build/m3/reselected/`. Override `SWEEP_OUT` for a different output directory. |
+| `make m3-real`, `make reproduce` | Reproduce the real experiment. Defaults to `ESTIMATED_DIR=results/m3/estimated-best` and `RESPONSES=libs/cellweaver`. |
+| `make all` | Run the full Option 2 M1 through M3 workflow. |
+| `make demo IN=/path/to/design.v` | Run the Option 2 flow for an unseen design. Use `TOP=module` when needed and `SV=1` for SystemVerilog. |
+| `make clean` | Remove generated work under `build/`. |
 
-The Makefile also exposes each M1/M2 step separately. On another installation,
-override `REFERENCE_YOSYS` and `REFERENCE_ABC` when the reference binaries are elsewhere.
-All M2 baseline/extended comparisons use the same selected toolchain and A/B recipes.
-M1 reference numbers and M2 newer-tool numbers are distinct experiments.
+Individual M1 and M2 steps are listed in the Makefile. The independent
+Liberty, truth-table and equivalence check implementations are in `src/`.
 
-## Checks and limits
+### Clean-checkout rehearsal
 
-Every cut is checked against exhaustive cut simulation. Redundancy compares
-against the full HD combinational library. New candidate stages have at most
-three transistors in series; native HD calibration permits four-stack cells.
-Cost features describe explicit realizations, not extracted HD transistor counts.
-The fitted model covers HD x1 cells with up to four inputs and reports held-out error.
+Run `make check`, `make test`, and `make reproduce` after setup in a fresh
+checkout with the pinned tools. Compare the reproduced tables with the
+published CSVs. To rehearse the unseen-design command using a supplied design,
+run `make demo IN=given/designs/dsp8.v TOP=dsp8`. The demo saves its evidence
+in `build/demo/` and also maps with the published real library when available.
 
-ABC CEC checks RTL-derived gold against the mapped circuits with named state
-cutpoints; a separate bounded Yosys induction attempt is diagnostic. Tutorial GLS
-runs the original testbenches with functional models from the exact mapping Liberty.
-It is zero-delay functional simulation, without SDF or real timing-check validation.
-New-cell timing and capacitance are placeholders. OpenSTA reports declared
-pre-layout comparisons, not characterized-cell or signoff timing.
+## 5. Layout
 
-## Final milestone
+| Path | Contents |
+|---|---|
+| [src/](src/README.md) | Option 2 core and M2/M3 workflows. |
+| `tests/`, `docs/interface/`, `cells/` | Option 2 checks, Appendix A contracts and the archived importer fixture. |
+| `results/`, `TA_M2/` | M1 through M3 measurements, netlists and verification evidence. |
+| `libs/cellweaver/` | Ten Appendix A responses, characterized Liberty and verification files. |
+| `report/`, `ai/` | Report PDFs and sources, plus AI use and mistakes logs. |
+| [others/](others/README.md) | Historical Option 1, Option 3 and interactive agent/studio material. |
 
-Still required later: real generator cells, greedy final selection, real-area
-reruns, the cell-by-cell curve, the 30% sensitivity experiment, final technical
-and AI reports, and the full unseen-design workflow/demo.
+The WSL evidence can be imported again with
+`python3 tools/import_m3_evidence.py /path/to/original/checkout`. The argument
+may also be the extracted full evidence directory containing `results/m3/`.
 
-The team has selected **Option 2**. Additional generator, agent and studio work is
-retained in its existing directories and is optional. Historical filenames/commands
-such as `option3.py`, `make o3` and `results/option3/` refer to an extra real-cell
-experiment; they do not declare our submitted project option.
+## 6. Results
 
-Default `make setup`, `make check`, `make test` and `make all` cover Option 2.
-The full retained work remains available through `make setup-extended`,
-`make check-extended`, `make test-extended`, `make all-extended` and the existing
-explicit generator/studio targets. Do not claim the whole extended suite passed
-from an Option 2-only test log.
+- **M1** · [Reference table and cut summary](results/m1/summary.md).
+- **M2** · [Area model, ranking, mapping, and Table 4 review](TA_M2/README.md).
+- **M3** · [Evidence index](results/m3/README.md),
+  [estimated Table 5](results/m3/estimated-best/table5_estimated.csv),
+  [real Table 5](results/m3/real/table5_real.csv),
+  [area curve](results/m3/real/cell_curve.png), and
+  [sensitivity result](results/m3/real/sensitivity.json).
 
-## M2 source files
+For the six required benchmarks, the estimated run saved **0.457%** area and
+the real run saved **0.174%**. The characterized-library mappings used **zero**
+new cell instances. The real saving reflects a change in how ABC mapped
+existing HD gates. Source rows are in the estimated and real best-of-A/B CSVs.
 
-- `src/dd2m2/pipeline.py`: orchestrates the run.
-- `cost.py`: costs proposed implementations, fits the regression and predicts area.
-- `areamodel.py`: collects HD calibration data.
-- `candidates.py`, `cones.py`: redundancy/ranking/requests and reclaimable mapped logic.
-- `library.py`: writes the extended Liberty.
-- `measure.py`, `evaluate.py`: baseline/extended runs, Yosys/ABC checks and OpenSTA.
-- `tutorials.py`: tutorial discovery and original-bench RTL/GLS.
-- `report.py`: plots, readiness, summaries and the TA meeting copies.
-- `flow.py`: preserves the old public function names after the module split.
+## 7. Tests
+
+`make test` checks cut truth tables, classification, contract validation,
+the area model, greedy selection, Liberty import, A/B mapping, ABC equivalence,
+and timing. The negative cases include a wrong truth table, an HD function
+that must classify as Exists, invalid Liberty, and a nonequivalent AIG.
+The two proposed mapping fixtures are exercised by the default suite.
+The original frozen fixture files and their checksums are preserved.
+The existing Git hygiene test also rejects the course-required PDFs.
+A group member must narrow that legacy rule to allow exactly
+`report/report.pdf` and `report/ai_report.pdf` before the final clean-checkout test.
+The published curves are PNG files.
+
+## 8. AI use
+
+See [AGENTS.md](AGENTS.md), [use log](ai/use_log.md),
+[mistakes log](ai/mistakes_log.md), and [AI report](report/ai_report.pdf).
+The AI report records the available model labels and the gaps in billing
+and model metadata.
+
+## 9. Limitations
+
+The estimates are used for candidate selection. The generated physical
+cells can be much larger, and the real run chose existing HD gates. OpenSTA
+reports comparison delay under the flow's declared constraints. Tutorial
+gate simulations use zero-delay functional models. The M2 Table 4 evidence
+preserves the six measured witnesses and the reference value of five.
+
+## 10. Third-party inputs
+
+The course student pack and tutorial files are used from external paths.
+The SKY130 PDK, Yosys/ABC, OpenSTA, Icarus Verilog, and OSS CAD Suite keep
+their upstream licenses. The CellWeaver response artifacts record the
+generator version and original reports. The pinned tool installer keeps
+the tool binaries outside the repository.

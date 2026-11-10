@@ -1,0 +1,643 @@
+{
+  "status": "pass",
+  "scope": "Magic extracted signal/supply interconnect, contact, poly and diffusion-access resistance; original PEX capacitance matrix lumped at named ports or nearest extracted internal node; ideal VNB/VPB body ports; nominal extraction, no distributed coupling or substrate resistance",
+  "gds_sha256": "c81b6e7553f8928f1608e259c3523746555b1ef3c0577679e0214400eabafd95",
+  "pex_sha256": "f05675d355f3bc860d3867b6f89d291b541f6213652fd0f0194648dd5cbca26f",
+  "pdk": {
+    "root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "resolved_root": "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A",
+    "sha256": {
+      "libs.tech/magic/sky130A.tech": "fdda5b509d742730513f41ed8cf7394cc6df60b0a584a4559fc10cf42cf676c5",
+      "libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef": "5de46c6f7c2cf82599b93d30a6459465f770f63c85b36182c672782219938519",
+      "libs.tech/netgen/sky130A_setup.tcl": "7a33f3f54fab57a9d9b0887ac7b7b64ce6c454110e8b7f01f3cfb90a1282dc94",
+      "libs.ref/sky130_fd_sc_hd/mag/sky130_fd_sc_hd__inv_1.mag": "a035f7780292d69577c9e53b4c7234334eb4cb81f56f75227a071abad5a009dd",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__tt.pm3.spice": "459eca963a134574cf7c842ad6d3814e7e0752bfb5de8e581c2f483534b5ad06",
+      "libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8_hvt__tt.pm3.spice": "3a1be2e1c50d710bdb951d414ecca711113a8c3fe8bcc1be65fb16c6fe004e83"
+    }
+  },
+  "magic_version": "8.3.684",
+  "audit": {
+    "resistor_count": 330,
+    "capacitor_count": 86,
+    "resistance_range_ohm": [
+      0.120292,
+      506.661
+    ],
+    "capacitance_matrix": "exactly conserved after R contraction",
+    "device_properties": "exactly conserved after R contraction",
+    "native_capacitance_matrix_absolute_difference_ff": 36.63975000000003,
+    "anchors": {
+      "VGND": "VGND",
+      "Y": "Y",
+      "D": "D",
+      "a_3048_47#": "a_3048_47.t1",
+      "A": "A",
+      "C": "C",
+      "a_190_47#": "a_190_47.t0",
+      "VNB": "VNB",
+      "a_2030_47#": "a_2030_47.t0",
+      "a_1110_47#": "a_1110_47.t0",
+      "a_5808_297#": "a_5808_297.t0",
+      "VPWR": "VPWR",
+      "a_4888_297#": "a_4888_297.t0",
+      "B": "B",
+      "VPB": "VPB"
+    },
+    "node_origins": {
+      "VPWR.n53": "VPWR",
+      "VPWR.n52": "VPWR",
+      "VPWR.n21": "VPWR",
+      "VPWR.n93": "VPWR",
+      "VPWR.n91": "VPWR",
+      "VPWR.n34": "VPWR",
+      "a_1110_47.n0": "a_1110_47#",
+      "VGND.n1": "VGND",
+      "VPWR.n25": "VPWR",
+      "VPWR.n96": "VPWR",
+      "VPWR.n51": "VPWR",
+      "VPWR.n29": "VPWR",
+      "VPWR.t2": "VPWR",
+      "VPWR.n71": "VPWR",
+      "VPWR.n90": "VPWR",
+      "VGND.n45": "VGND",
+      "VGND.n2": "VGND",
+      "VPWR.n20": "VPWR",
+      "VPWR.n63": "VPWR",
+      "VGND.n32": "VGND",
+      "VGND.n48": "VGND",
+      "VPWR.n57": "VPWR",
+      "a_190_47.t2": "a_190_47#",
+      "VPWR.n26": "VPWR",
+      "VGND.n6": "VGND",
+      "VPWR.n9": "VPWR",
+      "Y.t1": "Y",
+      "VGND.n67": "VGND",
+      "VPWR.n43": "VPWR",
+      "VPWR.n74": "VPWR",
+      "VPWR.n92": "VPWR",
+      "a_3048_47.t2": "a_3048_47#",
+      "a_2030_47.n1": "a_2030_47#",
+      "a_2030_47.t1": "a_2030_47#",
+      "VPWR.n6": "VPWR",
+      "VPWR.n11": "VPWR",
+      "VGND.n78": "VGND",
+      "VGND.n25": "VGND",
+      "VPWR.n89": "VPWR",
+      "a_190_47.n1": "a_190_47#",
+      "VGND.n4": "VGND",
+      "VPWR.n79": "VPWR",
+      "VPWR.t3": "VPWR",
+      "VGND.n28": "VGND",
+      "VGND.n31": "VGND",
+      "VGND.n59": "VGND",
+      "VGND.n17": "VGND",
+      "VGND.n57": "VGND",
+      "VPWR.n76": "VPWR",
+      "a_1110_47.t3": "a_1110_47#",
+      "VPWR.n73": "VPWR",
+      "VGND.n15": "VGND",
+      "VGND.n54": "VGND",
+      "VGND.n74": "VGND",
+      "VPWR.n87": "VPWR",
+      "C.t1": "C",
+      "VGND.n72": "VGND",
+      "VGND.n16": "VGND",
+      "VGND.n37": "VGND",
+      "VGND.n33": "VGND",
+      "VGND.n35": "VGND",
+      "VGND.n13": "VGND",
+      "VGND.n40": "VGND",
+      "VGND.n47": "VGND",
+      "VPWR.n7": "VPWR",
+      "VPWR.n30": "VPWR",
+      "VGND.n55": "VGND",
+      "VPWR.n81": "VPWR",
+      "a_2030_47.t3": "a_2030_47#",
+      "VGND.t1": "VGND",
+      "VGND.n62": "VGND",
+      "VGND.n81": "VGND",
+      "VGND.n82": "VGND",
+      "a_2030_47.t0": "a_2030_47#",
+      "C": "C",
+      "VGND.n73": "VGND",
+      "VNB": "VNB",
+      "a_190_47.t0": "a_190_47#",
+      "VPWR.n0": "VPWR",
+      "VGND.n83": "VGND",
+      "D.t0": "D",
+      "VPWR.n23": "VPWR",
+      "VGND.n46": "VGND",
+      "VPWR.n99": "VPWR",
+      "VGND.n43": "VGND",
+      "VPWR.n84": "VPWR",
+      "VPWR.n80": "VPWR",
+      "VGND.n23": "VGND",
+      "VPWR.n85": "VPWR",
+      "VGND.n12": "VGND",
+      "VGND.n18": "VGND",
+      "VGND.n49": "VGND",
+      "VPWR.n18": "VPWR",
+      "VGND.n77": "VGND",
+      "a_1110_47.t2": "a_1110_47#",
+      "VPWR.t0": "VPWR",
+      "VPWR.n75": "VPWR",
+      "a_190_47.t1": "a_190_47#",
+      "VGND.n10": "VGND",
+      "VPWR.n50": "VPWR",
+      "VGND.n21": "VGND",
+      "VPWR.n32": "VPWR",
+      "A.t0": "A",
+      "VPWR.n103": "VPWR",
+      "VPWR.n104": "VPWR",
+      "VGND.n65": "VGND",
+      "a_5808_297.t1": "a_5808_297#",
+      "A.t1": "A",
+      "VPWR.n5": "VPWR",
+      "VPWR.n8": "VPWR",
+      "VGND.t0": "VGND",
+      "VPWR.n24": "VPWR",
+      "VPWR.n45": "VPWR",
+      "VPWR.n66": "VPWR",
+      "VPWR.n49": "VPWR",
+      "a_4888_297.t1": "a_4888_297#",
+      "a_5808_297.t0": "a_5808_297#",
+      "VGND.n7": "VGND",
+      "VPWR.n54": "VPWR",
+      "VPWR.n12": "VPWR",
+      "a_4888_297.t0": "a_4888_297#",
+      "VPWR.n68": "VPWR",
+      "VGND.n42": "VGND",
+      "VPWR.n77": "VPWR",
+      "VGND.t3": "VGND",
+      "a_3048_47.n0": "a_3048_47#",
+      "a_3048_47.t3": "a_3048_47#",
+      "VGND.n38": "VGND",
+      "VPWR.n2": "VPWR",
+      "VGND.n34": "VGND",
+      "VPWR.n35": "VPWR",
+      "VPWR.n31": "VPWR",
+      "A": "A",
+      "VPWR.n46": "VPWR",
+      "VPWR.n102": "VPWR",
+      "VGND.n3": "VGND",
+      "VGND.n0": "VGND",
+      "VGND.n22": "VGND",
+      "VGND.n80": "VGND",
+      "VGND.t2": "VGND",
+      "VPWR.n16": "VPWR",
+      "VPWR.n78": "VPWR",
+      "VGND.n85": "VGND",
+      "VPWR.n19": "VPWR",
+      "VGND.n9": "VGND",
+      "VPWR.n101": "VPWR",
+      "VGND.n39": "VGND",
+      "VPWR.n48": "VPWR",
+      "D": "D",
+      "VPWR.n82": "VPWR",
+      "Y.t2": "Y",
+      "VGND.n36": "VGND",
+      "B.t1": "B",
+      "a_1110_47.t0": "a_1110_47#",
+      "VPWR.n22": "VPWR",
+      "a_3048_47.t0": "a_3048_47#",
+      "VPWR.t4": "VPWR",
+      "Y.t0": "Y",
+      "Y.t3": "Y",
+      "VGND.n68": "VGND",
+      "VPWR.n42": "VPWR",
+      "D.t1": "D",
+      "VPWR.n27": "VPWR",
+      "VPWR.n14": "VPWR",
+      "VPWR.n17": "VPWR",
+      "a_190_47.t3": "a_190_47#",
+      "VGND.n71": "VGND",
+      "Y": "Y",
+      "B.t0": "B",
+      "VPWR.n38": "VPWR",
+      "VGND.n27": "VGND",
+      "VGND.n84": "VGND",
+      "VPWR.n83": "VPWR",
+      "VPWR.n13": "VPWR",
+      "a_2030_47.n0": "a_2030_47#",
+      "VGND.n56": "VGND",
+      "VPWR.n88": "VPWR",
+      "VGND.n41": "VGND",
+      "VGND.n29": "VGND",
+      "VGND.n53": "VGND",
+      "VPWR.n28": "VPWR",
+      "VGND.n52": "VGND",
+      "VPWR.n62": "VPWR",
+      "VGND.n5": "VGND",
+      "VPWR.n100": "VPWR",
+      "VPWR.n95": "VPWR",
+      "a_190_47.n0": "a_190_47#",
+      "VPB": "VPB",
+      "VPWR.n39": "VPWR",
+      "VPWR.n59": "VPWR",
+      "VPWR.n40": "VPWR",
+      "VPWR.n44": "VPWR",
+      "VPWR.n33": "VPWR",
+      "VPWR.n37": "VPWR",
+      "VGND.n8": "VGND",
+      "VPWR.n61": "VPWR",
+      "VPWR.n4": "VPWR",
+      "VPWR.n86": "VPWR",
+      "VPWR.n36": "VPWR",
+      "VGND.n58": "VGND",
+      "VGND.n66": "VGND",
+      "VGND.n69": "VGND",
+      "VPWR.n105": "VPWR",
+      "VPWR.n56": "VPWR",
+      "VGND.n11": "VGND",
+      "a_2030_47.t2": "a_2030_47#",
+      "Y.n1": "Y",
+      "VPWR.n70": "VPWR",
+      "a_1110_47.t1": "a_1110_47#",
+      "VGND.n26": "VGND",
+      "VPWR.n64": "VPWR",
+      "B": "B",
+      "VPWR.n69": "VPWR",
+      "VPWR.n58": "VPWR",
+      "a_1110_47.n1": "a_1110_47#",
+      "VGND.n44": "VGND",
+      "VGND.n75": "VGND",
+      "VGND.n14": "VGND",
+      "VGND.n24": "VGND",
+      "VGND.n64": "VGND",
+      "VPWR.n94": "VPWR",
+      "a_3048_47.n1": "a_3048_47#",
+      "VGND.n63": "VGND",
+      "VGND.n30": "VGND",
+      "VGND.n70": "VGND",
+      "VPWR.n41": "VPWR",
+      "VGND.n20": "VGND",
+      "VPWR.n97": "VPWR",
+      "C.t0": "C",
+      "VGND.n79": "VGND",
+      "VGND.n19": "VGND",
+      "VPWR.n65": "VPWR",
+      "VPWR.n47": "VPWR",
+      "VPWR.n72": "VPWR",
+      "VGND": "VGND",
+      "VGND.n50": "VGND",
+      "Y.n0": "Y",
+      "VPWR.n1": "VPWR",
+      "VPWR.t1": "VPWR",
+      "VPWR.n55": "VPWR",
+      "VGND.n60": "VGND",
+      "VGND.n51": "VGND",
+      "a_3048_47.t1": "a_3048_47#",
+      "VPWR.n15": "VPWR",
+      "VGND.n76": "VGND",
+      "VPWR.n67": "VPWR",
+      "VPWR.n60": "VPWR",
+      "VPWR.n98": "VPWR",
+      "VPWR": "VPWR",
+      "VGND.n61": "VGND",
+      "VPWR.n3": "VPWR",
+      "VGND.t4": "VGND",
+      "VPWR.n10": "VPWR"
+    },
+    "stress_extraction": {
+      "status": "pass",
+      "scope": "Per-physical-finger GDS LOD; vertical rectangular channels, Manhattan active; BSIM4 effective SA/SB for stepped active; nf=1 sd=0; no device merging",
+      "gds_sha256": "c81b6e7553f8928f1608e259c3523746555b1ef3c0577679e0214400eabafd95",
+      "ext_sha256": "4ea9c093406848a18220ce72d65d3c959976f26912a4ce5494cdb3bffc42849e",
+      "devices": {
+        "lod_4398_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            21.990000000000002,
+            0.23500000000000001,
+            22.14,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_3938_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            19.69,
+            0.23500000000000001,
+            19.84,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_3478_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            17.39,
+            0.23500000000000001,
+            17.54,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_3018_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            15.09,
+            0.23500000000000001,
+            15.24,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_2098_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            10.49,
+            0.23500000000000001,
+            10.64,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_1178_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            5.89,
+            0.23500000000000001,
+            6.04,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_258_47": {
+          "model": "sky130_fd_pr__nfet_01v8",
+          "gate_um": [
+            1.29,
+            0.23500000000000001,
+            1.44,
+            0.655
+          ],
+          "w_um": 0.42,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 0.42,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_6238_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            31.19,
+            1.485,
+            31.34,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_5778_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            28.89,
+            1.485,
+            29.04,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_5318_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            26.59,
+            1.485,
+            26.740000000000002,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_4858_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            24.29,
+            1.485,
+            24.44,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_2558_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            12.790000000000001,
+            1.485,
+            12.94,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_1638_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            8.19,
+            1.485,
+            8.34,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        },
+        "lod_718_297": {
+          "model": "sky130_fd_pr__pfet_01v8_hvt",
+          "gate_um": [
+            3.59,
+            1.485,
+            3.74,
+            2.485
+          ],
+          "w_um": 1.0,
+          "l_um": 0.15,
+          "sa_um": 0.34,
+          "sb_um": 0.26,
+          "nf": 1,
+          "sd_um": 0.0,
+          "slices": [
+            {
+              "width_um": 1.0,
+              "sa_um": 0.34,
+              "sb_um": 0.26
+            }
+          ]
+        }
+      },
+      "view_sha256": {
+        "canonical-native.spice": "04e7fb202b53fefd8e8108503c1b838140462d7766eb37fbea00898c9da342c7"
+      },
+      "res_ext_sha256": "9b9f2603021b5ed51819b5b3457c3a293c06984687ab11b4368ddaf31585be49"
+    }
+  },
+  "lvs": "pass",
+  "rc_sha256": "66c199c18e761b91c56430fb7c7f501e4e413f19f6a8ac09143e473ffef23fdc",
+  "shorted_sha256": "ce2b2464881b39f167c28e78574718c8226e76f567521649f060545885d4b78e",
+  "command": [
+    "/usr/local/bin/magic",
+    "-dnull",
+    "-noconsole",
+    "-rcfile",
+    "/home/hank2b/work/pdks/ciel/sky130/versions/3e0e31dcce8519a7dbb82590346db16d91b7244f/sky130A/libs.tech/magic/sky130A.magicrc",
+    "/home/hank2b/tools/cellweaver-main/build/gb4-overnight/dd2_g4__n4_88f8_1/auto/rc_extraction/extract.tcl"
+  ],
+  "settings": {
+    "threshold_milliohm": 0,
+    "minres_milliohm": 0,
+    "mindelay_ps": 0,
+    "simplify": false,
+    "ideal_body_ports": [
+      "VNB",
+      "VPB"
+    ]
+  }
+}

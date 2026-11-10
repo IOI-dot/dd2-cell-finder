@@ -83,3 +83,42 @@ Kept all other members' generator/agent/studio code, optional targets, tests
 and saved experiments. Added extended setup/check/test/all commands rather
 than deleting that work. No M1/M2 algorithms or measured outputs were changed.
 Table 4 remains unresolved and no TA acceptance or tag movement is inferred.
+
+### Option 2 M3 preparation, 2026-11-07
+
+Codex helped prepare the deterministic greedy selection, course-generator
+response import, real-area/sensitivity remaps and unseen-design demo. The team
+reported the TA's Table 4 disposition and chose to leave tagging until later.
+The reported counts and original self-test were preserved. The new tests
+exercise greedy retries, the exact Table 4 disposition, and accepting and
+rejecting generator responses. Course-generator results are pending.
+
+Verification used the supplied pack and tutorial benches, the pinned OSS CAD
+Suite, and OpenSTA 3.1.0. The reference Yosys 0.33 run matched all Table 1
+areas. The clean checkout passed the environment check and all 105 Option 2
+tests. A combinational unseen-design rehearsal caught the old M1 front end's
+assumption that an initialization latch is always present. The final demo
+uses the shared AIG and cut discovery pipeline and passed A/B mapping, CEC,
+OpenSTA and the 30% test. A separate archived Liberty fixture exercised the
+characterized-cell import. These checks do not supply the final course
+generator responses.
+
+### Separate M3 candidate sweep, 2026-11-07
+
+Codex added an optional measured sweep over all eligible remaining candidates
+at each greedy round. The team can compare its area results against the first
+improvement run before choosing a request set. Completed trial scores are saved
+for restart, and the sweep writes to a separate output directory. The selection
+test covers choosing a later candidate with a larger measured improvement,
+ties in ranked order, and stopping when no candidate helps.
+
+### Option 2 M3 execution and handoff, 2026-11-10
+
+Omar supplied WSL commands, tool outputs, and the final evidence export. Codex
+helped resume CellWeaver, package matching Appendix A responses, diagnose
+Yosys output and version failures, and assemble this Option 2 handoff and AI
+report. The team ran the experiment on WSL. The saved Liberty hashes,
+baseline records, mapped netlists, CEC logs, OpenSTA logs and tutorial
+simulation logs are the evidence for the results. The original input
+toolchain remains external. Model-call counts and per-task charges were not
+recorded for the interactive work.

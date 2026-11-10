@@ -1,0 +1,21 @@
+design,script,baseline_um2,extended_um2,reduction_pct,new_cell_instances,baseline_equivalence,extended_equivalence,baseline_delay_ns,extended_delay_ns,baseline_timing_status,extended_timing_status,effect_note
+cpu8,A,4165.2448,4165.2448,0.0,0,pass,pass,4.293621,4.293621,pass,pass,no new cell instantiated
+cpu8,B,4231.5584,4241.06752,-0.2247191011235887,20,pass,pass,5.277152,4.228866,pass,pass,new cell instantiated
+dsp8,A,5811.824,5798.0608,0.2368137782561794,5,pass,pass,5.18268,5.039389,pass,pass,new cell instantiated
+dsp8,B,6047.0496,6087.7136,-0.6724601696668696,17,pass,pass,6.059206,5.773503,pass,pass,new cell instantiated
+arlet6502,A,9325.1936,9300.1696,0.2683483161143298,8,pass,pass,6.564311,6.452047,pass,pass,new cell instantiated
+arlet6502,B,9527.888,9420.40992,1.128036769533823,35,pass,pass,6.334112,6.163207,pass,pass,new cell instantiated
+uart_apb,A,12773.5008,12750.9792,0.1763150161622101,7,pass,pass,8.492324,8.496046,pass,pass,new cell instantiated
+uart_apb,B,13031.248,13041.00736,-0.07489198271723488,16,pass,pass,4.276497,4.276497,pass,pass,new cell instantiated
+risc8,A,28114.464,28119.4688,-0.017801513128611647,7,pass,pass,24.420959,24.311224,pass,pass,new cell instantiated
+risc8,B,28094.4448,27795.53312,1.0639529705175061,158,pass,pass,25.65226,14.378911,pass,pass,new cell instantiated
+fir10,A,25463.1712,25334.2976,0.5061176354970232,36,pass,pass,6.727823,6.705179,pass,pass,new cell instantiated
+fir10,B,29016.5792,28730.0544,0.9874520288042749,10,pass,pass,7.637096,8.418633,pass,pass,new cell instantiated
+spm,A,2869.0016,2869.0016,0.0,0,pass,pass,1.018216,1.018216,pass,pass,no new cell instantiated
+spm,B,2907.7888,2907.7888,0.0,0,pass,pass,0.694548,0.694548,pass,pass,no new cell instantiated
+multiplier,A,1736.6656,1736.6656,0.0,0,pass,pass,4.374694,4.374694,pass,pass,no new cell instantiated
+multiplier,B,1954.3744,1945.616,0.4481434058898816,3,pass,pass,4.820926,4.703726,pass,pass,new cell instantiated
+pic16,A,30336.5952,30301.5616,0.11548296626247247,12,pass,pass,33.425709,31.422342,pass,pass,new cell instantiated
+pic16,B,30326.5856,30004.02624,1.0636191104876618,217,pass,pass,27.112009,17.501385,pass,pass,new cell instantiated
+p16c5x,A,29548.3392,29487.0304,0.20748644986449488,12,pass,pass,27.50773,26.885029,pass,pass,new cell instantiated
+p16c5x,B,31087.3152,30741.85888,1.1112452708685538,225,pass,pass,27.513689,14.28442,pass,pass,new cell instantiated

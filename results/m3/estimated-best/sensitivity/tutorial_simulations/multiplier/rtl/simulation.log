@@ -1,0 +1,3 @@
+$ vvp /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/tutorial_simulations/multiplier/rtl/simulation.vvp
+PASS: all 65536 signed input pairs correct
+/home/hank2b/dd2-inputs/tutorials/multiplier/mul_exhaustive_tb.v:42: $finish called at 65536000 (1ps)

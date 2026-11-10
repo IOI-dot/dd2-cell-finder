@@ -1,8 +1,0 @@
-$ yosys -Q -T -s /Users/noorelshahidi/DD2Project/results/option3/mapping/dsp8/extended/B/gold_write_aig.ys
-
--- Executing script file `/Users/noorelshahidi/DD2Project/results/option3/mapping/dsp8/extended/B/gold_write_aig.ys' --
-
-1. Executing JSON frontend.
-Importing module dsp8 from JSON tree.
-
-2. Executing AIGER backend.

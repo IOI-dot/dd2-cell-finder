@@ -1,0 +1,43 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/mapping/spm/extended/B/gate_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/mapping/spm/extended/B/gate_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module SPM from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit SPM.\X [0] like $anyseq.
+Warning: Treating undriven bit SPM.\X [1] like $anyseq.
+Warning: Treating undriven bit SPM.\X [2] like $anyseq.
+Warning: Treating undriven bit SPM.\X [3] like $anyseq.
+Warning: Treating undriven bit SPM.\X [4] like $anyseq.
+Warning: Treating undriven bit SPM.\X [5] like $anyseq.
+Warning: Treating undriven bit SPM.\X [6] like $anyseq.
+Warning: Treating undriven bit SPM.\X [7] like $anyseq.
+Warning: Treating undriven bit SPM.\X [8] like $anyseq.
+Warning: Treating undriven bit SPM.\X [9] like $anyseq.
+Warning: Treating undriven bit SPM.\X [10] like $anyseq.
+Warning: Treating undriven bit SPM.\X [11] like $anyseq.
+Warning: Treating undriven bit SPM.\X [12] like $anyseq.
+Warning: Treating undriven bit SPM.\X [13] like $anyseq.
+Warning: Treating undriven bit SPM.\X [14] like $anyseq.
+Warning: Treating undriven bit SPM.\X [15] like $anyseq.
+Warning: Treating undriven bit SPM.\X [16] like $anyseq.
+Warning: Treating undriven bit SPM.\X [17] like $anyseq.
+Warning: Treating undriven bit SPM.\X [18] like $anyseq.
+Warning: Treating undriven bit SPM.\X [19] like $anyseq.
+Warning: Treating undriven bit SPM.\X [20] like $anyseq.
+Warning: Treating undriven bit SPM.\X [21] like $anyseq.
+Warning: Treating undriven bit SPM.\X [22] like $anyseq.
+Warning: Treating undriven bit SPM.\X [23] like $anyseq.
+Warning: Treating undriven bit SPM.\X [24] like $anyseq.
+Warning: Treating undriven bit SPM.\X [25] like $anyseq.
+Warning: Treating undriven bit SPM.\X [26] like $anyseq.
+Warning: Treating undriven bit SPM.\X [27] like $anyseq.
+Warning: Treating undriven bit SPM.\X [28] like $anyseq.
+Warning: Treating undriven bit SPM.\X [29] like $anyseq.
+Warning: Treating undriven bit SPM.\X [30] like $anyseq.
+Warning: Treating undriven bit SPM.\X [31] like $anyseq.
+Warning: Treating undriven bit SPM.\y like $anyseq.
+Warning: Treating undriven bit SPM.\rst like $anyseq.
+Warning: Treating a total of 34 undriven bits in SPM like $anyseq.

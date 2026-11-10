@@ -1,0 +1,15 @@
+* Generated reference circuit; dimensions in micrometers.
+.subckt dd2_g4__n4_1bff_1 A B C D VGND VNB VPB VPWR Y
+XM0 _net1 A VGND VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM1 _net1 A VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+XM2 Y D _net3 VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM3 _net3 A _net2 VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM4 _net3 B _net2 VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM5 _net2 _net1 VGND VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM6 _net2 C VGND VNB sky130_fd_pr__nfet_01v8 w=0.420 l=0.150
+XM7 Y D VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+XM8 Y A _net4 VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+XM9 _net4 B VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+XM10 Y _net1 _net5 VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+XM11 _net5 C VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1.000 l=0.150
+.ends dd2_g4__n4_1bff_1

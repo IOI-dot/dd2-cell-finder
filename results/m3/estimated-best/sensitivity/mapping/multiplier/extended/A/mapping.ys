@@ -1,0 +1,11 @@
+read_verilog "/home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v"
+synth -flatten -top mul
+write_rtlil "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/extended/A/gold.il"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/extended/A/gold.json"
+dfflibmap -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib"
+abc -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib" -script +strash;dch,-f;amap;topo
+opt_clean -purge
+tee -q -o "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/extended/A/stat.json" stat -json -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/hd_extended_70pct.lib"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/extended/A/mapped.json"
+write_verilog -noattr -noexpr -norename "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/extended/A/mapped.v"
+

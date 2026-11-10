@@ -2,8 +2,8 @@
 
 **Start here for the TA meeting.** Figures and tables are copies of the saved run; full evidence is in [results/m2](../results/m2/).
 
-Experimental flow: **pass**. Full checkpoint ready: **False**.
-Table 4 remains unresolved: six verified qualifying classes versus five in the handout. No TA acceptance is assumed.
+Experimental flow: **pass**. Full checkpoint ready: **True**.
+Table 4: TA accepted recorded difference. The recorded counts remain visible.
 See [the clarification and six examples](TABLE4_CLARIFICATION.md).
 
 ## What was verified
@@ -65,7 +65,6 @@ Measured from the baseline and extended mappings, taking the smaller A/B area on
 
 ## Still open
 
-- Table 4: six verified witnesses versus five in the handout remains unresolved; obtain clarification from the TA.
 
 Final milestone: real generator cells, final greedy selection, real-area reruns, cell-by-cell curve, 30% experiment, final reports and full unseen-design demo.
 

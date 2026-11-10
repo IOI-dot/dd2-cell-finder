@@ -1,0 +1,1322 @@
+[
+  {
+    "gold_index": 0,
+    "mapped_index": 0,
+    "role": "i",
+    "shared_aliases": [
+      "X[0]"
+    ]
+  },
+  {
+    "gold_index": 1,
+    "mapped_index": 1,
+    "role": "i",
+    "shared_aliases": [
+      "X[1]"
+    ]
+  },
+  {
+    "gold_index": 2,
+    "mapped_index": 2,
+    "role": "i",
+    "shared_aliases": [
+      "X[2]"
+    ]
+  },
+  {
+    "gold_index": 3,
+    "mapped_index": 3,
+    "role": "i",
+    "shared_aliases": [
+      "X[3]"
+    ]
+  },
+  {
+    "gold_index": 4,
+    "mapped_index": 4,
+    "role": "i",
+    "shared_aliases": [
+      "X[4]"
+    ]
+  },
+  {
+    "gold_index": 5,
+    "mapped_index": 5,
+    "role": "i",
+    "shared_aliases": [
+      "X[5]"
+    ]
+  },
+  {
+    "gold_index": 6,
+    "mapped_index": 6,
+    "role": "i",
+    "shared_aliases": [
+      "X[6]"
+    ]
+  },
+  {
+    "gold_index": 7,
+    "mapped_index": 7,
+    "role": "i",
+    "shared_aliases": [
+      "X[7]"
+    ]
+  },
+  {
+    "gold_index": 8,
+    "mapped_index": 8,
+    "role": "i",
+    "shared_aliases": [
+      "X[8]"
+    ]
+  },
+  {
+    "gold_index": 9,
+    "mapped_index": 9,
+    "role": "i",
+    "shared_aliases": [
+      "X[9]"
+    ]
+  },
+  {
+    "gold_index": 10,
+    "mapped_index": 10,
+    "role": "i",
+    "shared_aliases": [
+      "X[10]"
+    ]
+  },
+  {
+    "gold_index": 11,
+    "mapped_index": 11,
+    "role": "i",
+    "shared_aliases": [
+      "X[11]"
+    ]
+  },
+  {
+    "gold_index": 12,
+    "mapped_index": 12,
+    "role": "i",
+    "shared_aliases": [
+      "X[12]"
+    ]
+  },
+  {
+    "gold_index": 13,
+    "mapped_index": 13,
+    "role": "i",
+    "shared_aliases": [
+      "X[13]"
+    ]
+  },
+  {
+    "gold_index": 14,
+    "mapped_index": 14,
+    "role": "i",
+    "shared_aliases": [
+      "X[14]"
+    ]
+  },
+  {
+    "gold_index": 15,
+    "mapped_index": 15,
+    "role": "i",
+    "shared_aliases": [
+      "X[15]"
+    ]
+  },
+  {
+    "gold_index": 16,
+    "mapped_index": 16,
+    "role": "i",
+    "shared_aliases": [
+      "X[16]"
+    ]
+  },
+  {
+    "gold_index": 17,
+    "mapped_index": 17,
+    "role": "i",
+    "shared_aliases": [
+      "X[17]"
+    ]
+  },
+  {
+    "gold_index": 18,
+    "mapped_index": 18,
+    "role": "i",
+    "shared_aliases": [
+      "X[18]"
+    ]
+  },
+  {
+    "gold_index": 19,
+    "mapped_index": 19,
+    "role": "i",
+    "shared_aliases": [
+      "X[19]"
+    ]
+  },
+  {
+    "gold_index": 20,
+    "mapped_index": 20,
+    "role": "i",
+    "shared_aliases": [
+      "X[20]"
+    ]
+  },
+  {
+    "gold_index": 21,
+    "mapped_index": 21,
+    "role": "i",
+    "shared_aliases": [
+      "X[21]"
+    ]
+  },
+  {
+    "gold_index": 22,
+    "mapped_index": 22,
+    "role": "i",
+    "shared_aliases": [
+      "X[22]"
+    ]
+  },
+  {
+    "gold_index": 23,
+    "mapped_index": 23,
+    "role": "i",
+    "shared_aliases": [
+      "X[23]"
+    ]
+  },
+  {
+    "gold_index": 24,
+    "mapped_index": 24,
+    "role": "i",
+    "shared_aliases": [
+      "X[24]"
+    ]
+  },
+  {
+    "gold_index": 25,
+    "mapped_index": 25,
+    "role": "i",
+    "shared_aliases": [
+      "X[25]"
+    ]
+  },
+  {
+    "gold_index": 26,
+    "mapped_index": 26,
+    "role": "i",
+    "shared_aliases": [
+      "X[26]"
+    ]
+  },
+  {
+    "gold_index": 27,
+    "mapped_index": 27,
+    "role": "i",
+    "shared_aliases": [
+      "X[27]"
+    ]
+  },
+  {
+    "gold_index": 28,
+    "mapped_index": 28,
+    "role": "i",
+    "shared_aliases": [
+      "X[28]"
+    ]
+  },
+  {
+    "gold_index": 29,
+    "mapped_index": 29,
+    "role": "i",
+    "shared_aliases": [
+      "X[29]"
+    ]
+  },
+  {
+    "gold_index": 30,
+    "mapped_index": 30,
+    "role": "i",
+    "shared_aliases": [
+      "X[30]"
+    ]
+  },
+  {
+    "gold_index": 31,
+    "mapped_index": 31,
+    "role": "i",
+    "shared_aliases": [
+      "X[31]"
+    ]
+  },
+  {
+    "gold_index": 32,
+    "mapped_index": 32,
+    "role": "i",
+    "shared_aliases": [
+      "clk"
+    ]
+  },
+  {
+    "gold_index": 33,
+    "mapped_index": 33,
+    "role": "i",
+    "shared_aliases": [
+      "y"
+    ]
+  },
+  {
+    "gold_index": 34,
+    "mapped_index": 34,
+    "role": "i",
+    "shared_aliases": [
+      "rst"
+    ]
+  },
+  {
+    "gold_index": 35,
+    "mapped_index": 35,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_63_0"
+    ]
+  },
+  {
+    "gold_index": 36,
+    "mapped_index": 36,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_62_0"
+    ]
+  },
+  {
+    "gold_index": 37,
+    "mapped_index": 37,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_61_0"
+    ]
+  },
+  {
+    "gold_index": 38,
+    "mapped_index": 38,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_60_0"
+    ]
+  },
+  {
+    "gold_index": 39,
+    "mapped_index": 39,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_59_0"
+    ]
+  },
+  {
+    "gold_index": 40,
+    "mapped_index": 40,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_58_0"
+    ]
+  },
+  {
+    "gold_index": 41,
+    "mapped_index": 41,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_57_0"
+    ]
+  },
+  {
+    "gold_index": 42,
+    "mapped_index": 42,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_56_0"
+    ]
+  },
+  {
+    "gold_index": 43,
+    "mapped_index": 43,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_55_0"
+    ]
+  },
+  {
+    "gold_index": 44,
+    "mapped_index": 44,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_54_0"
+    ]
+  },
+  {
+    "gold_index": 45,
+    "mapped_index": 45,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_53_0"
+    ]
+  },
+  {
+    "gold_index": 46,
+    "mapped_index": 46,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_52_0"
+    ]
+  },
+  {
+    "gold_index": 47,
+    "mapped_index": 47,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_51_0"
+    ]
+  },
+  {
+    "gold_index": 48,
+    "mapped_index": 48,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_50_0"
+    ]
+  },
+  {
+    "gold_index": 49,
+    "mapped_index": 49,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_49_0"
+    ]
+  },
+  {
+    "gold_index": 50,
+    "mapped_index": 50,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_48_0"
+    ]
+  },
+  {
+    "gold_index": 51,
+    "mapped_index": 51,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_47_0"
+    ]
+  },
+  {
+    "gold_index": 52,
+    "mapped_index": 52,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_46_0"
+    ]
+  },
+  {
+    "gold_index": 53,
+    "mapped_index": 53,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_45_0"
+    ]
+  },
+  {
+    "gold_index": 54,
+    "mapped_index": 54,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_44_0"
+    ]
+  },
+  {
+    "gold_index": 55,
+    "mapped_index": 55,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_43_0"
+    ]
+  },
+  {
+    "gold_index": 56,
+    "mapped_index": 56,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_42_0"
+    ]
+  },
+  {
+    "gold_index": 57,
+    "mapped_index": 57,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_41_0"
+    ]
+  },
+  {
+    "gold_index": 58,
+    "mapped_index": 58,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_40_0"
+    ]
+  },
+  {
+    "gold_index": 59,
+    "mapped_index": 59,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_39_0"
+    ]
+  },
+  {
+    "gold_index": 60,
+    "mapped_index": 60,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_38_0"
+    ]
+  },
+  {
+    "gold_index": 61,
+    "mapped_index": 61,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_37_0"
+    ]
+  },
+  {
+    "gold_index": 62,
+    "mapped_index": 62,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_36_0"
+    ]
+  },
+  {
+    "gold_index": 63,
+    "mapped_index": 63,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_35_0"
+    ]
+  },
+  {
+    "gold_index": 64,
+    "mapped_index": 64,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_34_0"
+    ]
+  },
+  {
+    "gold_index": 65,
+    "mapped_index": 65,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_33_0"
+    ]
+  },
+  {
+    "gold_index": 66,
+    "mapped_index": 66,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_32_0"
+    ]
+  },
+  {
+    "gold_index": 67,
+    "mapped_index": 67,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_31_0"
+    ]
+  },
+  {
+    "gold_index": 68,
+    "mapped_index": 68,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_30_0"
+    ]
+  },
+  {
+    "gold_index": 69,
+    "mapped_index": 69,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_29_0"
+    ]
+  },
+  {
+    "gold_index": 70,
+    "mapped_index": 70,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_28_0"
+    ]
+  },
+  {
+    "gold_index": 71,
+    "mapped_index": 71,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_27_0"
+    ]
+  },
+  {
+    "gold_index": 72,
+    "mapped_index": 72,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_26_0"
+    ]
+  },
+  {
+    "gold_index": 73,
+    "mapped_index": 73,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_25_0"
+    ]
+  },
+  {
+    "gold_index": 74,
+    "mapped_index": 74,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_24_0"
+    ]
+  },
+  {
+    "gold_index": 75,
+    "mapped_index": 75,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_23_0"
+    ]
+  },
+  {
+    "gold_index": 76,
+    "mapped_index": 76,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_22_0"
+    ]
+  },
+  {
+    "gold_index": 77,
+    "mapped_index": 77,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_21_0"
+    ]
+  },
+  {
+    "gold_index": 78,
+    "mapped_index": 78,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_20_0"
+    ]
+  },
+  {
+    "gold_index": 79,
+    "mapped_index": 79,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_19_0"
+    ]
+  },
+  {
+    "gold_index": 80,
+    "mapped_index": 80,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_18_0"
+    ]
+  },
+  {
+    "gold_index": 81,
+    "mapped_index": 81,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_17_0"
+    ]
+  },
+  {
+    "gold_index": 82,
+    "mapped_index": 82,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_16_0"
+    ]
+  },
+  {
+    "gold_index": 83,
+    "mapped_index": 83,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_15_0"
+    ]
+  },
+  {
+    "gold_index": 84,
+    "mapped_index": 84,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_14_0"
+    ]
+  },
+  {
+    "gold_index": 85,
+    "mapped_index": 85,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_13_0"
+    ]
+  },
+  {
+    "gold_index": 86,
+    "mapped_index": 86,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_12_0"
+    ]
+  },
+  {
+    "gold_index": 87,
+    "mapped_index": 87,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_11_0"
+    ]
+  },
+  {
+    "gold_index": 88,
+    "mapped_index": 88,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_10_0"
+    ]
+  },
+  {
+    "gold_index": 89,
+    "mapped_index": 89,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_9_0"
+    ]
+  },
+  {
+    "gold_index": 90,
+    "mapped_index": 90,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_8_0"
+    ]
+  },
+  {
+    "gold_index": 91,
+    "mapped_index": 91,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_7_0"
+    ]
+  },
+  {
+    "gold_index": 92,
+    "mapped_index": 92,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_6_0"
+    ]
+  },
+  {
+    "gold_index": 93,
+    "mapped_index": 93,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_5_0"
+    ]
+  },
+  {
+    "gold_index": 94,
+    "mapped_index": 94,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_4_0"
+    ]
+  },
+  {
+    "gold_index": 95,
+    "mapped_index": 95,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_3_0"
+    ]
+  },
+  {
+    "gold_index": 96,
+    "mapped_index": 96,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_2_0"
+    ]
+  },
+  {
+    "gold_index": 97,
+    "mapped_index": 97,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_1_0"
+    ]
+  },
+  {
+    "gold_index": 98,
+    "mapped_index": 98,
+    "role": "i",
+    "shared_aliases": [
+      "init:dd2_state_0_0"
+    ]
+  },
+  {
+    "gold_index": 0,
+    "mapped_index": 0,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_63_0"
+    ]
+  },
+  {
+    "gold_index": 1,
+    "mapped_index": 1,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_62_0"
+    ]
+  },
+  {
+    "gold_index": 2,
+    "mapped_index": 2,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_61_0"
+    ]
+  },
+  {
+    "gold_index": 3,
+    "mapped_index": 3,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_60_0"
+    ]
+  },
+  {
+    "gold_index": 4,
+    "mapped_index": 4,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_59_0"
+    ]
+  },
+  {
+    "gold_index": 5,
+    "mapped_index": 5,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_58_0"
+    ]
+  },
+  {
+    "gold_index": 6,
+    "mapped_index": 6,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_57_0"
+    ]
+  },
+  {
+    "gold_index": 7,
+    "mapped_index": 7,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_56_0"
+    ]
+  },
+  {
+    "gold_index": 8,
+    "mapped_index": 8,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_55_0"
+    ]
+  },
+  {
+    "gold_index": 9,
+    "mapped_index": 9,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_54_0"
+    ]
+  },
+  {
+    "gold_index": 10,
+    "mapped_index": 10,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_53_0"
+    ]
+  },
+  {
+    "gold_index": 11,
+    "mapped_index": 11,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_52_0"
+    ]
+  },
+  {
+    "gold_index": 12,
+    "mapped_index": 12,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_51_0"
+    ]
+  },
+  {
+    "gold_index": 13,
+    "mapped_index": 13,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_50_0"
+    ]
+  },
+  {
+    "gold_index": 14,
+    "mapped_index": 14,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_49_0"
+    ]
+  },
+  {
+    "gold_index": 15,
+    "mapped_index": 15,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_48_0"
+    ]
+  },
+  {
+    "gold_index": 16,
+    "mapped_index": 16,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_47_0"
+    ]
+  },
+  {
+    "gold_index": 17,
+    "mapped_index": 17,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_46_0"
+    ]
+  },
+  {
+    "gold_index": 18,
+    "mapped_index": 18,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_45_0"
+    ]
+  },
+  {
+    "gold_index": 19,
+    "mapped_index": 19,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_44_0"
+    ]
+  },
+  {
+    "gold_index": 20,
+    "mapped_index": 20,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_43_0"
+    ]
+  },
+  {
+    "gold_index": 21,
+    "mapped_index": 21,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_42_0"
+    ]
+  },
+  {
+    "gold_index": 22,
+    "mapped_index": 22,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_41_0"
+    ]
+  },
+  {
+    "gold_index": 23,
+    "mapped_index": 23,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_40_0"
+    ]
+  },
+  {
+    "gold_index": 24,
+    "mapped_index": 24,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_39_0"
+    ]
+  },
+  {
+    "gold_index": 25,
+    "mapped_index": 25,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_38_0"
+    ]
+  },
+  {
+    "gold_index": 26,
+    "mapped_index": 26,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_37_0"
+    ]
+  },
+  {
+    "gold_index": 27,
+    "mapped_index": 27,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_36_0"
+    ]
+  },
+  {
+    "gold_index": 28,
+    "mapped_index": 28,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_35_0"
+    ]
+  },
+  {
+    "gold_index": 29,
+    "mapped_index": 29,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_34_0"
+    ]
+  },
+  {
+    "gold_index": 30,
+    "mapped_index": 30,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_33_0"
+    ]
+  },
+  {
+    "gold_index": 31,
+    "mapped_index": 31,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_32_0"
+    ]
+  },
+  {
+    "gold_index": 32,
+    "mapped_index": 32,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_31_0"
+    ]
+  },
+  {
+    "gold_index": 33,
+    "mapped_index": 33,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_30_0"
+    ]
+  },
+  {
+    "gold_index": 34,
+    "mapped_index": 34,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_29_0"
+    ]
+  },
+  {
+    "gold_index": 35,
+    "mapped_index": 35,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_28_0"
+    ]
+  },
+  {
+    "gold_index": 36,
+    "mapped_index": 36,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_27_0"
+    ]
+  },
+  {
+    "gold_index": 37,
+    "mapped_index": 37,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_26_0"
+    ]
+  },
+  {
+    "gold_index": 38,
+    "mapped_index": 38,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_25_0"
+    ]
+  },
+  {
+    "gold_index": 39,
+    "mapped_index": 39,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_24_0"
+    ]
+  },
+  {
+    "gold_index": 40,
+    "mapped_index": 40,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_23_0"
+    ]
+  },
+  {
+    "gold_index": 41,
+    "mapped_index": 41,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_22_0"
+    ]
+  },
+  {
+    "gold_index": 42,
+    "mapped_index": 42,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_21_0"
+    ]
+  },
+  {
+    "gold_index": 43,
+    "mapped_index": 43,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_20_0"
+    ]
+  },
+  {
+    "gold_index": 44,
+    "mapped_index": 44,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_19_0"
+    ]
+  },
+  {
+    "gold_index": 45,
+    "mapped_index": 45,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_18_0"
+    ]
+  },
+  {
+    "gold_index": 46,
+    "mapped_index": 46,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_17_0"
+    ]
+  },
+  {
+    "gold_index": 47,
+    "mapped_index": 47,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_16_0"
+    ]
+  },
+  {
+    "gold_index": 48,
+    "mapped_index": 48,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_15_0"
+    ]
+  },
+  {
+    "gold_index": 49,
+    "mapped_index": 49,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_14_0"
+    ]
+  },
+  {
+    "gold_index": 50,
+    "mapped_index": 50,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_13_0"
+    ]
+  },
+  {
+    "gold_index": 51,
+    "mapped_index": 51,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_12_0"
+    ]
+  },
+  {
+    "gold_index": 52,
+    "mapped_index": 52,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_11_0"
+    ]
+  },
+  {
+    "gold_index": 53,
+    "mapped_index": 53,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_10_0"
+    ]
+  },
+  {
+    "gold_index": 54,
+    "mapped_index": 54,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_9_0"
+    ]
+  },
+  {
+    "gold_index": 55,
+    "mapped_index": 55,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_8_0"
+    ]
+  },
+  {
+    "gold_index": 56,
+    "mapped_index": 56,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_7_0"
+    ]
+  },
+  {
+    "gold_index": 57,
+    "mapped_index": 57,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_6_0"
+    ]
+  },
+  {
+    "gold_index": 58,
+    "mapped_index": 58,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_5_0"
+    ]
+  },
+  {
+    "gold_index": 59,
+    "mapped_index": 59,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_4_0"
+    ]
+  },
+  {
+    "gold_index": 60,
+    "mapped_index": 60,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_3_0"
+    ]
+  },
+  {
+    "gold_index": 61,
+    "mapped_index": 61,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_2_0"
+    ]
+  },
+  {
+    "gold_index": 62,
+    "mapped_index": 62,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_1_0"
+    ]
+  },
+  {
+    "gold_index": 63,
+    "mapped_index": 63,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_state_0_0"
+    ]
+  },
+  {
+    "gold_index": 64,
+    "mapped_index": 64,
+    "role": "l",
+    "shared_aliases": [
+      "dd2_initialization_latch"
+    ]
+  },
+  {
+    "gold_index": 0,
+    "mapped_index": 0,
+    "role": "o",
+    "shared_aliases": [
+      "p"
+    ]
+  }
+]

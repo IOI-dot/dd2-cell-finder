@@ -1,10 +1,11 @@
 {
-  "checkpoint_ready": false,
+  "checkpoint_ready": true,
   "checks": {
     "all_six_required_designs": true,
     "mapping_equivalence": true,
     "overview_tool_versions": true,
     "reference_table4_agrees": false,
+    "reference_table4_resolved": true,
     "timing_runs": true,
     "tutorial_designs_mapped_and_simulated": true
   },
@@ -15,9 +16,8 @@
     "30-percent experiment",
     "final reports"
   ],
-  "remaining": [
-    "Table 4: six verified witnesses versus five in the handout remains unresolved; obtain clarification from the TA."
-  ],
+  "remaining": [],
+  "table4_disposition": "TA accepted recorded difference",
   "tutorial_inputs": {
     "multiplier": {
       "gate_simulations": {
@@ -160,5 +160,5 @@
       "rtl_supplied": true
     }
   },
-  "written": "2026-11-03T11:56:36+00:00"
+  "written": "2026-11-07T19:58:04+00:00"
 }

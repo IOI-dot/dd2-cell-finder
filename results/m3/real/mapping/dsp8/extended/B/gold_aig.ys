@@ -1,0 +1,6 @@
+read_rtlil "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/dsp8/extended/B/gold.il"
+async2sync
+dffunmap
+aigmap
+write_json "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/dsp8/extended/B/gold_state.json"
+

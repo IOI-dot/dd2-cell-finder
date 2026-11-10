@@ -46,7 +46,7 @@
   },
   {
     "copy": "TABLE4_CLARIFICATION.md",
-    "sha256": "fa5a99201dd2537a848afe5c992f961c0a4933e48793e6aafa5ffc2c3ce6279b",
+    "sha256": "bf2569d677a01d39a9a62edb367619674b0aec5c81481b996183a5f2755535ef",
     "source": "results/m2/reference_count_question.md"
   },
   {
@@ -56,7 +56,7 @@
   },
   {
     "copy": "readiness.json",
-    "sha256": "1d555fb9a1a7b756fb851be88d6fa6b27dbe285b69df7fd5984894b9a3e389e1",
+    "sha256": "faa41778e7a6cadd54345314bf03d5ff9b229e9a0b8314816af7307896c3b3f6",
     "source": "results/m2/readiness.json"
   },
   {

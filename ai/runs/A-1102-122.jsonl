@@ -1,2 +1,0 @@
-{"run": "A-1102-122", "step": 1, "kind": "result", "status": "fail", "checks": "ai/runs/A-1102-122.checks.json"}
-{"run": "A-1102-122", "step": 2, "agent": "diagnostician", "kind": "tool", "tool": "build_cell", "args": {"expr": "!((A | B) & (C | D))", "name": "web_cell_r0", "sizing": "hd", "order_index": 0}, "result": "runs/A-1102-122/cells/web_cell_r0/report.json", "exit_code": 130}

@@ -80,3 +80,11 @@ archived them unchanged so the active repository describes Option 2.
 | M-048 | L-013 | The subscript display rule turned cell names such as `dd2_g4__n4_17ff_1` into `dd2_g4_n₄_17ff_1`, dropping an underscore, because it only looked for a letter or digit before `_`. | Seen on the Option 2 page. The rule now needs a stand-alone helper net. | Yes. Every test passed; the display layer had none for names with double underscores. |
 | M-049 | L-013 | The first Option 2 facts gave the agent unrounded floats and no note that TOTAL covers only the six required designs, so it quoted `-17.516799999997602` and called the total inconsistent. | Asking it a real question in the browser. The facts are now at record precision with that note. | Yes. The number check passed, because the numbers were real. |
 
+
+### Option 2 M3 execution, 2026-11-10
+
+| Incident | AI mistake | How the team caught and corrected it | Weaker check that would miss it |
+|---|---|---|---|
+| M3 launcher | A detached Python script lacked the CellWeaver source root on the import path. | The retry log showed a ModuleNotFoundError. Relaunching with explicit PYTHONPATH reached the saved cell and resumed. | Seeing a Docker container ID. |
+| M3 statistics output | The generated Yosys script quoted the output path for the tee pass, which failed on the system Yosys 0.33 used during troubleshooting. | The team exposed the error with a diagnostic script and used the working unquoted path. | Seeing ABC print mapping results. |
+| M3 baseline | The first real remap used system Yosys 0.33 instead of the OSS CAD Suite build used by the estimated sweep. | The baseline comparison rejected the run. The team restored the pinned Yosys/ABC and checked the source hashes. | Equivalence alone, since the mismatched baseline still passed. |

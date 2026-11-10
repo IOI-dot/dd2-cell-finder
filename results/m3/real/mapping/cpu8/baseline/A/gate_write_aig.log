@@ -1,0 +1,18 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/cpu8/baseline/A/gate_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/cpu8/baseline/A/gate_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module cpu8 from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit cpu8.\rst like $anyseq.
+Warning: Treating undriven bit cpu8.\din [0] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [1] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [2] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [3] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [4] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [5] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [6] like $anyseq.
+Warning: Treating undriven bit cpu8.\din [7] like $anyseq.
+Warning: Treating a total of 9 undriven bits in cpu8 like $anyseq.

@@ -1,0 +1,23 @@
+{
+  "area_um2": 2869.0016,
+  "cell_counts": {
+    "sky130_fd_sc_hd__a21oi_1": 31,
+    "sky130_fd_sc_hd__buf_1": 63,
+    "sky130_fd_sc_hd__dfrtp_1": 64,
+    "sky130_fd_sc_hd__inv_1": 64,
+    "sky130_fd_sc_hd__nand2_1": 33,
+    "sky130_fd_sc_hd__nor2_1": 31,
+    "sky130_fd_sc_hd__o21a_1": 1,
+    "sky130_fd_sc_hd__o22ai_1": 62
+  },
+  "cells": 349,
+  "design": "spm",
+  "inputs": {
+    "build/tutorials/spm/combined.v": "61539f09be37495d42bcf7f2f32b9a74bba5fa5574f156719c40e38bee02ff38",
+    "results/m3/real/hd_extended_real.lib": "c1381ca5fd3350d4279b2c18048f2b4cded7a8b501c5e7f46192fd74e51d4463"
+  },
+  "script": "A",
+  "seconds": 0.217,
+  "top": "SPM",
+  "yosys": "Yosys 0.70+240 (git sha1 5cdfd1241, Release, Clang /usr/bin/clang++ 21.1.8)"
+}

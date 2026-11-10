@@ -8,6 +8,23 @@ from .cost import stage_forms
 from .tables import write_csv
 
 
+ACCEPTED_ROW = ("new_one_stage_small", 5, 6, "definition-open")
+DISPOSITION = "TA accepted GB4's six-versus-five result as submitted, per the team."
+
+
+def disposition(rows):
+    if not rows:
+        return "missing M1 self-test"
+    differences = [r for r in rows if r.get("status") != "match"]
+    if not differences:
+        return "match"
+    if len(differences) == 1:
+        r = differences[0]
+        if tuple(r.get(k) for k in ("row", "handout", "measured", "status")) == ACCEPTED_ROW:
+            return "TA accepted recorded difference"
+    return "unresolved reference disagreement"
+
+
 def witness_report(out):
     p = paths.results("m1", "redundancy", "self_test.json")
     if not p.exists():
@@ -49,10 +66,10 @@ def witness_report(out):
         ],
     )
     data = {
-        "status": "unresolved reference disagreement" if openrows else "match",
+        "status": disposition(rows),
         "rows": openrows,
         "witnesses": witnesses,
-        "note": "Original checks and reference numbers preserved. No TA acceptance is inferred.",
+        "note": DISPOSITION if disposition(rows) == "TA accepted recorded difference" else "",
     }
     provenance.write_json(out / "reference_count_review.json", data)
     question = [
@@ -76,9 +93,7 @@ def witness_report(out):
         "giving six NMOS plus six PMOS transistors in complementary series/parallel networks.",
         "Input A is the least significant truth-table variable.",
         "",
-        "Question for the TA: which of these six realizations is excluded by the reference,",
-        "and what additional restriction excludes it? Or should the reference count be six?",
-        "No correction or acceptance is assumed by the tool.",
+        data["note"] or f'Review status: {data["status"]}.',
     ]
     (out / "reference_count_question.md").write_text("\n".join(question) + "\n")
     return data

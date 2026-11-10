@@ -1,0 +1,46 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/pic16/baseline/A/gate_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/pic16/baseline/A/gate_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module PIC16C5x from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit PIC16C5x.\POR like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\ClkEn like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [0] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [1] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [2] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [3] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [4] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [5] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [6] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [7] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [8] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [9] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [10] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\IR [11] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PA_DI [0] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PA_DI [1] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PA_DI [2] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PA_DI [3] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [0] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [1] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [2] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [3] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [4] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [5] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [6] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PB_DI [7] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [0] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [1] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [2] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [3] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [4] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [5] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [6] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\PC_DI [7] like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\MCLR like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\T0CKI like $anyseq.
+Warning: Treating undriven bit PIC16C5x.\WDTE like $anyseq.
+Warning: Treating a total of 37 undriven bits in PIC16C5x like $anyseq.

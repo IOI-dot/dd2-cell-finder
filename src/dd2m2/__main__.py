@@ -19,6 +19,21 @@ def main():
     sub.add_parser("readiness")
     sub.add_parser("m1-summary")
     sub.add_parser("showcase")
+    est = sub.add_parser("m3-estimated", help="greedy remapping and course-generator requests")
+    demo = sub.add_parser("demo", help="complete Option 2 workflow on an unseen design")
+    for parser in (est, demo):
+        parser.add_argument("--group", type=int, required=True)
+        parser.add_argument("--limit", type=int, default=10)
+    est.add_argument("--out", type=Path)
+    est.add_argument("--best-of-all", action="store_true", help="remap every eligible candidate in each round")
+    demo.add_argument("design", type=Path)
+    demo.add_argument("--top")
+    demo.add_argument("--sv", action="store_true")
+    demo.add_argument("--real", type=Path)
+    real = sub.add_parser("m3-real", help="map with passing responses from the course generator")
+    real.add_argument("--responses", type=Path, required=True)
+    real.add_argument("--estimated", type=Path, default=paths.results("m3", "estimated"))
+    real.add_argument("--out", type=Path, default=paths.results("m3", "real"))
     steps = ["fit", "baseline", "candidates", "library", "map", "plots", "discovery", "tutorials"]
     for step in steps:
         s = sub.add_parser(step)
@@ -44,6 +59,21 @@ def main():
             data = json.loads(p.read_text())
             print(json.dumps(data, indent=2))
             return 0 if data["checkpoint_ready"] else 1
+        if args.command in {"m3-estimated", "m3-real", "demo"}:
+            from . import final_flow
+
+            if args.command == "m3-real":
+                final_flow.real(args.estimated.absolute(), args.out.absolute(), args.responses)
+            else:
+                if args.group < 1 or not 1 <= args.limit <= 10:
+                    raise ValueError("positive group and limit 1..10 required")
+                if args.command == "demo":
+                    final_flow.demo(args.design, args.top, args.sv, args.group, args.limit, args.real)
+                else:
+                    folder = "estimated-best" if args.best_of_all else "estimated"
+                    out = args.out or paths.results("m3", folder)
+                    final_flow.estimated(out.absolute(), args.group, args.limit, best_of_all=args.best_of_all)
+            return 0
         if args.command in steps:
             out = args.out.absolute()
             out.mkdir(parents=True, exist_ok=True)

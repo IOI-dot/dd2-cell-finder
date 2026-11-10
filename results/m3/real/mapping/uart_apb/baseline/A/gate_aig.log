@@ -1,0 +1,721 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/uart_apb/baseline/A/gate_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/uart_apb/baseline/A/gate_aig.ys' --
+
+1. Executing Liberty frontend: /home/hank2b/dd2-cell-finder/given/hd_reduced.lib
+Imported 189 cell types from liberty file.
+<suppressed ~4 debug messages>
+
+2. Executing Verilog-2005 frontend: /home/hank2b/dd2-cell-finder/results/m3/real/mapping/uart_apb/baseline/A/mapped.v
+Parsing Verilog input from `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/uart_apb/baseline/A/mapped.v' to AST representation.
+Generating RTLIL representation for module `\uart_apb_master'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \uart_apb_master
+Used module:     \sky130_fd_sc_hd__dfrtp_1
+Used module:     \sky130_fd_sc_hd__dfstp_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__or4b_1
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nand4b_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__o32ai_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__o22a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__o32a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__a32o_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__a221oi_1
+Used module:     \sky130_fd_sc_hd__o41ai_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__nor4b_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__o2111ai_1
+
+3.2. Analyzing design hierarchy..
+Top module:  \uart_apb_master
+Used module:     \sky130_fd_sc_hd__dfrtp_1
+Used module:     \sky130_fd_sc_hd__dfstp_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__or4b_1
+Used module:     \sky130_fd_sc_hd__a211oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__a22o_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__or4_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nand4b_1
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__o32ai_1
+Used module:     \sky130_fd_sc_hd__o221ai_1
+Used module:     \sky130_fd_sc_hd__o22a_1
+Used module:     \sky130_fd_sc_hd__a222oi_1
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__o32a_1
+Used module:     \sky130_fd_sc_hd__o221a_1
+Used module:     \sky130_fd_sc_hd__a32oi_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__a32o_1
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__a221oi_1
+Used module:     \sky130_fd_sc_hd__o41ai_1
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__nor4b_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__o2111ai_1
+Removing unused module `\sky130_fd_sc_hd__xor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xor2_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_1'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__or4b_2'.
+Removing unused module `\sky130_fd_sc_hd__or4_2'.
+Removing unused module `\sky130_fd_sc_hd__or3b_2'.
+Removing unused module `\sky130_fd_sc_hd__or3b_1'.
+Removing unused module `\sky130_fd_sc_hd__or3_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_2'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_1'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o32a_2'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o31a_2'.
+Removing unused module `\sky130_fd_sc_hd__o31a_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o311a_2'.
+Removing unused module `\sky130_fd_sc_hd__o311a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_1'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o22a_2'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o221a_2'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_1'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21a_2'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4_2'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4_2'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand3_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2_1'.
+Removing unused module `\sky130_fd_sc_hd__maj3_2'.
+Removing unused module `\sky130_fd_sc_hd__maj3_1'.
+Removing unused module `\sky130_fd_sc_hd__inv_8'.
+Removing unused module `\sky130_fd_sc_hd__inv_4'.
+Removing unused module `\sky130_fd_sc_hd__inv_2'.
+Removing unused module `\sky130_fd_sc_hd__ha_1'.
+Removing unused module `\sky130_fd_sc_hd__fa_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_1'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__conb_1'.
+Removing unused module `\sky130_fd_sc_hd__buf_8'.
+Removing unused module `\sky130_fd_sc_hd__buf_4'.
+Removing unused module `\sky130_fd_sc_hd__buf_2'.
+Removing unused module `\sky130_fd_sc_hd__buf_1'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__and4b_2'.
+Removing unused module `\sky130_fd_sc_hd__and4b_1'.
+Removing unused module `\sky130_fd_sc_hd__and4_2'.
+Removing unused module `\sky130_fd_sc_hd__and4_1'.
+Removing unused module `\sky130_fd_sc_hd__and3b_2'.
+Removing unused module `\sky130_fd_sc_hd__and3b_1'.
+Removing unused module `\sky130_fd_sc_hd__and3_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_1'.
+Removing unused module `\sky130_fd_sc_hd__and2_2'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a41o_2'.
+Removing unused module `\sky130_fd_sc_hd__a41o_1'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a32o_2'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a31o_2'.
+Removing unused module `\sky130_fd_sc_hd__a31o_1'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_1'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a22o_2'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a221o_2'.
+Removing unused module `\sky130_fd_sc_hd__a221o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a21o_2'.
+Removing unused module `\sky130_fd_sc_hd__a21o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_2'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_1'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_2'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_1'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a211o_2'.
+Removing unused module `\sky130_fd_sc_hd__a211o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_1'.
+Removed 147 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__o22ai_1.
+Deleting now unused module sky130_fd_sc_hd__nand4_1.
+Deleting now unused module sky130_fd_sc_hd__a32oi_1.
+Deleting now unused module sky130_fd_sc_hd__o22a_1.
+Deleting now unused module sky130_fd_sc_hd__a32o_1.
+Deleting now unused module sky130_fd_sc_hd__o2111ai_1.
+Deleting now unused module sky130_fd_sc_hd__a31oi_1.
+Deleting now unused module sky130_fd_sc_hd__dfstp_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__dfrtp_1.
+Deleting now unused module sky130_fd_sc_hd__a311oi_1.
+Deleting now unused module sky130_fd_sc_hd__or4_1.
+Deleting now unused module sky130_fd_sc_hd__nand2b_1.
+Deleting now unused module sky130_fd_sc_hd__o221ai_1.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__o32ai_1.
+Deleting now unused module sky130_fd_sc_hd__o221a_1.
+Deleting now unused module sky130_fd_sc_hd__or2_1.
+Deleting now unused module sky130_fd_sc_hd__a22oi_1.
+Deleting now unused module sky130_fd_sc_hd__nor4b_1.
+Deleting now unused module sky130_fd_sc_hd__a22o_1.
+Deleting now unused module sky130_fd_sc_hd__a222oi_1.
+Deleting now unused module sky130_fd_sc_hd__o21bai_1.
+Deleting now unused module sky130_fd_sc_hd__a221oi_1.
+Deleting now unused module sky130_fd_sc_hd__nor4_1.
+Deleting now unused module sky130_fd_sc_hd__o32a_1.
+Deleting now unused module sky130_fd_sc_hd__or3_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__o31ai_1.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_1.
+Deleting now unused module sky130_fd_sc_hd__inv_1.
+Deleting now unused module sky130_fd_sc_hd__nor2b_1.
+Deleting now unused module sky130_fd_sc_hd__o41ai_1.
+Deleting now unused module sky130_fd_sc_hd__and3_1.
+Deleting now unused module sky130_fd_sc_hd__a211oi_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__o21a_1.
+Deleting now unused module sky130_fd_sc_hd__or4b_1.
+Deleting now unused module sky130_fd_sc_hd__and2_1.
+Deleting now unused module sky130_fd_sc_hd__o211ai_1.
+Deleting now unused module sky130_fd_sc_hd__nand4b_1.
+<suppressed ~1189 debug messages>
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module uart_apb_master.
+<suppressed ~704 debug messages>
+
+6. Executing TECHMAP pass (map to technology primitives).
+
+6.1. Executing Verilog-2005 frontend: /home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v
+Parsing Verilog input from `/home/hank2b/dd2-tools/oss-2026-10-27/lib/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~77 debug messages>
+
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \uart_apb_master..
+Removed 781 unused cells and 2883 unused wires.
+<suppressed ~1712 debug messages>
+
+8. Executing RTLIL backend.
+Output filename: /home/hank2b/dd2-cell-finder/results/m3/real/mapping/uart_apb/baseline/A/gate.il
+
+9. Executing ASYNC2SYNC pass.
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1890.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1890.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1890.D, Q=\$auto$ff.cc:337:slice$1890.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1958.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1958.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1958.D, Q=\$auto$ff.cc:337:slice$1958.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1889.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1889.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1889.D, Q=\$auto$ff.cc:337:slice$1889.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2158.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2158.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2158.D, Q=\$auto$ff.cc:337:slice$2158.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1921.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1921.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1921.D, Q=\$auto$ff.cc:337:slice$1921.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2159.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2159.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2159.D, Q=\$auto$ff.cc:337:slice$2159.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2164.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2164.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2164.D, Q=\$auto$ff.cc:337:slice$2164.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1934.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1934.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1934.D, Q=\$auto$ff.cc:337:slice$1934.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1846.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1846.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1846.D, Q=\$auto$ff.cc:337:slice$1846.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2198.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2198.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2198.D, Q=\$auto$ff.cc:337:slice$2198.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2199.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2199.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2199.D, Q=\$auto$ff.cc:337:slice$2199.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2200.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2200.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2200.D, Q=\$auto$ff.cc:337:slice$2200.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2201.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2201.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2201.D, Q=\$auto$ff.cc:337:slice$2201.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2202.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2202.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2202.D, Q=\$auto$ff.cc:337:slice$2202.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1961.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1961.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1961.D, Q=\$auto$ff.cc:337:slice$1961.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2203.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2203.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2203.D, Q=\$auto$ff.cc:337:slice$2203.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1943.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1943.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1943.D, Q=\$auto$ff.cc:337:slice$1943.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1838.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1838.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1838.D, Q=\$auto$ff.cc:337:slice$1838.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1962.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1962.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1962.D, Q=\$auto$ff.cc:337:slice$1962.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1837.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1837.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1837.D, Q=\$auto$ff.cc:337:slice$1837.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2208.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2208.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2208.D, Q=\$auto$ff.cc:337:slice$2208.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1919.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1919.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1919.D, Q=\$auto$ff.cc:337:slice$1919.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2209.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2209.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2209.D, Q=\$auto$ff.cc:337:slice$2209.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2212.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2212.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2212.D, Q=\$auto$ff.cc:337:slice$2212.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1834.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1834.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1834.D, Q=\$auto$ff.cc:337:slice$1834.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2214.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2214.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2214.D, Q=\$auto$ff.cc:337:slice$2214.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2215.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2215.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2215.D, Q=\$auto$ff.cc:337:slice$2215.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1833.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1833.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1833.D, Q=\$auto$ff.cc:337:slice$1833.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2216.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2216.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2216.D, Q=\$auto$ff.cc:337:slice$2216.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1918.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1918.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1918.D, Q=\$auto$ff.cc:337:slice$1918.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2217.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2217.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2217.D, Q=\$auto$ff.cc:337:slice$2217.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1832.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1832.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1832.D, Q=\$auto$ff.cc:337:slice$1832.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1965.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1965.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1965.D, Q=\$auto$ff.cc:337:slice$1965.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1831.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1831.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1831.D, Q=\$auto$ff.cc:337:slice$1831.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2220.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2220.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2220.D, Q=\$auto$ff.cc:337:slice$2220.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2221.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2221.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2221.D, Q=\$auto$ff.cc:337:slice$2221.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1559.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1559.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1559.D, Q=\$auto$ff.cc:337:slice$1559.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1968.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1968.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1968.D, Q=\$auto$ff.cc:337:slice$1968.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1558.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1558.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1558.D, Q=\$auto$ff.cc:337:slice$1558.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1917.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1917.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1917.D, Q=\$auto$ff.cc:337:slice$1917.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1557.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1557.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1557.D, Q=\$auto$ff.cc:337:slice$1557.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1982.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1982.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1982.D, Q=\$auto$ff.cc:337:slice$1982.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1555.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$1555.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$1555.D, Q=\$auto$ff.cc:337:slice$1555.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2289.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2289.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2289.D, Q=\$auto$ff.cc:337:slice$2289.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1994.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1994.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1994.D, Q=\$auto$ff.cc:337:slice$1994.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2322.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2322.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2322.D, Q=\$auto$ff.cc:337:slice$2322.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1434.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1434.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1434.D, Q=\$auto$ff.cc:337:slice$1434.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2330.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2330.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2330.D, Q=\$auto$ff.cc:337:slice$2330.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1916.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1916.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1916.D, Q=\$auto$ff.cc:337:slice$1916.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2331.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2331.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2331.D, Q=\$auto$ff.cc:337:slice$2331.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2332.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2332.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2332.D, Q=\$auto$ff.cc:337:slice$2332.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1995.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1995.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1995.D, Q=\$auto$ff.cc:337:slice$1995.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2333.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2333.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2333.D, Q=\$auto$ff.cc:337:slice$2333.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1432.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1432.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1432.D, Q=\$auto$ff.cc:337:slice$1432.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2334.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2334.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2334.D, Q=\$auto$ff.cc:337:slice$2334.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1945.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1945.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1945.D, Q=\$auto$ff.cc:337:slice$1945.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2335.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2335.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2335.D, Q=\$auto$ff.cc:337:slice$2335.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2336.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2336.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2336.D, Q=\$auto$ff.cc:337:slice$2336.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2337.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2337.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2337.D, Q=\$auto$ff.cc:337:slice$2337.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1347.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1347.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1347.D, Q=\$auto$ff.cc:337:slice$1347.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2338.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2338.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2338.D, Q=\$auto$ff.cc:337:slice$2338.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1915.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1915.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1915.D, Q=\$auto$ff.cc:337:slice$1915.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2339.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2339.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2339.D, Q=\$auto$ff.cc:337:slice$2339.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1346.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1346.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1346.D, Q=\$auto$ff.cc:337:slice$1346.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1950.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1950.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1950.D, Q=\$auto$ff.cc:337:slice$1950.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1996.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1996.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1996.D, Q=\$auto$ff.cc:337:slice$1996.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1997.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1997.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1997.D, Q=\$auto$ff.cc:337:slice$1997.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2016.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2016.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2016.D, Q=\$auto$ff.cc:337:slice$2016.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2340.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2340.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2340.D, Q=\$auto$ff.cc:337:slice$2340.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1345.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1345.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1345.D, Q=\$auto$ff.cc:337:slice$1345.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2342.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2342.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2342.D, Q=\$auto$ff.cc:337:slice$2342.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1939.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1939.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1939.D, Q=\$auto$ff.cc:337:slice$1939.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2343.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2343.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2343.D, Q=\$auto$ff.cc:337:slice$2343.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1344.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$1344.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$1344.D, Q=\$auto$ff.cc:337:slice$1344.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2344.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2344.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2344.D, Q=\$auto$ff.cc:337:slice$2344.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2347.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2347.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2347.D, Q=\$auto$ff.cc:337:slice$2347.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1946.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1946.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1946.D, Q=\$auto$ff.cc:337:slice$1946.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2353.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2353.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2353.D, Q=\$auto$ff.cc:337:slice$2353.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1913.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1913.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1913.D, Q=\$auto$ff.cc:337:slice$1913.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2355.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2355.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2355.D, Q=\$auto$ff.cc:337:slice$2355.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1309.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1309.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1309.D, Q=\$auto$ff.cc:337:slice$1309.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2001.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2001.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2001.D, Q=\$auto$ff.cc:337:slice$2001.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2357.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2357.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2357.D, Q=\$auto$ff.cc:337:slice$2357.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1308.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1308.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1308.D, Q=\$auto$ff.cc:337:slice$1308.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2358.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2358.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2358.D, Q=\$auto$ff.cc:337:slice$2358.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2359.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2359.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2359.D, Q=\$auto$ff.cc:337:slice$2359.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1307.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1307.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1307.D, Q=\$auto$ff.cc:337:slice$1307.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1306.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1306.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1306.D, Q=\$auto$ff.cc:337:slice$1306.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2366.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2366.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2366.D, Q=\$auto$ff.cc:337:slice$2366.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1912.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1912.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1912.D, Q=\$auto$ff.cc:337:slice$1912.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2367.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2367.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2367.D, Q=\$auto$ff.cc:337:slice$2367.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1305.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1305.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1305.D, Q=\$auto$ff.cc:337:slice$1305.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2368.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2368.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2368.D, Q=\$auto$ff.cc:337:slice$2368.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2003.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2003.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2003.D, Q=\$auto$ff.cc:337:slice$2003.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2369.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2369.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2369.D, Q=\$auto$ff.cc:337:slice$2369.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1304.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1304.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1304.D, Q=\$auto$ff.cc:337:slice$1304.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2370.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2370.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2370.D, Q=\$auto$ff.cc:337:slice$2370.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1947.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1947.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1947.D, Q=\$auto$ff.cc:337:slice$1947.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2371.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2371.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2371.D, Q=\$auto$ff.cc:337:slice$2371.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1292.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1292.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1292.D, Q=\$auto$ff.cc:337:slice$1292.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2372.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2372.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2372.D, Q=\$auto$ff.cc:337:slice$2372.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2004.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2004.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2004.D, Q=\$auto$ff.cc:337:slice$2004.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2373.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2373.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2373.D, Q=\$auto$ff.cc:337:slice$2373.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2374.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2374.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2374.D, Q=\$auto$ff.cc:337:slice$2374.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2375.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2375.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2375.D, Q=\$auto$ff.cc:337:slice$2375.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2046.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2046.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2046.D, Q=\$auto$ff.cc:337:slice$2046.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2376.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2376.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2376.D, Q=\$auto$ff.cc:337:slice$2376.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2377.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2377.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2377.D, Q=\$auto$ff.cc:337:slice$2377.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2378.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2378.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2378.D, Q=\$auto$ff.cc:337:slice$2378.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1955.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1955.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1955.D, Q=\$auto$ff.cc:337:slice$1955.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2379.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2379.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2379.D, Q=\$auto$ff.cc:337:slice$2379.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2380.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2380.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2380.D, Q=\$auto$ff.cc:337:slice$2380.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2381.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2381.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2381.D, Q=\$auto$ff.cc:337:slice$2381.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2382.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2382.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2382.D, Q=\$auto$ff.cc:337:slice$2382.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1895.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1895.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1895.D, Q=\$auto$ff.cc:337:slice$1895.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2383.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2383.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2383.D, Q=\$auto$ff.cc:337:slice$2383.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2384.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2384.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2384.D, Q=\$auto$ff.cc:337:slice$2384.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2386.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2386.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2386.D, Q=\$auto$ff.cc:337:slice$2386.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2048.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2048.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2048.D, Q=\$auto$ff.cc:337:slice$2048.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2387.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2387.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2387.D, Q=\$auto$ff.cc:337:slice$2387.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2388.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2388.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2388.D, Q=\$auto$ff.cc:337:slice$2388.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2389.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2389.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2389.D, Q=\$auto$ff.cc:337:slice$2389.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2390.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2390.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2390.D, Q=\$auto$ff.cc:337:slice$2390.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2391.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2391.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2391.D, Q=\$auto$ff.cc:337:slice$2391.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2392.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2392.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2392.D, Q=\$auto$ff.cc:337:slice$2392.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2393.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2393.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2393.D, Q=\$auto$ff.cc:337:slice$2393.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2396.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2396.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2396.D, Q=\$auto$ff.cc:337:slice$2396.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1894.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1894.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1894.D, Q=\$auto$ff.cc:337:slice$1894.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2397.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2397.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2397.D, Q=\$auto$ff.cc:337:slice$2397.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2403.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2403.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2403.D, Q=\$auto$ff.cc:337:slice$2403.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2021.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2021.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2021.D, Q=\$auto$ff.cc:337:slice$2021.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2402.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2402.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2402.D, Q=\$auto$ff.cc:337:slice$2402.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1956.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1956.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1956.D, Q=\$auto$ff.cc:337:slice$1956.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2483.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2483.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2483.D, Q=\$auto$ff.cc:337:slice$2483.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2484.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2484.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2484.D, Q=\$auto$ff.cc:337:slice$2484.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2485.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2485.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2485.D, Q=\$auto$ff.cc:337:slice$2485.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2096.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2096.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2096.D, Q=\$auto$ff.cc:337:slice$2096.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2486.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2486.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2486.D, Q=\$auto$ff.cc:337:slice$2486.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2487.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2487.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2487.D, Q=\$auto$ff.cc:337:slice$2487.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2490.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2490.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2490.D, Q=\$auto$ff.cc:337:slice$2490.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2097.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2097.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2097.D, Q=\$auto$ff.cc:337:slice$2097.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2493.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2493.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2493.D, Q=\$auto$ff.cc:337:slice$2493.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2495.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2495.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2495.D, Q=\$auto$ff.cc:337:slice$2495.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2496.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2496.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2496.D, Q=\$auto$ff.cc:337:slice$2496.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2497.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2497.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2497.D, Q=\$auto$ff.cc:337:slice$2497.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2560.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2560.$auto$rtlil.cc:3445:NotGate$984, D=\$abc$5162$blif$5162$516.A, Q=\$auto$ff.cc:337:slice$2560.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2561.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$2561.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$2559.IQ, Q=\$auto$ff.cc:337:slice$2561.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2905.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2905.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2905.D, Q=\$auto$ff.cc:337:slice$2905.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2907.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2907.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2907.D, Q=\$auto$ff.cc:337:slice$2907.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2908.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2908.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2908.D, Q=\$auto$ff.cc:337:slice$2908.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2909.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2909.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2909.D, Q=\$auto$ff.cc:337:slice$2909.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2152.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2152.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2152.D, Q=\$auto$ff.cc:337:slice$2152.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2911.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2911.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2911.D, Q=\$auto$ff.cc:337:slice$2911.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2913.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2913.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2913.D, Q=\$auto$ff.cc:337:slice$2913.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2914.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2914.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2914.D, Q=\$auto$ff.cc:337:slice$2914.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2916.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2916.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2916.D, Q=\$auto$ff.cc:337:slice$2916.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2917.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2917.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2917.D, Q=\$auto$ff.cc:337:slice$2917.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2918.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2918.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2918.D, Q=\$auto$ff.cc:337:slice$2918.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1957.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1957.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1957.D, Q=\$auto$ff.cc:337:slice$1957.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2920.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2920.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2920.D, Q=\$auto$ff.cc:337:slice$2920.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2921.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2921.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2921.D, Q=\$auto$ff.cc:337:slice$2921.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2922.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2922.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2922.D, Q=\$auto$ff.cc:337:slice$2922.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2923.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2923.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2923.D, Q=\$auto$ff.cc:337:slice$2923.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2924.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2924.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2924.D, Q=\$auto$ff.cc:337:slice$2924.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2925.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2925.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2925.D, Q=\$auto$ff.cc:337:slice$2925.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2927.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2927.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2927.D, Q=\$auto$ff.cc:337:slice$2927.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2154.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2154.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2154.D, Q=\$auto$ff.cc:337:slice$2154.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2928.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2928.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2928.D, Q=\$auto$ff.cc:337:slice$2928.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2930.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2930.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2930.D, Q=\$auto$ff.cc:337:slice$2930.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2931.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2931.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2931.D, Q=\$auto$ff.cc:337:slice$2931.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2933.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2933.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2933.D, Q=\$auto$ff.cc:337:slice$2933.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1896.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1896.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1896.D, Q=\$auto$ff.cc:337:slice$1896.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1911.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1911.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1911.D, Q=\$auto$ff.cc:337:slice$1911.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2047.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2047.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2047.D, Q=\$auto$ff.cc:337:slice$2047.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2005.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2005.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2005.D, Q=\$auto$ff.cc:337:slice$2005.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1938.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1938.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1938.D, Q=\$auto$ff.cc:337:slice$1938.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1937.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1937.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1937.D, Q=\$auto$ff.cc:337:slice$1937.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2095.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2095.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2095.D, Q=\$auto$ff.cc:337:slice$2095.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1893.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1893.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1893.D, Q=\$auto$ff.cc:337:slice$1893.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2006.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2006.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2006.D, Q=\$auto$ff.cc:337:slice$2006.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2123.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2123.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2123.D, Q=\$auto$ff.cc:337:slice$2123.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1892.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1892.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1892.D, Q=\$auto$ff.cc:337:slice$1892.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2153.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2153.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2153.D, Q=\$auto$ff.cc:337:slice$2153.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1891.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1891.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1891.D, Q=\$auto$ff.cc:337:slice$1891.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1910.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1910.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1910.D, Q=\$auto$ff.cc:337:slice$1910.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1942.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1942.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1942.D, Q=\$auto$ff.cc:337:slice$1942.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2156.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2156.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2156.D, Q=\$auto$ff.cc:337:slice$2156.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2157.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2157.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2157.D, Q=\$auto$ff.cc:337:slice$2157.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2007.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2007.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2007.D, Q=\$auto$ff.cc:337:slice$2007.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1888.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1888.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1888.D, Q=\$auto$ff.cc:337:slice$1888.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1959.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1959.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1959.D, Q=\$auto$ff.cc:337:slice$1959.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1948.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1948.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1948.D, Q=\$auto$ff.cc:337:slice$1948.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2165.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2165.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2165.D, Q=\$auto$ff.cc:337:slice$2165.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1887.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1887.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1887.D, Q=\$auto$ff.cc:337:slice$1887.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2196.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2196.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2196.D, Q=\$auto$ff.cc:337:slice$2196.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2008.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2008.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2008.D, Q=\$auto$ff.cc:337:slice$2008.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2197.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2197.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2197.D, Q=\$auto$ff.cc:337:slice$2197.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1960.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1960.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1960.D, Q=\$auto$ff.cc:337:slice$1960.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1909.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1909.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1909.D, Q=\$auto$ff.cc:337:slice$1909.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1845.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1845.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1845.D, Q=\$auto$ff.cc:337:slice$1845.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2009.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2009.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2009.D, Q=\$auto$ff.cc:337:slice$2009.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1920.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1920.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1920.D, Q=\$auto$ff.cc:337:slice$1920.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1844.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1844.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1844.D, Q=\$auto$ff.cc:337:slice$1844.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1843.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1843.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1843.D, Q=\$auto$ff.cc:337:slice$1843.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1926.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1926.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1926.D, Q=\$auto$ff.cc:337:slice$1926.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2204.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2204.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2204.D, Q=\$auto$ff.cc:337:slice$2204.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2010.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2010.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2010.D, Q=\$auto$ff.cc:337:slice$2010.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2205.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2205.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2205.D, Q=\$auto$ff.cc:337:slice$2205.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2206.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2206.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2206.D, Q=\$auto$ff.cc:337:slice$2206.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2207.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2207.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2207.D, Q=\$auto$ff.cc:337:slice$2207.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1836.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1836.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1836.D, Q=\$auto$ff.cc:337:slice$1836.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2210.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2210.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2210.D, Q=\$auto$ff.cc:337:slice$2210.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1908.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1908.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1908.D, Q=\$auto$ff.cc:337:slice$1908.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1963.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1963.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1963.D, Q=\$auto$ff.cc:337:slice$1963.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2011.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2011.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2011.D, Q=\$auto$ff.cc:337:slice$2011.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2211.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2211.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2211.D, Q=\$auto$ff.cc:337:slice$2211.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1835.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1835.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1835.D, Q=\$auto$ff.cc:337:slice$1835.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1936.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1936.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1936.D, Q=\$auto$ff.cc:337:slice$1936.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2213.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2213.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2213.D, Q=\$auto$ff.cc:337:slice$2213.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1949.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1949.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1949.D, Q=\$auto$ff.cc:337:slice$1949.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2012.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2012.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2012.D, Q=\$auto$ff.cc:337:slice$2012.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1907.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1907.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1907.D, Q=\$auto$ff.cc:337:slice$1907.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1964.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1964.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1964.D, Q=\$auto$ff.cc:337:slice$1964.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2218.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2218.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2218.D, Q=\$auto$ff.cc:337:slice$2218.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2219.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2219.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2219.D, Q=\$auto$ff.cc:337:slice$2219.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1944.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1944.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1944.D, Q=\$auto$ff.cc:337:slice$1944.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2222.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2222.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2222.D, Q=\$auto$ff.cc:337:slice$2222.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2223.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2223.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2223.D, Q=\$auto$ff.cc:337:slice$2223.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2224.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2224.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2224.D, Q=\$auto$ff.cc:337:slice$2224.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2225.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2225.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2225.D, Q=\$auto$ff.cc:337:slice$2225.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2226.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2226.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2226.D, Q=\$auto$ff.cc:337:slice$2226.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2013.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2013.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2013.D, Q=\$auto$ff.cc:337:slice$2013.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2227.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2227.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2227.D, Q=\$auto$ff.cc:337:slice$2227.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1556.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1556.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1556.D, Q=\$auto$ff.cc:337:slice$1556.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1940.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1940.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1940.D, Q=\$auto$ff.cc:337:slice$1940.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2248.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2248.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2248.D, Q=\$auto$ff.cc:337:slice$2248.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1933.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1933.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1933.D, Q=\$auto$ff.cc:337:slice$1933.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2249.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2249.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2249.D, Q=\$auto$ff.cc:337:slice$2249.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1433.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1433.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1433.D, Q=\$auto$ff.cc:337:slice$1433.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2014.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2014.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2014.D, Q=\$auto$ff.cc:337:slice$2014.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1906.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1906.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1906.D, Q=\$auto$ff.cc:337:slice$1906.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1431.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$1431.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$1431.D, Q=\$auto$ff.cc:337:slice$1431.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2015.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2015.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2015.D, Q=\$auto$ff.cc:337:slice$2015.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1905.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1905.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1905.D, Q=\$auto$ff.cc:337:slice$1905.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2341.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2341.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2341.D, Q=\$auto$ff.cc:337:slice$2341.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2017.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2017.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2017.D, Q=\$auto$ff.cc:337:slice$2017.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1998.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1998.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1998.D, Q=\$auto$ff.cc:337:slice$1998.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2345.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2345.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2345.D, Q=\$auto$ff.cc:337:slice$2345.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1925.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1925.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1925.D, Q=\$auto$ff.cc:337:slice$1925.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1328.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1328.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1328.D, Q=\$auto$ff.cc:337:slice$1328.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2346.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2346.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2346.D, Q=\$auto$ff.cc:337:slice$2346.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1914.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1914.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1914.D, Q=\$auto$ff.cc:337:slice$1914.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1327.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1327.$auto$rtlil.cc:3445:NotGate$984, D=\$abc$5162$blif$5162$413.B, Q=\$auto$ff.cc:337:slice$1327.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2348.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2348.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2348.D, Q=\$auto$ff.cc:337:slice$2348.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1999.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1999.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1999.D, Q=\$auto$ff.cc:337:slice$1999.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2349.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2349.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2349.D, Q=\$auto$ff.cc:337:slice$2349.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1326.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1326.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1326.D, Q=\$auto$ff.cc:337:slice$1326.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2350.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2350.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2350.D, Q=\$auto$ff.cc:337:slice$2350.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2351.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2351.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2351.D, Q=\$auto$ff.cc:337:slice$2351.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1325.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$1325.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$1325.D, Q=\$auto$ff.cc:337:slice$1325.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2352.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2352.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2352.D, Q=\$auto$ff.cc:337:slice$2352.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2000.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2000.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2000.D, Q=\$auto$ff.cc:337:slice$2000.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1310.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1310.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1310.D, Q=\$auto$ff.cc:337:slice$1310.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2354.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2354.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2354.D, Q=\$auto$ff.cc:337:slice$2354.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2356.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2356.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2356.D, Q=\$auto$ff.cc:337:slice$2356.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1927.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1927.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1927.D, Q=\$auto$ff.cc:337:slice$1927.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2018.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2018.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2018.D, Q=\$auto$ff.cc:337:slice$2018.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2360.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2360.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2360.D, Q=\$auto$ff.cc:337:slice$2360.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2002.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2002.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2002.D, Q=\$auto$ff.cc:337:slice$2002.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1904.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1904.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1904.D, Q=\$auto$ff.cc:337:slice$1904.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2361.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2361.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2361.D, Q=\$auto$ff.cc:337:slice$2361.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2019.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2019.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2019.D, Q=\$auto$ff.cc:337:slice$2019.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1951.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1951.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1951.D, Q=\$auto$ff.cc:337:slice$1951.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2904.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2904.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2904.D, Q=\$auto$ff.cc:337:slice$2904.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2385.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2385.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2385.D, Q=\$auto$ff.cc:337:slice$2385.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2094.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2094.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2094.D, Q=\$auto$ff.cc:337:slice$2094.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2020.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2020.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2020.D, Q=\$auto$ff.cc:337:slice$2020.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2394.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2394.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2394.D, Q=\$auto$ff.cc:337:slice$2394.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2395.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2395.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2395.D, Q=\$auto$ff.cc:337:slice$2395.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1903.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1903.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1903.D, Q=\$auto$ff.cc:337:slice$1903.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2404.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2404.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2404.D, Q=\$auto$ff.cc:337:slice$2404.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2488.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2488.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2488.D, Q=\$auto$ff.cc:337:slice$2488.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2489.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2489.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2489.D, Q=\$auto$ff.cc:337:slice$2489.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1935.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1935.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1935.D, Q=\$auto$ff.cc:337:slice$1935.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2022.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2022.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2022.D, Q=\$auto$ff.cc:337:slice$2022.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2491.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2491.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2491.D, Q=\$auto$ff.cc:337:slice$2491.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2492.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2492.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2492.D, Q=\$auto$ff.cc:337:slice$2492.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1902.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1902.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1902.D, Q=\$auto$ff.cc:337:slice$1902.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2494.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2494.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2494.D, Q=\$auto$ff.cc:337:slice$2494.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2023.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2023.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2023.D, Q=\$auto$ff.cc:337:slice$2023.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1952.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1952.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1952.D, Q=\$auto$ff.cc:337:slice$1952.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1922.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1922.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1922.D, Q=\$auto$ff.cc:337:slice$1922.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2024.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2024.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2024.D, Q=\$auto$ff.cc:337:slice$2024.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2498.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2498.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2498.D, Q=\$auto$ff.cc:337:slice$2498.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2499.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2499.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2499.D, Q=\$auto$ff.cc:337:slice$2499.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1901.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1901.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1901.D, Q=\$auto$ff.cc:337:slice$1901.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2025.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2025.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2025.D, Q=\$auto$ff.cc:337:slice$2025.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2934.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2934.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2934.D, Q=\$auto$ff.cc:337:slice$2934.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1924.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1924.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1924.D, Q=\$auto$ff.cc:337:slice$1924.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2559.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$2559.$auto$rtlil.cc:3445:NotGate$996, D=\uart_rx, Q=\$auto$ff.cc:337:slice$2559.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$3121.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$3121.$auto$rtlil.cc:3445:NotGate$984, D=\$abc$5162$blif$5162$316.B2, Q=\$auto$ff.cc:337:slice$3121.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2028.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2028.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2028.D, Q=\$auto$ff.cc:337:slice$2028.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2935.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2935.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2935.D, Q=\$auto$ff.cc:337:slice$2935.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1900.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1900.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1900.D, Q=\$auto$ff.cc:337:slice$1900.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2656.$auto$liberty.cc:246:create_ff$997 ($_DFF_PP1_): ARST=$flatten\$auto$ff.cc:337:slice$2656.$auto$rtlil.cc:3445:NotGate$996, D=\$auto$ff.cc:337:slice$2656.D, Q=\$auto$ff.cc:337:slice$2656.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2031.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2031.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2031.D, Q=\$auto$ff.cc:337:slice$2031.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2903.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2903.$auto$rtlil.cc:3445:NotGate$984, D=\$abc$5162$blif$5162$207.B, Q=\$auto$ff.cc:337:slice$2903.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1953.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1953.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1953.D, Q=\$auto$ff.cc:337:slice$1953.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2032.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2032.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2032.D, Q=\$auto$ff.cc:337:slice$2032.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2906.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2906.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2906.D, Q=\$auto$ff.cc:337:slice$2906.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2910.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2910.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2910.D, Q=\$auto$ff.cc:337:slice$2910.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1899.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1899.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1899.D, Q=\$auto$ff.cc:337:slice$1899.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2033.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2033.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2033.D, Q=\$auto$ff.cc:337:slice$2033.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2912.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2912.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2912.D, Q=\$auto$ff.cc:337:slice$2912.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1941.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1941.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1941.D, Q=\$auto$ff.cc:337:slice$1941.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2915.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2915.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2915.D, Q=\$auto$ff.cc:337:slice$2915.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2034.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2034.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2034.D, Q=\$auto$ff.cc:337:slice$2034.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1898.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1898.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1898.D, Q=\$auto$ff.cc:337:slice$1898.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2919.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2919.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2919.D, Q=\$auto$ff.cc:337:slice$2919.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2035.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2035.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2035.D, Q=\$auto$ff.cc:337:slice$2035.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1954.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1954.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1954.D, Q=\$auto$ff.cc:337:slice$1954.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2036.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2036.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2036.D, Q=\$auto$ff.cc:337:slice$2036.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1897.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1897.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1897.D, Q=\$auto$ff.cc:337:slice$1897.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2926.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2926.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2926.D, Q=\$auto$ff.cc:337:slice$2926.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2929.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2929.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2929.D, Q=\$auto$ff.cc:337:slice$2929.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2037.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2037.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2037.D, Q=\$auto$ff.cc:337:slice$2037.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$1923.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$1923.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$1923.D, Q=\$auto$ff.cc:337:slice$1923.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2932.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2932.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2932.D, Q=\$auto$ff.cc:337:slice$2932.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2155.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2155.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2155.D, Q=\$auto$ff.cc:337:slice$2155.IQ
+Replacing uart_apb_master.$flatten\$auto$ff.cc:337:slice$2038.$auto$liberty.cc:246:create_ff$985 ($_DFF_PP0_): ARST=$flatten\$auto$ff.cc:337:slice$2038.$auto$rtlil.cc:3445:NotGate$984, D=\$auto$ff.cc:337:slice$2038.D, Q=\$auto$ff.cc:337:slice$2038.IQ
+
+10. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+11. Executing AIGMAP pass (map logic to AIG).
+Module uart_apb_master: replaced 1355 cells with 7400 new cells, skipped 4552 cells.
+  replaced 2 cell types:
+     660 $_MUX_
+     695 $_OR_
+  not replaced 4 cell types:
+    1223 $_AND_
+     330 $_DFF_P_
+    1810 $_NOT_
+    1189 $scopeinfo
+
+12. Executing JSON backend.

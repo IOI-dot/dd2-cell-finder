@@ -1,0 +1,84 @@
+Baseline cpu8 A 4165.2448 equivalence pass
+Baseline cpu8 B 4231.5584 equivalence pass
+Baseline dsp8 A 5811.824 equivalence pass
+Baseline dsp8 B 6047.0496 equivalence pass
+Baseline arlet6502 A 9325.1936 equivalence pass
+Baseline arlet6502 B 9527.888 equivalence pass
+Baseline uart_apb A 12773.5008 equivalence pass
+Baseline uart_apb B 13031.248 equivalence pass
+Baseline risc8 A 28114.464 equivalence pass
+Baseline risc8 B 28094.4448 equivalence pass
+Baseline fir10 A 25463.1712 equivalence pass
+Baseline fir10 B 29016.5792 equivalence pass
+Baseline spm A 2869.0016 equivalence pass
+Baseline spm B 2907.7888 equivalence pass
+Baseline multiplier A 1736.6656 equivalence pass
+Baseline multiplier B 1954.3744 equivalence pass
+Baseline pic16 A 30336.5952 equivalence pass
+Baseline pic16 B 30326.5856 equivalence pass
+Baseline p16c5x A 29548.3392 equivalence pass
+Baseline p16c5x B 31087.3152 equivalence pass
+Extended cpu8 A area 4165.2448 new instances 0 CEC pass
+Extended cpu8 B area 4239.0656 new instances 0 CEC pass
+Extended dsp8 A area 5811.824 new instances 0 CEC pass
+Extended dsp8 B area 6054.5568 new instances 0 CEC pass
+Extended arlet6502 A area 9325.1936 new instances 0 CEC pass
+Extended arlet6502 B area 9487.8496 new instances 0 CEC pass
+Extended uart_apb A area 12773.5008 new instances 0 CEC pass
+Extended uart_apb B area 13023.7408 new instances 0 CEC pass
+Extended risc8 A area 28114.464 new instances 0 CEC pass
+Extended risc8 B area 27945.552 new instances 0 CEC pass
+Extended fir10 A area 25463.1712 new instances 0 CEC pass
+Extended fir10 B area 28757.5808 new instances 0 CEC pass
+Extended spm A area 2869.0016 new instances 0 CEC pass
+Extended spm B area 2907.7888 new instances 0 CEC pass
+Extended multiplier A area 1736.6656 new instances 0 CEC pass
+Extended multiplier B area 1933.104 new instances 0 CEC pass
+Extended pic16 A area 30336.5952 new instances 0 CEC pass
+Extended pic16 B area 30226.4896 new instances 0 CEC pass
+Extended p16c5x A area 29548.3392 new instances 0 CEC pass
+Extended p16c5x B area 30972.2048 new instances 0 CEC pass
+Tutorial RTL + four gate simulations: spm pass
+Tutorial RTL + four gate simulations: multiplier pass
+Baseline cpu8 A 4165.2448 equivalence pass
+Baseline cpu8 B 4231.5584 equivalence pass
+Baseline dsp8 A 5811.824 equivalence pass
+Baseline dsp8 B 6047.0496 equivalence pass
+Baseline arlet6502 A 9325.1936 equivalence pass
+Baseline arlet6502 B 9527.888 equivalence pass
+Baseline uart_apb A 12773.5008 equivalence pass
+Baseline uart_apb B 13031.248 equivalence pass
+Baseline risc8 A 28114.464 equivalence pass
+Baseline risc8 B 28094.4448 equivalence pass
+Baseline fir10 A 25463.1712 equivalence pass
+Baseline fir10 B 29016.5792 equivalence pass
+Baseline spm A 2869.0016 equivalence pass
+Baseline spm B 2907.7888 equivalence pass
+Baseline multiplier A 1736.6656 equivalence pass
+Baseline multiplier B 1954.3744 equivalence pass
+Baseline pic16 A 30336.5952 equivalence pass
+Baseline pic16 B 30326.5856 equivalence pass
+Baseline p16c5x A 29548.3392 equivalence pass
+Baseline p16c5x B 31087.3152 equivalence pass
+Extended cpu8 A area 4165.2448 new instances 0 CEC pass
+Extended cpu8 B area 4240.3168 new instances 0 CEC pass
+Extended dsp8 A area 5811.824 new instances 0 CEC pass
+Extended dsp8 B area 6054.5568 new instances 0 CEC pass
+Extended arlet6502 A area 9325.1936 new instances 0 CEC pass
+Extended arlet6502 B area 9516.6272 new instances 0 CEC pass
+Extended uart_apb A area 12773.5008 new instances 0 CEC pass
+Extended uart_apb B area 13023.7408 new instances 0 CEC pass
+Extended risc8 A area 28114.464 new instances 0 CEC pass
+Extended risc8 B area 27979.3344 new instances 0 CEC pass
+Extended fir10 A area 25463.1712 new instances 0 CEC pass
+Extended fir10 B area 28757.5808 new instances 0 CEC pass
+Extended spm A area 2869.0016 new instances 0 CEC pass
+Extended spm B area 2907.7888 new instances 0 CEC pass
+Extended multiplier A area 1736.6656 new instances 0 CEC pass
+Extended multiplier B area 1933.104 new instances 0 CEC pass
+Extended pic16 A area 30336.5952 new instances 0 CEC pass
+Extended pic16 B area 30256.5184 new instances 0 CEC pass
+Extended p16c5x A area 29548.3392 new instances 0 CEC pass
+Extended p16c5x B area 30949.6832 new instances 0 CEC pass
+Tutorial RTL + four gate simulations: spm pass
+Tutorial RTL + four gate simulations: multiplier pass

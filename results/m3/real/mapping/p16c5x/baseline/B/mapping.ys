@@ -1,0 +1,11 @@
+read_verilog "/home/hank2b/dd2-cell-finder/given/designs/p16c5x.v"
+synth -flatten -top P16C5x
+write_rtlil "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/baseline/B/gold.il"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/baseline/B/gold.json"
+dfflibmap -liberty "/home/hank2b/dd2-cell-finder/given/hd_reduced.lib"
+abc -liberty "/home/hank2b/dd2-cell-finder/given/hd_reduced.lib" -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put
+opt_clean -purge
+tee -q -o /home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/baseline/B/stat.json stat -json -liberty "/home/hank2b/dd2-cell-finder/given/hd_reduced.lib"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/baseline/B/mapped.json"
+write_verilog -noattr -noexpr -norename "/home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/baseline/B/mapped.v"
+

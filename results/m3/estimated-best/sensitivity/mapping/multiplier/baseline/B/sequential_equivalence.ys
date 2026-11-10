@@ -1,0 +1,12 @@
+read_rtlil "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/baseline/B/gold.il"
+rename mul gold
+design -stash reference
+read_rtlil "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/multiplier/baseline/B/gate.il"
+rename mul gate
+design -copy-from reference -as gold gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct -seq 8
+equiv_status -assert
+

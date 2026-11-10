@@ -1,0 +1,290 @@
+$ sta -exit /home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/mapping/p16c5x/baseline/B/timing.tcl
+OpenSTA 3.1.0 bebcb14c25 Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Startpoint: $auto$ff.cc:337:slice$1966
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$2028
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$1966/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.490336    0.490336 ^ $auto$ff.cc:337:slice$1966/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.421433    0.911768 v $abc$7676$blif$7676$1949/X (sky130_fd_sc_hd__mux2_1)
+   0.161015    1.072783 ^ $abc$7676$blif$7676$1950/Y (sky130_fd_sc_hd__nor3_1)
+   0.000000    1.072783 ^ $auto$ff.cc:337:slice$2028/SET_B (sky130_fd_sc_hd__dfstp_1)
+               1.072783   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$2028/CLK (sky130_fd_sc_hd__dfstp_1)
+   0.141147  100.141144   library recovery time
+             100.141144   data required time
+-----------------------------------------------------------------
+             100.141144   data required time
+              -1.072783   data arrival time
+-----------------------------------------------------------------
+              99.068359   slack (MET)
+
+
+Startpoint: $auto$ff.cc:337:slice$2049
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$2098
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$2049/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.582140    0.582140 ^ $auto$ff.cc:337:slice$2049/Q (sky130_fd_sc_hd__dfxtp_1)
+  10.600587   11.182726 ^ $abc$7676$blif$7676$25/Y (sky130_fd_sc_hd__mux2i_1)
+  10.797729   21.980455 v $abc$7676$blif$7676$26/Y (sky130_fd_sc_hd__inv_1)
+   0.909628   22.890083 ^ $abc$7676$blif$7676$74/Y (sky130_fd_sc_hd__nor2_1)
+   0.252324   23.142408 v $abc$7676$blif$7676$877/Y (sky130_fd_sc_hd__nor2_1)
+   0.164430   23.306837 ^ $abc$7676$blif$7676$960/Y (sky130_fd_sc_hd__nand2_1)
+   0.084713   23.391550 v $abc$7676$blif$7676$961/Y (sky130_fd_sc_hd__a31oi_1)
+   0.195493   23.587044 ^ $abc$7676$blif$7676$962/Y (sky130_fd_sc_hd__a21oi_1)
+   0.065452   23.652496 v $abc$7676$blif$7676$963/Y (sky130_fd_sc_hd__nand2_1)
+   0.146127   23.798622 ^ $abc$7676$blif$7676$964/Y (sky130_fd_sc_hd__o21ai_1)
+   0.058908   23.857531 v $abc$7676$blif$7676$1652/Y (sky130_fd_sc_hd__nor2_1)
+   0.426164   24.283693 ^ $abc$7676$blif$7676$1653/Y (sky130_fd_sc_hd__a21oi_1)
+   0.246109   24.529802 ^ $abc$7676$blif$7676$1657/X (sky130_fd_sc_hd__xor2_1)
+   0.125798   24.655602 v $abc$7676$blif$7676$1658/Y (sky130_fd_sc_hd__a21oi_1)
+   0.402006   25.057606 v $abc$7676$blif$7676$1660/X (sky130_fd_sc_hd__maj3_1)
+   0.393202   25.450808 v $abc$7676$blif$7676$1662/X (sky130_fd_sc_hd__maj3_1)
+   0.406333   25.857141 v $abc$7676$blif$7676$1664/X (sky130_fd_sc_hd__maj3_1)
+   0.396332   26.253473 v $abc$7676$blif$7676$1666/X (sky130_fd_sc_hd__maj3_1)
+   0.393175   26.646648 v $abc$7676$blif$7676$1668/X (sky130_fd_sc_hd__maj3_1)
+   0.372891   27.019539 v $abc$7676$blif$7676$1670/X (sky130_fd_sc_hd__maj3_1)
+   0.121144   27.140684 ^ $abc$7676$blif$7676$1677/Y (sky130_fd_sc_hd__nor2_1)
+   0.123221   27.263905 v $abc$7676$blif$7676$1686/Y (sky130_fd_sc_hd__o221ai_1)
+   0.089294   27.353197 ^ $abc$7676$blif$7676$1690/Y (sky130_fd_sc_hd__o21ai_1)
+   0.087510   27.440708 v $abc$7676$blif$7676$1691/Y (sky130_fd_sc_hd__mux2i_1)
+   0.072980   27.513689 ^ $abc$7676$blif$7676$1692/Y (sky130_fd_sc_hd__nor2_1)
+   0.000000   27.513689 ^ $auto$ff.cc:337:slice$2098/D (sky130_fd_sc_hd__dfxtp_1)
+              27.513689   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$2098/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.071372   99.928619   library setup time
+              99.928619   data required time
+-----------------------------------------------------------------
+              99.928619   data required time
+             -27.513689   data arrival time
+-----------------------------------------------------------------
+              72.414940   slack (MET)
+
+
+Startpoint: $auto$ff.cc:337:slice$2049
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$2074
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$2049/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.582140    0.582140 ^ $auto$ff.cc:337:slice$2049/Q (sky130_fd_sc_hd__dfxtp_1)
+  10.600587   11.182726 ^ $abc$7676$blif$7676$25/Y (sky130_fd_sc_hd__mux2i_1)
+  10.797729   21.980455 v $abc$7676$blif$7676$26/Y (sky130_fd_sc_hd__inv_1)
+   0.909628   22.890083 ^ $abc$7676$blif$7676$74/Y (sky130_fd_sc_hd__nor2_1)
+   0.252324   23.142408 v $abc$7676$blif$7676$877/Y (sky130_fd_sc_hd__nor2_1)
+   0.164430   23.306837 ^ $abc$7676$blif$7676$960/Y (sky130_fd_sc_hd__nand2_1)
+   0.084713   23.391550 v $abc$7676$blif$7676$961/Y (sky130_fd_sc_hd__a31oi_1)
+   0.195493   23.587044 ^ $abc$7676$blif$7676$962/Y (sky130_fd_sc_hd__a21oi_1)
+   0.065452   23.652496 v $abc$7676$blif$7676$963/Y (sky130_fd_sc_hd__nand2_1)
+   0.146127   23.798622 ^ $abc$7676$blif$7676$964/Y (sky130_fd_sc_hd__o21ai_1)
+   0.058908   23.857531 v $abc$7676$blif$7676$1652/Y (sky130_fd_sc_hd__nor2_1)
+   0.426164   24.283693 ^ $abc$7676$blif$7676$1653/Y (sky130_fd_sc_hd__a21oi_1)
+   0.246109   24.529802 ^ $abc$7676$blif$7676$1657/X (sky130_fd_sc_hd__xor2_1)
+   0.125798   24.655602 v $abc$7676$blif$7676$1658/Y (sky130_fd_sc_hd__a21oi_1)
+   0.402006   25.057606 v $abc$7676$blif$7676$1660/X (sky130_fd_sc_hd__maj3_1)
+   0.393202   25.450808 v $abc$7676$blif$7676$1662/X (sky130_fd_sc_hd__maj3_1)
+   0.406333   25.857141 v $abc$7676$blif$7676$1664/X (sky130_fd_sc_hd__maj3_1)
+   0.396332   26.253473 v $abc$7676$blif$7676$1666/X (sky130_fd_sc_hd__maj3_1)
+   0.393175   26.646648 v $abc$7676$blif$7676$1668/X (sky130_fd_sc_hd__maj3_1)
+   0.372891   27.019539 v $abc$7676$blif$7676$1670/X (sky130_fd_sc_hd__maj3_1)
+   0.121144   27.140684 ^ $abc$7676$blif$7676$1677/Y (sky130_fd_sc_hd__nor2_1)
+   0.108777   27.249460 ^ $abc$7676$blif$7676$1730/Y (sky130_fd_sc_hd__nand3b_1)
+   0.062796   27.312256 v $abc$7676$blif$7676$1751/Y (sky130_fd_sc_hd__a31oi_1)
+   0.000000   27.312256 v $auto$ff.cc:337:slice$2074/D (sky130_fd_sc_hd__dfxtp_1)
+              27.312256   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$2074/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.189964   99.810036   library setup time
+              99.810036   data required time
+-----------------------------------------------------------------
+              99.810036   data required time
+             -27.312256   data arrival time
+-----------------------------------------------------------------
+              72.497780   slack (MET)
+
+
+Startpoint: $auto$ff.cc:337:slice$2049
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$2073
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$2049/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.582140    0.582140 ^ $auto$ff.cc:337:slice$2049/Q (sky130_fd_sc_hd__dfxtp_1)
+  10.600587   11.182726 ^ $abc$7676$blif$7676$25/Y (sky130_fd_sc_hd__mux2i_1)
+  10.797729   21.980455 v $abc$7676$blif$7676$26/Y (sky130_fd_sc_hd__inv_1)
+   0.909628   22.890083 ^ $abc$7676$blif$7676$74/Y (sky130_fd_sc_hd__nor2_1)
+   0.252324   23.142408 v $abc$7676$blif$7676$877/Y (sky130_fd_sc_hd__nor2_1)
+   0.164430   23.306837 ^ $abc$7676$blif$7676$960/Y (sky130_fd_sc_hd__nand2_1)
+   0.084713   23.391550 v $abc$7676$blif$7676$961/Y (sky130_fd_sc_hd__a31oi_1)
+   0.195493   23.587044 ^ $abc$7676$blif$7676$962/Y (sky130_fd_sc_hd__a21oi_1)
+   0.065452   23.652496 v $abc$7676$blif$7676$963/Y (sky130_fd_sc_hd__nand2_1)
+   0.146127   23.798622 ^ $abc$7676$blif$7676$964/Y (sky130_fd_sc_hd__o21ai_1)
+   0.058908   23.857531 v $abc$7676$blif$7676$1652/Y (sky130_fd_sc_hd__nor2_1)
+   0.426164   24.283693 ^ $abc$7676$blif$7676$1653/Y (sky130_fd_sc_hd__a21oi_1)
+   0.246109   24.529802 ^ $abc$7676$blif$7676$1657/X (sky130_fd_sc_hd__xor2_1)
+   0.125798   24.655602 v $abc$7676$blif$7676$1658/Y (sky130_fd_sc_hd__a21oi_1)
+   0.402006   25.057606 v $abc$7676$blif$7676$1660/X (sky130_fd_sc_hd__maj3_1)
+   0.393202   25.450808 v $abc$7676$blif$7676$1662/X (sky130_fd_sc_hd__maj3_1)
+   0.406333   25.857141 v $abc$7676$blif$7676$1664/X (sky130_fd_sc_hd__maj3_1)
+   0.396332   26.253473 v $abc$7676$blif$7676$1666/X (sky130_fd_sc_hd__maj3_1)
+   0.393175   26.646648 v $abc$7676$blif$7676$1668/X (sky130_fd_sc_hd__maj3_1)
+   0.177909   26.824558 ^ $abc$7676$blif$7676$1753/Y (sky130_fd_sc_hd__o211ai_1)
+   0.083201   26.907759 v $abc$7676$blif$7676$1766/Y (sky130_fd_sc_hd__a31oi_1)
+   0.000000   26.907759 v $auto$ff.cc:337:slice$2073/D (sky130_fd_sc_hd__dfxtp_1)
+              26.907759   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$2073/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.189964   99.810036   library setup time
+              99.810036   data required time
+-----------------------------------------------------------------
+              99.810036   data required time
+             -26.907759   data arrival time
+-----------------------------------------------------------------
+              72.902275   slack (MET)
+
+
+Startpoint: $auto$ff.cc:337:slice$2049
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$2072
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$2049/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.582140    0.582140 ^ $auto$ff.cc:337:slice$2049/Q (sky130_fd_sc_hd__dfxtp_1)
+  10.600587   11.182726 ^ $abc$7676$blif$7676$25/Y (sky130_fd_sc_hd__mux2i_1)
+  10.797729   21.980455 v $abc$7676$blif$7676$26/Y (sky130_fd_sc_hd__inv_1)
+   0.909628   22.890083 ^ $abc$7676$blif$7676$74/Y (sky130_fd_sc_hd__nor2_1)
+   0.252324   23.142408 v $abc$7676$blif$7676$877/Y (sky130_fd_sc_hd__nor2_1)
+   0.164430   23.306837 ^ $abc$7676$blif$7676$960/Y (sky130_fd_sc_hd__nand2_1)
+   0.084713   23.391550 v $abc$7676$blif$7676$961/Y (sky130_fd_sc_hd__a31oi_1)
+   0.195493   23.587044 ^ $abc$7676$blif$7676$962/Y (sky130_fd_sc_hd__a21oi_1)
+   0.065452   23.652496 v $abc$7676$blif$7676$963/Y (sky130_fd_sc_hd__nand2_1)
+   0.146127   23.798622 ^ $abc$7676$blif$7676$964/Y (sky130_fd_sc_hd__o21ai_1)
+   0.058908   23.857531 v $abc$7676$blif$7676$1652/Y (sky130_fd_sc_hd__nor2_1)
+   0.426164   24.283693 ^ $abc$7676$blif$7676$1653/Y (sky130_fd_sc_hd__a21oi_1)
+   0.246109   24.529802 ^ $abc$7676$blif$7676$1657/X (sky130_fd_sc_hd__xor2_1)
+   0.125798   24.655602 v $abc$7676$blif$7676$1658/Y (sky130_fd_sc_hd__a21oi_1)
+   0.402006   25.057606 v $abc$7676$blif$7676$1660/X (sky130_fd_sc_hd__maj3_1)
+   0.393202   25.450808 v $abc$7676$blif$7676$1662/X (sky130_fd_sc_hd__maj3_1)
+   0.406333   25.857141 v $abc$7676$blif$7676$1664/X (sky130_fd_sc_hd__maj3_1)
+   0.396332   26.253473 v $abc$7676$blif$7676$1666/X (sky130_fd_sc_hd__maj3_1)
+   0.177909   26.431383 ^ $abc$7676$blif$7676$1768/Y (sky130_fd_sc_hd__o211ai_1)
+   0.083201   26.514584 v $abc$7676$blif$7676$1781/Y (sky130_fd_sc_hd__a31oi_1)
+   0.000000   26.514584 v $auto$ff.cc:337:slice$2072/D (sky130_fd_sc_hd__dfxtp_1)
+              26.514584   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$2072/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.189964   99.810036   library setup time
+              99.810036   data required time
+-----------------------------------------------------------------
+              99.810036   data required time
+             -26.514584   data arrival time
+-----------------------------------------------------------------
+              73.295448   slack (MET)
+
+
+Startpoint: $auto$ff.cc:337:slice$2049
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: $auto$ff.cc:337:slice$4216
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock clk (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.000000    0.000000 ^ $auto$ff.cc:337:slice$2049/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.582140    0.582140 ^ $auto$ff.cc:337:slice$2049/Q (sky130_fd_sc_hd__dfxtp_1)
+  10.600587   11.182726 ^ $abc$7676$blif$7676$25/Y (sky130_fd_sc_hd__mux2i_1)
+  10.797729   21.980455 v $abc$7676$blif$7676$26/Y (sky130_fd_sc_hd__inv_1)
+   0.909628   22.890083 ^ $abc$7676$blif$7676$74/Y (sky130_fd_sc_hd__nor2_1)
+   0.252324   23.142408 v $abc$7676$blif$7676$877/Y (sky130_fd_sc_hd__nor2_1)
+   0.315715   23.458124 ^ $abc$7676$blif$7676$1341/Y (sky130_fd_sc_hd__a221oi_1)
+   0.120945   23.579069 v $abc$7676$blif$7676$1342/Y (sky130_fd_sc_hd__a21oi_1)
+   0.097444   23.676512 ^ $abc$7676$blif$7676$1343/Y (sky130_fd_sc_hd__nor2_1)
+   0.256820   23.933332 ^ $abc$7676$blif$7676$1351/Y (sky130_fd_sc_hd__a2bb2oi_1)
+   0.118970   24.052301 v $abc$7676$blif$7676$1352/Y (sky130_fd_sc_hd__inv_1)
+   0.184516   24.236818 ^ $abc$7676$blif$7676$1549/Y (sky130_fd_sc_hd__a22oi_1)
+   0.098748   24.335566 v $abc$7676$blif$7676$1550/Y (sky130_fd_sc_hd__o211ai_1)
+   0.128876   24.464441 ^ $abc$7676$blif$7676$1552/Y (sky130_fd_sc_hd__nor2_1)
+   0.120417   24.584860 ^ $abc$7676$blif$7676$1553/Y (sky130_fd_sc_hd__xnor2_1)
+   0.075202   24.660061 v $abc$7676$blif$7676$1559/Y (sky130_fd_sc_hd__a21oi_1)
+   0.445128   25.105190 ^ $abc$7676$blif$7676$1565/Y (sky130_fd_sc_hd__nor4_1)
+   0.195804   25.300995 v $abc$7676$blif$7676$1566/Y (sky130_fd_sc_hd__inv_1)
+   0.709516   26.010509 ^ $abc$7676$blif$7676$1615/Y (sky130_fd_sc_hd__nor2_1)
+   0.103974   26.114483 v $abc$7676$blif$7676$1618/Y (sky130_fd_sc_hd__nand2_1)
+   0.239378   26.353863 v $abc$7676$blif$7676$1619/X (sky130_fd_sc_hd__a21o_1)
+   0.114479   26.468342 ^ $abc$7676$blif$7676$1620/Y (sky130_fd_sc_hd__inv_1)
+   0.048447   26.516788 v $abc$7676$blif$7676$1626/Y (sky130_fd_sc_hd__nor3_1)
+   0.000000   26.516788 v $auto$ff.cc:337:slice$4216/D (sky130_fd_sc_hd__dfxtp_1)
+              26.516788   data arrival time
+
+ 100.000000  100.000000   clock clk (rise edge)
+   0.000000  100.000000   clock network delay (ideal)
+   0.000000  100.000000   clock reconvergence pessimism
+             100.000000 ^ $auto$ff.cc:337:slice$4216/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.108812   99.891182   library setup time
+              99.891182   data required time
+-----------------------------------------------------------------
+              99.891182   data required time
+             -26.516788   data arrival time
+-----------------------------------------------------------------
+              73.374397   slack (MET)
+
+
+DD2_WORST_ARRIVAL_NS=27.513689

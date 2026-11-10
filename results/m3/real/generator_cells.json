@@ -1,0 +1,191 @@
+[
+  {
+    "estimated_area_um2": 13.7632,
+    "expression": "(!D)|(!A&!B)|(A&!C)",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "bd6ec4005b1e258bdd42d5f5e375130ffa9f3e6a70b4123f42d6dddcb1cf0492",
+    "name": "dd2_g4__n4_1bff_1",
+    "output": "Y",
+    "real_area_um2": 75.072,
+    "request_id": "M3-0189",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x1BFF"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!((D|((!A)&((!B)|C))))",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "131aec77b25a9b29c04dc011292cb9d394f220a6461d8a6858079d3e83e3eb25",
+    "name": "dd2_g4__n4_00ae_1",
+    "output": "Y",
+    "real_area_um2": 40.0384,
+    "request_id": "M3-0072",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x00AE"
+  },
+  {
+    "estimated_area_um2": 7.5072,
+    "expression": "!((D&(C|(A&B))))",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "003f43905baf2722bb0015ef96b2dfbff53cae9777ae9a60095edaccfb3aa2d9",
+    "name": "dd2_g4__n4_07ff_1",
+    "output": "Y",
+    "real_area_um2": 16.2656,
+    "request_id": "M3-0028",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x07FF"
+  },
+  {
+    "estimated_area_um2": 15.0144,
+    "expression": "(!A&!D)|(B&C)|(A&D)",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "7b1e99c5a27409b887ce82f769a18982babe808f46d63b77f872264d48bc4a49",
+    "name": "dd2_g4__n4_ead5_1",
+    "output": "Y",
+    "real_area_um2": 125.12,
+    "request_id": "M3-0033",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0xEAD5"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!(((!A)|(D|((!B)&C))))",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "46de2e83771ce67b6ca2ff1fbc43e5ae49ab5018e080d21093083c2059af51a5",
+    "name": "dd2_g4__n4_008a_1",
+    "output": "Y",
+    "real_area_um2": 32.5312,
+    "request_id": "M3-0056",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x008A"
+  },
+  {
+    "estimated_area_um2": 15.0144,
+    "expression": "(A)&(B|!C|!D)&(C|D)",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "08d9dacfa22590db99a2c98f62617eba62898199c24d85ea6530151a365014e2",
+    "name": "dd2_g4__n4_8aa0_1",
+    "output": "Y",
+    "real_area_um2": 125.12,
+    "request_id": "M3-0525",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x8AA0"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!(!(((A&B)|(C&(!D)))))",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "cd5bc7dba01b72ff8947d83c19405cad90e6dda9062b51168179fe64d77e30dc",
+    "name": "dd2_g4__n4_88f8_1",
+    "output": "Y",
+    "real_area_um2": 87.584,
+    "request_id": "M3-0036",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x88F8"
+  },
+  {
+    "estimated_area_um2": 10.0096,
+    "expression": "!(((!A)&((!B)|(C|D))))",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "6c42feaa9fd8b6e46256050717cf0110a31c7460cd6d54b334e8d6d55c22eceb",
+    "name": "dd2_g4__n4_aaae_1",
+    "output": "Y",
+    "real_area_um2": 28.7776,
+    "request_id": "M3-0077",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0xAAAE"
+  },
+  {
+    "estimated_area_um2": 8.7584,
+    "expression": "(!D)&(!C)&(A|B)",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "liberty_sha256": "374bc619990e6fca11bea7faaa926447c451c5845a1cfde17a27901307149daf",
+    "name": "dd2_g4__n4_000e_1",
+    "output": "Y",
+    "real_area_um2": 32.5312,
+    "request_id": "M3-0088",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x000E"
+  },
+  {
+    "estimated_area_um2": 12.512,
+    "expression": "(!B|!C)&(A|B)",
+    "generator_version": "CellWeaver scl-gen 0.1.0",
+    "inputs": [
+      "A",
+      "B",
+      "C"
+    ],
+    "liberty_sha256": "be5eca9eb4ceb145b01773dbefd567900abee546ebe3cc014bcb7408158b66b2",
+    "name": "dd2_g4__n3_2e_1",
+    "output": "Y",
+    "real_area_um2": 30.0288,
+    "request_id": "M3-0131",
+    "response_sha256": "6ddbd6feb60184fdb733625a69ca159c4b636db4880462120e2e261bc366aef1",
+    "sizing": "hd",
+    "truth_table": "0x2E"
+  }
+]

@@ -1,0 +1,1 @@
+$ iverilog -g2012 -s SPM_tb -o /home/hank2b/dd2-cell-finder/results/m3/estimated-best/tutorial_simulations/spm/extended/B/simulation.vvp /home/hank2b/dd2-inputs/tutorials/spm/SPM_tb.v /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/extended/B/mapped.v /home/hank2b/dd2-cell-finder/results/m3/estimated-best/tutorial_simulations/spm/extended/B/liberty_models.v
