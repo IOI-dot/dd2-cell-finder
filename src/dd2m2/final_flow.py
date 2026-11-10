@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import json
+import re
 import sqlite3
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
@@ -12,7 +13,7 @@ from pathlib import Path
 from dd2 import designs, envcheck, mapping, paths, provenance
 from dd2.demo import detect_top
 
-from . import evaluate, tutorials
+from . import demo_report, evaluate, tutorials
 from .areamodel import calibrate
 from .candidates import candidates, cell_request
 from .generator import merge_responses, scale_cell_area
@@ -223,9 +224,9 @@ def _sensitivity(names, out, source, requests, resolve, original_area):
     )
 
 
-def _names():
+def _names(*, require_tutorials=True):
     missing = [name for name in tutorials.SPECS if not tutorials.supplied(name)]
-    if missing:
+    if require_tutorials and missing:
         raise ValueError("missing original tutorial inputs: " + ", ".join(missing))
     required = [d.name for d in designs.required()]
     # The technical report explicitly compares these three implementations of the same ISA.
@@ -292,7 +293,7 @@ def real(estimated_out, out, responses):
     provenance.write_json(manifest, real_cells)
 
 
-def demo(src, top, sv, group, limit, real_dir=None):
+def _demo_design(src, top, sv):
     src = src.absolute()
     if not src.is_file():
         raise ValueError(f"design not found: {src}")
@@ -300,7 +301,91 @@ def demo(src, top, sv, group, limit, real_dir=None):
     top = top or detect_top(src, sv)
     if not top:
         raise ValueError("could not infer the top module; pass TOP=<module>")
-    design = designs.Design(src.stem, top, False, sv)
+    return designs.Design(src.stem, top, False, sv), src
+
+
+def demo_final(src, top, sv, *, show=False):
+    real_dir = paths.results("m3", "real")
+    library = real_dir / "hd_extended_real.lib"
+    manifest = real_dir / "generator_cells.json"
+    if not library.is_file() or not manifest.is_file():
+        raise ValueError(f"saved characterized library and generator manifest required under {real_dir}")
+    cells = _read(manifest)
+    if not cells:
+        raise ValueError(f"no characterized cells listed in {manifest}")
+
+    suite = str(src) == "all"
+    if suite and (top or sv):
+        raise ValueError("the M3 suite uses its recorded top modules and HDL modes")
+    if suite:
+        root = paths.build("demo-final", "suite")
+    else:
+        if src.is_file() or src.suffix or src.parent != Path("."):
+            design, src = _demo_design(src, top, sv)
+            safe_name = re.sub(r"[^a-zA-Z0-9_.-]", "_", design.name).strip(".") or "testcase"
+            design = designs.Design(safe_name, design.top, False, design.sv)
+        else:
+            known, src = tutorials.resolve(str(src))
+            design = designs.Design(known.name, top or known.top, known.required, sv or known.sv)
+        root = paths.build("demo-final", design.name)
+    root.mkdir(parents=True, exist_ok=True)
+    out = Path(tempfile.mkdtemp(prefix="run-", dir=root))
+
+    if suite:
+        names, _ = _names(require_tutorials=False)
+        cases = {}
+        for index, name in enumerate(names, 1):
+            print(f"\n[{index}/{len(names)}] {name}", flush=True)
+            try:
+                design, source = tutorials.resolve(name)
+                page = _demo_final_case(design, source, library, cells, out / name)
+                cases[name] = ("Pass", str(page))
+            except (ValueError, RuntimeError, OSError, KeyError) as error:
+                print(f"FAIL {name}: {error}", flush=True)
+                cases[name] = ("Fail", str(error))
+        page = demo_report.suite_report(out, cases)
+        passed = all(status == "Pass" for status, _ in cases.values())
+    else:
+        page = _demo_final_case(design, src, library, cells, out)
+        passed = True
+    print(f"Dashboard: {page}", flush=True)
+    if show:
+        demo_report.open_dashboard(page)
+    return passed
+
+
+def _demo_final_case(design, src, library, cells, out):
+    print(f"Demo {design.name}: using {len(cells)} saved characterized cells. Evidence: {out}", flush=True)
+
+    cuts = tutorials.discover_design(design, src, out / "discovery", out / "full_cuts")
+    write_csv(out / "aig_cuts.csv", cuts)
+    for row in cuts:
+        print(f"{row['variant']}: {row['ands']} ANDs, {row['checked']} cuts checked, "
+              f"{row['pn_classes']} PN classes", flush=True)
+
+    def resolve(_name):
+        return design, src
+
+    baseline([design.name], out, resolve=resolve)
+    _validate_mapping([design.name], out, library, cells, resolve, "real")
+    with (out / "table5_real.csv").open() as stream:
+        rows = list(csv.DictReader(stream))
+    for row in rows:
+        print(
+            f"Script {row['script']}: area {float(row['baseline_um2']):.2f} -> "
+            f"{float(row['extended_um2']):.2f} um^2, worst arrival "
+            f"{float(row['baseline_delay_ns']):.4f} -> {float(row['extended_delay_ns']):.4f} ns, "
+            f"CEC pass/pass, {row['new_cell_instances']} new cell instances",
+            flush=True,
+        )
+    page = demo_report.case_report(design, rows, cuts, out)
+    print(f"Figure: {out / 'summary.png'}", flush=True)
+    print(f"Option 2 saved-library demo passed. Evidence: {out}", flush=True)
+    return page
+
+
+def demo(src, top, sv, group, limit, real_dir=None):
+    design, src = _demo_design(src, top, sv)
     root = paths.build("demo", design.name)
     out = root / "estimated"
 

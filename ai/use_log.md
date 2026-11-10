@@ -138,3 +138,21 @@ PDF. At Omar's request, Codex narrowed the PDF restriction to allow the
 two report paths. The EDA checks, frozen fixtures and other tracked-file
 restrictions were preserved. The targeted rehearsal checked that the two
 report paths pass and an unrelated tracked PDF still fails.
+
+### Saved-library demo, 2026-11-10
+
+Codex added a demo target that reuses GB4's characterized M3 library and
+the existing AIG, mapping, equivalence and timing checks. The team can run
+the live A/B comparison independently of candidate selection.
+
+Codex extended the saved-library demo with benchmark-name and M3-suite
+inputs, a local results dashboard and matching AIG output-cone figures.
+The figures read the live measurements and generated AIGs.
+Codex added a relative area and timing chart for each mapping script and a
+before-and-after chart of full-AIG node and cut counts.
+
+### Main-branch preparation, 2026-11-10
+
+Codex packaged the team's supplied technical report PDF with the saved-library
+demo, checked the README against the course startup requirements and prepared
+the integration of the review branch with the existing main history.

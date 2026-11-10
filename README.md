@@ -3,9 +3,9 @@
 ## 1. Group
 
 CSCE 3304 Digital Design II, Project 1, **Option 2**. Team GB4 includes
-Omar Abdel Motalb (900232118), Noor Elshahidi, and Mohamed Azouz.
-Add the remaining student IDs to the final submission. AI was a development
-aid under overview §4.1. The submitted flow runs without a model or API key.
+Omar Abdel Motalb (900232118), Noor Elshahidi (900230000), and
+Mohamed Azouz (900225230). AI was a development aid under overview §4.1.
+The submitted flow runs without a model or API key.
 
 ## 2. Quick start
 
@@ -15,13 +15,18 @@ Table 1. Use the pinned OSS CAD Suite for M2/M3, which recorded Yosys
 0.70+240 and Icarus Verilog 14.0 in the WSL run.
 
 ```bash
+git clone https://github.com/IOI-dot/dd2-cell-finder.git
+cd dd2-cell-finder
 export PATH="$HOME/.local/bin:$PATH"
 make setup GIVEN=/absolute/path/to/student_pack/given \
   PDK_ROOT=/absolute/path/to/pdk_parent TUTORIALS=/absolute/path/to/tutorials
 make check
 make test
-make reproduce
 ```
+
+The TA runs `make check` and `make test` from a clean checkout after setup.
+Allow a few minutes for setup and dependency installation. The toolchain
+check is quick, and the saved WSL test run took about a minute.
 
 `PDK_ROOT` contains `sky130A/`. `TUTORIALS` contains the original
 `spm/{SPM.v,CSADD.v,TCMP.v,SPM_tb.v}` and
@@ -38,8 +43,9 @@ characterized cells, and reruns the real remaps, equivalence, timing,
 tutorial simulations, area curve and sensitivity test in
 `build/m3/reproduced-real/`. Published evidence stays under `results/`.
 `make all` runs M1, M2, and a fresh best-of-all M3 search before the
-real run. The full search is substantially longer. The real step requires
-generator responses that match the reselected requests.
+real run. Allow hours for the full search. The published run evaluated
+7,735 trial libraries. The real step requires generator responses that
+match the reselected requests.
 
 ## 3. What the tool does
 
@@ -61,14 +67,14 @@ separately from that aggregate.
 | `make m1` | Reproduce the reference mapping, AIG/cut, class, and redundancy evidence under `results/m1/`. |
 | `make m2` | Fit, rank and evaluate the first estimated library in `results/m2/`. |
 | `make ta`, `make readiness` | Regenerate the M2 review folder or print its checkpoint record. |
-| `make m3-estimated` | Run the first-improvement greedy search. |
 | `make m3-estimated-best` | Run or resume the best-of-all greedy search under `build/m3/reselected/`. Override `SWEEP_OUT` for a different output directory. |
 | `make m3-real`, `make reproduce` | Reproduce the real experiment. Defaults to `ESTIMATED_DIR=results/m3/estimated-best` and `RESPONSES=libs/cellweaver`. |
 | `make all` | Run the full Option 2 M1 through M3 workflow. |
 | `make demo IN=/path/to/design.v` | Run the Option 2 flow for an unseen design. Use `TOP=module` when needed and `SV=1` for SystemVerilog. |
+| `make demo-final IN=cpu8 OPEN=1` | Map one benchmark or Verilog file with the saved M3 library, then open its dashboard. Use `IN=all` for all ten M3 designs. |
 | `make clean` | Remove generated work under `build/`. |
 
-Individual M1 and M2 steps are listed in the Makefile. The independent
+Individual workflow steps and development targets are listed in the Makefile. The independent
 Liberty, truth-table and equivalence check implementations are in `src/`.
 
 ### Clean-checkout rehearsal
@@ -78,6 +84,17 @@ checkout with the pinned tools. Compare the reproduced tables with the
 published CSVs. To rehearse the unseen-design command using a supplied design,
 run `make demo IN=given/designs/dsp8.v TOP=dsp8`. The demo saves its evidence
 in `build/demo/` and also maps with the published real library when available.
+For a live mapping comparison, run `make demo-final IN=dsp8 OPEN=1`. A new
+test case can be a synthesizable Verilog or SystemVerilog file. The top module
+is detected automatically, with `TOP=module` available to override it.
+The demo uses the library and cell manifest in `results/m3/real/` and runs
+four mappings per design. Each run prints the path to a browser dashboard
+with area, worst arrival, equivalence, GB4 cell usage and matched AIG output
+cones before and after ABC restructuring. It also plots area and timing changes
+by script, and AND-node and cut counts before and after restructuring. The
+full AIGs and CSVs are linked.
+`make demo-final IN=all OPEN=1` runs all ten M3 designs, including the two
+tutorials from the linked course inputs, and opens an index of the results.
 
 ## 5. Layout
 
@@ -96,6 +113,7 @@ may also be the extracted full evidence directory containing `results/m3/`.
 
 ## 6. Results
 
+- **Reports** · [Technical report](report/report.pdf) and [AI report](report/ai_report.pdf).
 - **M1** · [Reference table and cut summary](results/m1/summary.md).
 - **M2** · [Area model, ranking, mapping, and Table 4 review](TA_M2/README.md).
 - **M3** · [Evidence index](results/m3/README.md),

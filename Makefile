@@ -36,7 +36,7 @@ DOCKER_FLOW = docker run --rm -u $$(id -u):$$(id -g) -e HOME=/tmp -e DD2_IN_CONT
 	-v "$(realpath given)":"$(realpath given)":ro -v "$(realpath pdk)":"$(realpath pdk)":ro \
 	-v "$(realpath pdk)":"$(shell readlink pdk)":ro dd2-flow
 
-.PHONY: setup group check check-option2 check-versions test all reproduce demo clean \
+.PHONY: setup group check check-option2 check-versions test all reproduce demo demo-final clean \
 	m1 m1-reference m1-docker m1-baseline m1-aigs m1-cuts m1-hdclasses m1-redundancy m1-summary \
 	m2 m2-fit m2-aigs-cuts m2-tutorials m2-baseline m2-candidates m2-library m2-map m2-plots readiness ta \
 	m3-estimated m3-estimated-best m3-real docker-flow test-docker
@@ -187,6 +187,10 @@ test-docker:      ## Option 2 tests in the reference image
 	$(DOCKER_FLOW) make test PY=python3
 
 ## ---- the interview ----------------------------------------------------------------------------
+
+demo-final:       ## map one design or the M3 suite with the saved characterized library
+	@test -n "$(IN)" || (echo "usage: make demo-final IN=<design.v|benchmark|all> [TOP=<module>] [SV=1] [OPEN=1]"; exit 2)
+	$(M2) demo-final "$(IN)" $(if $(TOP),--top "$(TOP)") $(if $(SV),--sv) $(if $(filter 1,$(OPEN)),--open)
 
 demo:             ## complete Option 2 demo: make demo IN=<design.v> [TOP=<module>] [SV=1]
 	@test -n "$(IN)" || (echo "usage: make demo IN=<design.v> [TOP=<module>] [SV=1]"; exit 2)

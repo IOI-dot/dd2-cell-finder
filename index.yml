@@ -15,12 +15,14 @@ commands:
   all: rebuild M1, M2 and the complete M3 experiment
   reproduce: rerun the real experiment from the recorded selection
   demo: run the Option 2 workflow for an unseen design
+  demo-final: open the saved-library comparison for one design or all M3 designs
 evidence:
   m1: results/m1
   m2: results/m2
   m2_review: TA_M2
   m3: results/m3
   generator_responses: libs/cellweaver
+  technical_report: report/report.pdf
   ai_report: report/ai_report.pdf
   ai_records: ai
 external_inputs:
