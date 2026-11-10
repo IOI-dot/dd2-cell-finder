@@ -1,3 +1,0 @@
-design,variant,ands,cuts,checked,failures,pn_classes,npn_classes,pn_classes_4input,npn_classes_4input,status
-cpu8,synth,1265,10725,10725,0,195,63,166,50,pass
-cpu8,restructured,1112,9048,9048,0,197,60,169,50,pass

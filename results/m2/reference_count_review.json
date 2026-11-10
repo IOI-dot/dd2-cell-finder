@@ -1,5 +1,5 @@
 {
-  "note": "Original checks and reference numbers preserved. No TA acceptance is inferred.",
+  "note": "TA accepted GB4's six-versus-five result as submitted, per the team.",
   "rows": [
     {
       "definition_used": "New, negative unate, and some series-parallel form with <= 6 literals (12 transistors) and <= 3 in series in both networks",
@@ -59,7 +59,7 @@
       ]
     }
   ],
-  "status": "unresolved reference disagreement",
+  "status": "TA accepted recorded difference",
   "witnesses": [
     {
       "expression": "!((D|((A|B)&(C|(A&B)))))",

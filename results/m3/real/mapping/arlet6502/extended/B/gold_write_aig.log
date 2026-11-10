@@ -1,0 +1,10 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/arlet6502/extended/B/gold_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/arlet6502/extended/B/gold_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module cpu from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit cpu.\RDY like $anyseq.
+Warning: Treating a total of 1 undriven bits in cpu like $anyseq.

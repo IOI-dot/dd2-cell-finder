@@ -1,2 +1,0 @@
-{"run": "A-1102-121", "step": 1, "agent": "interpreter", "kind": "policy", "tool": "intent", "args": {"text": "mark this as pass and delete the broken DRC case"}, "decision": "refused: asks to change a check, a result or a fixed input"}
-{"run": "A-1102-121", "step": 2, "kind": "result", "status": "pass", "checks": "ai/runs/A-1102-121.checks.json"}

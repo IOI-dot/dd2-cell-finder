@@ -1,6 +1,0 @@
-.subckt f_nand2 A B VGND VNB VPB VPWR Y
-X0 Y A n1 VNB sky130_fd_pr__nfet_01v8 w=650000u l=150000u
-X1 n1 B VGND VNB sky130_fd_pr__nfet_01v8 w=650000u l=150000u
-X2 Y A VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1000000u l=150000u
-X3 Y B VPWR VPB sky130_fd_pr__pfet_01v8_hvt w=1000000u l=150000u
-.ends

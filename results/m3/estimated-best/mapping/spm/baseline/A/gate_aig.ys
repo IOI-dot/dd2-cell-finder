@@ -1,0 +1,13 @@
+read_liberty -ignore_miss_func "/home/hank2b/dd2-cell-finder/given/hd_reduced.lib"
+read_verilog "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/mapped.v"
+hierarchy -top SPM
+flatten
+proc
+techmap
+opt_clean
+write_rtlil "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/gate.il"
+async2sync
+dffunmap
+aigmap
+write_json "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/gate_state.json"
+

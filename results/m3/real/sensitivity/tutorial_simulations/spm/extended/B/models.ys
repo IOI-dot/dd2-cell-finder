@@ -1,0 +1,2 @@
+read_liberty -ignore_miss_func "/home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/hd_extended_70pct.lib"
+write_verilog -noattr "/home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/tutorial_simulations/spm/extended/B/liberty_models.v"

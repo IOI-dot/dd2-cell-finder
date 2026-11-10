@@ -1,2 +1,0 @@
-read_json "/Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/gate_state_named.json"
-write_aiger -zinit -symbols "/Users/noorelshahidi/DD2Project/results/option3/mapping/uart_apb/baseline/B/gate.aig"

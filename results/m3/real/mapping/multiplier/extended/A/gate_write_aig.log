@@ -1,0 +1,25 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/multiplier/extended/A/gate_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/multiplier/extended/A/gate_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module mul from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit mul.\mp [0] like $anyseq.
+Warning: Treating undriven bit mul.\mp [1] like $anyseq.
+Warning: Treating undriven bit mul.\mp [2] like $anyseq.
+Warning: Treating undriven bit mul.\mp [3] like $anyseq.
+Warning: Treating undriven bit mul.\mp [4] like $anyseq.
+Warning: Treating undriven bit mul.\mp [5] like $anyseq.
+Warning: Treating undriven bit mul.\mp [6] like $anyseq.
+Warning: Treating undriven bit mul.\mp [7] like $anyseq.
+Warning: Treating undriven bit mul.\mc [0] like $anyseq.
+Warning: Treating undriven bit mul.\mc [1] like $anyseq.
+Warning: Treating undriven bit mul.\mc [2] like $anyseq.
+Warning: Treating undriven bit mul.\mc [3] like $anyseq.
+Warning: Treating undriven bit mul.\mc [4] like $anyseq.
+Warning: Treating undriven bit mul.\mc [5] like $anyseq.
+Warning: Treating undriven bit mul.\mc [6] like $anyseq.
+Warning: Treating undriven bit mul.\mc [7] like $anyseq.
+Warning: Treating a total of 16 undriven bits in mul like $anyseq.

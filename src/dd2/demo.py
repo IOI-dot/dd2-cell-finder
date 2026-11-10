@@ -10,7 +10,10 @@ from .designs import Design
 def detect_top(src: Path, sv: bool) -> str | None:
     """The top module Yosys picks with hierarchy -auto-top (the interview design is unseen)."""
     log = paths.build("demo", "detect_top.log")
-    tools.run(tools.yosys_cmd() + ["-p", f"read_verilog {'-sv ' if sv else ''}{src}; hierarchy -auto-top"],
+    source = str(src)
+    if any(c in source for c in ('"', ";", "\n", "\r")):
+        raise ValueError("unsupported character in Verilog path")
+    tools.run(tools.yosys_cmd() + ["-p", f'read_verilog {"-sv " if sv else ""}"{source}"; hierarchy -auto-top'],
               log, timeout=600)
     m = re.search(r"Automatically selected (\S+) as design top module", log.read_text())
     return m.group(1).lstrip("\\") if m else None

@@ -1,0 +1,2 @@
+read_liberty -ignore_miss_func "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/hd_extended_estimated.lib"
+write_verilog -noattr "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/tutorial_simulations/multiplier/extended/A/liberty_models.v"

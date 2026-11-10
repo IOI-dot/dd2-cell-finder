@@ -1,0 +1,21 @@
+design,script,baseline_um2,extended_um2,reduction_pct,new_cell_instances,baseline_equivalence,extended_equivalence,baseline_delay_ns,extended_delay_ns,baseline_timing_status,extended_timing_status,effect_note
+cpu8,A,4165.2448,4165.2448,0.0,0,pass,pass,4.293621,4.293621,pass,pass,no new cell instantiated
+cpu8,B,4231.5584,4239.0656,-0.17740981667652306,0,pass,pass,5.277152,4.859527,pass,pass,library-induced remapping; no new cell instantiated
+dsp8,A,5811.824,5811.824,0.0,0,pass,pass,5.18268,5.18268,pass,pass,no new cell instantiated
+dsp8,B,6047.0496,6054.5568,-0.12414649286157685,0,pass,pass,6.059206,5.558199,pass,pass,library-induced remapping; no new cell instantiated
+arlet6502,A,9325.1936,9325.1936,0.0,0,pass,pass,6.564311,6.564311,pass,pass,no new cell instantiated
+arlet6502,B,9527.888,9487.8496,0.42022324359817487,0,pass,pass,6.334112,6.071964,pass,pass,library-induced remapping; no new cell instantiated
+uart_apb,A,12773.5008,12773.5008,0.0,0,pass,pass,8.492324,8.492324,pass,pass,no new cell instantiated
+uart_apb,B,13031.248,13023.7408,0.05760921747479606,0,pass,pass,4.276497,4.276497,pass,pass,library-induced remapping; no new cell instantiated
+risc8,A,28114.464,28114.464,0.0,0,pass,pass,24.420959,24.420959,pass,pass,no new cell instantiated
+risc8,B,28094.4448,27945.552,0.5299723879932358,0,pass,pass,25.65226,18.368263,pass,pass,library-induced remapping; no new cell instantiated
+fir10,A,25463.1712,25463.1712,0.0,0,pass,pass,6.727823,6.727823,pass,pass,no new cell instantiated
+fir10,B,29016.5792,28757.5808,0.8925876417575798,0,pass,pass,7.637096,8.380067,pass,pass,library-induced remapping; no new cell instantiated
+spm,A,2869.0016,2869.0016,0.0,0,pass,pass,1.018216,1.018216,pass,pass,no new cell instantiated
+spm,B,2907.7888,2907.7888,0.0,0,pass,pass,0.694548,0.694548,pass,pass,no new cell instantiated
+multiplier,A,1736.6656,1736.6656,0.0,0,pass,pass,4.374694,4.374694,pass,pass,no new cell instantiated
+multiplier,B,1954.3744,1933.104,1.0883482714468569,0,pass,pass,4.820926,4.815769,pass,pass,library-induced remapping; no new cell instantiated
+pic16,A,30336.5952,30336.5952,0.0,0,pass,pass,33.425709,33.425709,pass,pass,no new cell instantiated
+pic16,B,30326.5856,30226.4896,0.3300602359930613,0,pass,pass,27.112009,27.543646,pass,pass,library-induced remapping; no new cell instantiated
+p16c5x,A,29548.3392,29548.3392,0.0,0,pass,pass,27.50773,27.50773,pass,pass,no new cell instantiated
+p16c5x,B,31087.3152,30972.2048,0.37028093053208205,0,pass,pass,27.513689,21.785818,pass,pass,library-induced remapping; no new cell instantiated

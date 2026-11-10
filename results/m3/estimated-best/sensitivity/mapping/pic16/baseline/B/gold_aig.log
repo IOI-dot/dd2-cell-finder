@@ -1,0 +1,28 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/pic16/baseline/B/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/pic16/baseline/B/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/pic16/baseline/B/gold.il
+
+2. Executing ASYNC2SYNC pass.
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module PIC16C5x: replaced 2188 cells with 12668 new cells, skipped 1282 cells.
+  replaced 8 cell types:
+      62 $_ANDNOT_
+    1520 $_MUX_
+     301 $_NAND_
+      75 $_NOR_
+      56 $_ORNOT_
+     106 $_OR_
+       9 $_XNOR_
+      59 $_XOR_
+  not replaced 3 cell types:
+     476 $_AND_
+     765 $_DFF_P_
+      41 $_NOT_
+
+5. Executing JSON backend.

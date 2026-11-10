@@ -1,0 +1,15 @@
+{
+  "estimated_area_um2": 13.7632,
+  "expression": "(!D)|(!A&!B)|(A&!C)",
+  "inputs": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "name": "dd2_g4__n4_1bff_1",
+  "output": "Y",
+  "request_id": "M3-0189",
+  "sizing": "hd",
+  "truth_table": "0x1BFF"
+}

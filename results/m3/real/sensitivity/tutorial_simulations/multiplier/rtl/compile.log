@@ -1,0 +1,1 @@
+$ iverilog -g2012 -s mul_exhaustive_tb -o /home/hank2b/dd2-cell-finder/results/m3/real/sensitivity/tutorial_simulations/multiplier/rtl/simulation.vvp /home/hank2b/dd2-inputs/tutorials/multiplier/mul_exhaustive_tb.v /home/hank2b/dd2-cell-finder/build/tutorials/multiplier/combined.v

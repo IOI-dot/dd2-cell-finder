@@ -1,0 +1,87 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/A/gold.il
+
+2. Executing ASYNC2SYNC pass.
+Replacing SPM.$auto$ff.cc:337:slice$156 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[4].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[4].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$155 ($_DFF_PP0_): ARST=\rst, D=\genblk1[4].csa.hsum2, Q=\genblk1[4].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$225 ($_DFF_PP0_): ARST=\rst, D=\genblk1[14].csa.hsum2, Q=\genblk1[14].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$212 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[12].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[12].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$149 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[3].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[3].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$148 ($_DFF_PP0_): ARST=\rst, D=\genblk1[3].csa.hsum2, Q=\genblk1[3].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$162 ($_DFF_PP0_): ARST=\rst, D=\genblk1[5].csa.hsum2, Q=\genblk1[5].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$331 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[29].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[29].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$142 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[2].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[2].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$141 ($_DFF_PP0_): ARST=\rst, D=\genblk1[2].csa.hsum2, Q=\genblk1[2].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$289 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[23].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[23].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$267 ($_DFF_PP0_): ARST=\rst, D=\genblk1[20].csa.hsum2, Q=\genblk1[20].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$184 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[8].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[8].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$135 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[1].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[1].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$134 ($_DFF_PP0_): ARST=\rst, D=\genblk1[1].csa.hsum2, Q=\genblk1[1].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$128 ($_DFF_PP0_): ARST=\rst, D=$abc$340$flatten\tcmp.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:140$xor$41_Y, Q=\tcmp.s
+Replacing SPM.$auto$ff.cc:337:slice$87 ($_DFFE_PP0P_): ARST=\rst, D=1'1, Q=\tcmp.z
+Replacing SPM.$auto$ff.cc:337:slice$219 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[13].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[13].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$232 ($_DFF_PP0_): ARST=\rst, D=\genblk1[15].csa.hsum2, Q=\genblk1[15].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$126 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\csa0.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\csa0.sc
+Replacing SPM.$auto$ff.cc:337:slice$125 ($_DFF_PP0_): ARST=\rst, D=\csa0.hsum2, Q=\csa0.sum
+Replacing SPM.$auto$ff.cc:337:slice$338 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[30].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[30].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$260 ($_DFF_PP0_): ARST=\rst, D=\genblk1[19].csa.hsum2, Q=\genblk1[19].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$288 ($_DFF_PP0_): ARST=\rst, D=\genblk1[23].csa.hsum2, Q=\genblk1[23].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$204 ($_DFF_PP0_): ARST=\rst, D=\genblk1[11].csa.hsum2, Q=\genblk1[11].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$226 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[14].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[14].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$211 ($_DFF_PP0_): ARST=\rst, D=\genblk1[12].csa.hsum2, Q=\genblk1[12].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$281 ($_DFF_PP0_): ARST=\rst, D=\genblk1[22].csa.hsum2, Q=\genblk1[22].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$253 ($_DFF_PP0_): ARST=\rst, D=\genblk1[18].csa.hsum2, Q=\genblk1[18].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$205 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[11].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[11].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$190 ($_DFF_PP0_): ARST=\rst, D=\genblk1[9].csa.hsum2, Q=\genblk1[9].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$246 ($_DFF_PP0_): ARST=\rst, D=\genblk1[17].csa.hsum2, Q=\genblk1[17].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$275 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[21].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[21].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$268 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[20].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[20].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$254 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[18].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[18].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$197 ($_DFF_PP0_): ARST=\rst, D=\genblk1[10].csa.hsum2, Q=\genblk1[10].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$261 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[19].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[19].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$176 ($_DFF_PP0_): ARST=\rst, D=\genblk1[7].csa.hsum2, Q=\genblk1[7].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$191 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[9].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[9].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$198 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[10].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[10].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$274 ($_DFF_PP0_): ARST=\rst, D=\genblk1[21].csa.hsum2, Q=\genblk1[21].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$239 ($_DFF_PP0_): ARST=\rst, D=\genblk1[16].csa.hsum2, Q=\genblk1[16].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$296 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[24].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[24].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$282 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[22].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[22].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$183 ($_DFF_PP0_): ARST=\rst, D=\genblk1[8].csa.hsum2, Q=\genblk1[8].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$303 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[25].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[25].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$309 ($_DFF_PP0_): ARST=\rst, D=\genblk1[26].csa.hsum2, Q=\genblk1[26].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$247 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[17].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[17].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$170 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[6].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[6].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$177 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[7].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[7].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$295 ($_DFF_PP0_): ARST=\rst, D=\genblk1[24].csa.hsum2, Q=\genblk1[24].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$302 ($_DFF_PP0_): ARST=\rst, D=\genblk1[25].csa.hsum2, Q=\genblk1[25].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$316 ($_DFF_PP0_): ARST=\rst, D=\genblk1[27].csa.hsum2, Q=\genblk1[27].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$240 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[16].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[16].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$310 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[26].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[26].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$169 ($_DFF_PP0_): ARST=\rst, D=\genblk1[6].csa.hsum2, Q=\genblk1[6].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$233 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[15].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[15].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$317 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[27].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[27].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$163 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[5].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[5].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$330 ($_DFF_PP0_): ARST=\rst, D=\genblk1[29].csa.hsum2, Q=\genblk1[29].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$324 ($_DFF_PP0_): ARST=\rst, D=$abc$341$flatten\genblk1[28].csa.$/home/hank2b/dd2-cell-finder/build/tutorials/spm/combined.v:97$xor$38_Y, Q=\genblk1[28].csa.sc
+Replacing SPM.$auto$ff.cc:337:slice$337 ($_DFF_PP0_): ARST=\rst, D=\genblk1[30].csa.hsum2, Q=\genblk1[30].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$323 ($_DFF_PP0_): ARST=\rst, D=\genblk1[28].csa.hsum2, Q=\genblk1[28].csa.sum
+Replacing SPM.$auto$ff.cc:337:slice$218 ($_DFF_PP0_): ARST=\rst, D=\genblk1[13].csa.hsum2, Q=\genblk1[13].csa.sum
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module SPM: replaced 285 cells with 1530 new cells, skipped 128 cells.
+  replaced 3 cell types:
+     129 $_MUX_
+      93 $_NAND_
+      63 $_XOR_
+  not replaced 3 cell types:
+      32 $_AND_
+      64 $_DFF_P_
+      32 $scopeinfo
+
+5. Executing JSON backend.

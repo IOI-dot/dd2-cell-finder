@@ -8,7 +8,7 @@ from pathlib import Path
 
 from dd2 import designs, paths, provenance
 
-from . import tutorials
+from . import reference as table4, tutorials
 
 
 def plots(out):
@@ -68,6 +68,7 @@ def summary(out, names, rows, best, reference, env, tutorial_results=None):
         "mapping_equivalence": valid,
         "timing_runs": timing_ok,
         "reference_table4_agrees": reference["status"] == "match",
+        "reference_table4_resolved": reference["status"] in {"match", "TA accepted recorded difference"},
         "overview_tool_versions": all(env["overview_versions"].values()),
         "all_six_required_designs": set(names) >= {d.name for d in designs.required()},
     }
@@ -95,14 +96,15 @@ def summary(out, names, rows, best, reference, env, tutorial_results=None):
         )
     if not checks["overview_tool_versions"]:
         remaining.append("Overview minimum tool versions must be satisfied.")
-    if not checks["reference_table4_agrees"]:
+    if not checks["reference_table4_resolved"]:
         remaining.append(
-            "Table 4: six verified witnesses versus five in the handout remains unresolved; obtain clarification from the TA."
+            "Table 4 has a missing or unresolved reference result."
         )
     data = {
         "experimental_flow_status": "pass" if valid and timing_ok else "fail",
-        "checkpoint_ready": all(checks.values()),
+        "checkpoint_ready": all(ok for name, ok in checks.items() if name != "reference_table4_agrees"),
         "checks": checks,
+        "table4_disposition": reference["status"],
         "tutorial_inputs": tutorial_status,
         "remaining": remaining,
         "final_only": [
@@ -144,7 +146,7 @@ def summary(out, names, rows, best, reference, env, tutorial_results=None):
         "",
         "- Ranking is a heuristic; the remapped area, not occurrence frequency, is the measured result.",
         "- Cost features describe explicit Boolean realizations, not transistor extraction from installed HD cells.",
-        "- The six-versus-five reference discrepancy remains explicit until resolved with the TA.",
+        f'- Table 4 disposition: {reference["status"]}. See reference_count_review.json.',
         "- Tutorial sources/testbenches are unchanged earlier submissions, installed outside git. GLS is functional, with no SDF or timing-check claim.",
         "- TOTAL and the ranking objective cover the six required benchmark designs; tutorial rows are shown separately.",
         "- Final reports, real-cell results and sensitivity/greedy experiments are not M2 outputs.",
@@ -208,7 +210,7 @@ def showcase(out):
         "**Start here for the TA meeting.** Figures and tables are copies of the saved run; full evidence is in [results/m2](../results/m2/).",
         "",
         f'Experimental flow: **{ready["experimental_flow_status"]}**. Full checkpoint ready: **{ready["checkpoint_ready"]}**.',
-        "Table 4 remains unresolved: six verified qualifying classes versus five in the handout. No TA acceptance is assumed.",
+        f'Table 4: {ready["table4_disposition"]}. The recorded counts remain visible.',
         "See [the clarification and six examples](TABLE4_CLARIFICATION.md).",
         "",
         "## What was verified",
@@ -307,15 +309,15 @@ def m1_summary():
         ),
         ("HD class table", hd["run"]["status"] == "pass"),
         ("HD cells recognized", st["hd_cells_exists"] == st["hd_cells_total"]),
-        ("All Table 4 counts match", all(r["status"] == "match" for r in st["table4"])),
+        ("Table 4 resolved", table4.disposition(st["table4"]) in {"match", "TA accepted recorded difference"}),
     ]
     text = ["# Option 2 M1 evidence", "", "| Requirement | Status |", "|---|---|"]
     text += [f'| {n} | {"pass" if ok else "OPEN / FAIL"} |' for n, ok in checks]
     text += [
         "",
         f'Checked cuts: {sum(int(r["checked"]) for r in cuts)}.',
-        "The original six-versus-five discrepancy remains visible; no checkpoint acceptance is inferred.",
+        f'Table 4: {table4.disposition(st["table4"])}. The original counts are preserved.',
     ]
     (m1 / "summary.md").write_text("\n".join(text) + "\n")
     print("\n".join(text))
-    return 0 if all(ok for name, ok in checks if name != "All Table 4 counts match") else 1
+    return 0 if all(ok for _, ok in checks) else 1

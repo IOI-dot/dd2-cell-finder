@@ -1,0 +1,6 @@
+{
+  "abc_cec": "pass",
+  "scope": "Required ABC CEC of RTL-derived gold vs Liberty-expanded mapping, with bijectively aligned named state/initial-value cutpoints. Extra Yosys induction is a bounded diagnostic, not a claimed proof when it times out.",
+  "status": "pass",
+  "yosys_sequential_equivalence": "pass"
+}

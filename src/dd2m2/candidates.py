@@ -12,7 +12,8 @@ from .cost import implementation, predict_area
 from .tables import write_csv
 
 
-def candidates(names, out, cells, model):
+def candidates(names, out, cells, model, *, resolve=tutorials.resolve, cuts_dir=None):
+    objective_names = [name for name in names if name in {d.name for d in designs.required()}] or names
     counts = defaultdict(Counter)
     # Original M1 discovery counts are retained separately for each AIG variant.
     for name in names:
@@ -22,6 +23,8 @@ def candidates(names, out, cells, model):
                 if name in tutorials.SPECS
                 else paths.results("m1", "cuts", name, variant + ".summary.json")
             )
+            if cuts_dir is not None:
+                p = cuts_dir / (variant + ".summary.json")
             if p.is_file():
                 hist = json.loads(p.read_text()).get("p_histogram", {})
                 for key, count in hist.items():
@@ -35,7 +38,7 @@ def candidates(names, out, cells, model):
         for script in mapping.SCRIPTS:
             p = out / "mapping" / name / "baseline" / script / "mapped.json"
             print("Mapped-cone costs:", name, script, flush=True)
-            for r in cones.mapped_cuts(json.loads(p.read_text()), tutorials.resolve(name)[0].top, cells):
+            for r in cones.mapped_cuts(json.loads(p.read_text()), resolve(name)[0].top, cells):
                 key = (r["arity"], r["tt"])
                 counts[key]["mapped"] += 1
                 occurrences[key].append(r | {"design": name, "script": script})
@@ -77,7 +80,6 @@ def candidates(names, out, cells, model):
                     savings[k] += benefit
                     accepted += 1
                     replace += occ["replaced_area_um2"]
-            objective_names = [name for name in names if name in {d.name for d in designs.required()}]
             predicted = sum(
                 min(base[(name, s)] for s in mapping.SCRIPTS)
                 - min(base[(name, s)] - savings[(name, s)] for s in mapping.SCRIPTS)
@@ -162,7 +164,7 @@ def candidates(names, out, cells, model):
             "shared_logic": "only cells with no outside consumers except the cut root are reclaimable",
             "overlap": "greedy non-overlapping occurrences per candidate, design and script; classes can still overlap",
             "estimate": "predicted best-of-both aggregate; final areas are measured by remapping",
-            "objective_designs": [n for n in names if n in {d.name for d in designs.required()}],
+            "objective_designs": objective_names,
             "aig_frequency": "synth/restructured counts are separate descriptions of the same designs, not added as physical instances",
         },
     )
@@ -174,18 +176,8 @@ def requests(out, group, limit, candidates):
     chosen = eligible[:limit]
     reqs = []
     for i, c in enumerate(chosen, 1):
-        name = f'dd2_g{group}__n{c["arity"]}_{c["truth_table"][2:].lower()}_1'
-        r = {
-            "request_id": f"M2-{i:03d}",
-            "name": name,
-            "inputs": list("ABCD"[: c["arity"]]),
-            "output": "Y",
-            "expression": c["expression"],
-            "truth_table": c["truth_table"],
-            "sizing": "hd",
-            "estimated_area_um2": c["estimated_area_um2"],
-        }
-        provenance.write_json(out / "requests" / f"{name}.json", r)
+        r = cell_request(c, group, f"M2-{i:03d}")
+        provenance.write_json(out / "requests" / f'{r["name"]}.json', r)
         reqs.append(r)
     provenance.write_json(out / "requests.json", reqs)
     group_name_path = paths.ROOT / "config/group_name.txt"
@@ -201,3 +193,17 @@ def requests(out, group, limit, candidates):
         },
     )
     return reqs
+
+
+def cell_request(c, group, request_id):
+    name = f'dd2_g{group}__n{c["arity"]}_{c["truth_table"][2:].lower()}_1'
+    return {
+        "request_id": request_id,
+        "name": name,
+        "inputs": list("ABCD"[: c["arity"]]),
+        "output": "Y",
+        "expression": c["expression"],
+        "truth_table": c["truth_table"],
+        "sizing": "hd",
+        "estimated_area_um2": c["estimated_area_um2"],
+    }

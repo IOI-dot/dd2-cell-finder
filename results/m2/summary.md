@@ -1,7 +1,7 @@
 # Option 2 M2 measured evidence
 
 Experimental flow: **pass**.
-Checkpoint ready: **False**. See `readiness.json` for blockers.
+Checkpoint ready: **True**. See `readiness.json` for blockers.
 
 Area values below use estimated cells; their timing/capacitances are placeholders.
 
@@ -30,7 +30,7 @@ Area values below use estimated cells; their timing/capacitances are placeholder
 
 - Ranking is a heuristic; the remapped area, not occurrence frequency, is the measured result.
 - Cost features describe explicit Boolean realizations, not transistor extraction from installed HD cells.
-- The six-versus-five reference discrepancy remains explicit until resolved with the TA.
+- Table 4 disposition: TA accepted recorded difference. See reference_count_review.json.
 - Tutorial sources/testbenches are unchanged earlier submissions, installed outside git. GLS is functional, with no SDF or timing-check claim.
 - TOTAL and the ranking objective cover the six required benchmark designs; tutorial rows are shown separately.
 - Final reports, real-cell results and sensitivity/greedy experiments are not M2 outputs.

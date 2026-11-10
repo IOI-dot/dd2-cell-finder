@@ -1,2 +1,0 @@
-{"run": "A-1102-79", "step": 1, "agent": "fixed", "kind": "policy", "tool": "build_cell", "args": {"expr": "!(A | B | C)", "name": "f_nor3", "sizing": "hd", "order_index": 0}, "decision": "violation: protected files changed during the call"}
-{"run": "A-1102-79", "step": 2, "kind": "result", "status": "pass", "checks": "ai/runs/A-1102-79.checks.json"}

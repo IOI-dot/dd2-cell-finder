@@ -17,6 +17,4 @@ Each row has a verified 16-row truth table and uses six literal occurrences,
 giving six NMOS plus six PMOS transistors in complementary series/parallel networks.
 Input A is the least significant truth-table variable.
 
-Question for the TA: which of these six realizations is excluded by the reference,
-and what additional restriction excludes it? Or should the reference count be six?
-No correction or acceptance is assumed by the tool.
+TA accepted GB4's six-versus-five result as submitted, per the team.

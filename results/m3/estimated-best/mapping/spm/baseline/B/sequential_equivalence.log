@@ -1,0 +1,224 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/B/sequential_equivalence.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/B/sequential_equivalence.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/B/gold.il
+Renaming module \SPM to \gold.
+
+2. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/spm/baseline/B/gate.il
+Renaming module \SPM to \gate.
+
+3. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: clk_gold (\clk_gold), clk_gate (\clk_gate) -> clk
+Presumably equivalent wires: rst_gold (\rst_gold), rst_gate (\rst_gate) -> rst
+Presumably equivalent wires: y_gold (\y_gold), y_gate (\y_gate) -> y
+Presumably equivalent wires: X_gold (\X_gold), X_gate (\X_gate) -> X
+Presumably equivalent wires: p_gold (\csa0.sum_gold), p_gate (\$auto$ff.cc:337:slice$125.IQ_gate) -> p
+Presumably equivalent wires: genblk1[30].csa.y_gold (\tcmp.s_gold), genblk1[30].csa.y_gate (\$auto$ff.cc:337:slice$128.IQ_gate) -> genblk1[30].csa.y
+Presumably equivalent wires: genblk1[30].csa.sc_gold (\genblk1[30].csa.sc_gold), genblk1[30].csa.sc_gate (\$auto$ff.cc:337:slice$338.IQ_gate) -> genblk1[30].csa.sc
+Presumably equivalent wires: genblk1[30].csa.hsum2_gold (\genblk1[30].csa.hsum2_gold), genblk1[30].csa.hsum2_gate (\$auto$ff.cc:337:slice$337.D_gate) -> genblk1[30].csa.hsum2
+Presumably equivalent wires: genblk1[19].csa.hsum2_gold (\genblk1[19].csa.hsum2_gold), genblk1[19].csa.hsum2_gate (\$auto$ff.cc:337:slice$260.D_gate) -> genblk1[19].csa.hsum2
+Presumably equivalent wires: genblk1[19].csa.sc_gold (\genblk1[19].csa.sc_gold), genblk1[19].csa.sc_gate (\$auto$ff.cc:337:slice$261.IQ_gate) -> genblk1[19].csa.sc
+Presumably equivalent wires: genblk1[29].csa.y_gold (\genblk1[30].csa.sum_gold), genblk1[29].csa.y_gate (\$auto$ff.cc:337:slice$337.IQ_gate) -> genblk1[29].csa.y
+Presumably equivalent wires: genblk1[29].csa.sc_gold (\genblk1[29].csa.sc_gold), genblk1[29].csa.sc_gate (\$auto$ff.cc:337:slice$331.IQ_gate) -> genblk1[29].csa.sc
+Presumably equivalent wires: genblk1[29].csa.hsum2_gold (\genblk1[29].csa.hsum2_gold), genblk1[29].csa.hsum2_gate (\$auto$ff.cc:337:slice$330.D_gate) -> genblk1[29].csa.hsum2
+Presumably equivalent wires: genblk1[16].csa.hsum2_gold (\genblk1[16].csa.hsum2_gold), genblk1[16].csa.hsum2_gate (\$auto$ff.cc:337:slice$239.D_gate) -> genblk1[16].csa.hsum2
+Presumably equivalent wires: genblk1[16].csa.sc_gold (\genblk1[16].csa.sc_gold), genblk1[16].csa.sc_gate (\$auto$ff.cc:337:slice$240.IQ_gate) -> genblk1[16].csa.sc
+Presumably equivalent wires: genblk1[16].csa.y_gold (\genblk1[17].csa.sum_gold), genblk1[16].csa.y_gate (\$auto$ff.cc:337:slice$246.IQ_gate) -> genblk1[16].csa.y
+Presumably equivalent wires: csa0.hsum2_gold (\csa0.hsum2_gold), csa0.hsum2_gate (\$auto$ff.cc:337:slice$125.D_gate) -> csa0.hsum2
+Presumably equivalent wires: csa0.sc_gold (\csa0.sc_gold), csa0.sc_gate (\$auto$ff.cc:337:slice$126.IQ_gate) -> csa0.sc
+Presumably equivalent wires: csa0.y_gold (\genblk1[1].csa.sum_gold), csa0.y_gate (\$auto$ff.cc:337:slice$134.IQ_gate) -> csa0.y
+Presumably equivalent wires: genblk1[28].csa.y_gold (\genblk1[29].csa.sum_gold), genblk1[28].csa.y_gate (\$auto$ff.cc:337:slice$330.IQ_gate) -> genblk1[28].csa.y
+Presumably equivalent wires: genblk1[28].csa.sc_gold (\genblk1[28].csa.sc_gold), genblk1[28].csa.sc_gate (\$auto$ff.cc:337:slice$324.IQ_gate) -> genblk1[28].csa.sc
+Presumably equivalent wires: tcmp.z_gold (\tcmp.z_gold), tcmp.z_gate (\$auto$ff.cc:337:slice$87.IQ_gate) -> tcmp.z
+Presumably equivalent wires: genblk1[28].csa.hsum2_gold (\genblk1[28].csa.hsum2_gold), genblk1[28].csa.hsum2_gate (\$auto$ff.cc:337:slice$323.D_gate) -> genblk1[28].csa.hsum2
+Presumably equivalent wires: genblk1[21].csa.y_gold (\genblk1[22].csa.sum_gold), genblk1[21].csa.y_gate (\$auto$ff.cc:337:slice$281.IQ_gate) -> genblk1[21].csa.y
+Presumably equivalent wires: genblk1[1].csa.hsum2_gold (\genblk1[1].csa.hsum2_gold), genblk1[1].csa.hsum2_gate (\$auto$ff.cc:337:slice$134.D_gate) -> genblk1[1].csa.hsum2
+Presumably equivalent wires: genblk1[1].csa.sc_gold (\genblk1[1].csa.sc_gold), genblk1[1].csa.sc_gate (\$auto$ff.cc:337:slice$135.IQ_gate) -> genblk1[1].csa.sc
+Presumably equivalent wires: genblk1[1].csa.y_gold (\genblk1[2].csa.sum_gold), genblk1[1].csa.y_gate (\$auto$ff.cc:337:slice$141.IQ_gate) -> genblk1[1].csa.y
+Presumably equivalent wires: genblk1[21].csa.sc_gold (\genblk1[21].csa.sc_gold), genblk1[21].csa.sc_gate (\$auto$ff.cc:337:slice$275.IQ_gate) -> genblk1[21].csa.sc
+Presumably equivalent wires: genblk1[27].csa.y_gold (\genblk1[28].csa.sum_gold), genblk1[27].csa.y_gate (\$auto$ff.cc:337:slice$323.IQ_gate) -> genblk1[27].csa.y
+Presumably equivalent wires: genblk1[2].csa.hsum2_gold (\genblk1[2].csa.hsum2_gold), genblk1[2].csa.hsum2_gate (\$auto$ff.cc:337:slice$141.D_gate) -> genblk1[2].csa.hsum2
+Presumably equivalent wires: genblk1[2].csa.sc_gold (\genblk1[2].csa.sc_gold), genblk1[2].csa.sc_gate (\$auto$ff.cc:337:slice$142.IQ_gate) -> genblk1[2].csa.sc
+Presumably equivalent wires: genblk1[2].csa.y_gold (\genblk1[3].csa.sum_gold), genblk1[2].csa.y_gate (\$auto$ff.cc:337:slice$148.IQ_gate) -> genblk1[2].csa.y
+Presumably equivalent wires: genblk1[27].csa.sc_gold (\genblk1[27].csa.sc_gold), genblk1[27].csa.sc_gate (\$auto$ff.cc:337:slice$317.IQ_gate) -> genblk1[27].csa.sc
+Presumably equivalent wires: genblk1[27].csa.hsum2_gold (\genblk1[27].csa.hsum2_gold), genblk1[27].csa.hsum2_gate (\$auto$ff.cc:337:slice$316.D_gate) -> genblk1[27].csa.hsum2
+Presumably equivalent wires: genblk1[3].csa.hsum2_gold (\genblk1[3].csa.hsum2_gold), genblk1[3].csa.hsum2_gate (\$auto$ff.cc:337:slice$148.D_gate) -> genblk1[3].csa.hsum2
+Presumably equivalent wires: genblk1[3].csa.sc_gold (\genblk1[3].csa.sc_gold), genblk1[3].csa.sc_gate (\$auto$ff.cc:337:slice$149.IQ_gate) -> genblk1[3].csa.sc
+Presumably equivalent wires: genblk1[3].csa.y_gold (\genblk1[4].csa.sum_gold), genblk1[3].csa.y_gate (\$auto$ff.cc:337:slice$155.IQ_gate) -> genblk1[3].csa.y
+Presumably equivalent wires: genblk1[21].csa.hsum2_gold (\genblk1[21].csa.hsum2_gold), genblk1[21].csa.hsum2_gate (\$auto$ff.cc:337:slice$274.D_gate) -> genblk1[21].csa.hsum2
+Presumably equivalent wires: genblk1[17].csa.hsum2_gold (\genblk1[17].csa.hsum2_gold), genblk1[17].csa.hsum2_gate (\$auto$ff.cc:337:slice$246.D_gate) -> genblk1[17].csa.hsum2
+Presumably equivalent wires: genblk1[4].csa.hsum2_gold (\genblk1[4].csa.hsum2_gold), genblk1[4].csa.hsum2_gate (\$auto$ff.cc:337:slice$155.D_gate) -> genblk1[4].csa.hsum2
+Presumably equivalent wires: genblk1[4].csa.sc_gold (\genblk1[4].csa.sc_gold), genblk1[4].csa.sc_gate (\$auto$ff.cc:337:slice$156.IQ_gate) -> genblk1[4].csa.sc
+Presumably equivalent wires: genblk1[4].csa.y_gold (\genblk1[5].csa.sum_gold), genblk1[4].csa.y_gate (\$auto$ff.cc:337:slice$162.IQ_gate) -> genblk1[4].csa.y
+Presumably equivalent wires: genblk1[26].csa.y_gold (\genblk1[27].csa.sum_gold), genblk1[26].csa.y_gate (\$auto$ff.cc:337:slice$316.IQ_gate) -> genblk1[26].csa.y
+Presumably equivalent wires: genblk1[26].csa.sc_gold (\genblk1[26].csa.sc_gold), genblk1[26].csa.sc_gate (\$auto$ff.cc:337:slice$310.IQ_gate) -> genblk1[26].csa.sc
+Presumably equivalent wires: genblk1[26].csa.hsum2_gold (\genblk1[26].csa.hsum2_gold), genblk1[26].csa.hsum2_gate (\$auto$ff.cc:337:slice$309.D_gate) -> genblk1[26].csa.hsum2
+Presumably equivalent wires: genblk1[5].csa.hsum2_gold (\genblk1[5].csa.hsum2_gold), genblk1[5].csa.hsum2_gate (\$auto$ff.cc:337:slice$162.D_gate) -> genblk1[5].csa.hsum2
+Presumably equivalent wires: genblk1[5].csa.sc_gold (\genblk1[5].csa.sc_gold), genblk1[5].csa.sc_gate (\$auto$ff.cc:337:slice$163.IQ_gate) -> genblk1[5].csa.sc
+Presumably equivalent wires: genblk1[5].csa.y_gold (\genblk1[6].csa.sum_gold), genblk1[5].csa.y_gate (\$auto$ff.cc:337:slice$169.IQ_gate) -> genblk1[5].csa.y
+Presumably equivalent wires: genblk1[17].csa.sc_gold (\genblk1[17].csa.sc_gold), genblk1[17].csa.sc_gate (\$auto$ff.cc:337:slice$247.IQ_gate) -> genblk1[17].csa.sc
+Presumably equivalent wires: genblk1[17].csa.y_gold (\genblk1[18].csa.sum_gold), genblk1[17].csa.y_gate (\$auto$ff.cc:337:slice$253.IQ_gate) -> genblk1[17].csa.y
+Presumably equivalent wires: genblk1[6].csa.hsum2_gold (\genblk1[6].csa.hsum2_gold), genblk1[6].csa.hsum2_gate (\$auto$ff.cc:337:slice$169.D_gate) -> genblk1[6].csa.hsum2
+Presumably equivalent wires: genblk1[6].csa.sc_gold (\genblk1[6].csa.sc_gold), genblk1[6].csa.sc_gate (\$auto$ff.cc:337:slice$170.IQ_gate) -> genblk1[6].csa.sc
+Presumably equivalent wires: genblk1[6].csa.y_gold (\genblk1[7].csa.sum_gold), genblk1[6].csa.y_gate (\$auto$ff.cc:337:slice$176.IQ_gate) -> genblk1[6].csa.y
+Presumably equivalent wires: genblk1[19].csa.y_gold (\genblk1[20].csa.sum_gold), genblk1[19].csa.y_gate (\$auto$ff.cc:337:slice$267.IQ_gate) -> genblk1[19].csa.y
+Presumably equivalent wires: genblk1[25].csa.y_gold (\genblk1[26].csa.sum_gold), genblk1[25].csa.y_gate (\$auto$ff.cc:337:slice$309.IQ_gate) -> genblk1[25].csa.y
+Presumably equivalent wires: genblk1[25].csa.sc_gold (\genblk1[25].csa.sc_gold), genblk1[25].csa.sc_gate (\$auto$ff.cc:337:slice$303.IQ_gate) -> genblk1[25].csa.sc
+Presumably equivalent wires: genblk1[7].csa.hsum2_gold (\genblk1[7].csa.hsum2_gold), genblk1[7].csa.hsum2_gate (\$auto$ff.cc:337:slice$176.D_gate) -> genblk1[7].csa.hsum2
+Presumably equivalent wires: genblk1[7].csa.sc_gold (\genblk1[7].csa.sc_gold), genblk1[7].csa.sc_gate (\$auto$ff.cc:337:slice$177.IQ_gate) -> genblk1[7].csa.sc
+Presumably equivalent wires: genblk1[7].csa.y_gold (\genblk1[8].csa.sum_gold), genblk1[7].csa.y_gate (\$auto$ff.cc:337:slice$183.IQ_gate) -> genblk1[7].csa.y
+Presumably equivalent wires: genblk1[25].csa.hsum2_gold (\genblk1[25].csa.hsum2_gold), genblk1[25].csa.hsum2_gate (\$auto$ff.cc:337:slice$302.D_gate) -> genblk1[25].csa.hsum2
+Presumably equivalent wires: genblk1[8].csa.hsum2_gold (\genblk1[8].csa.hsum2_gold), genblk1[8].csa.hsum2_gate (\$auto$ff.cc:337:slice$183.D_gate) -> genblk1[8].csa.hsum2
+Presumably equivalent wires: genblk1[8].csa.sc_gold (\genblk1[8].csa.sc_gold), genblk1[8].csa.sc_gate (\$auto$ff.cc:337:slice$184.IQ_gate) -> genblk1[8].csa.sc
+Presumably equivalent wires: genblk1[8].csa.y_gold (\genblk1[9].csa.sum_gold), genblk1[8].csa.y_gate (\$auto$ff.cc:337:slice$190.IQ_gate) -> genblk1[8].csa.y
+Presumably equivalent wires: genblk1[20].csa.hsum2_gold (\genblk1[20].csa.hsum2_gold), genblk1[20].csa.hsum2_gate (\$auto$ff.cc:337:slice$267.D_gate) -> genblk1[20].csa.hsum2
+Presumably equivalent wires: genblk1[9].csa.hsum2_gold (\genblk1[9].csa.hsum2_gold), genblk1[9].csa.hsum2_gate (\$auto$ff.cc:337:slice$190.D_gate) -> genblk1[9].csa.hsum2
+Presumably equivalent wires: genblk1[9].csa.sc_gold (\genblk1[9].csa.sc_gold), genblk1[9].csa.sc_gate (\$auto$ff.cc:337:slice$191.IQ_gate) -> genblk1[9].csa.sc
+Presumably equivalent wires: genblk1[24].csa.y_gold (\genblk1[25].csa.sum_gold), genblk1[24].csa.y_gate (\$auto$ff.cc:337:slice$302.IQ_gate) -> genblk1[24].csa.y
+Presumably equivalent wires: genblk1[24].csa.sc_gold (\genblk1[24].csa.sc_gold), genblk1[24].csa.sc_gate (\$auto$ff.cc:337:slice$296.IQ_gate) -> genblk1[24].csa.sc
+Presumably equivalent wires: genblk1[24].csa.hsum2_gold (\genblk1[24].csa.hsum2_gold), genblk1[24].csa.hsum2_gate (\$auto$ff.cc:337:slice$295.D_gate) -> genblk1[24].csa.hsum2
+Presumably equivalent wires: genblk1[18].csa.hsum2_gold (\genblk1[18].csa.hsum2_gold), genblk1[18].csa.hsum2_gate (\$auto$ff.cc:337:slice$253.D_gate) -> genblk1[18].csa.hsum2
+Presumably equivalent wires: genblk1[10].csa.hsum2_gold (\genblk1[10].csa.hsum2_gold), genblk1[10].csa.hsum2_gate (\$auto$ff.cc:337:slice$197.D_gate) -> genblk1[10].csa.hsum2
+Presumably equivalent wires: genblk1[10].csa.sc_gold (\genblk1[10].csa.sc_gold), genblk1[10].csa.sc_gate (\$auto$ff.cc:337:slice$198.IQ_gate) -> genblk1[10].csa.sc
+Presumably equivalent wires: genblk1[10].csa.sum_gold (\genblk1[10].csa.sum_gold), genblk1[10].csa.sum_gate (\$auto$ff.cc:337:slice$197.IQ_gate) -> genblk1[10].csa.sum
+Presumably equivalent wires: genblk1[10].csa.y_gold (\genblk1[11].csa.sum_gold), genblk1[10].csa.y_gate (\$auto$ff.cc:337:slice$204.IQ_gate) -> genblk1[10].csa.y
+Presumably equivalent wires: genblk1[18].csa.sc_gold (\genblk1[18].csa.sc_gold), genblk1[18].csa.sc_gate (\$auto$ff.cc:337:slice$254.IQ_gate) -> genblk1[18].csa.sc
+Presumably equivalent wires: genblk1[18].csa.y_gold (\genblk1[19].csa.sum_gold), genblk1[18].csa.y_gate (\$auto$ff.cc:337:slice$260.IQ_gate) -> genblk1[18].csa.y
+Presumably equivalent wires: genblk1[11].csa.hsum2_gold (\genblk1[11].csa.hsum2_gold), genblk1[11].csa.hsum2_gate (\$auto$ff.cc:337:slice$204.D_gate) -> genblk1[11].csa.hsum2
+Presumably equivalent wires: genblk1[11].csa.sc_gold (\genblk1[11].csa.sc_gold), genblk1[11].csa.sc_gate (\$auto$ff.cc:337:slice$205.IQ_gate) -> genblk1[11].csa.sc
+Presumably equivalent wires: genblk1[11].csa.y_gold (\genblk1[12].csa.sum_gold), genblk1[11].csa.y_gate (\$auto$ff.cc:337:slice$211.IQ_gate) -> genblk1[11].csa.y
+Presumably equivalent wires: genblk1[23].csa.y_gold (\genblk1[24].csa.sum_gold), genblk1[23].csa.y_gate (\$auto$ff.cc:337:slice$295.IQ_gate) -> genblk1[23].csa.y
+Presumably equivalent wires: genblk1[23].csa.sc_gold (\genblk1[23].csa.sc_gold), genblk1[23].csa.sc_gate (\$auto$ff.cc:337:slice$289.IQ_gate) -> genblk1[23].csa.sc
+Presumably equivalent wires: genblk1[12].csa.hsum2_gold (\genblk1[12].csa.hsum2_gold), genblk1[12].csa.hsum2_gate (\$auto$ff.cc:337:slice$211.D_gate) -> genblk1[12].csa.hsum2
+Presumably equivalent wires: genblk1[12].csa.sc_gold (\genblk1[12].csa.sc_gold), genblk1[12].csa.sc_gate (\$auto$ff.cc:337:slice$212.IQ_gate) -> genblk1[12].csa.sc
+Presumably equivalent wires: genblk1[12].csa.y_gold (\genblk1[13].csa.sum_gold), genblk1[12].csa.y_gate (\$auto$ff.cc:337:slice$218.IQ_gate) -> genblk1[12].csa.y
+Presumably equivalent wires: genblk1[23].csa.hsum2_gold (\genblk1[23].csa.hsum2_gold), genblk1[23].csa.hsum2_gate (\$auto$ff.cc:337:slice$288.D_gate) -> genblk1[23].csa.hsum2
+Presumably equivalent wires: genblk1[13].csa.hsum2_gold (\genblk1[13].csa.hsum2_gold), genblk1[13].csa.hsum2_gate (\$auto$ff.cc:337:slice$218.D_gate) -> genblk1[13].csa.hsum2
+Presumably equivalent wires: genblk1[13].csa.sc_gold (\genblk1[13].csa.sc_gold), genblk1[13].csa.sc_gate (\$auto$ff.cc:337:slice$219.IQ_gate) -> genblk1[13].csa.sc
+Presumably equivalent wires: genblk1[13].csa.y_gold (\genblk1[14].csa.sum_gold), genblk1[13].csa.y_gate (\$auto$ff.cc:337:slice$225.IQ_gate) -> genblk1[13].csa.y
+Presumably equivalent wires: genblk1[20].csa.y_gold (\genblk1[21].csa.sum_gold), genblk1[20].csa.y_gate (\$auto$ff.cc:337:slice$274.IQ_gate) -> genblk1[20].csa.y
+Presumably equivalent wires: genblk1[22].csa.y_gold (\genblk1[23].csa.sum_gold), genblk1[22].csa.y_gate (\$auto$ff.cc:337:slice$288.IQ_gate) -> genblk1[22].csa.y
+Presumably equivalent wires: genblk1[14].csa.hsum2_gold (\genblk1[14].csa.hsum2_gold), genblk1[14].csa.hsum2_gate (\$auto$ff.cc:337:slice$225.D_gate) -> genblk1[14].csa.hsum2
+Presumably equivalent wires: genblk1[14].csa.sc_gold (\genblk1[14].csa.sc_gold), genblk1[14].csa.sc_gate (\$auto$ff.cc:337:slice$226.IQ_gate) -> genblk1[14].csa.sc
+Presumably equivalent wires: genblk1[14].csa.y_gold (\genblk1[15].csa.sum_gold), genblk1[14].csa.y_gate (\$auto$ff.cc:337:slice$232.IQ_gate) -> genblk1[14].csa.y
+Presumably equivalent wires: genblk1[22].csa.sc_gold (\genblk1[22].csa.sc_gold), genblk1[22].csa.sc_gate (\$auto$ff.cc:337:slice$282.IQ_gate) -> genblk1[22].csa.sc
+Presumably equivalent wires: genblk1[22].csa.hsum2_gold (\genblk1[22].csa.hsum2_gold), genblk1[22].csa.hsum2_gate (\$auto$ff.cc:337:slice$281.D_gate) -> genblk1[22].csa.hsum2
+Presumably equivalent wires: genblk1[20].csa.sc_gold (\genblk1[20].csa.sc_gold), genblk1[20].csa.sc_gate (\$auto$ff.cc:337:slice$268.IQ_gate) -> genblk1[20].csa.sc
+Presumably equivalent wires: genblk1[15].csa.hsum2_gold (\genblk1[15].csa.hsum2_gold), genblk1[15].csa.hsum2_gate (\$auto$ff.cc:337:slice$232.D_gate) -> genblk1[15].csa.hsum2
+Presumably equivalent wires: genblk1[15].csa.sc_gold (\genblk1[15].csa.sc_gold), genblk1[15].csa.sc_gate (\$auto$ff.cc:337:slice$233.IQ_gate) -> genblk1[15].csa.sc
+Presumably equivalent wires: genblk1[15].csa.y_gold (\genblk1[16].csa.sum_gold), genblk1[15].csa.y_gate (\$auto$ff.cc:337:slice$239.IQ_gate) -> genblk1[15].csa.y
+Changing input D of cell $auto$ff.cc:337:slice$218_gold ($_DFF_PP0_): \genblk1[13].csa.hsum2_gold -> \genblk1[13].csa.hsum2
+Changing input B of cell $abc$341$blif$341$1_gold ($_NAND_): \csa0.sc_gold -> \csa0.sc
+Changing input B of cell $abc$341$blif$341$2_gold ($_XOR_): \csa0.sc_gold -> \csa0.sc
+Changing input B of cell $abc$341$blif$341$7_gold ($_NAND_): \genblk1[1].csa.sc_gold -> \genblk1[1].csa.sc
+Changing input B of cell $abc$341$blif$341$8_gold ($_XOR_): \genblk1[1].csa.sc_gold -> \genblk1[1].csa.sc
+Changing input B of cell $abc$341$blif$341$13_gold ($_NAND_): \genblk1[2].csa.sc_gold -> \genblk1[2].csa.sc
+Changing input B of cell $abc$341$blif$341$14_gold ($_XOR_): \genblk1[2].csa.sc_gold -> \genblk1[2].csa.sc
+Changing input B of cell $abc$341$blif$341$19_gold ($_NAND_): \genblk1[3].csa.sc_gold -> \genblk1[3].csa.sc
+Changing input B of cell $abc$341$blif$341$20_gold ($_XOR_): \genblk1[3].csa.sc_gold -> \genblk1[3].csa.sc
+Changing input B of cell $abc$341$blif$341$25_gold ($_NAND_): \genblk1[4].csa.sc_gold -> \genblk1[4].csa.sc
+Changing input B of cell $abc$341$blif$341$26_gold ($_XOR_): \genblk1[4].csa.sc_gold -> \genblk1[4].csa.sc
+Changing input B of cell $abc$341$blif$341$31_gold ($_NAND_): \genblk1[5].csa.sc_gold -> \genblk1[5].csa.sc
+Changing input B of cell $abc$341$blif$341$32_gold ($_XOR_): \genblk1[5].csa.sc_gold -> \genblk1[5].csa.sc
+Changing input B of cell $abc$341$blif$341$37_gold ($_NAND_): \genblk1[6].csa.sc_gold -> \genblk1[6].csa.sc
+Changing input B of cell $abc$341$blif$341$38_gold ($_XOR_): \genblk1[6].csa.sc_gold -> \genblk1[6].csa.sc
+Changing input B of cell $abc$341$blif$341$43_gold ($_NAND_): \genblk1[7].csa.sc_gold -> \genblk1[7].csa.sc
+Changing input B of cell $abc$341$blif$341$44_gold ($_XOR_): \genblk1[7].csa.sc_gold -> \genblk1[7].csa.sc
+Changing input B of cell $abc$341$blif$341$49_gold ($_NAND_): \genblk1[8].csa.sc_gold -> \genblk1[8].csa.sc
+Changing input B of cell $abc$341$blif$341$50_gold ($_XOR_): \genblk1[8].csa.sc_gold -> \genblk1[8].csa.sc
+Changing input B of cell $abc$341$blif$341$55_gold ($_NAND_): \genblk1[9].csa.sc_gold -> \genblk1[9].csa.sc
+Changing input A of cell $abc$341$blif$341$55_gold ($_NAND_): \genblk1[10].csa.sum_gold -> \genblk1[10].csa.sum
+Changing input B of cell $abc$341$blif$341$56_gold ($_XOR_): \genblk1[9].csa.sc_gold -> \genblk1[9].csa.sc
+Changing input A of cell $abc$341$blif$341$56_gold ($_XOR_): \genblk1[10].csa.sum_gold -> \genblk1[10].csa.sum
+Changing input B of cell $abc$341$blif$341$61_gold ($_NAND_): \genblk1[10].csa.sc_gold -> \genblk1[10].csa.sc
+Changing input B of cell $abc$341$blif$341$62_gold ($_XOR_): \genblk1[10].csa.sc_gold -> \genblk1[10].csa.sc
+Changing input B of cell $abc$341$blif$341$67_gold ($_NAND_): \genblk1[11].csa.sc_gold -> \genblk1[11].csa.sc
+Changing input B of cell $abc$341$blif$341$68_gold ($_XOR_): \genblk1[11].csa.sc_gold -> \genblk1[11].csa.sc
+Changing input B of cell $abc$341$blif$341$73_gold ($_NAND_): \genblk1[12].csa.sc_gold -> \genblk1[12].csa.sc
+Changing input B of cell $abc$341$blif$341$74_gold ($_XOR_): \genblk1[12].csa.sc_gold -> \genblk1[12].csa.sc
+Changing input B of cell $abc$341$blif$341$79_gold ($_NAND_): \genblk1[13].csa.sc_gold -> \genblk1[13].csa.sc
+Changing input B of cell $abc$341$blif$341$80_gold ($_XOR_): \genblk1[13].csa.sc_gold -> \genblk1[13].csa.sc
+Changing input B of cell $abc$341$blif$341$85_gold ($_NAND_): \genblk1[14].csa.sc_gold -> \genblk1[14].csa.sc
+Changing input B of cell $abc$341$blif$341$86_gold ($_XOR_): \genblk1[14].csa.sc_gold -> \genblk1[14].csa.sc
+Changing input B of cell $abc$341$blif$341$91_gold ($_NAND_): \genblk1[15].csa.sc_gold -> \genblk1[15].csa.sc
+Changing input B of cell $abc$341$blif$341$92_gold ($_XOR_): \genblk1[15].csa.sc_gold -> \genblk1[15].csa.sc
+Changing input B of cell $abc$341$blif$341$97_gold ($_NAND_): \genblk1[16].csa.sc_gold -> \genblk1[16].csa.sc
+Changing input B of cell $abc$341$blif$341$98_gold ($_XOR_): \genblk1[16].csa.sc_gold -> \genblk1[16].csa.sc
+Changing input B of cell $abc$341$blif$341$103_gold ($_NAND_): \genblk1[17].csa.sc_gold -> \genblk1[17].csa.sc
+Changing input B of cell $abc$341$blif$341$104_gold ($_XOR_): \genblk1[17].csa.sc_gold -> \genblk1[17].csa.sc
+Changing input B of cell $abc$341$blif$341$109_gold ($_NAND_): \genblk1[18].csa.sc_gold -> \genblk1[18].csa.sc
+Changing input B of cell $abc$341$blif$341$110_gold ($_XOR_): \genblk1[18].csa.sc_gold -> \genblk1[18].csa.sc
+Changing input B of cell $abc$341$blif$341$115_gold ($_NAND_): \genblk1[19].csa.sc_gold -> \genblk1[19].csa.sc
+Changing input B of cell $abc$341$blif$341$116_gold ($_XOR_): \genblk1[19].csa.sc_gold -> \genblk1[19].csa.sc
+Changing input B of cell $abc$341$blif$341$121_gold ($_NAND_): \genblk1[20].csa.sc_gold -> \genblk1[20].csa.sc
+Changing input B of cell $abc$341$blif$341$122_gold ($_XOR_): \genblk1[20].csa.sc_gold -> \genblk1[20].csa.sc
+Changing input B of cell $abc$341$blif$341$127_gold ($_NAND_): \genblk1[21].csa.sc_gold -> \genblk1[21].csa.sc
+Changing input B of cell $abc$341$blif$341$128_gold ($_XOR_): \genblk1[21].csa.sc_gold -> \genblk1[21].csa.sc
+Changing input B of cell $abc$341$blif$341$133_gold ($_NAND_): \genblk1[22].csa.sc_gold -> \genblk1[22].csa.sc
+Changing input B of cell $abc$341$blif$341$134_gold ($_XOR_): \genblk1[22].csa.sc_gold -> \genblk1[22].csa.sc
+Changing input B of cell $abc$341$blif$341$139_gold ($_NAND_): \genblk1[23].csa.sc_gold -> \genblk1[23].csa.sc
+Changing input B of cell $abc$341$blif$341$140_gold ($_XOR_): \genblk1[23].csa.sc_gold -> \genblk1[23].csa.sc
+Changing input B of cell $abc$341$blif$341$145_gold ($_NAND_): \genblk1[24].csa.sc_gold -> \genblk1[24].csa.sc
+Changing input B of cell $abc$341$blif$341$146_gold ($_XOR_): \genblk1[24].csa.sc_gold -> \genblk1[24].csa.sc
+Changing input B of cell $abc$341$blif$341$151_gold ($_NAND_): \genblk1[25].csa.sc_gold -> \genblk1[25].csa.sc
+Changing input B of cell $abc$341$blif$341$152_gold ($_XOR_): \genblk1[25].csa.sc_gold -> \genblk1[25].csa.sc
+Changing input B of cell $abc$341$blif$341$157_gold ($_NAND_): \genblk1[26].csa.sc_gold -> \genblk1[26].csa.sc
+Changing input B of cell $abc$341$blif$341$158_gold ($_XOR_): \genblk1[26].csa.sc_gold -> \genblk1[26].csa.sc
+Changing input B of cell $abc$341$blif$341$163_gold ($_NAND_): \genblk1[27].csa.sc_gold -> \genblk1[27].csa.sc
+Changing input B of cell $abc$341$blif$341$164_gold ($_XOR_): \genblk1[27].csa.sc_gold -> \genblk1[27].csa.sc
+Changing input B of cell $abc$341$blif$341$169_gold ($_NAND_): \genblk1[28].csa.sc_gold -> \genblk1[28].csa.sc
+Changing input B of cell $abc$341$blif$341$170_gold ($_XOR_): \genblk1[28].csa.sc_gold -> \genblk1[28].csa.sc
+Changing input B of cell $abc$341$blif$341$175_gold ($_NAND_): \genblk1[29].csa.sc_gold -> \genblk1[29].csa.sc
+Changing input B of cell $abc$341$blif$341$176_gold ($_XOR_): \genblk1[29].csa.sc_gold -> \genblk1[29].csa.sc
+Changing input B of cell $abc$341$blif$341$181_gold ($_NAND_): \genblk1[30].csa.sc_gold -> \genblk1[30].csa.sc
+Changing input B of cell $abc$341$blif$341$182_gold ($_XOR_): \genblk1[30].csa.sc_gold -> \genblk1[30].csa.sc
+Changing input D of cell $auto$ff.cc:337:slice$155_gold ($_DFF_PP0_): \genblk1[4].csa.hsum2_gold -> \genblk1[4].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$225_gold ($_DFF_PP0_): \genblk1[14].csa.hsum2_gold -> \genblk1[14].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$148_gold ($_DFF_PP0_): \genblk1[3].csa.hsum2_gold -> \genblk1[3].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$162_gold ($_DFF_PP0_): \genblk1[5].csa.hsum2_gold -> \genblk1[5].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$141_gold ($_DFF_PP0_): \genblk1[2].csa.hsum2_gold -> \genblk1[2].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$267_gold ($_DFF_PP0_): \genblk1[20].csa.hsum2_gold -> \genblk1[20].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$134_gold ($_DFF_PP0_): \genblk1[1].csa.hsum2_gold -> \genblk1[1].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$232_gold ($_DFF_PP0_): \genblk1[15].csa.hsum2_gold -> \genblk1[15].csa.hsum2
+Changing input A of cell $abc$340$blif$340$1_gold ($_XOR_): \tcmp.z_gold -> \tcmp.z
+Changing input D of cell $auto$ff.cc:337:slice$125_gold ($_DFF_PP0_): \csa0.hsum2_gold -> \csa0.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$260_gold ($_DFF_PP0_): \genblk1[19].csa.hsum2_gold -> \genblk1[19].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$288_gold ($_DFF_PP0_): \genblk1[23].csa.hsum2_gold -> \genblk1[23].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$204_gold ($_DFF_PP0_): \genblk1[11].csa.hsum2_gold -> \genblk1[11].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$211_gold ($_DFF_PP0_): \genblk1[12].csa.hsum2_gold -> \genblk1[12].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$281_gold ($_DFF_PP0_): \genblk1[22].csa.hsum2_gold -> \genblk1[22].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$253_gold ($_DFF_PP0_): \genblk1[18].csa.hsum2_gold -> \genblk1[18].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$190_gold ($_DFF_PP0_): \genblk1[9].csa.hsum2_gold -> \genblk1[9].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$246_gold ($_DFF_PP0_): \genblk1[17].csa.hsum2_gold -> \genblk1[17].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$197_gold ($_DFF_PP0_): \genblk1[10].csa.hsum2_gold -> \genblk1[10].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$176_gold ($_DFF_PP0_): \genblk1[7].csa.hsum2_gold -> \genblk1[7].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$274_gold ($_DFF_PP0_): \genblk1[21].csa.hsum2_gold -> \genblk1[21].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$239_gold ($_DFF_PP0_): \genblk1[16].csa.hsum2_gold -> \genblk1[16].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$183_gold ($_DFF_PP0_): \genblk1[8].csa.hsum2_gold -> \genblk1[8].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$309_gold ($_DFF_PP0_): \genblk1[26].csa.hsum2_gold -> \genblk1[26].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$295_gold ($_DFF_PP0_): \genblk1[24].csa.hsum2_gold -> \genblk1[24].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$302_gold ($_DFF_PP0_): \genblk1[25].csa.hsum2_gold -> \genblk1[25].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$316_gold ($_DFF_PP0_): \genblk1[27].csa.hsum2_gold -> \genblk1[27].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$169_gold ($_DFF_PP0_): \genblk1[6].csa.hsum2_gold -> \genblk1[6].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$330_gold ($_DFF_PP0_): \genblk1[29].csa.hsum2_gold -> \genblk1[29].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$337_gold ($_DFF_PP0_): \genblk1[30].csa.hsum2_gold -> \genblk1[30].csa.hsum2
+Changing input D of cell $auto$ff.cc:337:slice$323_gold ($_DFF_PP0_): \genblk1[28].csa.hsum2_gold -> \genblk1[28].csa.hsum2
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+4.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gold'.
+Removing unused module `\gate'.
+Removed 2 unused modules.
+
+5. Executing EQUIV_SIMPLE pass.
+ERROR: No SAT model available for async FF cell $flatten\$auto$ff.cc:337:slice$125.$auto$liberty.cc:246:create_ff$985_gate ($_DFF_PP0_).  Consider running `async2sync` or `clk2fflogic` first.
+Found 95 unproven $equiv cells (95 groups) in equiv:
+  Trying to prove $equiv for \p:

@@ -1,0 +1,11 @@
+read_verilog "/home/hank2b/dd2-cell-finder/given/designs/risc8.v"
+synth -flatten -top cpu
+write_rtlil "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/risc8/extended/B/gold.il"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/risc8/extended/B/gold.json"
+dfflibmap -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/hd_extended_estimated.lib"
+abc -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/hd_extended_estimated.lib" -script +strash;&get,-n;&dch,-f;&nf,-R,1000;&put
+opt_clean -purge
+tee -q -o "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/risc8/extended/B/stat.json" stat -json -liberty "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/hd_extended_estimated.lib"
+write_json "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/risc8/extended/B/mapped.json"
+write_verilog -noattr -noexpr -norename "/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/risc8/extended/B/mapped.v"
+

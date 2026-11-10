@@ -1,0 +1,30 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/p16c5x/extended/B/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/p16c5x/extended/B/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/sensitivity/mapping/p16c5x/extended/B/gold.il
+
+2. Executing ASYNC2SYNC pass.
+Replacing P16C5x.$auto$ff.cc:337:slice$2028 ($_DFFE_PP1P_): ARST=\Rst_M16C5x, D=1'0, Q=\Rst
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module P16C5x: replaced 2183 cells with 12561 new cells, skipped 1194 cells.
+  replaced 8 cell types:
+      81 $_ANDNOT_
+    1478 $_MUX_
+     256 $_NAND_
+      79 $_NOR_
+      89 $_ORNOT_
+     126 $_OR_
+      15 $_XNOR_
+      59 $_XOR_
+  not replaced 4 cell types:
+     411 $_AND_
+     747 $_DFF_P_
+      34 $_NOT_
+       2 $scopeinfo
+
+5. Executing JSON backend.

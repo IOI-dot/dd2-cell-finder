@@ -1,7 +1,0 @@
-sizing,cell,sites,status,pin,delay_in_rise_ns,slew_in_rise_ns,delay_in_fall_ns,slew_in_fall_ns
-hd,dd2_t_nor3,5,pass,A,0.09128,0.06308,0.29073,0.33488
-hd,dd2_t_nor3,5,pass,B,0.09489,0.06482,0.32532,0.33494
-hd,dd2_t_nor3,5,pass,C,0.09832,0.06781,0.33453,0.33494
-stack,dd2_t_nor3_stack,10,pass,A,0.10081,0.06535,0.16733,0.17903
-stack,dd2_t_nor3_stack,10,pass,B,0.1187,0.07793,0.21233,0.1849
-stack,dd2_t_nor3_stack,10,pass,C,0.12739,0.08882,0.22632,0.18513

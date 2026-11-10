@@ -65,3 +65,31 @@ references/
 web/node_modules/
 web/dist/
 .playwright-mcp/
+
+# M3 keeps the mapped netlists, measurements and logs. These large intermediates are reproducible.
+/results/m3/**/mapping/**/gate_state*.json
+/results/m3/**/mapping/**/gold_state*.json
+/results/m3/**/mapping/**/*.il
+/results/m3/**/mapping/**/gold.json
+/results/m3/**/mapping/**/mapped.json
+/results/m3/**/trial_scores.sqlite3*
+/results/m3/**/.sweep.lock
+
+# Publish mapped Verilog, tables and logs; regenerate these proof intermediates locally.
+/results/**/mapping/**/*.il
+/results/**/mapping/**/gold.json
+/results/**/mapping/**/mapped.json
+/results/**/mapping/**/gold_state*.json
+/results/**/mapping/**/gate_state*.json
+/results/**/simulation.vvp
+!results/**/*.png
+
+# Archived Option 1/3 source can be reviewed; raw historical run outputs are local.
+/others/runs/
+/others/ai/runs/
+/others/cells/
+/others/results/
+/others/web/node_modules/
+/others/web/dist/
+!TA_M2/figures/*.png
+/others/data/

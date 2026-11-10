@@ -1,0 +1,2331 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/fir10/baseline/A/sequential_equivalence.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/fir10/baseline/A/sequential_equivalence.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/fir10/baseline/A/gold.il
+Renaming module \fir10 to \gold.
+
+2. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/estimated-best/mapping/fir10/baseline/A/gate.il
+Renaming module \fir10 to \gate.
+
+3. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: clk_gold (\clk_gold), clk_gate (\clk_gate) -> clk
+Presumably equivalent wires: rst_gold (\rst_gold), rst_gate (\rst_gate) -> rst
+Presumably equivalent wires: load_gold (\load_gold), load_gate (\load_gate) -> load
+Presumably equivalent wires: din_gold (\din_gold), din_gate (\din_gate) -> din
+Presumably equivalent wires: acc_gold (\acc_gold), acc_gate ({ \$auto$ff.cc:337:slice$227.IQ_gate \$auto$ff.cc:337:slice$226.IQ_gate \$auto$ff.cc:337:slice$225.IQ_gate \$auto$ff.cc:337:slice$224.IQ_gate \$auto$ff.cc:337:slice$223.IQ_gate \$auto$ff.cc:337:slice$222.IQ_gate \$auto$ff.cc:337:slice$221.IQ_gate \$auto$ff.cc:337:slice$220.IQ_gate \$auto$ff.cc:337:slice$219.IQ_gate \$auto$ff.cc:337:slice$218.IQ_gate \$auto$ff.cc:337:slice$217.IQ_gate \$auto$ff.cc:337:slice$216.IQ_gate \$auto$ff.cc:337:slice$215.IQ_gate \$auto$ff.cc:337:slice$214.IQ_gate \$auto$ff.cc:337:slice$213.IQ_gate \$auto$ff.cc:337:slice$212.IQ_gate }) -> acc
+Presumably equivalent wires: s0_gold (\s0_gold), s0_gate ({ \$auto$ff.cc:337:slice$636.IQ_gate \$auto$ff.cc:337:slice$635.IQ_gate \$auto$ff.cc:337:slice$634.IQ_gate \$auto$ff.cc:337:slice$633.IQ_gate \$auto$ff.cc:337:slice$632.IQ_gate \$auto$ff.cc:337:slice$631.IQ_gate \$auto$ff.cc:337:slice$630.IQ_gate \$auto$ff.cc:337:slice$629.IQ_gate }) -> s0
+Presumably equivalent wires: s1_gold (\s1_gold), s1_gate ({ \$auto$ff.cc:337:slice$644.IQ_gate \$auto$ff.cc:337:slice$643.IQ_gate \$auto$ff.cc:337:slice$642.IQ_gate \$auto$ff.cc:337:slice$641.IQ_gate \$auto$ff.cc:337:slice$640.IQ_gate \$auto$ff.cc:337:slice$639.IQ_gate \$auto$ff.cc:337:slice$638.IQ_gate \$auto$ff.cc:337:slice$637.IQ_gate }) -> s1
+Presumably equivalent wires: s2_gold (\s2_gold), s2_gate ({ \$auto$ff.cc:337:slice$652.IQ_gate \$auto$ff.cc:337:slice$651.IQ_gate \$auto$ff.cc:337:slice$650.IQ_gate \$auto$ff.cc:337:slice$649.IQ_gate \$auto$ff.cc:337:slice$648.IQ_gate \$auto$ff.cc:337:slice$647.IQ_gate \$auto$ff.cc:337:slice$646.IQ_gate \$auto$ff.cc:337:slice$645.IQ_gate }) -> s2
+Presumably equivalent wires: s3_gold (\s3_gold), s3_gate ({ \$auto$ff.cc:337:slice$660.IQ_gate \$auto$ff.cc:337:slice$659.IQ_gate \$auto$ff.cc:337:slice$658.IQ_gate \$auto$ff.cc:337:slice$657.IQ_gate \$auto$ff.cc:337:slice$656.IQ_gate \$auto$ff.cc:337:slice$655.IQ_gate \$auto$ff.cc:337:slice$654.IQ_gate \$auto$ff.cc:337:slice$653.IQ_gate }) -> s3
+Presumably equivalent wires: s4_gold (\s4_gold), s4_gate ({ \$auto$ff.cc:337:slice$668.IQ_gate \$auto$ff.cc:337:slice$667.IQ_gate \$auto$ff.cc:337:slice$666.IQ_gate \$auto$ff.cc:337:slice$665.IQ_gate \$auto$ff.cc:337:slice$664.IQ_gate \$auto$ff.cc:337:slice$663.IQ_gate \$auto$ff.cc:337:slice$662.IQ_gate \$auto$ff.cc:337:slice$661.IQ_gate }) -> s4
+Presumably equivalent wires: s5_gold (\s5_gold), s5_gate ({ \$auto$ff.cc:337:slice$676.IQ_gate \$auto$ff.cc:337:slice$675.IQ_gate \$auto$ff.cc:337:slice$674.IQ_gate \$auto$ff.cc:337:slice$673.IQ_gate \$auto$ff.cc:337:slice$672.IQ_gate \$auto$ff.cc:337:slice$671.IQ_gate \$auto$ff.cc:337:slice$670.IQ_gate \$auto$ff.cc:337:slice$669.IQ_gate }) -> s5
+Presumably equivalent wires: s6_gold (\s6_gold), s6_gate ({ \$auto$ff.cc:337:slice$684.IQ_gate \$auto$ff.cc:337:slice$683.IQ_gate \$auto$ff.cc:337:slice$682.IQ_gate \$auto$ff.cc:337:slice$681.IQ_gate \$auto$ff.cc:337:slice$680.IQ_gate \$auto$ff.cc:337:slice$679.IQ_gate \$auto$ff.cc:337:slice$678.IQ_gate \$auto$ff.cc:337:slice$677.IQ_gate }) -> s6
+Presumably equivalent wires: s7_gold (\s7_gold), s7_gate ({ \$auto$ff.cc:337:slice$692.IQ_gate \$auto$ff.cc:337:slice$691.IQ_gate \$auto$ff.cc:337:slice$690.IQ_gate \$auto$ff.cc:337:slice$689.IQ_gate \$auto$ff.cc:337:slice$688.IQ_gate \$auto$ff.cc:337:slice$687.IQ_gate \$auto$ff.cc:337:slice$686.IQ_gate \$auto$ff.cc:337:slice$685.IQ_gate }) -> s7
+Presumably equivalent wires: s8_gold (\s8_gold), s8_gate ({ \$auto$ff.cc:337:slice$700.IQ_gate \$auto$ff.cc:337:slice$699.IQ_gate \$auto$ff.cc:337:slice$698.IQ_gate \$auto$ff.cc:337:slice$697.IQ_gate \$auto$ff.cc:337:slice$696.IQ_gate \$auto$ff.cc:337:slice$695.IQ_gate \$auto$ff.cc:337:slice$694.IQ_gate \$auto$ff.cc:337:slice$693.IQ_gate }) -> s8
+Presumably equivalent wires: s9_gold (\s9_gold), s9_gate ({ \$auto$ff.cc:337:slice$708.IQ_gate \$auto$ff.cc:337:slice$707.IQ_gate \$auto$ff.cc:337:slice$706.IQ_gate \$auto$ff.cc:337:slice$705.IQ_gate \$auto$ff.cc:337:slice$704.IQ_gate \$auto$ff.cc:337:slice$703.IQ_gate \$auto$ff.cc:337:slice$702.IQ_gate \$auto$ff.cc:337:slice$701.IQ_gate }) -> s9
+Presumably equivalent wires: c0_gold (\c0_gold), c0_gate ({ \$auto$ff.cc:337:slice$716.IQ_gate \$auto$ff.cc:337:slice$715.IQ_gate \$auto$ff.cc:337:slice$714.IQ_gate \$auto$ff.cc:337:slice$713.IQ_gate \$auto$ff.cc:337:slice$712.IQ_gate \$auto$ff.cc:337:slice$711.IQ_gate \$auto$ff.cc:337:slice$710.IQ_gate \$auto$ff.cc:337:slice$709.IQ_gate }) -> c0
+Presumably equivalent wires: c1_gold (\c1_gold), c1_gate ({ \$auto$ff.cc:337:slice$724.IQ_gate \$auto$ff.cc:337:slice$723.IQ_gate \$auto$ff.cc:337:slice$722.IQ_gate \$auto$ff.cc:337:slice$721.IQ_gate \$auto$ff.cc:337:slice$720.IQ_gate \$auto$ff.cc:337:slice$719.IQ_gate \$auto$ff.cc:337:slice$718.IQ_gate \$auto$ff.cc:337:slice$717.IQ_gate }) -> c1
+Presumably equivalent wires: c2_gold (\c2_gold), c2_gate ({ \$auto$ff.cc:337:slice$732.IQ_gate \$auto$ff.cc:337:slice$731.IQ_gate \$auto$ff.cc:337:slice$730.IQ_gate \$auto$ff.cc:337:slice$729.IQ_gate \$auto$ff.cc:337:slice$728.IQ_gate \$auto$ff.cc:337:slice$727.IQ_gate \$auto$ff.cc:337:slice$726.IQ_gate \$auto$ff.cc:337:slice$725.IQ_gate }) -> c2
+Presumably equivalent wires: c3_gold (\c3_gold), c3_gate ({ \$auto$ff.cc:337:slice$740.IQ_gate \$auto$ff.cc:337:slice$739.IQ_gate \$auto$ff.cc:337:slice$738.IQ_gate \$auto$ff.cc:337:slice$737.IQ_gate \$auto$ff.cc:337:slice$736.IQ_gate \$auto$ff.cc:337:slice$735.IQ_gate \$auto$ff.cc:337:slice$734.IQ_gate \$auto$ff.cc:337:slice$733.IQ_gate }) -> c3
+Presumably equivalent wires: c4_gold (\c4_gold), c4_gate ({ \$auto$ff.cc:337:slice$748.IQ_gate \$auto$ff.cc:337:slice$747.IQ_gate \$auto$ff.cc:337:slice$746.IQ_gate \$auto$ff.cc:337:slice$745.IQ_gate \$auto$ff.cc:337:slice$744.IQ_gate \$auto$ff.cc:337:slice$743.IQ_gate \$auto$ff.cc:337:slice$742.IQ_gate \$auto$ff.cc:337:slice$741.IQ_gate }) -> c4
+Presumably equivalent wires: c5_gold (\c5_gold), c5_gate ({ \$auto$ff.cc:337:slice$756.IQ_gate \$auto$ff.cc:337:slice$755.IQ_gate \$auto$ff.cc:337:slice$754.IQ_gate \$auto$ff.cc:337:slice$753.IQ_gate \$auto$ff.cc:337:slice$752.IQ_gate \$auto$ff.cc:337:slice$751.IQ_gate \$auto$ff.cc:337:slice$750.IQ_gate \$auto$ff.cc:337:slice$749.IQ_gate }) -> c5
+Presumably equivalent wires: c6_gold (\c6_gold), c6_gate ({ \$auto$ff.cc:337:slice$764.IQ_gate \$auto$ff.cc:337:slice$763.IQ_gate \$auto$ff.cc:337:slice$762.IQ_gate \$auto$ff.cc:337:slice$761.IQ_gate \$auto$ff.cc:337:slice$760.IQ_gate \$auto$ff.cc:337:slice$759.IQ_gate \$auto$ff.cc:337:slice$758.IQ_gate \$auto$ff.cc:337:slice$757.IQ_gate }) -> c6
+Presumably equivalent wires: c7_gold (\c7_gold), c7_gate ({ \$auto$ff.cc:337:slice$772.IQ_gate \$auto$ff.cc:337:slice$771.IQ_gate \$auto$ff.cc:337:slice$770.IQ_gate \$auto$ff.cc:337:slice$769.IQ_gate \$auto$ff.cc:337:slice$768.IQ_gate \$auto$ff.cc:337:slice$767.IQ_gate \$auto$ff.cc:337:slice$766.IQ_gate \$auto$ff.cc:337:slice$765.IQ_gate }) -> c7
+Presumably equivalent wires: c8_gold (\c8_gold), c8_gate ({ \$auto$ff.cc:337:slice$780.IQ_gate \$auto$ff.cc:337:slice$779.IQ_gate \$auto$ff.cc:337:slice$778.IQ_gate \$auto$ff.cc:337:slice$777.IQ_gate \$auto$ff.cc:337:slice$776.IQ_gate \$auto$ff.cc:337:slice$775.IQ_gate \$auto$ff.cc:337:slice$774.IQ_gate \$auto$ff.cc:337:slice$773.IQ_gate }) -> c8
+Presumably equivalent wires: c9_gold (\c9_gold), c9_gate ({ \$auto$ff.cc:337:slice$788.IQ_gate \$auto$ff.cc:337:slice$787.IQ_gate \$auto$ff.cc:337:slice$786.IQ_gate \$auto$ff.cc:337:slice$785.IQ_gate \$auto$ff.cc:337:slice$784.IQ_gate \$auto$ff.cc:337:slice$783.IQ_gate \$auto$ff.cc:337:slice$782.IQ_gate \$auto$ff.cc:337:slice$781.IQ_gate }) -> c9
+Changing input A of cell $flatten\$abc$9378$blif$9378$4608.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$220.IQ_gate -> \acc [8]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3677.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$213.IQ_gate -> \acc [1]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3676.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$213.IQ_gate -> \acc [1]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4600.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$224.IQ_gate -> \acc [12]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3398.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$214.IQ_gate -> \acc [2]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3397.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$214.IQ_gate -> \acc [2]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4618.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$216.IQ_gate -> \acc [4]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3083.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$215.IQ_gate -> \acc [3]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3082.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$215.IQ_gate -> \acc [3]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4622.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$214.IQ_gate -> \acc [2]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4626.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$212.IQ_gate -> \acc [0]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2731.$auto$liberty.cc:111:parse_func_reduce$1625_gate ($_AND_): \$auto$ff.cc:337:slice$226.IQ_gate -> \acc [14]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2730.$auto$liberty.cc:127:parse_func_reduce$1245_gate ($_OR_): \$auto$ff.cc:337:slice$226.IQ_gate -> \acc [14]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2584.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$224.IQ_gate -> \acc [12]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2400.$auto$liberty.cc:111:parse_func_reduce$1625_gate ($_AND_): \$auto$ff.cc:337:slice$224.IQ_gate -> \acc [12]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2399.$auto$liberty.cc:127:parse_func_reduce$1245_gate ($_OR_): \$auto$ff.cc:337:slice$224.IQ_gate -> \acc [12]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1860.$auto$liberty.cc:111:parse_func_reduce$177_gate ($_AND_): \$auto$ff.cc:337:slice$221.IQ_gate -> \acc [9]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1859.$auto$liberty.cc:111:parse_func_reduce$1373_gate ($_AND_): \$auto$ff.cc:337:slice$221.IQ_gate -> \acc [9]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1650.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$216.IQ_gate -> \acc [4]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1649.$auto$liberty.cc:111:parse_func_reduce$1795_gate ($_AND_): \$auto$ff.cc:337:slice$216.IQ_gate -> \acc [4]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4598.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$225.IQ_gate -> \acc [13]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4604.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$222.IQ_gate -> \acc [10]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4626.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$212.IQ_gate -> \acc [0]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4624.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$213.IQ_gate -> \acc [1]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4622.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$214.IQ_gate -> \acc [2]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4620.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$215.IQ_gate -> \acc [3]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4618.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$216.IQ_gate -> \acc [4]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4615.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$217.IQ_gate -> \acc [5]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4612.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$218.IQ_gate -> \acc [6]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4610.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$219.IQ_gate -> \acc [7]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4608.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$220.IQ_gate -> \acc [8]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4606.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$221.IQ_gate -> \acc [9]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4604.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$222.IQ_gate -> \acc [10]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4602.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$223.IQ_gate -> \acc [11]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4600.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$224.IQ_gate -> \acc [12]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4598.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$225.IQ_gate -> \acc [13]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4596.$auto$liberty.cc:111:parse_func_reduce$1677_gate ($_AND_): \$auto$ff.cc:337:slice$226.IQ_gate -> \acc [14]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4593.$auto$liberty.cc:64:parse_func_reduce$145_gate ($_NOT_): \$auto$ff.cc:337:slice$227.IQ_gate -> \acc [15]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4543.$auto$liberty.cc:64:parse_func_reduce$173_gate ($_NOT_): \$auto$ff.cc:337:slice$227.IQ_gate -> \acc [15]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4542.$auto$liberty.cc:64:parse_func_reduce$1369_gate ($_NOT_): \$auto$ff.cc:337:slice$227.IQ_gate -> \acc [15]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4606.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$221.IQ_gate -> \acc [9]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4234.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$212.IQ_gate -> \acc [0]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4610.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$219.IQ_gate -> \acc [7]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3906.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$212.IQ_gate -> \acc [0]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4612.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$218.IQ_gate -> \acc [6]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3676.$auto$liberty.cc:64:parse_func_reduce$1785_gate ($_NOT_): \$auto$ff.cc:337:slice$213.IQ_gate -> \acc [1]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4615.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$217.IQ_gate -> \acc [5]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3397.$auto$liberty.cc:64:parse_func_reduce$1785_gate ($_NOT_): \$auto$ff.cc:337:slice$214.IQ_gate -> \acc [2]
+Changing input A of cell $flatten\$abc$9378$blif$9378$3082.$auto$liberty.cc:64:parse_func_reduce$1785_gate ($_NOT_): \$auto$ff.cc:337:slice$215.IQ_gate -> \acc [3]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4620.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$215.IQ_gate -> \acc [3]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4624.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$213.IQ_gate -> \acc [1]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2593.$auto$liberty.cc:111:parse_func_reduce$1609_gate ($_AND_): \$auto$ff.cc:337:slice$225.IQ_gate -> \acc [13]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2592.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$225.IQ_gate -> \acc [13]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4541.$auto$liberty.cc:111:parse_func_reduce$1625_gate ($_AND_): \$auto$ff.cc:337:slice$226.IQ_gate -> \acc [14]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2137.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$223.IQ_gate -> \acc [11]
+Changing input A of cell $flatten\$abc$9378$blif$9378$2136.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$223.IQ_gate -> \acc [11]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4596.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$226.IQ_gate -> \acc [14]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1919.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$222.IQ_gate -> \acc [10]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1918.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$222.IQ_gate -> \acc [10]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1771.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$220.IQ_gate -> \acc [8]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1770.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$220.IQ_gate -> \acc [8]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1768.$auto$liberty.cc:64:parse_func_reduce$173_gate ($_NOT_): \$auto$ff.cc:337:slice$219.IQ_gate -> \acc [7]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1711.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$219.IQ_gate -> \acc [7]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1710.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$219.IQ_gate -> \acc [7]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1675.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$218.IQ_gate -> \acc [6]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1674.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$218.IQ_gate -> \acc [6]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1654.$auto$liberty.cc:64:parse_func_reduce$1621_gate ($_NOT_): \$auto$ff.cc:337:slice$217.IQ_gate -> \acc [5]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1653.$auto$liberty.cc:64:parse_func_reduce$1241_gate ($_NOT_): \$auto$ff.cc:337:slice$217.IQ_gate -> \acc [5]
+Changing input A of cell $flatten\$abc$9378$blif$9378$1649.$auto$liberty.cc:64:parse_func_reduce$1785_gate ($_NOT_): \$auto$ff.cc:337:slice$216.IQ_gate -> \acc [4]
+Changing input A of cell $flatten\$abc$9378$blif$9378$4602.$auto$liberty.cc:111:parse_func_reduce$1687_gate ($_AND_): \$auto$ff.cc:337:slice$223.IQ_gate -> \acc [11]
+Changing input D of cell $auto$ff.cc:337:slice$740_gold ($_SDFFE_PP0P_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$0_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input A of cell $abc$8673$blif$8673$0_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input B of cell $abc$8673$blif$8673$1_gold ($_AND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8673$blif$8673$1_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$2_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8673$blif$8673$2_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$3_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8673$blif$8673$3_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$4_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8673$blif$8673$4_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$5_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8673$blif$8673$5_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$6_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8673$blif$8673$6_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$7_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input A of cell $abc$8673$blif$8673$7_gold ($_AND_): \c3_gold [7] -> \c3 [7]
+Changing input B of cell $abc$8673$blif$8673$8_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input A of cell $abc$8673$blif$8673$8_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input B of cell $abc$8673$blif$8673$9_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8673$blif$8673$9_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$10_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8673$blif$8673$10_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$11_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8673$blif$8673$11_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$12_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8673$blif$8673$12_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$13_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8673$blif$8673$13_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$14_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8673$blif$8673$14_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$15_gold ($_AND_): \s2_gold [7] -> \s2 [7]
+Changing input A of cell $abc$8673$blif$8673$15_gold ($_AND_): \c2_gold [7] -> \c2 [7]
+Changing input B of cell $abc$8673$blif$8673$16_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input A of cell $abc$8673$blif$8673$16_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input B of cell $abc$8673$blif$8673$17_gold ($_AND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8673$blif$8673$17_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$18_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8673$blif$8673$18_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$19_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8673$blif$8673$19_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$20_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8673$blif$8673$20_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$21_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8673$blif$8673$21_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$22_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8673$blif$8673$22_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$23_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8673$blif$8673$23_gold ($_AND_): \c0_gold [7] -> \c0 [7]
+Changing input B of cell $abc$8673$blif$8673$24_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input A of cell $abc$8673$blif$8673$24_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input B of cell $abc$8673$blif$8673$25_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8673$blif$8673$25_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$26_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8673$blif$8673$26_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$27_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8673$blif$8673$27_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$28_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8673$blif$8673$28_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$29_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8673$blif$8673$29_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$30_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8673$blif$8673$30_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$31_gold ($_AND_): \s4_gold [7] -> \s4 [7]
+Changing input A of cell $abc$8673$blif$8673$31_gold ($_AND_): \c4_gold [7] -> \c4 [7]
+Changing input B of cell $abc$8673$blif$8673$32_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input A of cell $abc$8673$blif$8673$32_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input B of cell $abc$8673$blif$8673$33_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8673$blif$8673$33_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$34_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8673$blif$8673$34_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$35_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8673$blif$8673$35_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$36_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8673$blif$8673$36_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$37_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8673$blif$8673$37_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$38_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8673$blif$8673$38_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$39_gold ($_AND_): \s1_gold [7] -> \s1 [7]
+Changing input A of cell $abc$8673$blif$8673$39_gold ($_AND_): \c1_gold [7] -> \c1 [7]
+Changing input B of cell $abc$8673$blif$8673$40_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input A of cell $abc$8673$blif$8673$40_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input B of cell $abc$8673$blif$8673$41_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8673$blif$8673$41_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$42_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8673$blif$8673$42_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$43_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8673$blif$8673$43_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$44_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8673$blif$8673$44_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$45_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8673$blif$8673$45_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$46_gold ($_AND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8673$blif$8673$46_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input B of cell $abc$8673$blif$8673$47_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input A of cell $abc$8673$blif$8673$47_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input B of cell $abc$8673$blif$8673$48_gold ($_AND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8673$blif$8673$48_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$49_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8673$blif$8673$49_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$50_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8673$blif$8673$50_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$51_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8673$blif$8673$51_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$52_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8673$blif$8673$52_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$53_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8673$blif$8673$53_gold ($_AND_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8673$blif$8673$54_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input A of cell $abc$8673$blif$8673$54_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input B of cell $abc$8673$blif$8673$55_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8673$blif$8673$55_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$56_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8673$blif$8673$56_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$57_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8673$blif$8673$57_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$58_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8673$blif$8673$58_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$59_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8673$blif$8673$59_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$60_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8673$blif$8673$60_gold ($_AND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8673$blif$8673$61_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input A of cell $abc$8673$blif$8673$61_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input B of cell $abc$8673$blif$8673$62_gold ($_AND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8673$blif$8673$62_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$63_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8673$blif$8673$63_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$64_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8673$blif$8673$64_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$65_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8673$blif$8673$65_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$66_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8673$blif$8673$66_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$67_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8673$blif$8673$67_gold ($_AND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8673$blif$8673$68_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input A of cell $abc$8673$blif$8673$68_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input B of cell $abc$8673$blif$8673$69_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8673$blif$8673$69_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8673$blif$8673$70_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8673$blif$8673$70_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8673$blif$8673$71_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8673$blif$8673$71_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8673$blif$8673$72_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8673$blif$8673$72_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8673$blif$8673$73_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8673$blif$8673$73_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8673$blif$8673$74_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8673$blif$8673$74_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8672$blif$8672$76_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$76_gold ($_AND_): \c0_gold [1] -> \c0 [1]
+Changing input B of cell $abc$8672$blif$8672$77_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input A of cell $abc$8672$blif$8672$77_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8672$blif$8672$78_gold ($_NAND_): \acc_gold [7] -> \acc [7]
+Changing input A of cell $abc$8672$blif$8672$79_gold ($_XNOR_): \acc_gold [7] -> \acc [7]
+Changing input B of cell $abc$8672$blif$8672$91_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$91_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$92_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$92_gold ($_AND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$93_gold ($_NAND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$93_gold ($_NAND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$94_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$94_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$96_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$96_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$100_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$100_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$101_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$101_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$102_gold ($_NAND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$102_gold ($_NAND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$108_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$108_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$109_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$109_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$110_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$110_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$111_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$111_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$112_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$112_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$120_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$120_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$121_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$121_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$122_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$122_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$128_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$128_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$129_gold ($_NAND_): \c1_gold [0] -> \c1 [0]
+Changing input A of cell $abc$8672$blif$8672$129_gold ($_NAND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$130_gold ($_NAND_): \c1_gold [1] -> \c1 [1]
+Changing input A of cell $abc$8672$blif$8672$130_gold ($_NAND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$148_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$148_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$149_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$149_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$150_gold ($_NAND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$150_gold ($_NAND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$156_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$156_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$157_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input A of cell $abc$8672$blif$8672$157_gold ($_AND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$171_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$171_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input B of cell $abc$8672$blif$8672$172_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$172_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input B of cell $abc$8672$blif$8672$182_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$182_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input B of cell $abc$8672$blif$8672$183_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$183_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input B of cell $abc$8672$blif$8672$184_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$184_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input B of cell $abc$8672$blif$8672$190_gold ($_AND_): \c0_gold [1] -> \c0 [1]
+Changing input A of cell $abc$8672$blif$8672$190_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8672$blif$8672$191_gold ($_AND_): \acc_gold [8] -> \acc [8]
+Changing input A of cell $abc$8672$blif$8672$192_gold ($_XNOR_): \acc_gold [8] -> \acc [8]
+Changing input B of cell $abc$8672$blif$8672$206_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$206_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$207_gold ($_NAND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$207_gold ($_NAND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$209_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$209_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$213_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$213_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$214_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$214_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$219_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input A of cell $abc$8672$blif$8672$219_gold ($_AND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$220_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$220_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$230_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$230_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$231_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$231_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$232_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$232_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$233_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$233_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$234_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$234_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$239_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$239_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$240_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$240_gold ($_AND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$241_gold ($_NAND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$241_gold ($_NAND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$242_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$242_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$244_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$244_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$248_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$248_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$249_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$249_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$250_gold ($_NAND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$250_gold ($_NAND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$263_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$263_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$264_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$264_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$265_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$265_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$271_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$271_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$272_gold ($_NAND_): \c2_gold [1] -> \c2 [1]
+Changing input A of cell $abc$8672$blif$8672$272_gold ($_NAND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$273_gold ($_NAND_): \c2_gold [2] -> \c2 [2]
+Changing input A of cell $abc$8672$blif$8672$273_gold ($_NAND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$285_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$285_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$305_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$305_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$306_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$306_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$307_gold ($_NAND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$307_gold ($_NAND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$313_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$313_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$314_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input A of cell $abc$8672$blif$8672$314_gold ($_AND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$323_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$323_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$342_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$342_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$343_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$343_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$344_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$344_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$358_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$358_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input B of cell $abc$8672$blif$8672$359_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$359_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input B of cell $abc$8672$blif$8672$369_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$369_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input B of cell $abc$8672$blif$8672$370_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input A of cell $abc$8672$blif$8672$370_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input B of cell $abc$8672$blif$8672$371_gold ($_NAND_): \c0_gold [3] -> \c0 [3]
+Changing input A of cell $abc$8672$blif$8672$371_gold ($_NAND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8672$blif$8672$376_gold ($_NAND_): \acc_gold [9] -> \acc [9]
+Changing input A of cell $abc$8672$blif$8672$377_gold ($_XNOR_): \acc_gold [9] -> \acc [9]
+Changing input B of cell $abc$8672$blif$8672$393_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$393_gold ($_AND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$394_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$394_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$396_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$396_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$402_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$402_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$403_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$403_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$404_gold ($_NAND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$404_gold ($_NAND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$412_gold ($_NAND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$412_gold ($_NAND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$413_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$413_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$414_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$414_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$415_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$415_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$418_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input A of cell $abc$8672$blif$8672$418_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$428_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$428_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$429_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$429_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$433_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$433_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$434_gold ($_NAND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$434_gold ($_NAND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$446_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input A of cell $abc$8672$blif$8672$446_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$458_gold ($_NAND_): \c4_gold [0] -> \c4 [0]
+Changing input A of cell $abc$8672$blif$8672$458_gold ($_NAND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$459_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$459_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$460_gold ($_NAND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$460_gold ($_NAND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$461_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input A of cell $abc$8672$blif$8672$461_gold ($_AND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$462_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$462_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$464_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$464_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$468_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$468_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$469_gold ($_AND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$469_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$470_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$470_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$471_gold ($_NAND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$471_gold ($_NAND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$476_gold ($_NAND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$476_gold ($_NAND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$477_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input A of cell $abc$8672$blif$8672$477_gold ($_AND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$483_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$483_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$484_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$484_gold ($_AND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$485_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$485_gold ($_AND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$486_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$486_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$488_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$488_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$492_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$492_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$493_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$493_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$494_gold ($_NAND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$494_gold ($_NAND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$505_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$505_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$506_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$506_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$507_gold ($_NAND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$507_gold ($_NAND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$514_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$514_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$515_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$515_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$546_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$546_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$547_gold ($_NAND_): \c3_gold [2] -> \c3 [2]
+Changing input A of cell $abc$8672$blif$8672$547_gold ($_NAND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$548_gold ($_NAND_): \c3_gold [3] -> \c3 [3]
+Changing input A of cell $abc$8672$blif$8672$548_gold ($_NAND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$555_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$555_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$556_gold ($_AND_): \s3_gold [4] -> \s3 [4]
+Changing input A of cell $abc$8672$blif$8672$556_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$584_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$584_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$585_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input A of cell $abc$8672$blif$8672$585_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$590_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$590_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$591_gold ($_AND_): \s3_gold [5] -> \s3 [5]
+Changing input A of cell $abc$8672$blif$8672$591_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$624_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$624_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$625_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$625_gold ($_AND_): \c2_gold [4] -> \c2 [4]
+Changing input B of cell $abc$8672$blif$8672$626_gold ($_AND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$626_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input B of cell $abc$8672$blif$8672$635_gold ($_AND_): \s1_gold [4] -> \s1 [4]
+Changing input A of cell $abc$8672$blif$8672$635_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$653_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$653_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$654_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input A of cell $abc$8672$blif$8672$654_gold ($_AND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$655_gold ($_NAND_): \c1_gold [4] -> \c1 [4]
+Changing input A of cell $abc$8672$blif$8672$655_gold ($_NAND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$667_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$667_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input B of cell $abc$8672$blif$8672$668_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$668_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input B of cell $abc$8672$blif$8672$678_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$678_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input B of cell $abc$8672$blif$8672$679_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input A of cell $abc$8672$blif$8672$679_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8672$blif$8672$682_gold ($_NAND_): \acc_gold [10] -> \acc [10]
+Changing input A of cell $abc$8672$blif$8672$683_gold ($_XNOR_): \acc_gold [10] -> \acc [10]
+Changing input B of cell $abc$8672$blif$8672$701_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$701_gold ($_AND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$702_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$702_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$704_gold ($_AND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$704_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$710_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$710_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$711_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$711_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$719_gold ($_NAND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$719_gold ($_NAND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$720_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$720_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$722_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$722_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$734_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$734_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$735_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$735_gold ($_AND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$736_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$736_gold ($_AND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$737_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$737_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$739_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$739_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$743_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$743_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$744_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$744_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$745_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$745_gold ($_AND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$751_gold ($_NAND_): \c5_gold [0] -> \c5 [0]
+Changing input A of cell $abc$8672$blif$8672$751_gold ($_NAND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$752_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$752_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$762_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$762_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$763_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$763_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$764_gold ($_NAND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$764_gold ($_NAND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$771_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$771_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$781_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$781_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$782_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$782_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$784_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$784_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$792_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$792_gold ($_AND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$793_gold ($_NAND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$793_gold ($_NAND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$795_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$795_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$801_gold ($_AND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$801_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$802_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$802_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$819_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$819_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$820_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$820_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$821_gold ($_NAND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$821_gold ($_NAND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$828_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$828_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$842_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input A of cell $abc$8672$blif$8672$842_gold ($_AND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$844_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$844_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$848_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$848_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$849_gold ($_NAND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$849_gold ($_NAND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$850_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$850_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$851_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$851_gold ($_AND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$852_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$852_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$858_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$858_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$859_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$859_gold ($_AND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$861_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$861_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$868_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$868_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$869_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$869_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$870_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$870_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$871_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$871_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$873_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$873_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$877_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$877_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$878_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$878_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$879_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$879_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$886_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input A of cell $abc$8672$blif$8672$886_gold ($_AND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$892_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$892_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$893_gold ($_NAND_): \c6_gold [2] -> \c6 [2]
+Changing input A of cell $abc$8672$blif$8672$893_gold ($_NAND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$894_gold ($_NAND_): \c6_gold [3] -> \c6 [3]
+Changing input A of cell $abc$8672$blif$8672$894_gold ($_NAND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$907_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$907_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$908_gold ($_NAND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$908_gold ($_NAND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$909_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$909_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$910_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$910_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$911_gold ($_NAND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$911_gold ($_NAND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$917_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$917_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$918_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$918_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$920_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$920_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$929_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$929_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$930_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input A of cell $abc$8672$blif$8672$930_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$931_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input A of cell $abc$8672$blif$8672$931_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$946_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$946_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$947_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$947_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$948_gold ($_NAND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$948_gold ($_NAND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$959_gold ($_NAND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$959_gold ($_NAND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$960_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input A of cell $abc$8672$blif$8672$960_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$981_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$981_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$982_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input A of cell $abc$8672$blif$8672$982_gold ($_AND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$993_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$993_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$994_gold ($_AND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$994_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$995_gold ($_AND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$995_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$996_gold ($_NAND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$996_gold ($_NAND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$1022_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$1022_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$1023_gold ($_NAND_): \c4_gold [3] -> \c4 [3]
+Changing input A of cell $abc$8672$blif$8672$1023_gold ($_NAND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$1024_gold ($_NAND_): \c4_gold [4] -> \c4 [4]
+Changing input A of cell $abc$8672$blif$8672$1024_gold ($_NAND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$1031_gold ($_AND_): \s4_gold [4] -> \s4 [4]
+Changing input A of cell $abc$8672$blif$8672$1031_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$1064_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$1064_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input B of cell $abc$8672$blif$8672$1065_gold ($_AND_): \c4_gold [5] -> \c4 [5]
+Changing input A of cell $abc$8672$blif$8672$1065_gold ($_AND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$1070_gold ($_AND_): \s4_gold [5] -> \s4 [5]
+Changing input A of cell $abc$8672$blif$8672$1070_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$1091_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$1091_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$1092_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input A of cell $abc$8672$blif$8672$1092_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$1093_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input A of cell $abc$8672$blif$8672$1093_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$1124_gold ($_AND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$1124_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input B of cell $abc$8672$blif$8672$1125_gold ($_NAND_): \s3_gold [6] -> \s3 [6]
+Changing input A of cell $abc$8672$blif$8672$1125_gold ($_NAND_): \c3_gold [6] -> \c3 [6]
+Changing input B of cell $abc$8672$blif$8672$1156_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$1156_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$1157_gold ($_NAND_): \c2_gold [4] -> \c2 [4]
+Changing input A of cell $abc$8672$blif$8672$1157_gold ($_NAND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$1158_gold ($_AND_): \c2_gold [5] -> \c2 [5]
+Changing input A of cell $abc$8672$blif$8672$1158_gold ($_AND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$1165_gold ($_AND_): \s1_gold [5] -> \s1 [5]
+Changing input A of cell $abc$8672$blif$8672$1165_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$1182_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$1182_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input B of cell $abc$8672$blif$8672$1183_gold ($_AND_): \c1_gold [5] -> \c1 [5]
+Changing input A of cell $abc$8672$blif$8672$1183_gold ($_AND_): \s1_gold [7] -> \s1 [7]
+Changing input B of cell $abc$8672$blif$8672$1190_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$1190_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input B of cell $abc$8672$blif$8672$1191_gold ($_NAND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$1191_gold ($_NAND_): \c0_gold [6] -> \c0 [6]
+Changing input A of cell $abc$8672$blif$8672$1200_gold ($_AND_): \acc_gold [11] -> \acc [11]
+Changing input A of cell $abc$8672$blif$8672$1201_gold ($_XNOR_): \acc_gold [11] -> \acc [11]
+Changing input B of cell $abc$8672$blif$8672$1223_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$1223_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$1224_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$1224_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$1226_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$1226_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$1235_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$1235_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$1236_gold ($_NAND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$1236_gold ($_NAND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$1238_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$1238_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$1252_gold ($_NAND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$1252_gold ($_NAND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$1253_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$1253_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$1254_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$1254_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$1258_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$1258_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$1259_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$1259_gold ($_AND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$1261_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$1261_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$1277_gold ($_NAND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$1277_gold ($_NAND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1278_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$1278_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1279_gold ($_AND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$1279_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1280_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$1280_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1282_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$1282_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1283_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$1283_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1289_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1289_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$1290_gold ($_NAND_): \c7_gold [0] -> \c7 [0]
+Changing input A of cell $abc$8672$blif$8672$1290_gold ($_NAND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1291_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1291_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$1292_gold ($_NAND_): \c7_gold [1] -> \c7 [1]
+Changing input A of cell $abc$8672$blif$8672$1292_gold ($_NAND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1293_gold ($_NAND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1293_gold ($_NAND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$1301_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1301_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$1302_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input A of cell $abc$8672$blif$8672$1302_gold ($_AND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1306_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$1306_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1307_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$1307_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1317_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1317_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$1318_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$1318_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$1319_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1319_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$1320_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$1320_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$1322_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$1322_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1327_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$1327_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1328_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1328_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$1329_gold ($_NAND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1329_gold ($_NAND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$1343_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1343_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1344_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1344_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$1345_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1345_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$1356_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$1356_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1357_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$1357_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1375_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$1375_gold ($_AND_): \c5_gold [5] -> \c5 [5]
+Changing input B of cell $abc$8672$blif$8672$1376_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$1376_gold ($_AND_): \c5_gold [4] -> \c5 [4]
+Changing input B of cell $abc$8672$blif$8672$1386_gold ($_AND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$1386_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$1387_gold ($_NAND_): \s6_gold [4] -> \s6 [4]
+Changing input A of cell $abc$8672$blif$8672$1387_gold ($_NAND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$1391_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$1391_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$1392_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$1392_gold ($_AND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$1394_gold ($_AND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$1394_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$1406_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1406_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$1407_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1407_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$1408_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1408_gold ($_AND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$1417_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$1417_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$1418_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$1418_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$1420_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$1420_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1444_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1444_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1445_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input A of cell $abc$8672$blif$8672$1445_gold ($_AND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1446_gold ($_NAND_): \c7_gold [4] -> \c7 [4]
+Changing input A of cell $abc$8672$blif$8672$1446_gold ($_NAND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1455_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$1455_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1456_gold ($_AND_): \s6_gold [5] -> \s6 [5]
+Changing input A of cell $abc$8672$blif$8672$1456_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1477_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1477_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$1478_gold ($_NAND_): \c8_gold [1] -> \c8 [1]
+Changing input A of cell $abc$8672$blif$8672$1478_gold ($_NAND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1479_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1479_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$1480_gold ($_NAND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1480_gold ($_NAND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$1481_gold ($_NAND_): \c8_gold [2] -> \c8 [2]
+Changing input A of cell $abc$8672$blif$8672$1481_gold ($_NAND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1486_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$1486_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1488_gold ($_NAND_): \c8_gold [0] -> \c8 [0]
+Changing input A of cell $abc$8672$blif$8672$1488_gold ($_NAND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1492_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$1492_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1500_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1500_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$1501_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$1501_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1505_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$1505_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$1506_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1506_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$1507_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1507_gold ($_AND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$1520_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1520_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$1521_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input A of cell $abc$8672$blif$8672$1521_gold ($_AND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1524_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$1524_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1537_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$1537_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1538_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$1538_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$1539_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$1539_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$1540_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$1540_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$1541_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$1541_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$1547_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$1547_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$1548_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$1548_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$1550_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$1550_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1559_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$1559_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1560_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1560_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$1561_gold ($_NAND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1561_gold ($_NAND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$1572_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$1572_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$1573_gold ($_NAND_): \c9_gold [2] -> \c9 [2]
+Changing input A of cell $abc$8672$blif$8672$1573_gold ($_NAND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1574_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1574_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$1575_gold ($_NAND_): \c9_gold [3] -> \c9 [3]
+Changing input A of cell $abc$8672$blif$8672$1575_gold ($_NAND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1576_gold ($_NAND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1576_gold ($_NAND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$1581_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input A of cell $abc$8672$blif$8672$1581_gold ($_AND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1594_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$1594_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1595_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1595_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$1596_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1596_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$1607_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1607_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$1608_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input A of cell $abc$8672$blif$8672$1608_gold ($_AND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1618_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1618_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1636_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input A of cell $abc$8672$blif$8672$1636_gold ($_AND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1639_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1639_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$1643_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$1643_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$1644_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$1644_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$1645_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$1645_gold ($_AND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$1653_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$1653_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1654_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$1654_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1655_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$1655_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1656_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$1656_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1662_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$1662_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1663_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$1663_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1673_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$1673_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$1674_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$1674_gold ($_AND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$1676_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$1676_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$1682_gold ($_AND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$1682_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1683_gold ($_NAND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$1683_gold ($_NAND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1699_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$1699_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1700_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$1700_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1726_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$1726_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1727_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input A of cell $abc$8672$blif$8672$1727_gold ($_AND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1728_gold ($_NAND_): \c8_gold [5] -> \c8 [5]
+Changing input A of cell $abc$8672$blif$8672$1728_gold ($_NAND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1743_gold ($_AND_): \s7_gold [5] -> \s7 [5]
+Changing input A of cell $abc$8672$blif$8672$1743_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1762_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1762_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$1763_gold ($_NAND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$1763_gold ($_NAND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$1788_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1788_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$1789_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input A of cell $abc$8672$blif$8672$1789_gold ($_AND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$1795_gold ($_AND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$1795_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input B of cell $abc$8672$blif$8672$1796_gold ($_NAND_): \s6_gold [6] -> \s6 [6]
+Changing input A of cell $abc$8672$blif$8672$1796_gold ($_NAND_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$1835_gold ($_AND_): \c6_gold [5] -> \c6 [5]
+Changing input A of cell $abc$8672$blif$8672$1835_gold ($_AND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$1836_gold ($_AND_): \c6_gold [6] -> \c6 [6]
+Changing input A of cell $abc$8672$blif$8672$1836_gold ($_AND_): \s6_gold [7] -> \s6 [7]
+Changing input B of cell $abc$8672$blif$8672$1859_gold ($_AND_): \s7_gold [6] -> \s7 [6]
+Changing input A of cell $abc$8672$blif$8672$1859_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input B of cell $abc$8672$blif$8672$1871_gold ($_AND_): \s8_gold [6] -> \s8 [6]
+Changing input A of cell $abc$8672$blif$8672$1871_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$1872_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input A of cell $abc$8672$blif$8672$1872_gold ($_AND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$1889_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input A of cell $abc$8672$blif$8672$1889_gold ($_AND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1890_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input A of cell $abc$8672$blif$8672$1890_gold ($_AND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$1921_gold ($_NAND_): \s5_gold [6] -> \s5 [6]
+Changing input A of cell $abc$8672$blif$8672$1921_gold ($_NAND_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$1922_gold ($_AND_): \c5_gold [6] -> \c5 [6]
+Changing input A of cell $abc$8672$blif$8672$1922_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input B of cell $abc$8672$blif$8672$1939_gold ($_AND_): \s4_gold [6] -> \s4 [6]
+Changing input A of cell $abc$8672$blif$8672$1939_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input B of cell $abc$8672$blif$8672$1963_gold ($_AND_): \c3_gold [5] -> \c3 [5]
+Changing input A of cell $abc$8672$blif$8672$1963_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$1964_gold ($_AND_): \c3_gold [6] -> \c3 [6]
+Changing input A of cell $abc$8672$blif$8672$1964_gold ($_AND_): \s3_gold [7] -> \s3 [7]
+Changing input B of cell $abc$8672$blif$8672$1989_gold ($_NAND_): \s2_gold [6] -> \s2 [6]
+Changing input A of cell $abc$8672$blif$8672$1989_gold ($_NAND_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$1990_gold ($_AND_): \c2_gold [6] -> \c2 [6]
+Changing input A of cell $abc$8672$blif$8672$1990_gold ($_AND_): \s2_gold [7] -> \s2 [7]
+Changing input B of cell $abc$8672$blif$8672$1994_gold ($_AND_): \s1_gold [6] -> \s1 [6]
+Changing input A of cell $abc$8672$blif$8672$1994_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input B of cell $abc$8672$blif$8672$2015_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input A of cell $abc$8672$blif$8672$2015_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input B of cell $abc$8672$blif$8672$2016_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input A of cell $abc$8672$blif$8672$2016_gold ($_AND_): \s0_gold [7] -> \s0 [7]
+Changing input A of cell $abc$8672$blif$8672$2023_gold ($_NAND_): \acc_gold [12] -> \acc [12]
+Changing input A of cell $abc$8672$blif$8672$2024_gold ($_XOR_): \acc_gold [12] -> \acc [12]
+Changing input B of cell $abc$8672$blif$8672$2070_gold ($_AND_): \c7_gold [6] -> \c7 [6]
+Changing input A of cell $abc$8672$blif$8672$2070_gold ($_AND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$2148_gold ($_AND_): \c4_gold [6] -> \c4 [6]
+Changing input A of cell $abc$8672$blif$8672$2148_gold ($_AND_): \s4_gold [7] -> \s4 [7]
+Changing input B of cell $abc$8672$blif$8672$2186_gold ($_AND_): \c1_gold [6] -> \c1 [6]
+Changing input A of cell $abc$8672$blif$8672$2186_gold ($_AND_): \s1_gold [7] -> \s1 [7]
+Changing input A of cell $abc$8672$blif$8672$2206_gold ($_NAND_): \acc_gold [13] -> \acc [13]
+Changing input A of cell $abc$8672$blif$8672$2207_gold ($_XNOR_): \acc_gold [13] -> \acc [13]
+Changing input A of cell $abc$8672$blif$8672$2250_gold ($_AND_): \c8_gold [7] -> \c8 [7]
+Changing input B of cell $abc$8672$blif$8672$2251_gold ($_NAND_): \c8_gold [7] -> \c8 [7]
+Changing input A of cell $abc$8672$blif$8672$2251_gold ($_NAND_): \s8_gold [7] -> \s8 [7]
+Changing input B of cell $abc$8672$blif$8672$2252_gold ($_MUX_): \c8_gold [7] -> \c8 [7]
+Changing input A of cell $abc$8672$blif$8672$2254_gold ($_NAND_): \c7_gold [7] -> \c7 [7]
+Changing input B of cell $abc$8672$blif$8672$2255_gold ($_NAND_): \c7_gold [7] -> \c7 [7]
+Changing input A of cell $abc$8672$blif$8672$2255_gold ($_NAND_): \s7_gold [7] -> \s7 [7]
+Changing input B of cell $abc$8672$blif$8672$2256_gold ($_MUX_): \c7_gold [7] -> \c7 [7]
+Changing input A of cell $abc$8672$blif$8672$2266_gold ($_NAND_): \c9_gold [7] -> \c9 [7]
+Changing input B of cell $abc$8672$blif$8672$2267_gold ($_NAND_): \c9_gold [7] -> \c9 [7]
+Changing input A of cell $abc$8672$blif$8672$2267_gold ($_NAND_): \s9_gold [7] -> \s9 [7]
+Changing input B of cell $abc$8672$blif$8672$2268_gold ($_MUX_): \c9_gold [7] -> \c9 [7]
+Changing input A of cell $abc$8672$blif$8672$2280_gold ($_ANDNOT_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8672$blif$8672$2281_gold ($_NAND_): \c6_gold [7] -> \c6 [7]
+Changing input A of cell $abc$8672$blif$8672$2281_gold ($_NAND_): \s6_gold [7] -> \s6 [7]
+Changing input A of cell $abc$8672$blif$8672$2283_gold ($_MUX_): \c6_gold [7] -> \c6 [7]
+Changing input B of cell $abc$8672$blif$8672$2302_gold ($_AND_): \c5_gold [7] -> \c5 [7]
+Changing input A of cell $abc$8672$blif$8672$2302_gold ($_AND_): \s5_gold [7] -> \s5 [7]
+Changing input A of cell $abc$8672$blif$8672$2349_gold ($_NAND_): \acc_gold [14] -> \acc [14]
+Changing input A of cell $abc$8672$blif$8672$2351_gold ($_OR_): \acc_gold [14] -> \acc [14]
+Changing input A of cell $abc$8672$blif$8672$2352_gold ($_MUX_): \acc_gold [14] -> \acc [14]
+Changing input B of cell $abc$8672$blif$8672$2381_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$2381_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input A of cell $abc$8672$blif$8672$2382_gold ($_NAND_): \acc_gold [3] -> \acc [3]
+Changing input B of cell $abc$8672$blif$8672$2383_gold ($_NAND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$2383_gold ($_NAND_): \c0_gold [1] -> \c0 [1]
+Changing input A of cell $abc$8672$blif$8672$2384_gold ($_XNOR_): \acc_gold [3] -> \acc [3]
+Changing input B of cell $abc$8672$blif$8672$2389_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$2389_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input B of cell $abc$8672$blif$8672$2390_gold ($_AND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$2390_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input B of cell $abc$8672$blif$8672$2391_gold ($_NAND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$2391_gold ($_NAND_): \c0_gold [2] -> \c0 [2]
+Changing input B of cell $abc$8672$blif$8672$2409_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$2409_gold ($_AND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$2410_gold ($_AND_): \s1_gold [3] -> \s1 [3]
+Changing input A of cell $abc$8672$blif$8672$2410_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$2412_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$2412_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$2432_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$2432_gold ($_AND_): \c1_gold [4] -> \c1 [4]
+Changing input B of cell $abc$8672$blif$8672$2433_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$2433_gold ($_AND_): \c1_gold [3] -> \c1 [3]
+Changing input B of cell $abc$8672$blif$8672$2435_gold ($_AND_): \s2_gold [5] -> \s2 [5]
+Changing input A of cell $abc$8672$blif$8672$2435_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$2454_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$2454_gold ($_AND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$2455_gold ($_NAND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$2455_gold ($_NAND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$2457_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$2457_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$2469_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$2469_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$2470_gold ($_AND_): \s3_gold [3] -> \s3 [3]
+Changing input A of cell $abc$8672$blif$8672$2470_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$2494_gold ($_AND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$2494_gold ($_AND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$2495_gold ($_NAND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$2495_gold ($_NAND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$2497_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$2497_gold ($_AND_): \c3_gold [4] -> \c3 [4]
+Changing input B of cell $abc$8672$blif$8672$2514_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$2514_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$2515_gold ($_AND_): \s4_gold [3] -> \s4 [3]
+Changing input A of cell $abc$8672$blif$8672$2515_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$2517_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$2517_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$2525_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$2525_gold ($_AND_): \c4_gold [4] -> \c4 [4]
+Changing input B of cell $abc$8672$blif$8672$2526_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$2526_gold ($_AND_): \c4_gold [3] -> \c4 [3]
+Changing input B of cell $abc$8672$blif$8672$2530_gold ($_AND_): \s5_gold [5] -> \s5 [5]
+Changing input A of cell $abc$8672$blif$8672$2530_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$2557_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$2557_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$2558_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$2558_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$2560_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$2560_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$2585_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$2585_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$2586_gold ($_AND_): \s6_gold [3] -> \s6 [3]
+Changing input A of cell $abc$8672$blif$8672$2586_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$2590_gold ($_AND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$2590_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$2591_gold ($_NAND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$2591_gold ($_NAND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$2593_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$2593_gold ($_AND_): \c6_gold [4] -> \c6 [4]
+Changing input B of cell $abc$8672$blif$8672$2605_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$2605_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$2606_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$2606_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$2607_gold ($_AND_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$2607_gold ($_AND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$2615_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$2615_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$2616_gold ($_NAND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$2616_gold ($_NAND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$2618_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$2618_gold ($_AND_): \c7_gold [5] -> \c7 [5]
+Changing input B of cell $abc$8672$blif$8672$2642_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$2642_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$2643_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$2643_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$2644_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$2644_gold ($_AND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$2659_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$2659_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$2660_gold ($_NAND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$2660_gold ($_NAND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$2662_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$2662_gold ($_AND_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$2682_gold ($_NAND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$2682_gold ($_NAND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$2683_gold ($_AND_): \s9_gold [6] -> \s9 [6]
+Changing input A of cell $abc$8672$blif$8672$2683_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$2684_gold ($_AND_): \s9_gold [5] -> \s9 [5]
+Changing input A of cell $abc$8672$blif$8672$2684_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$2694_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$2694_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$2695_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$2695_gold ($_AND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$2697_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$2697_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$2703_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$2703_gold ($_AND_): \c9_gold [6] -> \c9 [6]
+Changing input B of cell $abc$8672$blif$8672$2704_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$2704_gold ($_AND_): \c9_gold [5] -> \c9 [5]
+Changing input B of cell $abc$8672$blif$8672$2752_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$2752_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input A of cell $abc$8672$blif$8672$2753_gold ($_NAND_): \acc_gold [2] -> \acc [2]
+Changing input B of cell $abc$8672$blif$8672$2754_gold ($_NAND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$2754_gold ($_NAND_): \c0_gold [1] -> \c0 [1]
+Changing input A of cell $abc$8672$blif$8672$2755_gold ($_XNOR_): \acc_gold [2] -> \acc [2]
+Changing input B of cell $abc$8672$blif$8672$2760_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$2760_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input B of cell $abc$8672$blif$8672$2761_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$2761_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input B of cell $abc$8672$blif$8672$2774_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$2774_gold ($_AND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$2775_gold ($_AND_): \s1_gold [2] -> \s1 [2]
+Changing input A of cell $abc$8672$blif$8672$2775_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$2777_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$2777_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$2808_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$2808_gold ($_AND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$2809_gold ($_AND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$2809_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$2811_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$2811_gold ($_AND_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$2822_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$2822_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$2823_gold ($_AND_): \s3_gold [2] -> \s3 [2]
+Changing input A of cell $abc$8672$blif$8672$2823_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$2847_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$2847_gold ($_AND_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$2848_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$2848_gold ($_AND_): \c3_gold [2] -> \c3 [2]
+Changing input B of cell $abc$8672$blif$8672$2860_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$2860_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$2861_gold ($_AND_): \s4_gold [2] -> \s4 [2]
+Changing input A of cell $abc$8672$blif$8672$2861_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$2863_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$2863_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$2871_gold ($_AND_): \s5_gold [4] -> \s5 [4]
+Changing input A of cell $abc$8672$blif$8672$2871_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$2897_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$2897_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$2898_gold ($_NAND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$2898_gold ($_NAND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$2900_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$2900_gold ($_AND_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$2925_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$2925_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$2926_gold ($_AND_): \s6_gold [2] -> \s6 [2]
+Changing input A of cell $abc$8672$blif$8672$2926_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$2931_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$2931_gold ($_AND_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$2932_gold ($_NAND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$2932_gold ($_NAND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$2940_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$2940_gold ($_AND_): \c7_gold [4] -> \c7 [4]
+Changing input B of cell $abc$8672$blif$8672$2941_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$2941_gold ($_AND_): \c7_gold [3] -> \c7 [3]
+Changing input B of cell $abc$8672$blif$8672$2943_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$2943_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$2944_gold ($_AND_): \s7_gold [3] -> \s7 [3]
+Changing input A of cell $abc$8672$blif$8672$2944_gold ($_AND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$2946_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$2946_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$2968_gold ($_AND_): \s8_gold [5] -> \s8 [5]
+Changing input A of cell $abc$8672$blif$8672$2968_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$2969_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$2969_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$2970_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$2970_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$2971_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$2971_gold ($_AND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$2987_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$2987_gold ($_AND_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$2988_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$2988_gold ($_AND_): \c8_gold [4] -> \c8 [4]
+Changing input B of cell $abc$8672$blif$8672$3003_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$3003_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$3004_gold ($_AND_): \s9_gold [4] -> \s9 [4]
+Changing input A of cell $abc$8672$blif$8672$3004_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$3014_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$3014_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$3015_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$3015_gold ($_AND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$3017_gold ($_AND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$3017_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$3066_gold ($_AND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$3066_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input A of cell $abc$8672$blif$8672$3067_gold ($_NAND_): \acc_gold [1] -> \acc [1]
+Changing input B of cell $abc$8672$blif$8672$3068_gold ($_NAND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$3068_gold ($_NAND_): \c0_gold [1] -> \c0 [1]
+Changing input A of cell $abc$8672$blif$8672$3069_gold ($_XNOR_): \acc_gold [1] -> \acc [1]
+Changing input B of cell $abc$8672$blif$8672$3081_gold ($_AND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$3081_gold ($_AND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$3082_gold ($_NAND_): \s1_gold [1] -> \s1 [1]
+Changing input A of cell $abc$8672$blif$8672$3082_gold ($_NAND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$3084_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$3084_gold ($_AND_): \c1_gold [2] -> \c1 [2]
+Changing input B of cell $abc$8672$blif$8672$3101_gold ($_AND_): \s2_gold [4] -> \s2 [4]
+Changing input A of cell $abc$8672$blif$8672$3101_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$3114_gold ($_NAND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$3114_gold ($_NAND_): \c2_gold [2] -> \c2 [2]
+Changing input B of cell $abc$8672$blif$8672$3115_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$3115_gold ($_AND_): \c2_gold [1] -> \c2 [1]
+Changing input B of cell $abc$8672$blif$8672$3121_gold ($_AND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$3121_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$3122_gold ($_NAND_): \s3_gold [1] -> \s3 [1]
+Changing input A of cell $abc$8672$blif$8672$3122_gold ($_NAND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$3151_gold ($_AND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$3151_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$3152_gold ($_NAND_): \s4_gold [1] -> \s4 [1]
+Changing input A of cell $abc$8672$blif$8672$3152_gold ($_NAND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$3154_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$3154_gold ($_AND_): \c4_gold [2] -> \c4 [2]
+Changing input B of cell $abc$8672$blif$8672$3162_gold ($_AND_): \s5_gold [3] -> \s5 [3]
+Changing input A of cell $abc$8672$blif$8672$3162_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$3187_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$3187_gold ($_AND_): \c5_gold [2] -> \c5 [2]
+Changing input B of cell $abc$8672$blif$8672$3188_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$3188_gold ($_AND_): \c5_gold [1] -> \c5 [1]
+Changing input B of cell $abc$8672$blif$8672$3207_gold ($_AND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$3207_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$3208_gold ($_NAND_): \s6_gold [1] -> \s6 [1]
+Changing input A of cell $abc$8672$blif$8672$3208_gold ($_NAND_): \c6_gold [0] -> \c6 [0]
+Changing input B of cell $abc$8672$blif$8672$3215_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$3215_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$3216_gold ($_AND_): \s7_gold [2] -> \s7 [2]
+Changing input A of cell $abc$8672$blif$8672$3216_gold ($_AND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$3218_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$3218_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$3237_gold ($_AND_): \s8_gold [4] -> \s8 [4]
+Changing input A of cell $abc$8672$blif$8672$3237_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$3238_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$3238_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$3239_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$3239_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$3240_gold ($_NAND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$3240_gold ($_NAND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$3266_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$3266_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$3267_gold ($_AND_): \s9_gold [3] -> \s9 [3]
+Changing input A of cell $abc$8672$blif$8672$3267_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$3277_gold ($_AND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$3277_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$3278_gold ($_NAND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$3278_gold ($_NAND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$3280_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$3280_gold ($_AND_): \c9_gold [4] -> \c9 [4]
+Changing input B of cell $abc$8672$blif$8672$3330_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$3330_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input A of cell $abc$8672$blif$8672$3331_gold ($_AND_): \acc_gold [0] -> \acc [0]
+Changing input B of cell $abc$8672$blif$8672$3338_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$3338_gold ($_AND_): \c1_gold [1] -> \c1 [1]
+Changing input B of cell $abc$8672$blif$8672$3339_gold ($_AND_): \s1_gold [0] -> \s1 [0]
+Changing input A of cell $abc$8672$blif$8672$3339_gold ($_AND_): \c1_gold [0] -> \c1 [0]
+Changing input B of cell $abc$8672$blif$8672$3351_gold ($_AND_): \s2_gold [3] -> \s2 [3]
+Changing input A of cell $abc$8672$blif$8672$3351_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$3364_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$3364_gold ($_AND_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$3365_gold ($_AND_): \s3_gold [0] -> \s3 [0]
+Changing input A of cell $abc$8672$blif$8672$3365_gold ($_AND_): \c3_gold [0] -> \c3 [0]
+Changing input B of cell $abc$8672$blif$8672$3392_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$3392_gold ($_AND_): \c4_gold [1] -> \c4 [1]
+Changing input B of cell $abc$8672$blif$8672$3393_gold ($_AND_): \s4_gold [0] -> \s4 [0]
+Changing input A of cell $abc$8672$blif$8672$3393_gold ($_AND_): \c4_gold [0] -> \c4 [0]
+Changing input B of cell $abc$8672$blif$8672$3431_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$3431_gold ($_AND_): \c6_gold [1] -> \c6 [1]
+Changing input B of cell $abc$8672$blif$8672$3432_gold ($_AND_): \s6_gold [0] -> \s6 [0]
+Changing input A of cell $abc$8672$blif$8672$3432_gold ($_AND_): \c6_gold [0] -> \c6 [0]
+Changing input A of cell $abc$8672$blif$8672$3434_gold ($_AND_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$3439_gold ($_AND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$3439_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$3440_gold ($_NAND_): \s7_gold [1] -> \s7 [1]
+Changing input A of cell $abc$8672$blif$8672$3440_gold ($_NAND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$3442_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$3442_gold ($_AND_): \c7_gold [2] -> \c7 [2]
+Changing input B of cell $abc$8672$blif$8672$3460_gold ($_AND_): \s8_gold [3] -> \s8 [3]
+Changing input A of cell $abc$8672$blif$8672$3460_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$3461_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$3461_gold ($_AND_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$3462_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$3462_gold ($_AND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$3463_gold ($_AND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$3463_gold ($_AND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$3488_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$3488_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$3489_gold ($_AND_): \s9_gold [2] -> \s9 [2]
+Changing input A of cell $abc$8672$blif$8672$3489_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$3545_gold ($_AND_): \s2_gold [2] -> \s2 [2]
+Changing input A of cell $abc$8672$blif$8672$3545_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$3601_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$3601_gold ($_AND_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$3602_gold ($_AND_): \s7_gold [0] -> \s7 [0]
+Changing input A of cell $abc$8672$blif$8672$3602_gold ($_AND_): \c7_gold [0] -> \c7 [0]
+Changing input B of cell $abc$8672$blif$8672$3613_gold ($_AND_): \s8_gold [2] -> \s8 [2]
+Changing input A of cell $abc$8672$blif$8672$3613_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$3614_gold ($_NAND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$3614_gold ($_NAND_): \c8_gold [2] -> \c8 [2]
+Changing input B of cell $abc$8672$blif$8672$3615_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$3615_gold ($_AND_): \c8_gold [1] -> \c8 [1]
+Changing input B of cell $abc$8672$blif$8672$3633_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$3633_gold ($_AND_): \c9_gold [3] -> \c9 [3]
+Changing input B of cell $abc$8672$blif$8672$3634_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$3634_gold ($_AND_): \c9_gold [2] -> \c9 [2]
+Changing input B of cell $abc$8672$blif$8672$3637_gold ($_AND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$3637_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$3638_gold ($_NAND_): \s9_gold [1] -> \s9 [1]
+Changing input A of cell $abc$8672$blif$8672$3638_gold ($_NAND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$3687_gold ($_NAND_): \s2_gold [1] -> \s2 [1]
+Changing input A of cell $abc$8672$blif$8672$3687_gold ($_NAND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$3688_gold ($_AND_): \s2_gold [0] -> \s2 [0]
+Changing input A of cell $abc$8672$blif$8672$3688_gold ($_AND_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$3730_gold ($_MUX_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$3738_gold ($_NAND_): \s8_gold [1] -> \s8 [1]
+Changing input A of cell $abc$8672$blif$8672$3738_gold ($_NAND_): \c8_gold [0] -> \c8 [0]
+Changing input B of cell $abc$8672$blif$8672$3739_gold ($_AND_): \s8_gold [0] -> \s8 [0]
+Changing input A of cell $abc$8672$blif$8672$3739_gold ($_AND_): \c8_gold [0] -> \c8 [0]
+Changing input A of cell $abc$8672$blif$8672$3795_gold ($_XNOR_): \acc_gold [0] -> \acc [0]
+Changing input B of cell $abc$8672$blif$8672$3816_gold ($_AND_): \s5_gold [2] -> \s5 [2]
+Changing input A of cell $abc$8672$blif$8672$3816_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$3829_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$3829_gold ($_AND_): \c9_gold [1] -> \c9 [1]
+Changing input B of cell $abc$8672$blif$8672$3830_gold ($_AND_): \s9_gold [0] -> \s9 [0]
+Changing input A of cell $abc$8672$blif$8672$3830_gold ($_AND_): \c9_gold [0] -> \c9 [0]
+Changing input B of cell $abc$8672$blif$8672$3889_gold ($_AND_): \s5_gold [1] -> \s5 [1]
+Changing input A of cell $abc$8672$blif$8672$3889_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input B of cell $abc$8672$blif$8672$3941_gold ($_AND_): \s5_gold [0] -> \s5 [0]
+Changing input A of cell $abc$8672$blif$8672$3941_gold ($_AND_): \c5_gold [0] -> \c5 [0]
+Changing input A of cell $abc$8672$blif$8672$4052_gold ($_XNOR_): \acc_gold [15] -> \acc [15]
+Changing input D of cell $auto$ff.cc:337:slice$690_gold ($_SDFFE_PP0N_): \s6_gold [5] -> \s6 [5]
+Changing input D of cell $auto$ff.cc:337:slice$689_gold ($_SDFFE_PP0N_): \s6_gold [4] -> \s6 [4]
+Changing input D of cell $auto$ff.cc:337:slice$688_gold ($_SDFFE_PP0N_): \s6_gold [3] -> \s6 [3]
+Changing input D of cell $auto$ff.cc:337:slice$687_gold ($_SDFFE_PP0N_): \s6_gold [2] -> \s6 [2]
+Changing input D of cell $auto$ff.cc:337:slice$686_gold ($_SDFFE_PP0N_): \s6_gold [1] -> \s6 [1]
+Changing input D of cell $auto$ff.cc:337:slice$685_gold ($_SDFFE_PP0N_): \s6_gold [0] -> \s6 [0]
+Changing input D of cell $auto$ff.cc:337:slice$683_gold ($_SDFFE_PP0N_): \s5_gold [6] -> \s5 [6]
+Changing input D of cell $auto$ff.cc:337:slice$682_gold ($_SDFFE_PP0N_): \s5_gold [5] -> \s5 [5]
+Changing input D of cell $auto$ff.cc:337:slice$681_gold ($_SDFFE_PP0N_): \s5_gold [4] -> \s5 [4]
+Changing input D of cell $auto$ff.cc:337:slice$680_gold ($_SDFFE_PP0N_): \s5_gold [3] -> \s5 [3]
+Changing input D of cell $auto$ff.cc:337:slice$679_gold ($_SDFFE_PP0N_): \s5_gold [2] -> \s5 [2]
+Changing input D of cell $auto$ff.cc:337:slice$678_gold ($_SDFFE_PP0N_): \s5_gold [1] -> \s5 [1]
+Changing input D of cell $auto$ff.cc:337:slice$677_gold ($_SDFFE_PP0N_): \s5_gold [0] -> \s5 [0]
+Changing input D of cell $auto$ff.cc:337:slice$675_gold ($_SDFFE_PP0N_): \s4_gold [6] -> \s4 [6]
+Changing input D of cell $auto$ff.cc:337:slice$674_gold ($_SDFFE_PP0N_): \s4_gold [5] -> \s4 [5]
+Changing input D of cell $auto$ff.cc:337:slice$673_gold ($_SDFFE_PP0N_): \s4_gold [4] -> \s4 [4]
+Changing input D of cell $auto$ff.cc:337:slice$672_gold ($_SDFFE_PP0N_): \s4_gold [3] -> \s4 [3]
+Changing input D of cell $auto$ff.cc:337:slice$671_gold ($_SDFFE_PP0N_): \s4_gold [2] -> \s4 [2]
+Changing input D of cell $auto$ff.cc:337:slice$670_gold ($_SDFFE_PP0N_): \s4_gold [1] -> \s4 [1]
+Changing input D of cell $auto$ff.cc:337:slice$669_gold ($_SDFFE_PP0N_): \s4_gold [0] -> \s4 [0]
+Changing input D of cell $auto$ff.cc:337:slice$667_gold ($_SDFFE_PP0N_): \s3_gold [6] -> \s3 [6]
+Changing input D of cell $auto$ff.cc:337:slice$666_gold ($_SDFFE_PP0N_): \s3_gold [5] -> \s3 [5]
+Changing input D of cell $auto$ff.cc:337:slice$665_gold ($_SDFFE_PP0N_): \s3_gold [4] -> \s3 [4]
+Changing input D of cell $auto$ff.cc:337:slice$664_gold ($_SDFFE_PP0N_): \s3_gold [3] -> \s3 [3]
+Changing input D of cell $auto$ff.cc:337:slice$663_gold ($_SDFFE_PP0N_): \s3_gold [2] -> \s3 [2]
+Changing input D of cell $auto$ff.cc:337:slice$662_gold ($_SDFFE_PP0N_): \s3_gold [1] -> \s3 [1]
+Changing input D of cell $auto$ff.cc:337:slice$661_gold ($_SDFFE_PP0N_): \s3_gold [0] -> \s3 [0]
+Changing input D of cell $auto$ff.cc:337:slice$659_gold ($_SDFFE_PP0N_): \s2_gold [6] -> \s2 [6]
+Changing input D of cell $auto$ff.cc:337:slice$658_gold ($_SDFFE_PP0N_): \s2_gold [5] -> \s2 [5]
+Changing input D of cell $auto$ff.cc:337:slice$657_gold ($_SDFFE_PP0N_): \s2_gold [4] -> \s2 [4]
+Changing input D of cell $auto$ff.cc:337:slice$656_gold ($_SDFFE_PP0N_): \s2_gold [3] -> \s2 [3]
+Changing input D of cell $auto$ff.cc:337:slice$655_gold ($_SDFFE_PP0N_): \s2_gold [2] -> \s2 [2]
+Changing input D of cell $auto$ff.cc:337:slice$654_gold ($_SDFFE_PP0N_): \s2_gold [1] -> \s2 [1]
+Changing input D of cell $auto$ff.cc:337:slice$653_gold ($_SDFFE_PP0N_): \s2_gold [0] -> \s2 [0]
+Changing input D of cell $auto$ff.cc:337:slice$651_gold ($_SDFFE_PP0N_): \s1_gold [6] -> \s1 [6]
+Changing input D of cell $auto$ff.cc:337:slice$650_gold ($_SDFFE_PP0N_): \s1_gold [5] -> \s1 [5]
+Changing input D of cell $auto$ff.cc:337:slice$649_gold ($_SDFFE_PP0N_): \s1_gold [4] -> \s1 [4]
+Changing input D of cell $auto$ff.cc:337:slice$648_gold ($_SDFFE_PP0N_): \s1_gold [3] -> \s1 [3]
+Changing input D of cell $auto$ff.cc:337:slice$647_gold ($_SDFFE_PP0N_): \s1_gold [2] -> \s1 [2]
+Changing input D of cell $auto$ff.cc:337:slice$646_gold ($_SDFFE_PP0N_): \s1_gold [1] -> \s1 [1]
+Changing input D of cell $auto$ff.cc:337:slice$645_gold ($_SDFFE_PP0N_): \s1_gold [0] -> \s1 [0]
+Changing input D of cell $auto$ff.cc:337:slice$643_gold ($_SDFFE_PP0N_): \s0_gold [6] -> \s0 [6]
+Changing input D of cell $auto$ff.cc:337:slice$642_gold ($_SDFFE_PP0N_): \s0_gold [5] -> \s0 [5]
+Changing input D of cell $auto$ff.cc:337:slice$641_gold ($_SDFFE_PP0N_): \s0_gold [4] -> \s0 [4]
+Changing input D of cell $auto$ff.cc:337:slice$640_gold ($_SDFFE_PP0N_): \s0_gold [3] -> \s0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$639_gold ($_SDFFE_PP0N_): \s0_gold [2] -> \s0 [2]
+Changing input D of cell $auto$ff.cc:337:slice$638_gold ($_SDFFE_PP0N_): \s0_gold [1] -> \s0 [1]
+Changing input D of cell $auto$ff.cc:337:slice$637_gold ($_SDFFE_PP0N_): \s0_gold [0] -> \s0 [0]
+Changing input D of cell $auto$ff.cc:337:slice$779_gold ($_SDFFE_PP0P_): \c7_gold [6] -> \c7 [6]
+Changing input D of cell $auto$ff.cc:337:slice$693_gold ($_SDFFE_PP0N_): \s7_gold [0] -> \s7 [0]
+Changing input D of cell $auto$ff.cc:337:slice$763_gold ($_SDFFE_PP0P_): \c5_gold [6] -> \c5 [6]
+Changing input B of cell $abc$8672$blif$8672$27_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$27_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$721_gold ($_SDFFE_PP0P_): \c0_gold [4] -> \c0 [4]
+Changing input D of cell $auto$ff.cc:337:slice$734_gold ($_SDFFE_PP0P_): \c2_gold [1] -> \c2 [1]
+Changing input D of cell $auto$ff.cc:337:slice$702_gold ($_SDFFE_PP0N_): \s8_gold [1] -> \s8 [1]
+Changing input D of cell $auto$ff.cc:337:slice$718_gold ($_SDFFE_PP0P_): \c0_gold [1] -> \c0 [1]
+Changing input D of cell $auto$ff.cc:337:slice$749_gold ($_SDFFE_PP0P_): \c4_gold [0] -> \c4 [0]
+Changing input D of cell $auto$ff.cc:337:slice$725_gold ($_SDFFE_PP0P_): \c1_gold [0] -> \c1 [0]
+Changing input D of cell $auto$ff.cc:337:slice$701_gold ($_SDFFE_PP0N_): \s8_gold [0] -> \s8 [0]
+Changing input D of cell $auto$ff.cc:337:slice$742_gold ($_SDFFE_PP0P_): \c3_gold [1] -> \c3 [1]
+Changing input B of cell $abc$8672$blif$8672$2_gold ($_NAND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$2_gold ($_NAND_): \c0_gold [1] -> \c0 [1]
+Changing input D of cell $auto$ff.cc:337:slice$735_gold ($_SDFFE_PP0P_): \c2_gold [2] -> \c2 [2]
+Changing input A of cell $abc$8672$blif$8672$35_gold ($_AND_): \acc_gold [6] -> \acc [6]
+Changing input D of cell $auto$ff.cc:337:slice$776_gold ($_SDFFE_PP0P_): \c7_gold [3] -> \c7 [3]
+Changing input D of cell $auto$ff.cc:337:slice$761_gold ($_SDFFE_PP0P_): \c5_gold [4] -> \c5 [4]
+Changing input D of cell $auto$ff.cc:337:slice$773_gold ($_SDFFE_PP0P_): \c7_gold [0] -> \c7 [0]
+Changing input D of cell $auto$ff.cc:337:slice$746_gold ($_SDFFE_PP0P_): \c3_gold [5] -> \c3 [5]
+Changing input D of cell $auto$ff.cc:337:slice$736_gold ($_SDFFE_PP0P_): \c2_gold [3] -> \c2 [3]
+Changing input B of cell $abc$8672$blif$8672$7_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$7_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input B of cell $abc$8672$blif$8672$70_gold ($_NAND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$70_gold ($_NAND_): \c0_gold [3] -> \c0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$753_gold ($_SDFFE_PP0P_): \c4_gold [4] -> \c4 [4]
+Changing input D of cell $auto$ff.cc:337:slice$769_gold ($_SDFFE_PP0P_): \c6_gold [4] -> \c6 [4]
+Changing input D of cell $auto$ff.cc:337:slice$739_gold ($_SDFFE_PP0P_): \c2_gold [6] -> \c2 [6]
+Changing input B of cell $abc$8672$blif$8672$48_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$48_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input D of cell $auto$ff.cc:337:slice$766_gold ($_SDFFE_PP0P_): \c6_gold [1] -> \c6 [1]
+Changing input D of cell $auto$ff.cc:337:slice$707_gold ($_SDFFE_PP0N_): \s8_gold [6] -> \s8 [6]
+Changing input B of cell $abc$8672$blif$8672$69_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$69_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input D of cell $auto$ff.cc:337:slice$745_gold ($_SDFFE_PP0P_): \c3_gold [4] -> \c3 [4]
+Changing input D of cell $auto$ff.cc:337:slice$744_gold ($_SDFFE_PP0P_): \c3_gold [3] -> \c3 [3]
+Changing input B of cell $abc$8672$blif$8672$68_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$68_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input B of cell $abc$8672$blif$8672$16_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$16_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$726_gold ($_SDFFE_PP0P_): \c1_gold [1] -> \c1 [1]
+Changing input D of cell $auto$ff.cc:337:slice$787_gold ($_SDFFE_PP0P_): \c8_gold [6] -> \c8 [6]
+Changing input B of cell $abc$8672$blif$8672$17_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$17_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input D of cell $auto$ff.cc:337:slice$698_gold ($_SDFFE_PP0N_): \s7_gold [5] -> \s7 [5]
+Changing input D of cell $auto$ff.cc:337:slice$696_gold ($_SDFFE_PP0N_): \s7_gold [3] -> \s7 [3]
+Changing input B of cell $abc$8672$blif$8672$14_gold ($_AND_): \s0_gold [3] -> \s0 [3]
+Changing input A of cell $abc$8672$blif$8672$14_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input D of cell $auto$ff.cc:337:slice$697_gold ($_SDFFE_PP0N_): \s7_gold [4] -> \s7 [4]
+Changing input A of cell $abc$8672$blif$8672$1_gold ($_NAND_): \acc_gold [4] -> \acc [4]
+Changing input D of cell $auto$ff.cc:337:slice$782_gold ($_SDFFE_PP0P_): \c8_gold [1] -> \c8 [1]
+Changing input D of cell $auto$ff.cc:337:slice$755_gold ($_SDFFE_PP0P_): \c4_gold [6] -> \c4 [6]
+Changing input D of cell $auto$ff.cc:337:slice$751_gold ($_SDFFE_PP0P_): \c4_gold [2] -> \c4 [2]
+Changing input A of cell $abc$8672$blif$8672$8_gold ($_AND_): \acc_gold [5] -> \acc [5]
+Changing input B of cell $abc$8672$blif$8672$6_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$6_gold ($_AND_): \c0_gold [1] -> \c0 [1]
+Changing input B of cell $abc$8672$blif$8672$57_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$57_gold ($_AND_): \c0_gold [5] -> \c0 [5]
+Changing input D of cell $auto$ff.cc:337:slice$750_gold ($_SDFFE_PP0P_): \c4_gold [1] -> \c4 [1]
+Changing input A of cell $abc$8672$blif$8672$9_gold ($_XNOR_): \acc_gold [5] -> \acc [5]
+Changing input D of cell $auto$ff.cc:337:slice$747_gold ($_SDFFE_PP0P_): \c3_gold [6] -> \c3 [6]
+Changing input D of cell $auto$ff.cc:337:slice$717_gold ($_SDFFE_PP0P_): \c0_gold [0] -> \c0 [0]
+Changing input D of cell $auto$ff.cc:337:slice$762_gold ($_SDFFE_PP0P_): \c5_gold [5] -> \c5 [5]
+Changing input D of cell $auto$ff.cc:337:slice$704_gold ($_SDFFE_PP0N_): \s8_gold [3] -> \s8 [3]
+Changing input D of cell $auto$ff.cc:337:slice$738_gold ($_SDFFE_PP0P_): \c2_gold [5] -> \c2 [5]
+Changing input D of cell $auto$ff.cc:337:slice$767_gold ($_SDFFE_PP0P_): \c6_gold [2] -> \c6 [2]
+Changing input B of cell $abc$8672$blif$8672$47_gold ($_AND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$47_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input A of cell $abc$8672$blif$8672$36_gold ($_XNOR_): \acc_gold [6] -> \acc [6]
+Changing input B of cell $abc$8672$blif$8672$26_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$26_gold ($_AND_): \c0_gold [2] -> \c0 [2]
+Changing input B of cell $abc$8672$blif$8672$15_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$15_gold ($_AND_): \c0_gold [3] -> \c0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$771_gold ($_SDFFE_PP0P_): \c6_gold [6] -> \c6 [6]
+Changing input B of cell $abc$8672$blif$8672$25_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$25_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input D of cell $auto$ff.cc:337:slice$741_gold ($_SDFFE_PP0P_): \c3_gold [0] -> \c3 [0]
+Changing input D of cell $auto$ff.cc:337:slice$777_gold ($_SDFFE_PP0P_): \c7_gold [4] -> \c7 [4]
+Changing input D of cell $auto$ff.cc:337:slice$785_gold ($_SDFFE_PP0P_): \c8_gold [4] -> \c8 [4]
+Changing input D of cell $auto$ff.cc:337:slice$695_gold ($_SDFFE_PP0N_): \s7_gold [2] -> \s7 [2]
+Changing input D of cell $auto$ff.cc:337:slice$723_gold ($_SDFFE_PP0P_): \c0_gold [6] -> \c0 [6]
+Changing input D of cell $auto$ff.cc:337:slice$765_gold ($_SDFFE_PP0P_): \c6_gold [0] -> \c6 [0]
+Changing input D of cell $auto$ff.cc:337:slice$733_gold ($_SDFFE_PP0P_): \c2_gold [0] -> \c2 [0]
+Changing input B of cell $abc$8672$blif$8672$0_gold ($_AND_): \s0_gold [4] -> \s0 [4]
+Changing input A of cell $abc$8672$blif$8672$0_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input D of cell $auto$ff.cc:337:slice$770_gold ($_SDFFE_PP0P_): \c6_gold [5] -> \c6 [5]
+Changing input D of cell $auto$ff.cc:337:slice$720_gold ($_SDFFE_PP0P_): \c0_gold [3] -> \c0 [3]
+Changing input D of cell $auto$ff.cc:337:slice$774_gold ($_SDFFE_PP0P_): \c7_gold [1] -> \c7 [1]
+Changing input B of cell $abc$8672$blif$8672$13_gold ($_AND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$13_gold ($_AND_): \c0_gold [4] -> \c0 [4]
+Changing input D of cell $auto$ff.cc:337:slice$703_gold ($_SDFFE_PP0N_): \s8_gold [2] -> \s8 [2]
+Changing input D of cell $auto$ff.cc:337:slice$754_gold ($_SDFFE_PP0P_): \c4_gold [5] -> \c4 [5]
+Changing input D of cell $auto$ff.cc:337:slice$699_gold ($_SDFFE_PP0N_): \s7_gold [6] -> \s7 [6]
+Changing input D of cell $auto$ff.cc:337:slice$694_gold ($_SDFFE_PP0N_): \s7_gold [1] -> \s7 [1]
+Changing input D of cell $auto$ff.cc:337:slice$784_gold ($_SDFFE_PP0P_): \c8_gold [3] -> \c8 [3]
+Changing input B of cell $abc$8672$blif$8672$34_gold ($_AND_): \s0_gold [6] -> \s0 [6]
+Changing input A of cell $abc$8672$blif$8672$34_gold ($_AND_): \c0_gold [0] -> \c0 [0]
+Changing input B of cell $abc$8672$blif$8672$46_gold ($_AND_): \s0_gold [0] -> \s0 [0]
+Changing input A of cell $abc$8672$blif$8672$46_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input D of cell $auto$ff.cc:337:slice$778_gold ($_SDFFE_PP0P_): \c7_gold [5] -> \c7 [5]
+Changing input D of cell $auto$ff.cc:337:slice$737_gold ($_SDFFE_PP0P_): \c2_gold [4] -> \c2 [4]
+Changing input D of cell $auto$ff.cc:337:slice$786_gold ($_SDFFE_PP0P_): \c8_gold [5] -> \c8 [5]
+Changing input B of cell $abc$8672$blif$8672$58_gold ($_AND_): \s0_gold [2] -> \s0 [2]
+Changing input A of cell $abc$8672$blif$8672$58_gold ($_AND_): \c0_gold [6] -> \c0 [6]
+Changing input D of cell $auto$ff.cc:337:slice$727_gold ($_SDFFE_PP0P_): \c1_gold [2] -> \c1 [2]
+Changing input D of cell $auto$ff.cc:337:slice$719_gold ($_SDFFE_PP0P_): \c0_gold [2] -> \c0 [2]
+Changing input D of cell $auto$ff.cc:337:slice$722_gold ($_SDFFE_PP0P_): \c0_gold [5] -> \c0 [5]
+Changing input D of cell $auto$ff.cc:337:slice$730_gold ($_SDFFE_PP0P_): \c1_gold [5] -> \c1 [5]
+Changing input D of cell $auto$ff.cc:337:slice$781_gold ($_SDFFE_PP0P_): \c8_gold [0] -> \c8 [0]
+Changing input D of cell $auto$ff.cc:337:slice$758_gold ($_SDFFE_PP0P_): \c5_gold [1] -> \c5 [1]
+Changing input D of cell $auto$ff.cc:337:slice$728_gold ($_SDFFE_PP0P_): \c1_gold [3] -> \c1 [3]
+Changing input D of cell $auto$ff.cc:337:slice$768_gold ($_SDFFE_PP0P_): \c6_gold [3] -> \c6 [3]
+Changing input B of cell $abc$8672$blif$8672$33_gold ($_AND_): \s0_gold [5] -> \s0 [5]
+Changing input A of cell $abc$8672$blif$8672$33_gold ($_AND_): \c0_gold [1] -> \c0 [1]
+Changing input D of cell $auto$ff.cc:337:slice$729_gold ($_SDFFE_PP0P_): \c1_gold [4] -> \c1 [4]
+Changing input D of cell $auto$ff.cc:337:slice$752_gold ($_SDFFE_PP0P_): \c4_gold [3] -> \c4 [3]
+Changing input D of cell $auto$ff.cc:337:slice$759_gold ($_SDFFE_PP0P_): \c5_gold [2] -> \c5 [2]
+Changing input D of cell $auto$ff.cc:337:slice$757_gold ($_SDFFE_PP0P_): \c5_gold [0] -> \c5 [0]
+Changing input A of cell $abc$8672$blif$8672$3_gold ($_XNOR_): \acc_gold [4] -> \acc [4]
+Changing input D of cell $auto$ff.cc:337:slice$731_gold ($_SDFFE_PP0P_): \c1_gold [6] -> \c1 [6]
+Changing input D of cell $auto$ff.cc:337:slice$743_gold ($_SDFFE_PP0P_): \c3_gold [2] -> \c3 [2]
+Changing input D of cell $auto$ff.cc:337:slice$706_gold ($_SDFFE_PP0N_): \s8_gold [5] -> \s8 [5]
+Changing input D of cell $auto$ff.cc:337:slice$705_gold ($_SDFFE_PP0N_): \s8_gold [4] -> \s8 [4]
+Changing input D of cell $auto$ff.cc:337:slice$691_gold ($_SDFFE_PP0N_): \s6_gold [6] -> \s6 [6]
+Changing input D of cell $auto$ff.cc:337:slice$775_gold ($_SDFFE_PP0P_): \c7_gold [2] -> \c7 [2]
+Changing input D of cell $auto$ff.cc:337:slice$760_gold ($_SDFFE_PP0P_): \c5_gold [3] -> \c5 [3]
+Changing input B of cell $abc$8672$blif$8672$45_gold ($_NAND_): \s0_gold [1] -> \s0 [1]
+Changing input A of cell $abc$8672$blif$8672$45_gold ($_NAND_): \c0_gold [5] -> \c0 [5]
+Changing input D of cell $auto$ff.cc:337:slice$783_gold ($_SDFFE_PP0P_): \c8_gold [2] -> \c8 [2]
+Changing input D of cell $auto$ff.cc:337:slice$780_gold ($_SDFFE_PP0P_): \c7_gold [7] -> \c7 [7]
+Changing input D of cell $auto$ff.cc:337:slice$788_gold ($_SDFFE_PP0P_): \c8_gold [7] -> \c8 [7]
+Changing input D of cell $auto$ff.cc:337:slice$772_gold ($_SDFFE_PP0P_): \c6_gold [7] -> \c6 [7]
+Changing input D of cell $auto$ff.cc:337:slice$764_gold ($_SDFFE_PP0P_): \c5_gold [7] -> \c5 [7]
+Changing input D of cell $auto$ff.cc:337:slice$700_gold ($_SDFFE_PP0N_): \s7_gold [7] -> \s7 [7]
+Changing input D of cell $auto$ff.cc:337:slice$756_gold ($_SDFFE_PP0P_): \c4_gold [7] -> \c4 [7]
+Changing input D of cell $auto$ff.cc:337:slice$644_gold ($_SDFFE_PP0N_): \s0_gold [7] -> \s0 [7]
+Changing input D of cell $auto$ff.cc:337:slice$668_gold ($_SDFFE_PP0N_): \s3_gold [7] -> \s3 [7]
+Changing input D of cell $auto$ff.cc:337:slice$692_gold ($_SDFFE_PP0N_): \s6_gold [7] -> \s6 [7]
+Changing input D of cell $auto$ff.cc:337:slice$724_gold ($_SDFFE_PP0P_): \c0_gold [7] -> \c0 [7]
+Changing input D of cell $auto$ff.cc:337:slice$748_gold ($_SDFFE_PP0P_): \c3_gold [7] -> \c3 [7]
+Changing input D of cell $auto$ff.cc:337:slice$652_gold ($_SDFFE_PP0N_): \s1_gold [7] -> \s1 [7]
+Changing input D of cell $auto$ff.cc:337:slice$660_gold ($_SDFFE_PP0N_): \s2_gold [7] -> \s2 [7]
+Changing input D of cell $auto$ff.cc:337:slice$676_gold ($_SDFFE_PP0N_): \s4_gold [7] -> \s4 [7]
+Changing input D of cell $auto$ff.cc:337:slice$684_gold ($_SDFFE_PP0N_): \s5_gold [7] -> \s5 [7]
+Changing input D of cell $auto$ff.cc:337:slice$708_gold ($_SDFFE_PP0N_): \s8_gold [7] -> \s8 [7]
+Changing input D of cell $auto$ff.cc:337:slice$732_gold ($_SDFFE_PP0P_): \c1_gold [7] -> \c1 [7]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$444.C_gold [14]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$438.A_gold [14]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$468.C_gold [14]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$615.Y_gold [15:1]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$621.Y_gold [15:2]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$462.A_gold [14]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$624.Y_gold [15:3]
+Setting undriven nets to undef: $auto$maccmap.cc:240:synth$625.P_gold [15:4]
+Setting undriven nets to undef: $auto$maccmap.cc:114:fulladd$453.B_gold [14]
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+4.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gold'.
+Removing unused module `\gate'.
+Removed 2 unused modules.
+
+5. Executing EQUIV_SIMPLE pass.
+Found 176 unproven $equiv cells (21 groups) in equiv:
+ Grouping SAT models for \acc:
+  Trying to prove $equiv for \acc [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [7]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [8]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [9]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [10]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [11]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [12]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [13]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [14]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \acc [15]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c0:
+  Trying to prove $equiv for \c0 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c0 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c1:
+  Trying to prove $equiv for \c1 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c1 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c2:
+  Trying to prove $equiv for \c2 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c2 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c3:
+  Trying to prove $equiv for \c3 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c3 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c4:
+  Trying to prove $equiv for \c4 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c4 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c5:
+  Trying to prove $equiv for \c5 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c5 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c6:
+  Trying to prove $equiv for \c6 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c6 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c7:
+  Trying to prove $equiv for \c7 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c7 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c8:
+  Trying to prove $equiv for \c8 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c8 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \c9:
+  Trying to prove $equiv for \c9 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \c9 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s0:
+  Trying to prove $equiv for \s0 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s0 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s1:
+  Trying to prove $equiv for \s1 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s1 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s2:
+  Trying to prove $equiv for \s2 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s2 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s3:
+  Trying to prove $equiv for \s3 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s3 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s4:
+  Trying to prove $equiv for \s4 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s4 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s5:
+  Trying to prove $equiv for \s5 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s5 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s6:
+  Trying to prove $equiv for \s6 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s6 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s7:
+  Trying to prove $equiv for \s7 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s7 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s8:
+  Trying to prove $equiv for \s8 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s8 [7]:
+ezsat
+ezsat
+ failed.
+ Grouping SAT models for \s9:
+  Trying to prove $equiv for \s9 [0]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [1]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [2]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [3]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [4]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [5]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [6]:
+ezsat
+ezsat
+ failed.
+  Trying to prove $equiv for \s9 [7]:
+ezsat
+ezsat
+ failed.
+Proved 0 previously unproven $equiv cells.
+
+6. Executing EQUIV_INDUCT pass.
+
+[dd2] timeout after 5 s

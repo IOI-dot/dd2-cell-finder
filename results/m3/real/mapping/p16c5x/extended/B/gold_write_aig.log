@@ -1,0 +1,21 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/extended/B/gold_write_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/p16c5x/extended/B/gold_write_aig.ys' --
+
+1. Executing JSON frontend.
+Importing module P16C5x from JSON tree.
+
+2. Executing AIGER backend.
+Warning: Treating undriven bit P16C5x.\ROM [0] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [1] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [2] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [3] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [4] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [5] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [6] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [7] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [8] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [9] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [10] like $anyseq.
+Warning: Treating undriven bit P16C5x.\ROM [11] like $anyseq.
+Warning: Treating a total of 12 undriven bits in P16C5x like $anyseq.

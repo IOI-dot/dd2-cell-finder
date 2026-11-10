@@ -106,50 +106,60 @@ def simulate(name, sources, out, lib=None):
     return result
 
 
+def discover_design(d, src, dest, full):
+    """Write equivalent AIG variants and check each design's cut truth tables."""
+    name = d.name
+    rows = []
+    dest.mkdir(parents=True, exist_ok=True)
+    synth = dest / "synth.aig"
+    restr = dest / "restructured.aig"
+    evaluate.command(
+        f"read_verilog {'-sv ' if d.sv else ''}{evaluate.quote(src)}\nsynth -flatten -top {d.top}\n"
+        f"async2sync\ndffunmap\naigmap\nwrite_aiger -zinit {evaluate.quote(synth)}",
+        dest / "synth.log",
+    )
+    code, _ = tools.run(
+        tools.abc_cmd() + ["-c", f"read {synth}; strash; dch -f; strash; write_aiger {restr}"],
+        dest / "restructured.log",
+        cwd=paths.ROOT,
+    )
+    if code or not restr.is_file() or not aig.cec(synth, restr, dest / "cec.log"):
+        raise RuntimeError(f"{name}: AIG restructuring or equivalence check failed")
+    for variant in ["synth", "restructured"]:
+        s = cutflow.process(
+            dest / f"{variant}.aig",
+            dest / "cuts",
+            full / (variant + ".jsonl.gz"),
+            variant,
+        )
+        if s["run"]["status"] != "pass":
+            raise RuntimeError(f"{name}: cut check failed")
+        rows.append(
+            {
+                "design": name,
+                "variant": variant,
+                "ands": s["header"]["A"],
+                "cuts": s["cuts_total"],
+                "checked": s["cuts_checked"],
+                "failures": len(s["failures"]),
+                "pn_classes": s["pn_classes"],
+                "npn_classes": s["npn_classes"],
+            }
+        )
+    return rows
+
+
 def discovery(names, out):
     rows = []
     for name in names:
-        if name not in SPECS:
-            continue
-        d, src = resolve(name)
-        dest = out / "tutorial_discovery" / name
-        dest.mkdir(parents=True, exist_ok=True)
-        synth = dest / "synth.aig"
-        restr = dest / "restructured.aig"
-        evaluate.command(
-            f"read_verilog {evaluate.quote(src)}\nsynth -flatten -top {d.top}\n"
-            f"async2sync\ndffunmap\naigmap\nwrite_aiger -zinit {evaluate.quote(synth)}",
-            dest / "synth.log",
-        )
-        code, _ = tools.run(
-            tools.abc_cmd() + ["-c", f"read {synth}; strash; dch -f; strash; write_aiger {restr}"],
-            dest / "restructured.log",
-            cwd=paths.ROOT,
-        )
-        if code or not restr.is_file() or not aig.cec(synth, restr, dest / "cec.log"):
-            raise RuntimeError(f"{name}: tutorial AIG restructuring failed")
-        for variant in ["synth", "restructured"]:
-            s = cutflow.process(
-                dest / f"{variant}.aig",
-                dest / "cuts",
-                paths.build("tutorial_cuts", name, variant + ".jsonl.gz"),
-                variant,
+        if name in SPECS:
+            design, source = resolve(name)
+            rows.extend(
+                discover_design(
+                    design, source, out / "tutorial_discovery" / name, paths.build("tutorial_cuts", name)
+                )
             )
-            if s["run"]["status"] != "pass":
-                raise RuntimeError(f"{name}: cut check failed")
-            rows.append(
-                {
-                    "design": name,
-                    "variant": variant,
-                    "ands": s["header"]["A"],
-                    "cuts": s["cuts_total"],
-                    "checked": s["cuts_checked"],
-                    "failures": len(s["failures"]),
-                    "pn_classes": s["pn_classes"],
-                    "npn_classes": s["npn_classes"],
-                }
-            )
-        print("Tutorial AIGs/cuts:", name, "pass", flush=True)
+            print("Tutorial AIGs/cuts:", name, "pass", flush=True)
     return rows
 
 

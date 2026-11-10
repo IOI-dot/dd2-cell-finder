@@ -1,0 +1,28 @@
+$ /home/hank2b/dd2-tools/oss-2026-10-27/bin/yosys -Q -T -s /home/hank2b/dd2-cell-finder/results/m3/real/mapping/fir10/baseline/A/gold_aig.ys
+
+-- Executing script file `/home/hank2b/dd2-cell-finder/results/m3/real/mapping/fir10/baseline/A/gold_aig.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: /home/hank2b/dd2-cell-finder/results/m3/real/mapping/fir10/baseline/A/gold.il
+
+2. Executing ASYNC2SYNC pass.
+
+3. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+4. Executing AIGMAP pass (map logic to AIG).
+Module fir10: replaced 3721 cells with 16966 new cells, skipped 993 cells.
+  replaced 8 cell types:
+      51 $_ANDNOT_
+     359 $_MUX_
+    1752 $_NAND_
+       5 $_NOR_
+      12 $_ORNOT_
+      83 $_OR_
+     251 $_XNOR_
+    1208 $_XOR_
+  not replaced 3 cell types:
+     816 $_AND_
+     176 $_DFF_P_
+       1 $_NOT_
+
+5. Executing JSON backend.
